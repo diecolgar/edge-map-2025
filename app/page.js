@@ -15,18 +15,17 @@ import TopBar from "./components/TopBar";
 import BottomBar from "./components/BottomBar";
 import BoothInfoSheet from "./components/BoothInfoSheet";
 
-// Zoom listener
+// Escucha cambios de zoom y actualiza estado
 const ZoomListener = ({ setZoomLevel }) => {
   useMapEvents({
     zoomend: (e) => {
       const zoom = e.target.getZoom();
-      console.log("Zoom level:", zoom); // 👈 aquí va el console log
+      console.log("Zoom level:", zoom);
       setZoomLevel(zoom);
     },
   });
   return null;
 };
-
 
 const FitToViewport = ({ bounds }) => {
   const map = useMap();
@@ -91,6 +90,7 @@ const EventMap = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [zoomLevel, setZoomLevel] = useState(0);
 
+  // Cargar locations
   useEffect(() => {
     fetch("/locations.json")
       .then((res) => res.json())
@@ -98,15 +98,16 @@ const EventMap = () => {
       .catch((error) => console.error("Error cargando locations.json:", error));
   }, []);
 
+  // Calcular escala y bounds
   useEffect(() => {
     const updateBounds = () => {
       if (typeof window === "undefined") return;
-  
+
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-  
+
       let width, height;
-  
+
       if (vw / vh > aspectRatio) {
         height = vh;
         width = height * aspectRatio;
@@ -114,24 +115,24 @@ const EventMap = () => {
         width = vw;
         height = width / aspectRatio;
       }
-  
+
       const scaleX = width / imageOriginalSize.width;
       const scaleY = height / imageOriginalSize.height;
       const newScaleFactor = Math.min(scaleX, scaleY);
-  
+
       setScaleFactor(newScaleFactor);
       setBounds(new LatLngBounds([0, 0], [height, width]));
     };
-  
+
     updateBounds();
-  
+
     if (typeof window !== "undefined") {
       window.addEventListener("resize", updateBounds);
       return () => window.removeEventListener("resize", updateBounds);
     }
   }, [aspectRatio]);
-  
 
+  // Escalar locations
   useEffect(() => {
     if (!bounds || locations.length === 0) return;
 
@@ -144,6 +145,7 @@ const EventMap = () => {
     setFilteredLocations(newLocations);
   }, [bounds, locations, scaleFactor]);
 
+  // Filtrar por búsqueda
   useEffect(() => {
     const filtered = scaledLocations.filter((loc) =>
       loc.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -154,10 +156,8 @@ const EventMap = () => {
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-[800px] h-screen relative overflow-hidden">
-        {/* 🔝 TopBar */}
         <TopBar searchQuery={searchQuery} onSearch={setSearchQuery} />
 
-        {/* 🗺️ Mapa */}
         {bounds && (
           <MapContainer
             crs={CRS.Simple}
@@ -165,12 +165,11 @@ const EventMap = () => {
             maxBounds={bounds}
             maxBoundsViscosity={1.0}
             zoom={1}
-            zoomSnap={0.5} // 👈 Permite valores decimales
+            zoomSnap={0.5}
           >
             <FitToViewport bounds={bounds} />
             <ZoomListener setZoomLevel={setZoomLevel} />
 
-            {/* Imagen general por encima de todo */}
             <ImageOverlay
               url="/edge-map-general.png"
               bounds={bounds}
@@ -179,17 +178,8 @@ const EventMap = () => {
               opacity={zoomLevel < 1 ? 1 : 0}
             />
 
+            <ImageOverlay url={imageUrl} bounds={bounds} opacity={1} zIndex={10} />
 
-
-            {/* Imagen detallada, debajo de la general si está activa */}
-            <ImageOverlay
-              url={imageUrl}
-              bounds={bounds}
-              opacity={1}
-              zIndex={10}
-            />
-
-            {/* Imagen de highlight si aplica */}
             {selectedLocation?.highlightUrl && (
               <ImageOverlay
                 url={selectedLocation.highlightUrl}
@@ -199,7 +189,6 @@ const EventMap = () => {
               />
             )}
 
-            {/* Booths solo si zoom >= 2 */}
             {zoomLevel >= 1 &&
               filteredLocations.map((location) => (
                 <Marker
@@ -216,17 +205,14 @@ const EventMap = () => {
                 />
               ))}
 
-            {/* Centrado en selección */}
             {selectedLocation && (
               <FocusOnLocation position={selectedLocation.position} />
             )}
           </MapContainer>
         )}
 
-        {/* 🔻 BottomBar */}
         <BottomBar />
 
-        {/* 🧾 Info Sheet */}
         <BoothInfoSheet
           location={selectedLocation}
           onClose={() => setSelectedLocation(null)}
