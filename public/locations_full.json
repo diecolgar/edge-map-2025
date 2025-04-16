@@ -1,0 +1,572 @@
+[
+  {
+    "id": 1,
+    "name": "Booth 1 Name",
+    "subtitle": "Subtitle for booth 1",
+    "description": "Description of booth 1 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx01.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx01",
+    "link": "https://example.com/booth-1",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 2,
+    "name": "Booth 2 Name",
+    "subtitle": "Subtitle for booth 2",
+    "description": "Description of booth 2 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx02.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx02",
+    "link": "https://example.com/booth-2",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 3,
+    "name": "Booth 3 Name",
+    "subtitle": "Subtitle for booth 3",
+    "description": "Description of booth 3 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx03.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx03",
+    "link": "https://example.com/booth-3",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 4,
+    "name": "Booth 4 Name",
+    "subtitle": "Subtitle for booth 4",
+    "description": "Description of booth 4 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx04.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx04",
+    "link": "https://example.com/booth-4",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 5,
+    "name": "Booth 5 Name",
+    "subtitle": "Subtitle for booth 5",
+    "description": "Description of booth 5 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx05.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx05",
+    "link": "https://example.com/booth-5",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 6,
+    "name": "Booth 6 Name",
+    "subtitle": "Subtitle for booth 6",
+    "description": "Description of booth 6 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx06.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx06",
+    "link": "https://example.com/booth-6",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 7,
+    "name": "Booth 7 Name",
+    "subtitle": "Subtitle for booth 7",
+    "description": "Description of booth 7 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx07.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx07",
+    "link": "https://example.com/booth-7",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 8,
+    "name": "Booth 8 Name",
+    "subtitle": "Subtitle for booth 8",
+    "description": "Description of booth 8 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx08.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx08",
+    "link": "https://example.com/booth-8",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 9,
+    "name": "Booth 9 Name",
+    "subtitle": "Subtitle for booth 9",
+    "description": "Description of booth 9 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx09.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx09",
+    "link": "https://example.com/booth-9",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 10,
+    "name": "Booth 10 Name",
+    "subtitle": "Subtitle for booth 10",
+    "description": "Description of booth 10 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx10.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx10",
+    "link": "https://example.com/booth-10",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 11,
+    "name": "Booth 11 Name",
+    "subtitle": "Subtitle for booth 11",
+    "description": "Description of booth 11 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx11.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx11",
+    "link": "https://example.com/booth-11",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 12,
+    "name": "Booth 12 Name",
+    "subtitle": "Subtitle for booth 12",
+    "description": "Description of booth 12 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx12.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx12",
+    "link": "https://example.com/booth-12",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 13,
+    "name": "Booth 13 Name",
+    "subtitle": "Subtitle for booth 13",
+    "description": "Description of booth 13 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx13.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx13",
+    "link": "https://example.com/booth-13",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 14,
+    "name": "Booth 14 Name",
+    "subtitle": "Subtitle for booth 14",
+    "description": "Description of booth 14 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx14.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx14",
+    "link": "https://example.com/booth-14",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 15,
+    "name": "Booth 15 Name",
+    "subtitle": "Subtitle for booth 15",
+    "description": "Description of booth 15 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx15.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx15",
+    "link": "https://example.com/booth-15",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 16,
+    "name": "Booth 16 Name",
+    "subtitle": "Subtitle for booth 16",
+    "description": "Description of booth 16 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx16.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx16",
+    "link": "https://example.com/booth-16",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 17,
+    "name": "Booth 17 Name",
+    "subtitle": "Subtitle for booth 17",
+    "description": "Description of booth 17 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx17.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx17",
+    "link": "https://example.com/booth-17",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 18,
+    "name": "Booth 18 Name",
+    "subtitle": "Subtitle for booth 18",
+    "description": "Description of booth 18 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx18.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx18",
+    "link": "https://example.com/booth-18",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 19,
+    "name": "Booth 19 Name",
+    "subtitle": "Subtitle for booth 19",
+    "description": "Description of booth 19 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx19.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx19",
+    "link": "https://example.com/booth-19",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 20,
+    "name": "Booth 20 Name",
+    "subtitle": "Subtitle for booth 20",
+    "description": "Description of booth 20 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx20.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx20",
+    "link": "https://example.com/booth-20",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 21,
+    "name": "Booth 21 Name",
+    "subtitle": "Subtitle for booth 21",
+    "description": "Description of booth 21 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx21.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx21",
+    "link": "https://example.com/booth-21",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 22,
+    "name": "Booth 22 Name",
+    "subtitle": "Subtitle for booth 22",
+    "description": "Description of booth 22 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx22.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx22",
+    "link": "https://example.com/booth-22",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 23,
+    "name": "Booth 23 Name",
+    "subtitle": "Subtitle for booth 23",
+    "description": "Description of booth 23 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx23.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx23",
+    "link": "https://example.com/booth-23",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 24,
+    "name": "Booth 24 Name",
+    "subtitle": "Subtitle for booth 24",
+    "description": "Description of booth 24 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx24.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx24",
+    "link": "https://example.com/booth-24",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 25,
+    "name": "Booth 25 Name",
+    "subtitle": "Subtitle for booth 25",
+    "description": "Description of booth 25 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx25.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx25",
+    "link": "https://example.com/booth-25",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 26,
+    "name": "Booth 26 Name",
+    "subtitle": "Subtitle for booth 26",
+    "description": "Description of booth 26 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx26.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx26",
+    "link": "https://example.com/booth-26",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 27,
+    "name": "Booth 27 Name",
+    "subtitle": "Subtitle for booth 27",
+    "description": "Description of booth 27 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx27.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx27",
+    "link": "https://example.com/booth-27",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 28,
+    "name": "Booth 28 Name",
+    "subtitle": "Subtitle for booth 28",
+    "description": "Description of booth 28 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx28.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx28",
+    "link": "https://example.com/booth-28",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 29,
+    "name": "Booth 29 Name",
+    "subtitle": "Subtitle for booth 29",
+    "description": "Description of booth 29 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx29.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx29",
+    "link": "https://example.com/booth-29",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  },
+  {
+    "id": 30,
+    "name": "Booth 30 Name",
+    "subtitle": "Subtitle for booth 30",
+    "description": "Description of booth 30 with detailed explanation and highlights.",
+    "highlightUrl": "/highlights/xx30.svg",
+    "position": [
+      0,
+      0
+    ],
+    "boothId": "xx30",
+    "link": "https://example.com/booth-30",
+    "contacts": "TBD",
+    "emails": "info@example.com",
+    "topicJourneys": [],
+    "sectorJourneys": [],
+    "neighbourhood": "xx",
+    "keywords": ""
+  }
+]

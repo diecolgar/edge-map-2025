@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+
+.leaflet-control-container {
+  display: none !important;
+}
+
+.leaflet-image-layer.fade-transition {
+  transition: opacity 0.3s ease-in-out !important;
+}
+
+
+@font-face {
+  font-family: 'BCGHenSans';
+  src: url('/fonts/BCGHenSansThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BCGHenSans';
+  src: url('/fonts/BCGHenSansLight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BCGHenSans';
+  src: url('/fonts/BCGHenSansLightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BCGHenSans';
+  src: url('/fonts/BCGHenSansRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BCGHenSans';
+  src: url('/fonts/BCGHenSansItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BCGHenSans';
+  src: url('/fonts/BCGHenSansBoldIta.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+body {
+  font-family: 'BCGHenSans', sans-serif;
+}
+

@@ -1,0 +1,243 @@
+[
+  {
+    "id": 1,
+    "name": "Sustainability Hub",
+    "subtitle": "Green Energy Solutions For the Future",
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit lectus massa rhoncus eleifend tincidunt, commodo id in eget iaculis fusce parturient maecenas torquent felis. Sodales congue diam massa tempus, imperdiet feugiat. Vehicula rutrum molestie orci cursus pretium ultrices suscipit dictumst sapien, nascetur ante velit habitant non nam porttitor urna quam, semper lobortis sed malesuada neque convallis eu ac.",
+    "highlightUrl": "/highlights/tt01.svg",
+    "position": [
+      5500,
+      200
+    ],
+    "boothId": "tt01",
+    "link": "https://example.com/sustainabilityhub",  
+    "contacts": "Jane Doe, John Smith",
+    "emails": "jane.doe@example.com, john.smith@example.com",
+    "topicJourneys": [
+      "health",
+      "mobility"
+    ],
+    "sectorJourneys": [
+      "energy",
+      "agriculture"
+    ],
+    "neighbourhood": "ab",
+    "keywords": "solar, wind, eco"
+  },
+  {
+    "id": 2,
+    "name": "Innovation Corner",
+    "subtitle": "Tech & AI Showcase",
+    "description": "Displaying innovative tech and AI startups in the city.",
+    "position": [
+      5500,
+      600
+    ],
+    "boothId": "aa04",
+    "link": "https://example.com/innovationcorner",
+    "contacts": "Alice Johnson, Bob Williams",
+    "emails": "alice.j@example.com, bob.w@example.com",
+    "topicJourneys": [
+      "health",
+      "climate"
+    ],
+    "sectorJourneys": [
+      "agriculture",
+      "energy"
+    ],
+    "neighbourhood": "ab",
+    "keywords": "ai, startups, innovation"
+  },
+  {
+    "id": 3,
+    "name": "Sustainability Hub",
+    "subtitle": "Green Energy Solutions For the Future",
+    "description": "Exploring renewable energy and sustainability practices.",
+    "position": [
+      3952,
+      1495
+    ],
+    "boothId": "ac03",
+    "link": "https://example.com/sustainabilityhub",
+    "contacts": "Jane Doe, John Smith",
+    "emails": "jane.doe@example.com, john.smith@example.com",
+    "topicJourneys": [
+      "climate",
+      "health"
+    ],
+    "sectorJourneys": [
+      "tech",
+      "agriculture"
+    ],
+    "neighbourhood": "ac",
+    "keywords": "solar, wind, eco"
+  },
+  {
+    "id": 4,
+    "name": "Innovation Corner",
+    "subtitle": "Tech & AI Showcase",
+    "description": "Displaying innovative tech and AI startups in the city.",
+    "position": [
+      3839,
+      1319
+    ],
+    "boothId": "ad04",
+    "link": "https://example.com/innovationcorner",
+    "contacts": "Alice Johnson, Bob Williams",
+    "emails": "alice.j@example.com, bob.w@example.com",
+    "topicJourneys": [
+      "health",
+      "mobility"
+    ],
+    "sectorJourneys": [
+      "energy",
+      "agriculture"
+    ],
+    "neighbourhood": "ad",
+    "keywords": "ai, startups, innovation"
+  },
+  {
+    "id": 5,
+    "name": "Sustainability Hub",
+    "subtitle": "Green Energy Solutions For the Future",
+    "description": "Exploring renewable energy and sustainability practices.",
+    "position": [
+      2340,
+      1212
+    ],
+    "boothId": "aa05",
+    "link": "https://example.com/sustainabilityhub",
+    "contacts": "Jane Doe, John Smith",
+    "emails": "jane.doe@example.com, john.smith@example.com",
+    "topicJourneys": [
+      "mobility",
+      "health"
+    ],
+    "sectorJourneys": [
+      "agriculture",
+      "energy"
+    ],
+    "neighbourhood": "aa",
+    "keywords": "solar, wind, eco"
+  },
+  {
+    "id": 6,
+    "name": "Innovation Corner",
+    "subtitle": "Tech & AI Showcase",
+    "description": "Displaying innovative tech and AI startups in the city.",
+    "position": [
+      4276,
+      1062
+    ],
+    "boothId": "ae06",
+    "link": "https://example.com/innovationcorner",
+    "contacts": "Alice Johnson, Bob Williams",
+    "emails": "alice.j@example.com, bob.w@example.com",
+    "topicJourneys": [
+      "mobility",
+      "climate"
+    ],
+    "sectorJourneys": [
+      "tech",
+      "agriculture"
+    ],
+    "neighbourhood": "ae",
+    "keywords": "ai, startups, innovation"
+  },
+  {
+    "id": 7,
+    "name": "Sustainability Hub",
+    "subtitle": "Green Energy Solutions For the Future",
+    "description": "Exploring renewable energy and sustainability practices.",
+    "position": [
+      2504,
+      2273
+    ],
+    "boothId": "ab07",
+    "link": "https://example.com/sustainabilityhub",
+    "contacts": "Jane Doe, John Smith",
+    "emails": "jane.doe@example.com, john.smith@example.com",
+    "topicJourneys": [
+      "climate",
+      "health"
+    ],
+    "sectorJourneys": [
+      "tech",
+      "energy"
+    ],
+    "neighbourhood": "ab",
+    "keywords": "solar, wind, eco"
+  },
+  {
+    "id": 8,
+    "name": "Innovation Corner",
+    "subtitle": "Tech & AI Showcase",
+    "description": "Displaying innovative tech and AI startups in the city.",
+    "position": [
+      2165,
+      882
+    ],
+    "boothId": "ae08",
+    "link": "https://example.com/innovationcorner",
+    "contacts": "Alice Johnson, Bob Williams",
+    "emails": "alice.j@example.com, bob.w@example.com",
+    "topicJourneys": [
+      "climate",
+      "health"
+    ],
+    "sectorJourneys": [
+      "agriculture",
+      "tech"
+    ],
+    "neighbourhood": "ae",
+    "keywords": "ai, startups, innovation"
+  },
+  {
+    "id": 9,
+    "name": "Sustainability Hub",
+    "subtitle": "Green Energy Solutions For the Future",
+    "description": "Exploring renewable energy and sustainability practices.",
+    "position": [
+      3444,
+      1638
+    ],
+    "boothId": "ab09",
+    "link": "https://example.com/sustainabilityhub",
+    "contacts": "Jane Doe, John Smith",
+    "emails": "jane.doe@example.com, john.smith@example.com",
+    "topicJourneys": [
+      "mobility",
+      "health"
+    ],
+    "sectorJourneys": [
+      "energy",
+      "agriculture"
+    ],
+    "neighbourhood": "ab",
+    "keywords": "solar, wind, eco"
+  },
+  {
+    "id": 10,
+    "name": "Innovation Corner",
+    "subtitle": "Tech & AI Showcase",
+    "description": "Displaying innovative tech and AI startups in the city.",
+    "position": [
+      1625,
+      1895
+    ],
+    "boothId": "ac10",
+    "link": "https://example.com/innovationcorner",
+    "contacts": "Alice Johnson, Bob Williams",
+    "emails": "alice.j@example.com, bob.w@example.com",
+    "topicJourneys": [
+      "health",
+      "climate"
+    ],
+    "sectorJourneys": [
+      "agriculture",
+      "tech"
+    ],
+    "neighbourhood": "ac",
+    "keywords": "ai, startups, innovation"
+  }
+]
