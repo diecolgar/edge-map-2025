@@ -100,11 +100,13 @@ const EventMap = () => {
 
   useEffect(() => {
     const updateBounds = () => {
+      if (typeof window === "undefined") return;
+  
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-
+  
       let width, height;
-
+  
       if (vw / vh > aspectRatio) {
         height = vh;
         width = height * aspectRatio;
@@ -112,19 +114,23 @@ const EventMap = () => {
         width = vw;
         height = width / aspectRatio;
       }
-
+  
       const scaleX = width / imageOriginalSize.width;
       const scaleY = height / imageOriginalSize.height;
       const newScaleFactor = Math.min(scaleX, scaleY);
-
+  
       setScaleFactor(newScaleFactor);
       setBounds(new LatLngBounds([0, 0], [height, width]));
     };
-
+  
     updateBounds();
-    window.addEventListener("resize", updateBounds);
-    return () => window.removeEventListener("resize", updateBounds);
+  
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", updateBounds);
+      return () => window.removeEventListener("resize", updateBounds);
+    }
   }, [aspectRatio]);
+  
 
   useEffect(() => {
     if (!bounds || locations.length === 0) return;
