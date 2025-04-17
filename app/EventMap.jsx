@@ -163,7 +163,7 @@ const EventMap = () => {
             crs={CRS.Simple}
             style={{ width: "100%", height: "100%", zIndex: 10 }}
             maxBounds={bounds}
-            maxBoundsViscosity={1.0}
+            maxBoundsViscosity={0.5}
             zoom={1}
             zoomSnap={0.5}
           >
