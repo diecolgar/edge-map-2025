@@ -162,10 +162,10 @@ const EventMap = () => {
           <MapContainer
             crs={CRS.Simple}
             style={{ width: "100%", height: "100%", zIndex: 10 }}
-            // maxBounds={bounds}
-            // maxBoundsViscosity={0.5}
+            maxBounds={bounds}
+            maxBoundsViscosity={0.2}
             zoom={1}
-            zoomSnap={0.5}
+            // zoomSnap={0.2}
           >
             <FitToViewport bounds={bounds} />
             <ZoomListener setZoomLevel={setZoomLevel} />
