@@ -1,6 +1,6 @@
 const BottomBar = ({ activeView, onChangeView }) => {
   return (
-    <div className="absolute bottom-0 left-0 w-full z-[1000] bg-[#323232] px-4 py-4 flex justify-around items-center">
+    <div className="absolute bottom-0 left-0 w-full z-[1000] bg-[#323232] px-4 py-4 flex justify-around items-center h-16">
       {["map", "list"].map((view) => (
         <button
           key={view}

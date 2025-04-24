@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,6 +12,11 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        // Agrega aquí tus colores personalizados
+        edgeText: "#323232",
+        edgeTextSecondary: "#989898",
+        edgeBackground: "#F1EEEA",
+        edgeGreen: "#21BF61",
       },
     },
   },

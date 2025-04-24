@@ -39,7 +39,7 @@ const BoothList = ({ booths, onSelect }) => {
         };
 
         return (
-          <div key={neighbourhood} className={`mb-6 py-4 ${style.color}`}>
+          <div key={neighbourhood} className={`py-4 ${style.color}`}>
             <h2 className="text-base font-semibold text-white px-4 mb-2">
               {style.label}
             </h2>
