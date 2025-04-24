@@ -4,7 +4,7 @@ import { ChevronUp, ChevronDown, X } from "lucide-react";
 
 const sheetVariants = {
   closed: { height: "0vh" },
-  collapsed: { height: "20vh" },
+  collapsed: { height: "40vh" },
   expanded: { height: "80vh" },
 };
 

@@ -1,0 +1,153 @@
+[
+    {
+      "bcgIndustry": "Consumer Products & Retail",
+      "code": "CPR",
+      "sectorJourneys": [
+        {
+          "name": "Consumer Products",
+          "code": "CP"
+        },
+        {
+          "name": "Fashion & Luxury",
+          "code": "FL"
+        },
+        {
+          "name": "Retail",
+          "code": "RT"
+        }
+      ]
+    },
+    {
+      "bcgIndustry": "Energy",
+      "code": "EN",
+      "sectorJourneys": [
+        {
+          "name": "Low Carbon Energy & Environment",
+          "code": "LCE"
+        },
+        {
+          "name": "Refining & Trading",
+          "code": "RT"
+        },
+        {
+          "name": "Integrated Energy, Transformation & Markets",
+          "code": "IETM"
+        }
+      ]
+    },
+    {
+      "bcgIndustry": "Financial Institutions",
+      "code": "FIP",
+      "sectorJourneys": [
+        {
+          "name": "Payments & Fintech",
+          "code": "PF"
+        },
+        {
+          "name": "Capital, Private & Business Banking",
+          "code": "CPBB"
+        },
+        {
+          "name": "Global Asset Management",
+          "code": "GAM"
+        }
+      ]
+    },
+    {
+      "bcgIndustry": "Health Care",
+      "code": "HC",
+      "sectorJourneys": [
+        {
+          "name": "Payers, Providers & Systems",
+          "code": "PPS"
+        },
+        {
+          "name": "Biopharma",
+          "code": "BP"
+        },
+        {
+          "name": "Medical Technology",
+          "code": "MT"
+        }
+      ]
+    },
+    {
+      "bcgIndustry": "Industrial Goods",
+      "code": "IG",
+      "sectorJourneys": [
+        {
+          "name": "Engineered Products & Infrastructure",
+          "code": "EPI"
+        },
+        {
+          "name": "Materials & Process Industries",
+          "code": "MPI"
+        },
+        {
+          "name": "Automotive & Mobility",
+          "code": "AM"
+        }
+      ]
+    },
+    {
+      "bcgIndustry": "Insurance",
+      "code": "INS",
+      "sectorJourneys": [
+        {
+          "name": "Life & Health Insurance",
+          "code": "LHI"
+        },
+        {
+          "name": "P&C & Commercial Insurance",
+          "code": "PCCI"
+        }
+      ]
+    },
+    {
+      "bcgIndustry": "Public Sector",
+      "code": "PS",
+      "sectorJourneys": [
+        {
+          "name": "Defense & Security",
+          "code": "DS"
+        },
+        {
+          "name": "Economic, Employment & Welfare",
+          "code": "EEW"
+        }
+      ]
+    },
+    {
+      "bcgIndustry": "Tech, Media & Telecom",
+      "code": "TMT",
+      "sectorJourneys": [
+        {
+          "name": "Software & Platforms",
+          "code": "SP"
+        },
+        {
+          "name": "Media & Entertainment",
+          "code": "ME"
+        },
+        {
+          "name": "Telecom",
+          "code": "TEL"
+        }
+      ]
+    },
+    {
+      "bcgIndustry": "Travel, Cities & Infrastructure",
+      "code": "TCI",
+      "sectorJourneys": [
+        {
+          "name": "Travel & Tourism",
+          "code": "TE"
+        },
+        {
+          "name": "Cities, Infrastructure, Real Estate & Transport",
+          "code": "CIRET"
+        }
+      ]
+    }
+  ]
+  
