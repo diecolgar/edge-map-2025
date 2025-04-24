@@ -1,6 +1,6 @@
 const TopBar = ({ searchQuery, onSearch }) => {
   return (
-    <div className="absolute top-0 left-0 w-full z-[1000] bg-[#F1EEEA] backdrop-blur px-12 py-2 shadow-md">
+    <div className="absolute top-0 left-0 w-full z-[1000] bg-[#F1EEEA] backdrop-blur px-12 py-2 shadow-md h-16 flex items-center">
       <div className="relative w-full">
         <svg
           className="absolute left-4 top-1/2 transform -translate-y-1/2"

@@ -2,14 +2,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { ChevronUp, ChevronDown, X } from "lucide-react";
 
-const collapsedHeight = "40vh"; // Altura fija para el estado colapsado
+const collapsedHeight = "34vh"; // Altura fija para el estado colapsado
 
 const BoothInfoSheet = ({ location, onClose }) => {
   const [sheetState, setSheetState] = useState("closed");
   const [expandedHeight, setExpandedHeight] = useState(null);
   const containerRef = useRef(null);
 
-  // Al seleccionar un booth, se abre en estado "collapsed" (40vh)
+  // Al seleccionar un booth, se abre en estado "collapsed" (34vh)
   useEffect(() => {
     if (location) {
       setSheetState("collapsed");
@@ -34,7 +34,7 @@ const BoothInfoSheet = ({ location, onClose }) => {
 
   if (!location) return null;
 
-  // Procesamiento de contactos y emails (se asume que vienen en formato CSV)
+  // Procesamiento de contactos y emails (se asume formato CSV)
   const contacts = location.contacts
     ? location.contacts.split(",").map((c) => c.trim())
     : [];
@@ -59,14 +59,14 @@ const BoothInfoSheet = ({ location, onClose }) => {
               ? 0
               : sheetState === "collapsed"
               ? collapsedHeight
-              : expandedHeight || "80vh", // si no se ha medido aún, fallback a 80vh
+              : expandedHeight || "80vh", // fallback a 80vh
         }}
         exit={{ height: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
         style={{ overflow: "hidden", touchAction: "none" }}
       >
         {/* Cabecera: Botones de expandir/colapsar y cerrar */}
-        <div className="flex items-center justify-between px-4 py-2 border-b">
+        <div className="flex items-center justify-between px-4 py-4 pb-2">
           <button
             onClick={() =>
               setSheetState((prev) =>
@@ -82,19 +82,20 @@ const BoothInfoSheet = ({ location, onClose }) => {
               <ChevronDown size={24} />
             )}
           </button>
+          {/* Botón de cierre: círculo con fondo bg-edgeText y X blanca dentro */}
           <button
             onClick={() => {
               setSheetState("closed");
-              setTimeout(onClose, 400); // espera la transición antes de desmontar
+              setTimeout(onClose, 400);
             }}
-            className="text-gray-500 hover:text-gray-800"
+            className="flex items-center justify-center rounded-full bg-edgeText w-8 h-8 hover:bg-gray-600"
             aria-label="Cerrar"
           >
-            <X size={24} />
+            <X size={16} color="white" />
           </button>
         </div>
 
-        {/* Contenido interno (se mide la altura total de este bloque) */}
+        {/* Contenido interno */}
         <div
           className={`h-full ${
             sheetState === "expanded" ? "overflow-y-auto" : "overflow-hidden"
@@ -108,13 +109,13 @@ const BoothInfoSheet = ({ location, onClose }) => {
                 alt={`${location.neighbourhood} icon`}
                 className="w-8 h-8"
               />
-              <span className="text text-edgeTextSecondary font-black">
+              <span className="text text-edgeTextSecondary font-black font-sans">
                 {location.boothId?.toUpperCase()}
               </span>
             </div>
-            <h2 className="text-xl font-bold mt-1">{location.name}</h2>
+            <h2 className="text-2xl font-bold mt-1">{location.name}</h2>
             {location.subtitle && (
-              <p className="text-sm text-gray-500 mb-2 italic">
+              <p className="text-base text-gray-500 mb-2 italic">
                 {location.subtitle}
               </p>
             )}
@@ -127,7 +128,7 @@ const BoothInfoSheet = ({ location, onClose }) => {
             )}
           </div>
 
-          {/* Segunda sección: Tag ABOUT, Descripción y mapeo de contactos */}
+          {/* Segunda sección: Tag ABOUT, Descripción y contactos */}
           <div className="bg-edgeBackground p-6 mb-16">
             {/* Tag ABOUT */}
             <div className="mb-4">
@@ -145,7 +146,6 @@ const BoothInfoSheet = ({ location, onClose }) => {
                 CONTACTS
               </span>
             </div>
-            {/* Lista de contactos en flex-col */}
             <div className="flex flex-col gap-1">
               {contactEmailPairs.map(({ contact, email }, index) => (
                 <span key={index} className="text-sm text-gray-700">

@@ -56,7 +56,7 @@ const FocusOnLocation = ({ position }) => {
 
 const renderIcon = (boothId, name, zoom) => {
   const content = `
-    <div style="position: relative; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; transform: translate(-40%, -40%);">
+    <div style="position: relative; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; transform: translate(-40%, -40%); font-family: 'BCGHenSans';">
       <div style="
         font-size: 12px;
         font-weight: bold;
@@ -131,12 +131,11 @@ const EventMap = () => {
     if (!bounds || locations.length === 0) return;
     const newLocations = locations.map((loc) => ({
       ...loc,
-      // Ahora usamos loc.x y loc.y, y convertimos la posición:
+      // Convertimos la posición de acuerdo al scaleFactor.
       position: [
         (imageOriginalSize.height - loc.y) * scaleFactor,
         loc.x * scaleFactor,
       ],
-      // Si deseas, puedes convertir sectorjourneys (string) a un array, por ejemplo:
       sectorjourneys: loc.sectorjourneys
         ? loc.sectorjourneys.split(",").map((s) => s.trim())
         : [],
@@ -152,17 +151,23 @@ const EventMap = () => {
     setFilteredLocations(filtered);
   }, [searchQuery, scaledLocations]);
 
+  // Opción 2: Mantenemos el MapContainer siempre montado y solo cambiamos su visibilidad.
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-[800px] h-dvh relative overflow-hidden">
         <TopBar searchQuery={searchQuery} onSearch={setSearchQuery} />
 
-        {/* Ejemplo: mostramos un contador de booths */}
+        {/* Contador de booths */}
         <div className="absolute top-0 left-0 m-4 z-50 bg-white p-2 rounded shadow">
           {filteredLocations.length} booths
         </div>
 
-        {activeView === "map" && bounds && (
+        {/* El MapContainer se mantiene montado siempre y cambia su visibilidad */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-300 ${
+            activeView === "map" ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        >
           <MapContainer
             crs={CRS.Simple}
             style={{ width: "100%", height: "100%", zIndex: 10 }}
@@ -191,11 +196,10 @@ const EventMap = () => {
             {zoomLevel >= 1 &&
               filteredLocations.map((location) => (
                 <Marker
-                  // Usamos location.boothId como clave, ya que el JSON actualizado no tiene "id"
                   key={location.boothId}
                   position={location.position}
                   icon={renderIcon(
-                    location.boothId || location.id,
+                    location.boothId,
                     location.name,
                     zoomLevel
                   )}
@@ -209,13 +213,21 @@ const EventMap = () => {
               <FocusOnLocation position={selectedLocation.position} />
             )}
           </MapContainer>
-        )}
+        </div>
 
+        {/* Vista de lista: Se muestra cuando activeView es "list" */}
         {activeView === "list" && (
           <BoothList booths={filteredLocations} onSelect={setSelectedLocation} />
         )}
 
-        <BottomBar activeView={activeView} onChangeView={setActiveView} />
+        <BottomBar
+          activeView={activeView}
+          onChangeView={(view) => {
+            // Si pasamos de "map" a "list", se cierra la info sheet
+            if (view === "list") setSelectedLocation(null);
+            setActiveView(view);
+          }}
+        />
 
         <BoothInfoSheet
           location={selectedLocation}

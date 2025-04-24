@@ -1,3 +1,5 @@
+import React from "react";
+
 const BoothList = ({ booths, onSelect }) => {
   const neighbourhoodStyles = {
     fs: {
@@ -31,7 +33,7 @@ const BoothList = ({ booths, onSelect }) => {
   }, {});
 
   return (
-    <div className="overflow-y-auto max-h-full pb-20 pt-20">
+    <div className="overflow-y-auto max-h-full pb-16 pt-16">
       {Object.entries(grouped).map(([neighbourhood, groupBooths]) => {
         const style = neighbourhoodStyles[neighbourhood] || {
           label: `Group: ${neighbourhood}`,
@@ -39,36 +41,77 @@ const BoothList = ({ booths, onSelect }) => {
         };
 
         return (
-          <div key={neighbourhood} className={`py-4 ${style.color}`}>
-            <h2 className="text-base font-semibold text-white px-4 mb-2">
-              {style.label}
+          <div key={neighbourhood} className={`py-6 ${style.color}`}>
+            <h2 className="text-base font-semibold text-white px-6 mb-4">
+              {style.label.startsWith("Future of ") ? (
+                <span>
+                  <i className="font-light mr-1">Future of</i>
+                  {" "}{style.label.substring("Future of ".length)}
+                </span>
+              ) : (
+                style.label
+              )}
             </h2>
 
             {/* Sección de booths, con scrollbar horizontal oculta */}
-            <div className="flex gap-4 overflow-x-auto px-4 pb-2 scrollbar-hide">
+            <div className="flex gap-4 overflow-x-auto px-6 pb-2 scrollbar-hide">
               {groupBooths.map((booth) => (
                 <div
                   key={booth.boothId}
                   onClick={() => onSelect(booth)}
-                  className="min-w-[250px] bg-white rounded-xl shadow p-4 border cursor-pointer hover:shadow-md transition"
+                  className="flex flex-col justify-between min-w-[250px] min-h-[190px] bg-white rounded-xl shadow p-4 border cursor-pointer hover:shadow-md transition"
                 >
-                  <div className="flex items-center gap-2 mb-2">
-                    <img
-                      src={`/nb-icons/${booth.neighbourhood?.toLowerCase()}.svg`}
-                      alt={`${booth.neighbourhood} icon`}
-                      className="w-5 h-5"
-                    />
-                    <span className="text-xs font-bold text-gray-400">
-                      {booth.boothId?.toUpperCase()}
-                    </span>
+                  {/* Top row: Icono, Booth ID y "See details" */}
+                  <div className="flex flex-col">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <img
+                          src={`/nb-icons/${booth.neighbourhood?.toLowerCase()}.svg`}
+                          alt={`${booth.neighbourhood} icon`}
+                          className="w-5 h-5"
+                        />
+                        <span className="text-sm font-bold text-edgeTextSecondary">
+                          {booth.boothId?.toUpperCase()}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 text-edgeGreen text-sm font-bold">
+                        <span>See details</span>
+                        <svg
+                          width="6"
+                          height="12"
+                          viewBox="0 0 6 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0.75 10.5L5.25 6L0.75 1.5"
+                            stroke="#21BF61"
+                            strokeWidth="1.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Contenedor para la parte principal y la etiqueta de partner */}
+                    <div className="flex flex-col justify-between">
+                      {/* Parte principal: Nombre y subtítulo */}
+                      <div className="flex flex-col">
+                        <h3 className="text-base font-semibold mb-1">{booth.name}</h3>
+                        <p className="text-sm text-edgeTextSecondary line-clamp-2 italic">
+                          {booth.subtitle}
+                        </p>
+                      </div>
+                      {/* Etiqueta de partner, si corresponde */}
+                    </div>
                   </div>
-                  <h3 className="text-sm font-semibold mb-1">{booth.name}</h3>
-                  <p className="text-xs text-gray-500 line-clamp-2">
-                    {booth.subtitle}
-                  </p>
-                  <div className="text-green-600 text-xs font-semibold mt-2 flex items-center gap-1">
-                    See details <span>→</span>
-                  </div>
+                  {booth.partner === "Y" && (
+                      <div className="flex-shrink-0">
+                        <span className="inline-block bg-edgeBackground text-edgeText text-xs font-semibold px-3 py-1 rounded-full border border-[#D9D7D6]">
+                          Partners &amp; Collaborators
+                        </span>
+                      </div>
+                    )}
                 </div>
               ))}
             </div>
