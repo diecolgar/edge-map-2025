@@ -1,0 +1,114 @@
+[
+  {
+    "boothId": "ic",
+    "name": "Information Counter",
+    "x": 292,
+    "y": 2800,
+    "iconUrl": "/highlights/ic.svg"
+  },
+  {
+    "boothId": "fsid",
+    "name": "Information Desk",
+    "x": 273,
+    "y": 1528,
+    "iconUrl": "/highlights/fsid.svg"
+  },
+  {
+    "boothId": "ceid",
+    "name": "Information Desk",
+    "x": 1382,
+    "y": 2059,
+    "iconUrl": "/highlights/ceid.svg"
+  },
+  {
+    "boothId": "spid",
+    "name": "Information Desk",
+    "x": 1755,
+    "y": 3358,
+    "iconUrl": "/highlights/spid.svg"
+  },
+  {
+    "boothId": "opid",
+    "name": "Information Desk",
+    "x": 823,
+    "y": 3474,
+    "iconUrl": "/highlights/opid.svg"
+  },
+  {
+    "boothId": "tdid",
+    "name": "Information Desk",
+    "x": 1818,
+    "y": 4265,
+    "iconUrl": "/highlights/tdid.svg"
+  },
+  {
+    "boothId": "fsrs",
+    "name": "Recharge Spot",
+    "x": 548,
+    "y": 985,
+    "iconUrl": "/highlights/fsrs.svg"
+  },
+  {
+    "boothId": "cers",
+    "name": "Recharge Spot",
+    "x": 1752,
+    "y": 2181,
+    "iconUrl": "/highlights/cers.svg"
+  },
+  {
+    "boothId": "sprs",
+    "name": "Recharge Spot",
+    "x": 1980,
+    "y": 2631,
+    "iconUrl": "/highlights/sprs.svg"
+  },
+  {
+    "boothId": "oprs",
+    "name": "Recharge Spot",
+    "x": 766,
+    "y": 3019,
+    "iconUrl": "/highlights/oprs.svg"
+  },
+  {
+    "boothId": "tdrs",
+    "name": "Recharge Spot",
+    "x": 1874,
+    "y": 5374,
+    "iconUrl": "/highlights/tdrs.svg"
+  },
+  {
+    "boothId": "rst01",
+    "name": "Restroom",
+    "x": 1086,
+    "y": 1718,
+    "iconUrl": "/highlights/rst01.svg"
+  },
+  {
+    "boothId": "rst02",
+    "name": "Restroom",
+    "x": 1231,
+    "y": 4632,
+    "highlightUrl": "/highlights/rst02.svg"
+  },
+  {
+    "boothId": "fsfb",
+    "name": "Food & Beverage",
+    "x": 548,
+    "y": 853,
+    "iconUrl": "/highlights/fsfb.svg"
+  },
+  {
+    "boothId": "fb",
+    "name": "Food & Beverage",
+    "x": 1871,
+    "y": 5841,
+    "iconUrl": "/highlights/fb.svg"
+  },
+  {
+    "boothId": "ehd",
+    "name": "Exhibitor help-desk",
+    "x": 142,
+    "y": 2081,
+    "iconUrl": "/highlights/ehd.svg"
+  }
+]
