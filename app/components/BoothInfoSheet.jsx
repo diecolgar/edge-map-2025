@@ -97,7 +97,7 @@ const BoothInfoSheet = ({ location, onClose }) => {
         <div
           className={`
             ${sheetState === "expanded" ? "overflow-y-auto" : "overflow-hidden"}
-            px-6 pb-16
+            px-6 pb-14
           `}
           style={{ height: "calc(100% - 56px)" }} // 56px = altura aprox. de la cabecera
         >

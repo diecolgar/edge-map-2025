@@ -3,7 +3,7 @@ import React from "react";
 
 const BottomBar = ({ activeView, onChangeView }) => {
   return (
-    <div className="absolute bottom-0 left-0 w-full z-[1000] bg-[#323232] pb-4 h-16 flex flex-col items-center">
+    <div className="absolute bottom-0 left-0 w-full z-[1000] bg-[#323232] h-14 flex flex-col items-center">
       {/* Contenedor del indicador: ocupa el 100% del ancho */}
       <div className="relative w-full h-2 mb-2">
         {/* Div indicador: ocupa el 50% y se mueve según activeView */}
