@@ -173,10 +173,6 @@ const EventMap = () => {
       <div className="w-full max-w-[800px] h-dvh relative overflow-hidden">
         <TopBar searchQuery={searchQuery} onSearch={setSearchQuery} />
 
-        <div className="absolute top-0 left-0 m-4 z-50 bg-white p-2 rounded shadow">
-          {filteredLocations.length} booths
-        </div>
-
         {/* MAP VIEW */}
         <div
           className={`absolute inset-0 transition-opacity duration-300 ${
@@ -231,8 +227,8 @@ const EventMap = () => {
                   key={svc.boothId}
                   position={svc.position}
                   icon={divIcon({
-                    html: `<img src="${svc.iconUrl}" style="width:30px;height:30px;" />`,
-                    iconSize: [30, 30],
+                    html: `<img src="${svc.iconUrl}" style="width:24px;height:24px;" />`,
+                    iconSize: [24, 24],
                     iconAnchor: [20, 20],
                     className: "p-0 bg-transparent border-none shadow-none",
                   })}

@@ -33,7 +33,7 @@ const BoothList = ({ booths, onSelect }) => {
   }, {});
 
   return (
-    <div className="overflow-y-auto max-h-full pb-16 pt-16">
+    <div className="overflow-y-auto bg-edgeBackground max-h-full pb-14 pt-16">
       {Object.entries(grouped).map(([neighbourhood, groupBooths]) => {
         const style = neighbourhoodStyles[neighbourhood] || {
           label: `Group: ${neighbourhood}`,
