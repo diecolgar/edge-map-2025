@@ -9,32 +9,26 @@ const BoothInfoSheet = ({ location, onClose }) => {
   const [expandedHeight, setExpandedHeight] = useState(null);
   const containerRef = useRef(null);
 
-  // Al seleccionar un booth, se abre en estado "collapsed" (34vh)
+  // Abrir/cerrar según location
   useEffect(() => {
-    if (location) {
-      setSheetState("collapsed");
-    } else {
-      setSheetState("closed");
-    }
+    if (location) setSheetState("collapsed");
+    else setSheetState("closed");
   }, [location]);
 
-  // Cuando pasamos a expanded, medimos la altura natural del contenido.
+  // Cuando expandimos, medimos el contenido para animar altura
   useEffect(() => {
     if (sheetState === "expanded" && containerRef.current) {
-      // Para medir, temporalmente eliminamos la altura (lo ponemos a "auto")
-      const prevHeight = containerRef.current.style.height;
+      const prev = containerRef.current.style.height;
       containerRef.current.style.height = "auto";
-      const measuredHeight = containerRef.current.scrollHeight;
-      // Guardamos la altura medida (en píxeles)
-      setExpandedHeight(measuredHeight);
-      // Restauramos el estilo previo (esto no afecta la animación, ya que animate lo controla)
-      containerRef.current.style.height = prevHeight;
+      const measured = containerRef.current.scrollHeight;
+      setExpandedHeight(measured);
+      containerRef.current.style.height = prev;
     }
   }, [sheetState, location]);
 
   if (!location) return null;
 
-  // Procesamiento de contactos y emails (se asume formato CSV)
+  // Procesar contactos y emails CSV
   const contacts = location.contacts
     ? location.contacts.split(",").map((c) => c.trim())
     : [];
@@ -51,7 +45,12 @@ const BoothInfoSheet = ({ location, onClose }) => {
       <motion.div
         key={location.boothId}
         ref={containerRef}
-        className="absolute bottom-0 left-0 w-full bg-white shadow-lg border-t z-50 rounded-t-2xl"
+        className="
+          absolute bottom-0 left-0 w-full
+          bg-white shadow-lg border-t
+          rounded-t-2xl z-50
+          max-h-[80vh]
+        "
         initial={{ height: 0 }}
         animate={{
           height:
@@ -59,13 +58,13 @@ const BoothInfoSheet = ({ location, onClose }) => {
               ? 0
               : sheetState === "collapsed"
               ? collapsedHeight
-              : expandedHeight || "80vh", // fallback a 80vh
+              : expandedHeight ?? "80vh",
         }}
         exit={{ height: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        style={{ overflow: "hidden", touchAction: "none" }}
+        style={{ overflow: "hidden", touchAction: "none", maxHeight: "80vh" }}
       >
-        {/* Cabecera: Botones de expandir/colapsar y cerrar */}
+        {/* Cabecera */}
         <div className="flex items-center justify-between px-4 py-4 pb-2">
           <button
             onClick={() =>
@@ -82,7 +81,6 @@ const BoothInfoSheet = ({ location, onClose }) => {
               <ChevronDown size={24} />
             )}
           </button>
-          {/* Botón de cierre: círculo con fondo bg-edgeText y X blanca dentro */}
           <button
             onClick={() => {
               setSheetState("closed");
@@ -95,65 +93,66 @@ const BoothInfoSheet = ({ location, onClose }) => {
           </button>
         </div>
 
-        {/* Contenido interno */}
+        {/* Contenido con scroll interno al expandir */}
         <div
-          className={`h-full ${
-            sheetState === "expanded" ? "overflow-y-auto" : "overflow-hidden"
-          }`}
+          className={`
+            ${sheetState === "expanded" ? "overflow-y-auto" : "overflow-hidden"}
+            px-6 pb-16
+          `}
+          style={{ height: "calc(100% - 56px)" }} // 56px = altura aprox. de la cabecera
         >
-          {/* Primera sección: Icono, ID, Título, Subtítulo y etiqueta de partner */}
-          <div className="flex flex-col gap-2 mb-4 px-6 py-2">
+          {/* Sección principal */}
+          <div className="flex flex-col gap-2 mb-4">
             <div className="flex items-center gap-2">
               <img
                 src={`/nb-icons/${location.neighbourhood?.toLowerCase()}.svg`}
                 alt={`${location.neighbourhood} icon`}
                 className="w-8 h-8"
               />
-              <span className="text text-edgeTextSecondary font-black font-sans">
+              <span className="text-edgeTextSecondary font-black font-sans">
                 {location.boothId?.toUpperCase()}
               </span>
             </div>
-            <h2 className="text-2xl font-bold mt-1">{location.name}</h2>
+            <h2 className="text-2xl font-bold mt-1 text-edgeText">
+              {location.name}
+            </h2>
             {location.subtitle && (
               <p className="text-base text-gray-500 mb-2 italic">
                 {location.subtitle}
               </p>
             )}
             {location.partner === "Y" && (
-              <div>
-                <span className="inline-block bg-edgeBackground text-edgeText text-xs font-semibold px-4 py-2 rounded-full">
-                  Partners &amp; Collaborators
-                </span>
-              </div>
+              <span className="inline-block bg-edgeBackground text-edgeText text-xs font-semibold px-4 py-2 rounded-full">
+                Partners &amp; Collaborators
+              </span>
             )}
           </div>
 
-          {/* Segunda sección: Tag ABOUT, Descripción y contactos */}
-          <div className="bg-edgeBackground p-6 mb-16">
-            {/* Tag ABOUT */}
-            <div className="mb-4">
-              <span className="inline-block text-edgeGreen text-sm font-bold uppercase">
-                ABOUT
-              </span>
-            </div>
-            <p className="text-gray-700 whitespace-pre-line mb-4 text-sm bg-edgeBackground">
+          {/* ABOUT */}
+          <div className="mb-6">
+            <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
+              ABOUT
+            </span>
+            <p className="text-gray-700 whitespace-pre-line text-sm">
               {location.description}
             </p>
+          </div>
 
-            {/* Tag CONTACTS */}
-            <div className="mb-2">
-              <span className="inline-block text-edgeGreen text-sm font-bold uppercase">
+          {/* CONTACTS */}
+          {contactEmailPairs.length > 0 && (
+            <div className="mb-6">
+              <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
                 CONTACTS
               </span>
+              <div className="flex flex-col gap-1">
+                {contactEmailPairs.map(({ contact, email }, i) => (
+                  <span key={i} className="text-sm text-gray-700">
+                    {contact} ({email})
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-col gap-1">
-              {contactEmailPairs.map(({ contact, email }, index) => (
-                <span key={index} className="text-sm text-gray-700">
-                  {contact} ({email})
-                </span>
-              ))}
-            </div>
-          </div>
+          )}
         </div>
       </motion.div>
     </AnimatePresence>

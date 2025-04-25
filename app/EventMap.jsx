@@ -14,14 +14,13 @@ import "leaflet/dist/leaflet.css";
 import TopBar from "./components/TopBar";
 import BottomBar from "./components/BottomBar";
 import BoothInfoSheet from "./components/BoothInfoSheet";
+import ServiceInfoSheet from "./components/ServiceInfoSheet";
 import BoothList from "./components/BoothList";
 
 const ZoomListener = ({ setZoomLevel }) => {
   useMapEvents({
     zoomend: (e) => {
-      const zoom = e.target.getZoom();
-      console.log("Zoom level:", zoom);
-      setZoomLevel(zoom);
+      setZoomLevel(e.target.getZoom());
     },
   });
   return null;
@@ -39,133 +38,151 @@ const FitToViewport = ({ bounds }) => {
 const FocusOnLocation = ({ position }) => {
   const map = useMap();
   useEffect(() => {
-    if (!position || !map) return;
-    const halfSize = 50;
-    const areaBounds = new LatLngBounds(
-      [position[0] - halfSize, position[1] - halfSize],
-      [position[0] + halfSize, position[1] + halfSize]
+    if (!map || !position) return;
+    const half = 50;
+    const area = new LatLngBounds(
+      [position[0] - half, position[1] - half],
+      [position[0] + half, position[1] + half]
     );
-    map.flyToBounds(areaBounds, {
-      animate: true,
-      duration: 0.4,
-      easeLinearity: 0.25,
-    });
-  }, [position, map]);
+    map.flyToBounds(area, { animate: true, duration: 0.4, easeLinearity: 0.25 });
+  }, [map, position]);
   return null;
 };
 
-const renderIcon = (boothId, name, zoom) => {
-  const content = `
-    <div style="position: relative; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; transform: translate(-40%, -40%); font-family: 'BCGHenSans';">
+const renderBoothIcon = (id) => {
+  const html = `
+    <div style="
+      position: relative;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translate(-40%, -40%);
+      font-family: 'BCGHenSans';
+    ">
       <div style="
         font-size: 12px;
         font-weight: bold;
         color: #fff;
         pointer-events: none;
-      ">
-        ${boothId.toUpperCase()}
-      </div>
+      ">${id.toUpperCase()}</div>
     </div>
   `;
-  return divIcon({
-    html: content,
-    iconSize: [40, 40],
-    iconAnchor: [1, 1],
-    className: "custom-icon",
-  });
+  return divIcon({ html, iconSize: [40, 40], iconAnchor: [1, 1], className: "custom-icon" });
 };
 
 const EventMap = () => {
   const imageUrl = "/edge-map-def.png";
-  const imageOriginalSize = { width: 2560, height: 6064 };
-  const aspectRatio = imageOriginalSize.width / imageOriginalSize.height;
+  const original = { width: 2560, height: 6064 };
+  const aspect = original.width / original.height;
 
   const [activeView, setActiveView] = useState("map");
   const [bounds, setBounds] = useState(null);
   const [scaleFactor, setScaleFactor] = useState(1);
+  const [zoomLevel, setZoomLevel] = useState(0);
+
   const [locations, setLocations] = useState([]);
   const [scaledLocations, setScaledLocations] = useState([]);
   const [filteredLocations, setFilteredLocations] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [zoomLevel, setZoomLevel] = useState(0);
 
+  const [services, setServices] = useState([]);
+  const [scaledServices, setScaledServices] = useState([]);
+  const [selectedService, setSelectedService] = useState(null);
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Carga de datos
   useEffect(() => {
     fetch("/locations.json")
       .then((res) => res.json())
-      .then((data) => setLocations(data))
-      .catch((error) => console.error("Error cargando locations.json:", error));
+      .then(setLocations)
+      .catch((e) => console.error("Error cargando locations.json:", e));
+
+    fetch("/services.json")
+      .then((res) => res.json())
+      .then(setServices)
+      .catch((e) => console.error("Error cargando services.json:", e));
   }, []);
 
+  // Ajuste de bounds y scale
   useEffect(() => {
-    const updateBounds = () => {
+    const update = () => {
       if (typeof window === "undefined") return;
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-
-      let width, height;
-      if (vw / vh > aspectRatio) {
-        height = vh;
-        width = height * aspectRatio;
+      let w, h;
+      if (vw / vh > aspect) {
+        h = vh;
+        w = h * aspect;
       } else {
-        width = vw;
-        height = width / aspectRatio;
+        w = vw;
+        h = w / aspect;
       }
-
-      const scaleX = width / imageOriginalSize.width;
-      const scaleY = height / imageOriginalSize.height;
-      const newScaleFactor = Math.min(scaleX, scaleY);
-
-      setScaleFactor(newScaleFactor);
-      setBounds(new LatLngBounds([0, 0], [height, width]));
+      const sf = Math.min(w / original.width, h / original.height);
+      setScaleFactor(sf);
+      setBounds(new LatLngBounds([0, 0], [h, w]));
     };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, [aspect]);
 
-    updateBounds();
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", updateBounds);
-      return () => window.removeEventListener("resize", updateBounds);
-    }
-  }, [aspectRatio]);
-
+  // Escalado de locations
   useEffect(() => {
-    if (!bounds || locations.length === 0) return;
-    const newLocations = locations.map((loc) => ({
+    if (!bounds || !locations.length) return;
+    const arr = locations.map((loc) => ({
       ...loc,
-      // Convertimos la posición de acuerdo al scaleFactor.
       position: [
-        (imageOriginalSize.height - loc.y) * scaleFactor,
+        (original.height - loc.y) * scaleFactor,
         loc.x * scaleFactor,
       ],
       sectorjourneys: loc.sectorjourneys
         ? loc.sectorjourneys.split(",").map((s) => s.trim())
         : [],
     }));
-    setScaledLocations(newLocations);
-    setFilteredLocations(newLocations);
+    setScaledLocations(arr);
+    setFilteredLocations(arr);
   }, [bounds, locations, scaleFactor]);
 
+  // Filtrado por búsqueda
   useEffect(() => {
-    const filtered = scaledLocations.filter((loc) =>
-      loc.name.toLowerCase().includes(searchQuery.toLowerCase())
+    setFilteredLocations(
+      scaledLocations.filter((loc) =>
+        loc.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
     );
-    setFilteredLocations(filtered);
   }, [searchQuery, scaledLocations]);
 
-  // Opción 2: Mantenemos el MapContainer siempre montado y solo cambiamos su visibilidad.
+  // Escalado de services
+  useEffect(() => {
+    if (!bounds || !services.length) return;
+    const arr = services.map((svc) => ({
+      ...svc,
+      position: [
+        (original.height - svc.y) * scaleFactor,
+        svc.x * scaleFactor,
+      ],
+    }));
+    setScaledServices(arr);
+  }, [bounds, services, scaleFactor]);
+
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-[800px] h-dvh relative overflow-hidden">
         <TopBar searchQuery={searchQuery} onSearch={setSearchQuery} />
 
-        {/* Contador de booths */}
         <div className="absolute top-0 left-0 m-4 z-50 bg-white p-2 rounded shadow">
           {filteredLocations.length} booths
         </div>
 
-        {/* El MapContainer se mantiene montado siempre y cambia su visibilidad */}
+        {/* MAP VIEW */}
         <div
           className={`absolute inset-0 transition-opacity duration-300 ${
-            activeView === "map" ? "opacity-100" : "opacity-0 pointer-events-none"
+            activeView === "map"
+              ? "opacity-100"
+              : "opacity-0 pointer-events-none"
           }`}
         >
           <MapContainer
@@ -175,16 +192,16 @@ const EventMap = () => {
           >
             <FitToViewport bounds={bounds} />
             <ZoomListener setZoomLevel={setZoomLevel} />
+
             <ImageOverlay
               url="/edge-map-general.png"
               bounds={bounds}
               zIndex={1001}
-              className="fade-transition"
               opacity={zoomLevel < 1 ? 1 : 0}
             />
             <ImageOverlay url={imageUrl} bounds={bounds} opacity={1} zIndex={10} />
 
-            {selectedLocation?.highlightUrl && (
+            {selectedLocation && (
               <ImageOverlay
                 url={selectedLocation.highlightUrl}
                 bounds={bounds}
@@ -194,44 +211,80 @@ const EventMap = () => {
             )}
 
             {zoomLevel >= 1 &&
-              filteredLocations.map((location) => (
+              filteredLocations.map((loc) => (
                 <Marker
-                  key={location.boothId}
-                  position={location.position}
-                  icon={renderIcon(
-                    location.boothId,
-                    location.name,
-                    zoomLevel
-                  )}
+                  key={loc.boothId}
+                  position={loc.position}
+                  icon={renderBoothIcon(loc.boothId)}
                   eventHandlers={{
-                    click: () => setSelectedLocation(location),
+                    click: () => {
+                      setSelectedService(null);
+                      setSelectedLocation(loc);
+                    },
                   }}
                 />
               ))}
 
-            {selectedLocation && (
-              <FocusOnLocation position={selectedLocation.position} />
+            {zoomLevel >= 1 &&
+              scaledServices.map((svc) => (
+                <Marker
+                  key={svc.boothId}
+                  position={svc.position}
+                  icon={divIcon({
+                    html: `<img src="${svc.iconUrl}" style="width:30px;height:30px;" />`,
+                    iconSize: [30, 30],
+                    iconAnchor: [20, 20],
+                    className: "p-0 bg-transparent border-none shadow-none",
+                  })}
+                  eventHandlers={{
+                    click: () => {
+                      setSelectedLocation(null);
+                      setSelectedService(svc);
+                    },
+                  }}
+                />
+              ))}
+
+            {(selectedLocation || selectedService) && (
+              <FocusOnLocation
+                position={
+                  (selectedLocation || selectedService).position
+                }
+              />
             )}
           </MapContainer>
         </div>
 
-        {/* Vista de lista: Se muestra cuando activeView es "list" */}
+        {/* LIST VIEW */}
         {activeView === "list" && (
-          <BoothList booths={filteredLocations} onSelect={setSelectedLocation} />
+          <BoothList
+            booths={filteredLocations}
+            onSelect={(loc) => {
+              setSelectedService(null);
+              setSelectedLocation(loc);
+            }}
+          />
         )}
 
         <BottomBar
           activeView={activeView}
           onChangeView={(view) => {
-            // Si pasamos de "map" a "list", se cierra la info sheet
-            if (view === "list") setSelectedLocation(null);
+            if (view === "list") {
+              setSelectedLocation(null);
+              setSelectedService(null);
+            }
             setActiveView(view);
           }}
         />
 
+        {/* INFO SHEETS */}
         <BoothInfoSheet
           location={selectedLocation}
           onClose={() => setSelectedLocation(null)}
+        />
+        <ServiceInfoSheet
+          service={selectedService}
+          onClose={() => setSelectedService(null)}
         />
       </div>
     </div>

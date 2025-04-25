@@ -4,111 +4,111 @@
     "name": "Information Counter",
     "x": 292,
     "y": 2800,
-    "iconUrl": "/highlights/ic.svg"
+    "iconUrl": "/services/ic.svg"
   },
   {
-    "boothId": "fsid",
+    "boothId": "id04",
     "name": "Information Desk",
     "x": 273,
     "y": 1528,
-    "iconUrl": "/highlights/fsid.svg"
+    "iconUrl": "/services/id.svg"
   },
   {
-    "boothId": "ceid",
+    "boothId": "id",
     "name": "Information Desk",
     "x": 1382,
     "y": 2059,
-    "iconUrl": "/highlights/ceid.svg"
+    "iconUrl": "/services/id.svg"
   },
   {
-    "boothId": "spid",
+    "boothId": "id02",
     "name": "Information Desk",
     "x": 1755,
     "y": 3358,
-    "iconUrl": "/highlights/spid.svg"
+    "iconUrl": "/services/id.svg"
   },
   {
-    "boothId": "opid",
+    "boothId": "id00",
     "name": "Information Desk",
     "x": 823,
     "y": 3474,
-    "iconUrl": "/highlights/opid.svg"
+    "iconUrl": "/services/id.svg"
   },
   {
-    "boothId": "tdid",
+    "boothId": "id01",
     "name": "Information Desk",
     "x": 1818,
     "y": 4265,
-    "iconUrl": "/highlights/tdid.svg"
+    "iconUrl": "/services/id.svg"
   },
   {
-    "boothId": "fsrs",
+    "boothId": "rs05",
     "name": "Recharge Spot",
     "x": 548,
     "y": 985,
-    "iconUrl": "/highlights/fsrs.svg"
+    "iconUrl": "/services/rs.svg"
   },
   {
-    "boothId": "cers",
+    "boothId": "rs04",
     "name": "Recharge Spot",
     "x": 1752,
     "y": 2181,
-    "iconUrl": "/highlights/cers.svg"
+    "iconUrl": "/services/rs.svg"
   },
   {
-    "boothId": "sprs",
+    "boothId": "rs00",
     "name": "Recharge Spot",
     "x": 1980,
     "y": 2631,
-    "iconUrl": "/highlights/sprs.svg"
+    "iconUrl": "/services/rs.svg"
   },
   {
-    "boothId": "oprs",
+    "boothId": "rs01",
     "name": "Recharge Spot",
     "x": 766,
     "y": 3019,
-    "iconUrl": "/highlights/oprs.svg"
+    "iconUrl": "/services/rs.svg"
   },
   {
-    "boothId": "tdrs",
+    "boothId": "rs02",
     "name": "Recharge Spot",
     "x": 1874,
     "y": 5374,
-    "iconUrl": "/highlights/tdrs.svg"
+    "iconUrl": "/services/rs.svg"
   },
   {
     "boothId": "rst01",
     "name": "Restroom",
     "x": 1086,
     "y": 1718,
-    "iconUrl": "/highlights/rst01.svg"
+    "iconUrl": "/services/rst.svg"
   },
   {
     "boothId": "rst02",
     "name": "Restroom",
     "x": 1231,
     "y": 4632,
-    "highlightUrl": "/highlights/rst02.svg"
+    "iconUrl": "/services/rst.svg"
   },
   {
-    "boothId": "fsfb",
+    "boothId": "fb01",
     "name": "Food & Beverage",
     "x": 548,
     "y": 853,
-    "iconUrl": "/highlights/fsfb.svg"
+    "iconUrl": "/services/fb.svg"
   },
   {
-    "boothId": "fb",
+    "boothId": "fb02",
     "name": "Food & Beverage",
     "x": 1871,
     "y": 5841,
-    "iconUrl": "/highlights/fb.svg"
+    "iconUrl": "/services/fb.svg"
   },
   {
     "boothId": "ehd",
     "name": "Exhibitor help-desk",
     "x": 142,
     "y": 2081,
-    "iconUrl": "/highlights/ehd.svg"
+    "iconUrl": "/services/ehd.svg"
   }
 ]

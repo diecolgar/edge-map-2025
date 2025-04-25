@@ -97,7 +97,7 @@ const BoothList = ({ booths, onSelect }) => {
                     <div className="flex flex-col justify-between">
                       {/* Parte principal: Nombre y subtítulo */}
                       <div className="flex flex-col">
-                        <h3 className="text-base font-semibold mb-1">{booth.name}</h3>
+                        <h3 className="text-base font-semibold mb-1 text-edgeText">{booth.name}</h3>
                         <p className="text-sm text-edgeTextSecondary line-clamp-2 italic">
                           {booth.subtitle}
                         </p>
