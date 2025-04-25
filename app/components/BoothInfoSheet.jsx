@@ -62,7 +62,7 @@ const BoothInfoSheet = ({ location, onClose }) => {
         }}
         exit={{ height: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        style={{ overflow: "hidden", touchAction: "none", maxHeight: "84vh" }}
+        style={{ overflow: "hidden", maxHeight: "84vh" }}
       >
         {/* Cabecera */}
         <div className="flex items-center justify-between px-4 py-4 pb-2">
