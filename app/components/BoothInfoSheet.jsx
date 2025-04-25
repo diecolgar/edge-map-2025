@@ -49,7 +49,7 @@ const BoothInfoSheet = ({ location, onClose }) => {
           absolute bottom-0 left-0 w-full
           bg-white shadow-lg border-t
           rounded-t-2xl z-50
-          max-h-[80vh]
+          max-h-[84vh]
         "
         initial={{ height: 0 }}
         animate={{
@@ -58,11 +58,11 @@ const BoothInfoSheet = ({ location, onClose }) => {
               ? 0
               : sheetState === "collapsed"
               ? collapsedHeight
-              : expandedHeight ?? "80vh",
+              : expandedHeight ?? "84vh",
         }}
         exit={{ height: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        style={{ overflow: "hidden", touchAction: "none", maxHeight: "80vh" }}
+        style={{ overflow: "hidden", touchAction: "none", maxHeight: "84vh" }}
       >
         {/* Cabecera */}
         <div className="flex items-center justify-between px-4 py-4 pb-2">
