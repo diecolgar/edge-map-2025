@@ -91,9 +91,8 @@ body {
 
 @font-face {
   font-family: 'BCGHenSans';
-  src: url('/fonts/BCGHenSansBoldIta.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
+  src: url('/fonts/BCGHenSansBold.ttf') format('truetype');
+  font-weight: 600;
   font-display: swap;
 }
 
