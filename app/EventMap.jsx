@@ -216,11 +216,28 @@ const EventMap = () => {
 
         {/* LIST VIEW */}
         {activeView === "list" && (
-          <BoothList booths={filteredLocations} onSelect={(loc) => {
-            setSelectedService(null);
-            setSelectedLocation(loc);
-            setLocationOrigin("list"); // <-- NUEVO
-          }} />
+          <BoothList
+            booths={filteredLocations}
+            onSelect={(item) => {
+              setSelectedLocation(null);
+              setSelectedService(null);
+
+              if (typeof item === "string") {
+                // Es el id del Micro Theatre ("th")
+                const service = services.find((svc) => svc.boothId === item);
+                if (service) {
+                  setSelectedService(service);
+                }
+              } else if (item.type === "service") {
+                setSelectedService(item);
+              } else {
+                setSelectedLocation(item);
+              }
+
+              setLocationOrigin("list");
+            }}
+          />
+
         )}
 
         <BottomBar activeView={activeView} onChangeView={(view) => {
