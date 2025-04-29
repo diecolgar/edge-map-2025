@@ -58,13 +58,10 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   };
   const onDragEnd = (_e, info) => {
     const deltaY = info.offset.y;
-    // Si arrastramos hacia arriba más de umbral → EXPAND
     if (deltaY < -DRAG_THRESHOLD) {
       setSheetState("expanded");
       return;
     }
-    // Si arrastramos hacia abajo más de umbral →
-    // desde EXPANDED → COLLAPSED, desde COLLAPSED → CLOSED
     if (deltaY > DRAG_THRESHOLD) {
       if (sheetState === "expanded") {
         setSheetState("collapsed");
@@ -73,7 +70,6 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
         setTimeout(onClose, 400);
       }
     }
-    // si no supera umbral, queda en el estado actual
   };
 
   // 6) Detectar “pull down” en contenido al tope
@@ -149,7 +145,6 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           <h2 className="text-xl font-bold mt-2 mb-2 text-edgeText">
             {location.name}
           </h2>
-          {/* partner badge stays in handle */}
           {location.partner === "Y" && (
             <span className="inline-block bg-edgeBackground text-edgeText text-xs font-semibold px-4 py-2 rounded-full">
               Technology Leaders &amp; Partners
@@ -157,19 +152,26 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           )}
         </div>
 
-        {/* CONTENIDO (scrollable) */}
+        {/* CONTENIDO (scrollable) sin rebote y con pan-y habilitado */}
         <div
           ref={scrollRef}
           onWheel={handleWheel}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          className={`${sheetState === "expanded" ? "overflow-y-auto" : "overflow-hidden"} pb-14`}
+          className={`
+            ${sheetState === "expanded"
+              ? "overflow-y-auto overscroll-none"
+              : "overflow-hidden"
+            } pb-14
+          `}
           style={{
             height: "calc(100% - 56px)",
-            overscrollBehavior: "contain"
+            overscrollBehavior: "none",       // bloquea el rebote
+            WebkitOverflowScrolling: "auto",  // desactiva momentum en iOS
+            touchAction: "pan-y",             // permite scroll al deslizar sobre texto
           }}
         >
-          {/* Subtitle/tagline ahora dentro de la parte scrolleable */}
+          {/* Subtitle/tagline en zona scrolleable */}
           {location.subtitle && (
             <p className="text-base text-gray-500 mb-4 italic px-6">
               {location.subtitle}
@@ -188,7 +190,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
 
           {/* CONTACTS */}
           {contactEmailPairs.length > 0 && (
-            <div className="bg-edgeText px-6 pt-6 pb-20 space-y-2">
+            <div className="bg-edgeText px-6 pt-6 pb-20 space-y-2 mb-16">
               <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
                 CONTACTS
               </span>
