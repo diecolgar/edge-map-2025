@@ -4,6 +4,7 @@ import { X } from "lucide-react";
 
 const collapsedVH = 44; // 44vh
 const maxVH = 84;       // 84vh
+const DRAG_THRESHOLD = 50; // px necesario para cambiar de estado
 
 const BoothInfoSheet = ({ location, origin, onClose }) => {
   const containerRef = useRef(null);
@@ -26,9 +27,9 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   // 2) Abrir/colapsar/expandir según location + origin
   useEffect(() => {
     let nextState;
-    if (!location)                nextState = "closed";
-    else if (origin === "list")   nextState = "expanded";
-    else                           nextState = "collapsed";
+    if (!location) nextState = "closed";
+    else if (origin === "list") nextState = "expanded";
+    else nextState = "collapsed";
     setSheetState(nextState);
   }, [location, origin]);
 
@@ -45,38 +46,39 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   // 4) Animamos la altura según sheetState
   useEffect(() => {
     let target;
-    if (sheetState === "closed")    target = 0;
+    if (sheetState === "closed")      target = 0;
     else if (sheetState === "collapsed") target = collapsedPx;
-    else                             target = expandedPx || (window.innerHeight * maxVH) / 100;
+    else                               target = expandedPx || (window.innerHeight * maxVH) / 100;
     animate(height, target, { duration: 0.4, ease: "easeInOut" });
   }, [sheetState, collapsedPx, expandedPx]);
 
-  // 5) Handlers de drag
-  const onDragStart = (_event, info) => {
+  // 5) Handlers de drag con umbral
+  const onDragStart = (_e, _info) => {
     startHeightRef.current = height.get();
   };
-  const onDragEnd = (_event, info) => {
-    const deltaY   = info.offset.y;
-    const projected = startHeightRef.current - deltaY;
-
-    const options = [
-      { state: "closed",    value: 0 },
-      { state: "collapsed", value: collapsedPx },
-      { state: "expanded",  value: expandedPx || (window.innerHeight * maxVH) / 100 },
-    ];
-    const nearest = options.reduce((prev, curr) =>
-      Math.abs(curr.value - projected) < Math.abs(prev.value - projected) ? curr : prev
-    );
-    setSheetState(nearest.state);
+  const onDragEnd = (_e, info) => {
+    const deltaY = info.offset.y;
+    // Si arrastramos hacia arriba más de umbral → EXPAND
+    if (deltaY < -DRAG_THRESHOLD) {
+      setSheetState("expanded");
+      return;
+    }
+    // Si arrastramos hacia abajo más de umbral →
+    // desde EXPANDED → COLLAPSED, desde COLLAPSED → CLOSED
+    if (deltaY > DRAG_THRESHOLD) {
+      if (sheetState === "expanded") {
+        setSheetState("collapsed");
+      } else if (sheetState === "collapsed") {
+        setSheetState("closed");
+        setTimeout(onClose, 400);
+      }
+    }
+    // si no supera umbral, queda en el estado actual
   };
 
   // 6) Detectar “pull down” en contenido al tope
   const handleWheel = (e) => {
-    if (
-      sheetState === "expanded" &&
-      scrollRef.current?.scrollTop === 0 &&
-      e.deltaY < 0
-    ) {
+    if (sheetState === "expanded" && scrollRef.current?.scrollTop === 0 && e.deltaY < 0) {
       setSheetState("collapsed");
     }
   };
@@ -84,14 +86,8 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
     touchStartYRef.current = e.touches[0].clientY;
   };
   const handleTouchMove = (e) => {
-    const currentY = e.touches[0].clientY;
-    const diff    = currentY - touchStartYRef.current;
-    // si arrastramos hacia abajo (diff > umbral) y estamos en top
-    if (
-      sheetState === "expanded" &&
-      scrollRef.current?.scrollTop === 0 &&
-      diff > 20
-    ) {
+    const diff = e.touches[0].clientY - touchStartYRef.current;
+    if (sheetState === "expanded" && scrollRef.current?.scrollTop === 0 && diff > DRAG_THRESHOLD) {
       setSheetState("collapsed");
     }
   };
@@ -100,7 +96,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
 
   // parse contactos/emails
   const contacts = location.contacts?.split(",").map(c => c.trim()) || [];
-  const emails   = location.emails?.split(",").map(e => e.trim())  || [];
+  const emails   = location.emails?.split(",").map(e => e.trim()) || [];
   const contactEmailPairs = contacts.map((c, i) => ({ contact: c, email: emails[i] || "" }));
 
   return (
@@ -120,10 +116,13 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
         initial={{ height: 0 }}
         exit={{ height: 0 }}
       >
+        {/* Barrita visual */}
+        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-300 rounded-full" />
+
         {/* HANDLE: zona superior donde activamos el drag */}
         <div
           onPointerDown={e => dragControls.start(e)}
-          className="px-6 pt-4 pb-2 cursor-grab"
+          className="px-6 pt-6 pb-2 cursor-grab"
         >
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
@@ -150,11 +149,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           <h2 className="text-xl font-bold mt-2 mb-2 text-edgeText">
             {location.name}
           </h2>
-          {location.subtitle && (
-            <p className="text-base text-gray-500 mb-2 italic">
-              {location.subtitle}
-            </p>
-          )}
+          {/* partner badge stays in handle */}
           {location.partner === "Y" && (
             <span className="inline-block bg-edgeBackground text-edgeText text-xs font-semibold px-4 py-2 rounded-full">
               Technology Leaders &amp; Partners
@@ -162,7 +157,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           )}
         </div>
 
-        {/* CONTENIDO (ABOUT y CONTACTS) sin drag */}
+        {/* CONTENIDO (scrollable) */}
         <div
           ref={scrollRef}
           onWheel={handleWheel}
@@ -174,6 +169,13 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
             overscrollBehavior: "contain"
           }}
         >
+          {/* Subtitle/tagline ahora dentro de la parte scrolleable */}
+          {location.subtitle && (
+            <p className="text-base text-gray-500 mb-4 italic px-6">
+              {location.subtitle}
+            </p>
+          )}
+
           {/* ABOUT */}
           <div className="bg-edgeBackground py-6 px-6">
             <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
@@ -186,7 +188,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
 
           {/* CONTACTS */}
           {contactEmailPairs.length > 0 && (
-            <div className="bg-edgeText px-6 pt-6 pb-20 space-y-2 mb-16">
+            <div className="bg-edgeText px-6 pt-6 pb-20 space-y-2">
               <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
                 CONTACTS
               </span>
