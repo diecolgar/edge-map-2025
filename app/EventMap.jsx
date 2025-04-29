@@ -17,6 +17,7 @@ import BoothInfoSheet from "./components/BoothInfoSheet";
 import ServiceInfoSheet from "./components/ServiceInfoSheet";
 import BoothList from "./components/BoothList";
 
+
 const ZoomListener = ({ setZoomLevel }) => {
   useMapEvents({
     zoomend: (e) => setZoomLevel(e.target.getZoom()),
@@ -201,14 +202,63 @@ const EventMap = () => {
                 }
               }} />
             ))}
-            {zoomLevel >= 1 && scaledServices.map((svc) => (
-              <Marker key={svc.boothId} position={svc.position} icon={divIcon({ html: `<img src=\"${svc.iconUrl}\" style=\"width:24px;height:24px;\" />`, iconSize: [24, 24], iconAnchor: [20,20], className: "bg-transparent" })} eventHandlers={{
-                click: () => {
-                  setSelectedLocation(null);
-                  setSelectedService(svc);
-                }
-              }} />
-            ))}
+            {zoomLevel >= 1 && scaledServices.map((svc) => {
+              // construye un icono distinto para el teatro (th)
+              const icon = svc.boothId === "th"
+                ? divIcon({
+                    html: `
+                      <div style="
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        transform: translate(-50%, -30%);
+                      ">
+                        <img
+                          src="${svc.iconUrl}"
+                          style="width:24px; height:24px; pointer-events: none;"
+                        />
+                        <div style="
+                          margin-top: 2px;
+                          font-family: 'BCGHenSans', sans-serif;
+                          font-size: 10px;
+                          font-weight: 600;
+                          color: #FFF;
+                          pointer-events: none;
+                          width: 100px;
+                          text-align: center;
+                        ">
+                          Micro-Theater
+                        </div>
+                      </div>
+                    `,
+                    iconSize: [24, 36],      // ancho = 24, alto = icono(24)+texto(12)
+                    iconAnchor: [12, 18],    // ancla en el centro bajo la imagen
+                    className: ""
+                  })
+                : divIcon({
+                    html: `<img src="${svc.iconUrl}" style="width:24px;height:24px;" />`,
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12],
+                    className: ""
+                  });
+
+              return (
+                <Marker
+                  key={svc.boothId}
+                  position={svc.position}
+                  icon={icon}
+                  eventHandlers={{
+                    click: () => {
+                      setSelectedLocation(null);
+                      setSelectedService(svc);
+                    }
+                  }}
+                />
+              );
+            })}
+
+
             {youAreHere && <Marker position={youAreHere} icon={youAreHereIcon} zIndexOffset={2000} />}
             {(selectedLocation || selectedService) && <FocusOnLocation position={(selectedLocation || selectedService).position} />}
           </MapContainer>
