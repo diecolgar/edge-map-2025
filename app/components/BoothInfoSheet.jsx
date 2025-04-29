@@ -46,9 +46,9 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   // 4) Animamos la altura según sheetState
   useEffect(() => {
     let target;
-    if (sheetState === "closed")      target = 0;
+    if (sheetState === "closed")         target = 0;
     else if (sheetState === "collapsed") target = collapsedPx;
-    else                               target = expandedPx || (window.innerHeight * maxVH) / 100;
+    else                                 target = expandedPx || (window.innerHeight * maxVH) / 100;
     animate(height, target, { duration: 0.4, ease: "easeInOut" });
   }, [sheetState, collapsedPx, expandedPx]);
 
@@ -98,8 +98,8 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   return (
     <AnimatePresence>
       <motion.div
-        key={location.boothId}
         ref={containerRef}
+        initial={false}
         style={{ height, overflow: "hidden", maxHeight: `${maxVH}vh` }}
         className="absolute bottom-0 left-0 w-full bg-white shadow-lg border-t rounded-t-2xl z-50"
         drag="y"
@@ -109,7 +109,6 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
         dragElastic={0.2}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
-        initial={{ height: 0 }}
         exit={{ height: 0 }}
       >
         {/* Barrita visual */}
