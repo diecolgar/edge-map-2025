@@ -108,7 +108,7 @@ const BoothList = ({ booths, onSelect }) => {
                   {booth.partner === "Y" && (
                       <div className="flex-shrink-0">
                         <span className="inline-block bg-edgeBackground text-edgeText text-xs font-semibold px-3 py-1 rounded-full border border-[#D9D7D6]">
-                          Partners &amp; Collaborators
+                          Technology Leaders &amp; Partners
                         </span>
                       </div>
                     )}

@@ -98,5 +98,7 @@ body {
 
 body {
   font-family: 'BCGHenSans', sans-serif;
+  touch-action: none;
+  overflow: hidden; /* Opcional si usas full-screen layout */
 }
 

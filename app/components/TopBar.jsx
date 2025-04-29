@@ -15,7 +15,7 @@ const TopBar = ({ searchQuery, onSearch, onFilterClick }) => {
         className="
           absolute top-0 left-0 w-full z-[1000]
           bg-[#F1EEEA]/10 backdrop-blur
-          px-12 py-2 shadow-md
+          px-6 py-2 shadow-md
           h-16 flex items-center
         "
       >
@@ -24,8 +24,8 @@ const TopBar = ({ searchQuery, onSearch, onFilterClick }) => {
           <svg
             className="absolute left-4 top-1/2 transform -translate-y-1/2"
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="14"
+            height="14"
             viewBox="0 0 16 16"
             fill="none"
           >
@@ -42,7 +42,7 @@ const TopBar = ({ searchQuery, onSearch, onFilterClick }) => {
             placeholder="What are you looking for?"
             value={searchQuery}
             onChange={(e) => onSearch(e.target.value)}
-            className="pl-10 pr-4 py-2 w-full text-sm border border-gray-300 rounded-full focus:outline-none"
+            className="pl-12 pr-4 py-3 w-full text-sm border border-gray-300 rounded-full focus:outline-none"
           />
         </div>
 

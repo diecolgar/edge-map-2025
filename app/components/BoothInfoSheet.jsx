@@ -4,16 +4,23 @@ import { ChevronUp, ChevronDown, X } from "lucide-react";
 
 const collapsedHeight = "34vh"; // Altura fija para el estado colapsado
 
-const BoothInfoSheet = ({ location, onClose }) => {
+const BoothInfoSheet = ({ location, origin, onClose }) => {
   const [sheetState, setSheetState] = useState("closed");
   const [expandedHeight, setExpandedHeight] = useState(null);
   const containerRef = useRef(null);
 
-  // Abrir/cerrar según location
+  // Abrir/cerrar según location Y origin
   useEffect(() => {
-    if (location) setSheetState("collapsed");
-    else setSheetState("closed");
-  }, [location]);
+    if (location) {
+      if (origin === "list") {
+        setSheetState("expanded"); // <-- Si viene de la lista, abrir expandido
+      } else {
+        setSheetState("collapsed"); // <-- Si viene del mapa, abrir colapsado
+      }
+    } else {
+      setSheetState("closed");
+    }
+  }, [location, origin]); // <-- OJO ahora depende de origin también
 
   // Cuando expandimos, medimos el contenido para animar altura
   useEffect(() => {
@@ -93,13 +100,13 @@ const BoothInfoSheet = ({ location, onClose }) => {
           </button>
         </div>
 
-        {/* Contenido con scroll interno al expandir */}
+        {/* Contenido */}
         <div
           className={`
             ${sheetState === "expanded" ? "overflow-y-auto" : "overflow-hidden"}
             px-6 pb-14
           `}
-          style={{ height: "calc(100% - 56px)" }} // 56px = altura aprox. de la cabecera
+          style={{ height: "calc(100% - 56px)" }} // 56px = altura de cabecera
         >
           {/* Sección principal */}
           <div className="flex flex-col gap-2 mb-4">
@@ -123,7 +130,7 @@ const BoothInfoSheet = ({ location, onClose }) => {
             )}
             {location.partner === "Y" && (
               <span className="inline-block bg-edgeBackground text-edgeText text-xs font-semibold px-4 py-2 rounded-full">
-                Partners &amp; Collaborators
+                Technology Leaders &amp; Partners
               </span>
             )}
           </div>
