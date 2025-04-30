@@ -195,7 +195,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
         >
           {/* Subtitle/tagline */}
           {location.subtitle && (
-            <p className="text-base text-gray-500 mb-4 italic px-6">
+            <p className="text-base text-gray-500 mb-2 italic px-6">
               {location.subtitle}
             </p>
           )}
