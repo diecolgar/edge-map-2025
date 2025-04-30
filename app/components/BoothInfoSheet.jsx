@@ -5,7 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import { X } from "lucide-react";
 
 const collapsedVH = 44; // 44%
-const maxVH = 84;       // 84%
+const maxVH = 90;       // 84%
 const DRAG_THRESHOLD = 50; // px necesarios para cambiar de estado
 
 const BoothInfoSheet = ({ location, origin, onClose }) => {
@@ -125,6 +125,10 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
     email: emails[i] || "",
   }));
 
+  // lógica para elegir extensión de icono
+  const neighbourhoodKey = location.neighbourhood?.toLowerCase();
+  const extension = neighbourhoodKey === "ai" ? "png" : "svg";
+
   return (
     <AnimatePresence>
       <motion.div
@@ -156,7 +160,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <img
-                src={`/nb-icons/${location.neighbourhood?.toLowerCase()}.svg`}
+                src={`/nb-icons/${neighbourhoodKey}.${extension}`}
                 alt={`${location.neighbourhood} icon`}
                 className="w-8 h-8"
               />
