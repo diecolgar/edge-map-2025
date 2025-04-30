@@ -165,9 +165,6 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           `}
           style={{
             height: "calc(100% - 56px)",
-            overscrollBehavior: "contain",       // permite scroll interno y bloquea rebote externo
-            WebkitOverflowScrolling: "touch",    // momentum en iOS
-            touchAction: "pan-y",                // deja pasar gestures de scroll
           }}
         >
           {/* Subtitle/tagline en zona scrolleable */}
