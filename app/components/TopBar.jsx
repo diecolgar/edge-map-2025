@@ -17,6 +17,7 @@ const TopBar = ({ searchQuery, onSearch, onFilterClick }) => {
           bg-[#F1EEEA]/10 backdrop-blur
           px-6 py-2 shadow-md
           h-16 flex items-center
+          pointer-events-none
         "
       >
         {/* Search input */}
