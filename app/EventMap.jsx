@@ -46,7 +46,11 @@ const FocusOnLocation = ({ position }) => {
       [position[0] - half, position[1] - half],
       [position[0] + half, position[1] + half]
     );
-    map.flyToBounds(area, { animate: true, duration: 0.4, easeLinearity: 0.25 });
+    map.flyToBounds(area, {
+      animate: true,
+      duration: 0.4,
+      easeLinearity: 0.25,
+    });
   }, [map, position]);
   return null;
 };
@@ -73,7 +77,12 @@ const renderBoothIcon = (id) => {
       ">${id.toUpperCase()}</div>
     </div>
   `;
-  return divIcon({ html, iconSize: [40, 40], iconAnchor: [1, 1], className: "custom-icon" });
+  return divIcon({
+    html,
+    iconSize: [40, 40],
+    iconAnchor: [1, 1],
+    className: "custom-icon",
+  });
 };
 
 const EventMap = () => {
@@ -160,7 +169,9 @@ const EventMap = () => {
         (original.height - loc.y) * scaleFactor,
         loc.x * scaleFactor,
       ],
-      sectorjourneys: loc.sectorjourneys?.split(",").map((s) => s.trim()) || [],
+      sectorjourneys: loc.sectorjourneys
+        ?.split(",")
+        .map((s) => s.trim()) || [],
     }));
     setScaledLocations(arr);
     setFilteredLocations(arr);
@@ -202,21 +213,22 @@ const EventMap = () => {
     iconAnchor: [16, 16],
   });
 
+  // Si la landing sigue activa, sólo mostramos ella
+  if (showLanding) {
+    return <LandingPage onClose={() => setShowLanding(false)} />;
+  }
+
+  // Una vez cerrada la landing, montamos el resto de la app
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-[800px] h-dvh relative overflow-hidden">
-        {/* Pantalla de landing */}
-        {showLanding && (
-          <LandingPage onClose={() => setShowLanding(false)} />
-        )}
-
         {/* TopBar */}
         <TopBar searchQuery={searchQuery} onSearch={setSearchQuery} />
 
         {/* MAP VIEW */}
         <div
           className={`absolute inset-0 transition-opacity duration-300 ${
-            !showLanding && activeView === "map"
+            activeView === "map"
               ? "opacity-100 z-10"
               : "opacity-0 pointer-events-none z-0"
           }`}
@@ -235,7 +247,12 @@ const EventMap = () => {
               zIndex={1001}
               opacity={zoomLevel < 1 ? 1 : 0}
             />
-            <ImageOverlay url={imageUrl} bounds={bounds} opacity={1} zIndex={10} />
+            <ImageOverlay
+              url={imageUrl}
+              bounds={bounds}
+              opacity={1}
+              zIndex={10}
+            />
             {selectedLocation && (
               <ImageOverlay
                 url={selectedLocation.highlightUrl}
@@ -245,6 +262,7 @@ const EventMap = () => {
               />
             )}
 
+            {/* Booth markers */}
             {zoomLevel >= 1 &&
               filteredLocations.map((loc) => (
                 <Marker
@@ -261,6 +279,7 @@ const EventMap = () => {
                 />
               ))}
 
+            {/* Service markers */}
             {zoomLevel >= 1 &&
               scaledServices.map((svc) => {
                 const icon =
@@ -318,6 +337,7 @@ const EventMap = () => {
                 );
               })}
 
+            {/* "You Are Here" */}
             {youAreHere && (
               <Marker
                 position={youAreHere}
@@ -326,6 +346,7 @@ const EventMap = () => {
               />
             )}
 
+            {/* Centrar en selección */}
             {(selectedLocation || selectedService) && (
               <FocusOnLocation
                 position={(selectedLocation || selectedService).position}
@@ -335,15 +356,16 @@ const EventMap = () => {
         </div>
 
         {/* LIST VIEW */}
-        {!showLanding && activeView === "list" && (
+        {activeView === "list" && (
           <BoothList
             booths={filteredLocations}
             onSelect={(item) => {
               setSelectedLocation(null);
               setSelectedService(null);
+
               if (typeof item === "string") {
-                const service = services.find((svc) => svc.boothId === item);
-                if (service) setSelectedService(service);
+                const svc = services.find((s) => s.boothId === item);
+                if (svc) setSelectedService(svc);
               } else if (item.type === "service") {
                 setSelectedService(item);
               } else {
