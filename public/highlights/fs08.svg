@@ -1,10 +1,10 @@
 <svg width="2560" height="6064" viewBox="0 0 2560 6064" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_dd_4349_45302)">
-<path d="M218.8 1092V932H358.8C370 932 378.8 940.8 378.8 952V1072C378.8 1083.2 370 1092 358.8 1092H218.8Z" fill="#21BF61"/>
-<path d="M220.8 934H358.8C368.895 934 376.8 941.905 376.8 952V1072C376.8 1082.1 368.895 1090 358.8 1090H220.8V934Z" stroke="#D4D4D4" stroke-opacity="0.4" stroke-width="4"/>
+<path d="M832 1010.8V890.8C832 879.6 840.8 870.8 852 870.8H992V1030.8H852C840.8 1030.8 832 1022 832 1010.8Z" fill="#21BF61"/>
+<path d="M834 1010.8V890.8C834 880.705 841.905 872.8 852 872.8H990V1028.8H852C841.905 1028.8 834 1020.9 834 1010.8Z" stroke="#D4D4D4" stroke-opacity="0.4" stroke-width="4"/>
 </g>
 <defs>
-<filter id="filter0_dd_4349_45302" x="170.8" y="924" width="256" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_dd_4349_45302" x="784" y="862.8" width="256" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feMorphology radius="8" operator="erode" in="SourceAlpha" result="effect1_dropShadow_4349_45302"/>

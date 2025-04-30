@@ -1,10 +1,10 @@
 <svg width="2560" height="6064" viewBox="0 0 2560 6064" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_dd_4437_70205)">
-<path d="M1728 3557V3677C1728 3688.05 1736.95 3697 1748 3697H1868C1879.05 3697 1888 3688.05 1888 3677V3557C1888 3545.95 1879.05 3537 1868 3537H1748C1736.95 3537 1728 3545.95 1728 3557Z" fill="#21BF61"/>
-<path d="M1730 3677V3557C1730 3547.06 1738.06 3539 1748 3539H1868C1877.94 3539 1886 3547.06 1886 3557V3677C1886 3686.94 1877.94 3695 1868 3695H1748C1738.06 3695 1730 3686.94 1730 3677Z" stroke="#D4D4D4" stroke-opacity="0.4" stroke-width="4"/>
+<path d="M529.199 2988H493.199C482.153 2988 473.199 2996.95 473.199 3008V3044C473.199 3055.05 482.153 3064 493.199 3064H529.199C540.245 3064 549.199 3055.05 549.199 3044V3008C549.199 2996.95 540.245 2988 529.199 2988Z" fill="#21BF61"/>
+<path d="M493.199 2990H529.199C539.14 2990 547.199 2998.06 547.199 3008V3044C547.199 3053.94 539.14 3062 529.199 3062H493.199C483.258 3062 475.199 3053.94 475.199 3044V3008C475.199 2998.06 483.258 2990 493.199 2990Z" stroke="#D4D4D4" stroke-opacity="0.4" stroke-width="4"/>
 </g>
 <defs>
-<filter id="filter0_dd_4437_70205" x="1680" y="3529" width="256" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_dd_4437_70205" x="425.199" y="2980" width="172" height="172" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feMorphology radius="8" operator="erode" in="SourceAlpha" result="effect1_dropShadow_4437_70205"/>
