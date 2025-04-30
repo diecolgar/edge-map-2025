@@ -212,7 +212,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           )}
 
           {/* ABOUT */}
-          <div className="bg-edgeBackground py-6 px-6">
+          <div className="bg-edgeBackground py-6 px-6 select-none">
             <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
               ABOUT
             </span>
