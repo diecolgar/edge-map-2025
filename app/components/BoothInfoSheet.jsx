@@ -2,9 +2,9 @@ import { motion, AnimatePresence, useMotionValue, animate, useDragControls } fro
 import { useEffect, useState, useRef } from "react";
 import { X } from "lucide-react";
 
-const collapsedVH = 44; // 44vh
-const maxVH = 84;       // 84vh
-const DRAG_THRESHOLD = 50; // px necesario para cambiar de estado
+const collapsedVH = 44; // 44%
+const maxVH = 84;       // 84%
+const DRAG_THRESHOLD = 50; // px necesarios para cambiar de estado
 
 const BoothInfoSheet = ({ location, origin, onClose }) => {
   const containerRef = useRef(null);
@@ -18,27 +18,43 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   const [expandedPx, setExpandedPx] = useState(0);
   const [collapsedPx, setCollapsedPx] = useState(0);
 
-  // 1) Inicializamos collapsedPx al montar
+  // Helper para obtener el viewport dinámico
+  const getViewportHeight = () =>
+    window.visualViewport?.height ?? window.innerHeight;
+
+  // 1) Inicializamos collapsedPx al montar y al cambiar viewport
   useEffect(() => {
-    const px = (window.innerHeight * collapsedVH) / 100;
-    setCollapsedPx(px);
+    const updateCollapsed = () => {
+      const vh = getViewportHeight();
+      setCollapsedPx((vh * collapsedVH) / 100);
+    };
+    updateCollapsed();
+
+    window.visualViewport?.addEventListener("resize", updateCollapsed);
+    window.addEventListener("resize", updateCollapsed);
+    return () => {
+      window.visualViewport?.removeEventListener("resize", updateCollapsed);
+      window.removeEventListener("resize", updateCollapsed);
+    };
   }, []);
 
   // 2) Abrir/colapsar/expandir según location + origin
   useEffect(() => {
     let nextState;
-    if (!location) nextState = "closed";
+    if (!location)           nextState = "closed";
     else if (origin === "list") nextState = "expanded";
-    else nextState = "collapsed";
+    else                      nextState = "collapsed";
     setSheetState(nextState);
   }, [location, origin]);
 
   // 3) Cuando entramos en expanded, medimos contenido
   useEffect(() => {
     if (sheetState === "expanded" && containerRef.current) {
+      // forzar auto height para medir scrollHeight
       containerRef.current.style.height = "auto";
       const measured = containerRef.current.scrollHeight;
       setExpandedPx(measured);
+      // volver al valor animado
       containerRef.current.style.height = `${height.get()}px`;
     }
   }, [sheetState, location]);
@@ -46,9 +62,14 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   // 4) Animamos la altura según sheetState
   useEffect(() => {
     let target;
-    if (sheetState === "closed")         target = 0;
-    else if (sheetState === "collapsed") target = collapsedPx;
-    else                                 target = expandedPx || (window.innerHeight * maxVH) / 100;
+    if (sheetState === "closed") {
+      target = 0;
+    } else if (sheetState === "collapsed") {
+      target = collapsedPx;
+    } else {
+      // expanded: si no hay expandedPx medido, usamos maxVH%dvh
+      target = expandedPx || (getViewportHeight() * maxVH) / 100;
+    }
     animate(height, target, { duration: 0.4, ease: "easeInOut" });
   }, [sheetState, collapsedPx, expandedPx]);
 
@@ -74,7 +95,11 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
 
   // 6) Detectar “pull down” en contenido al tope
   const handleWheel = (e) => {
-    if (sheetState === "expanded" && scrollRef.current?.scrollTop === 0 && e.deltaY < 0) {
+    if (
+      sheetState === "expanded" &&
+      scrollRef.current?.scrollTop === 0 &&
+      e.deltaY < 0
+    ) {
       setSheetState("collapsed");
     }
   };
@@ -83,7 +108,11 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   };
   const handleTouchMove = (e) => {
     const diff = e.touches[0].clientY - touchStartYRef.current;
-    if (sheetState === "expanded" && scrollRef.current?.scrollTop === 0 && diff > DRAG_THRESHOLD) {
+    if (
+      sheetState === "expanded" &&
+      scrollRef.current?.scrollTop === 0 &&
+      diff > DRAG_THRESHOLD
+    ) {
       setSheetState("collapsed");
     }
   };
@@ -91,16 +120,23 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   if (!location) return null;
 
   // parse contactos/emails
-  const contacts = location.contacts?.split(",").map(c => c.trim()) || [];
-  const emails   = location.emails?.split(",").map(e => e.trim()) || [];
-  const contactEmailPairs = contacts.map((c, i) => ({ contact: c, email: emails[i] || "" }));
+  const contacts = location.contacts?.split(",").map((c) => c.trim()) || [];
+  const emails = location.emails?.split(",").map((e) => e.trim()) || [];
+  const contactEmailPairs = contacts.map((c, i) => ({
+    contact: c,
+    email: emails[i] || "",
+  }));
 
   return (
     <AnimatePresence>
       <motion.div
         ref={containerRef}
         initial={false}
-        style={{ height, overflow: "hidden", maxHeight: `${maxVH}vh` }}
+        style={{
+          height,
+          overflow: "hidden",
+          maxHeight: `${maxVH}dvh`,
+        }}
         className="absolute bottom-0 left-0 w-full bg-white shadow-lg border-t rounded-t-2xl z-50"
         drag="y"
         dragControls={dragControls}
@@ -158,9 +194,10 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           className={`
-            ${sheetState === "expanded"
-              ? "overflow-y-auto overscroll-y-contain"
-              : "overflow-hidden"
+            ${
+              sheetState === "expanded"
+                ? "overflow-y-auto overscroll-y-contain"
+                : "overflow-hidden"
             } pb-14
           `}
           style={{
@@ -179,7 +216,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
             <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
               ABOUT
             </span>
-            <p className="text-gray-700 whitespace-pre-line text-sm">
+            <p className="text-gray-700 whitespace-pre-line text-sm select-none">
               {location.description}
             </p>
           </div>
