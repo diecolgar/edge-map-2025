@@ -116,7 +116,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
 
         {/* HANDLE: zona superior donde activamos el drag */}
         <div
-          onPointerDown={e => dragControls.start(e)}
+          onPointerDown={(e) => dragControls.start(e)}
           className="px-6 pt-6 pb-2 cursor-grab"
         >
           <div className="flex justify-between items-center">
@@ -151,7 +151,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           )}
         </div>
 
-        {/* CONTENIDO (scrollable) sin rebote y con pan-y habilitado */}
+        {/* CONTENIDO (scrollable) */}
         <div
           ref={scrollRef}
           onWheel={handleWheel}
@@ -159,15 +159,15 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           onTouchMove={handleTouchMove}
           className={`
             ${sheetState === "expanded"
-              ? "overflow-y-auto overscroll-none"
-              : "overflow-hidden"
-            } pb-14 select-none
+              ? "overflow-y-auto overscroll-y-contain select-text"
+              : "overflow-hidden select-none"
+            } pb-14
           `}
           style={{
             height: "calc(100% - 56px)",
-            overscrollBehavior: "none",       // bloquea el rebote
-            WebkitOverflowScrolling: "auto",  // desactiva momentum en iOS
-            touchAction: "pan-y",             // permite scroll al deslizar sobre texto
+            overscrollBehavior: "contain",       // permite scroll interno y bloquea rebote externo
+            WebkitOverflowScrolling: "touch",    // momentum en iOS
+            touchAction: "pan-y",                // deja pasar gestures de scroll
           }}
         >
           {/* Subtitle/tagline en zona scrolleable */}
