@@ -161,7 +161,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
             ${sheetState === "expanded"
               ? "overflow-y-auto overscroll-none"
               : "overflow-hidden"
-            } pb-14
+            } pb-14 select-none
           `}
           style={{
             height: "calc(100% - 56px)",

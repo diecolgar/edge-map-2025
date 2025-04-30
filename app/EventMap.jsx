@@ -186,7 +186,7 @@ const EventMap = () => {
       <div className="w-full max-w-[800px] h-dvh relative overflow-hidden">
         <TopBar searchQuery={searchQuery} onSearch={setSearchQuery} />
         {/* MAP VIEW */}
-        <div className={`absolute inset-0 transition-opacity duration-300 ${activeView === "map" ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+        <div className={`absolute inset-0 transition-opacity duration-300 ${activeView === "map" ? "opacity-100 z-10" : "opacity-0 pointer-events-none z-0"}`}>
           <MapContainer crs={CRS.Simple} style={{ width: "100%", height: "100%", zIndex: 10 }} maxZoom={2}>
             <FitToViewport bounds={bounds} />
             <ZoomListener setZoomLevel={setZoomLevel} />
