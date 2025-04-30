@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, AnimatePresence, useMotionValue, animate, useDragControls } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { X } from "lucide-react";
@@ -29,7 +31,6 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
       setCollapsedPx((vh * collapsedVH) / 100);
     };
     updateCollapsed();
-
     window.visualViewport?.addEventListener("resize", updateCollapsed);
     window.addEventListener("resize", updateCollapsed);
     return () => {
@@ -41,20 +42,18 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   // 2) Abrir/colapsar/expandir según location + origin
   useEffect(() => {
     let nextState;
-    if (!location)           nextState = "closed";
+    if (!location) nextState = "closed";
     else if (origin === "list") nextState = "expanded";
-    else                      nextState = "collapsed";
+    else nextState = "collapsed";
     setSheetState(nextState);
   }, [location, origin]);
 
   // 3) Cuando entramos en expanded, medimos contenido
   useEffect(() => {
     if (sheetState === "expanded" && containerRef.current) {
-      // forzar auto height para medir scrollHeight
       containerRef.current.style.height = "auto";
       const measured = containerRef.current.scrollHeight;
       setExpandedPx(measured);
-      // volver al valor animado
       containerRef.current.style.height = `${height.get()}px`;
     }
   }, [sheetState, location]);
@@ -67,7 +66,6 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
     } else if (sheetState === "collapsed") {
       target = collapsedPx;
     } else {
-      // expanded: si no hay expandedPx medido, usamos maxVH%dvh
       target = expandedPx || (getViewportHeight() * maxVH) / 100;
     }
     animate(height, target, { duration: 0.4, ease: "easeInOut" });
@@ -93,7 +91,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
     }
   };
 
-  // 6) Detectar “pull down” en contenido al tope
+  // 6) Pull-down para colapsar desde top de scroll
   const handleWheel = (e) => {
     if (
       sheetState === "expanded" &&
@@ -187,24 +185,20 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           )}
         </div>
 
-        {/* CONTENIDO (scrollable) */}
+        {/* CONTENIDO (siempre scrollable) */}
         <div
           ref={scrollRef}
           onWheel={handleWheel}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          className={`
-            ${
-              sheetState === "expanded"
-                ? "overflow-y-auto overscroll-y-contain"
-                : "overflow-hidden"
-            } pb-14
-          `}
+          className="overflow-y-auto overscroll-y-contain pb-14 select-none"
           style={{
             height: "calc(100% - 56px)",
+            WebkitOverflowScrolling: "touch",
+            touchAction: "pan-y",
           }}
         >
-          {/* Subtitle/tagline en zona scrolleable */}
+          {/* Subtitle/tagline */}
           {location.subtitle && (
             <p className="text-base text-gray-500 mb-4 italic px-6">
               {location.subtitle}
