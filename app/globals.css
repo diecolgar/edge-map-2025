@@ -102,3 +102,7 @@ body {
   overflow: hidden; /* Opcional si usas full-screen layout */
 }
 
+.leaflet-marker-icon {
+  z-index: 10 !important;
+}
+

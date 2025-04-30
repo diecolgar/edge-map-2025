@@ -43,7 +43,7 @@ const BoothList = ({ booths, onSelect }) => {
   }, [grouped, openSections]);
 
   return (
-    <div className="overflow-y-auto bg-edgeBackground max-h-full pb-14 pt-16 z-20">
+    <div className="overflow-y-auto flex flex-col bg-edgeBackground max-h-full pb-14 pt-16 z-20">
       <div className="flex flex-col gap-2 px-6 py-4">
         <h2 className="text-edgeText font-semibold uppercase text-sm tracking-wide">
           <span className="font-bold">ALL</span>{" "}
