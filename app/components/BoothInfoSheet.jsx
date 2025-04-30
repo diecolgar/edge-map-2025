@@ -217,7 +217,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
 
           {/* CONTACTS */}
           {contactEmailPairs.length > 0 && (
-            <div className="bg-edgeText px-6 pt-6 pb-20 space-y-2">
+            <div className="bg-edgeText px-6 pt-6 pb-28 space-y-2">
               <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
                 CONTACTS
               </span>
