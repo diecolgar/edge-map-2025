@@ -159,8 +159,8 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           onTouchMove={handleTouchMove}
           className={`
             ${sheetState === "expanded"
-              ? "overflow-y-auto overscroll-y-contain select-text"
-              : "overflow-hidden select-none"
+              ? "overflow-y-auto overscroll-y-contain"
+              : "overflow-hidden"
             } pb-14
           `}
           style={{
