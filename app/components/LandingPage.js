@@ -17,8 +17,6 @@ const LandingPage = ({ onClose }) => {
         backgroundPosition: 'center',
       }}
     >
-      {/* Logo */}
-
       <div className="flex flex-col justify-between h-full mt-8">
         <div className="h-full"></div>
         <div className="h-full flex flex-col items-center justify-center">
@@ -27,7 +25,6 @@ const LandingPage = ({ onClose }) => {
             alt="Edge Logo"
             className="w-auto h-12 mb-2"
           />
-
           <p className="text-white text-lg mt-2">
             May 28, 2025&nbsp;|&nbsp;Vienna
           </p>
@@ -36,14 +33,11 @@ const LandingPage = ({ onClose }) => {
           <h2 className="text-white text-2xl font-extrabold uppercase text-center mt-8">
             Explore, Discover, Grow, Experience
           </h2>
-
           <p className="text-white text-base mt-2">
             From Innovation to Impact
           </p>
         </div>
       </div>
-
-
     </motion.div>
   );
 };
