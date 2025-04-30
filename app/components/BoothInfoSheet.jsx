@@ -151,7 +151,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
         {/* HANDLE: zona superior donde activamos el drag */}
         <div
           onPointerDown={(e) => dragControls.start(e)}
-          className="px-6 pt-6 pb-2 cursor-grab"
+          className="px-6 pt-6 pb-0 cursor-grab"
         >
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
@@ -178,11 +178,6 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           <h2 className="text-xl font-bold mt-2 mb-2 text-edgeText">
             {location.name}
           </h2>
-          {location.partner === "Y" && (
-            <span className="inline-block bg-edgeBackground text-edgeText text-xs font-semibold px-4 py-2 rounded-full">
-              Technology Leaders &amp; Partners
-            </span>
-          )}
         </div>
 
         {/* CONTENIDO (siempre scrollable) */}
@@ -203,6 +198,12 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
             <p className="text-base text-gray-500 mb-4 italic px-6">
               {location.subtitle}
             </p>
+          )}
+
+          {location.partner === "Y" && (
+            <span className="inline-block bg-edgeBackground mb-4 ml-6 text-edgeText text-xs font-semibold px-4 py-2 rounded-full">
+              Technology Leaders &amp; Partners
+            </span>
           )}
 
           {/* ABOUT */}
