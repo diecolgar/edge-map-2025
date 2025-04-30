@@ -13,7 +13,7 @@ const TopBar = ({ searchQuery, onSearch, onFilterClick }) => {
       {/* TopBar */}
       <div
         className="
-          absolute top-0 left-0 w-full z-[1000]
+          absolute top-0 left-0 w-full z-[500]
           bg-[#F1EEEA]/10 backdrop-blur
           px-6 py-2 shadow-md
           h-16 flex items-center
