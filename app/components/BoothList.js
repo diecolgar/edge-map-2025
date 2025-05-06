@@ -31,7 +31,9 @@ const BoothList = ({ booths, onSelect }) => {
       acc[neighbourhood].push(booth);
       return acc;
     }, {});
-    shuffledGroupsRef.current = Object.entries(group).sort(() => 0.5 - Math.random());
+    shuffledGroupsRef.current = Object.entries(group).sort((a, b) =>
+      a[0].localeCompare(b[0])
+    );    
   }
 
   const grouped = shuffledGroupsRef.current;

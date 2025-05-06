@@ -113,6 +113,7 @@ const EventMap = () => {
   const [showLanding, setShowLanding] = useState(true);
   const [activeView, setActiveView] = useState("map");
   const [bounds, setBounds] = useState(null);
+  const [expandedBounds, setExpandedBounds] = useState(null);
   const [scaleFactor, setScaleFactor] = useState(1);
   const [zoomLevel, setZoomLevel] = useState(0);
 
@@ -143,9 +144,11 @@ const EventMap = () => {
   useEffect(() => {
     const update = () => {
       if (typeof window === "undefined") return;
+  
       const vw = window.innerWidth;
       const vh = window.innerHeight;
       let w, h;
+  
       if (vw / vh > aspect) {
         h = vh;
         w = h * aspect;
@@ -153,14 +156,28 @@ const EventMap = () => {
         w = vw;
         h = w / aspect;
       }
+  
       const sf = Math.min(w / original.width, h / original.height);
       setScaleFactor(sf);
-      setBounds(new LatLngBounds([0, 0], [h, w]));
+  
+      // Bounds exactos para el mapa
+      const imageBounds = new LatLngBounds([0, 0], [h, w]);
+      setBounds(imageBounds);
+  
+      // Bounds ampliados para pan
+      const margin = 0.25; // 25% extra
+      const expandedBounds = new LatLngBounds(
+        [-h * margin, -w * margin],
+        [h * (1 + margin), w * (1 + margin)]
+      );
+      setExpandedBounds(expandedBounds);
     };
+  
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, [aspect]);
+  
 
   useEffect(() => {
     if (!bounds) return;
@@ -240,11 +257,14 @@ const EventMap = () => {
               : "opacity-0 pointer-events-none z-0"
           }`}
         >
-          <MapContainer
-            crs={CRS.Simple}
-            style={{ width: "100%", height: "100%", zIndex: 10 }}
-            maxZoom={2}
-          >
+<MapContainer
+  crs={CRS.Simple}
+  style={{ width: "100%", height: "100%", zIndex: 10 }}
+  maxZoom={2}
+  maxBounds={expandedBounds}
+  maxBoundsViscosity={1.0}
+>
+
             <FitToViewport bounds={bounds} />
             <ZoomListener setZoomLevel={setZoomLevel} />
 
