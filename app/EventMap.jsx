@@ -55,17 +55,23 @@ const FocusOnLocation = ({ position }) => {
   return null;
 };
 
-// Genera el icono para los booths
-const renderBoothIcon = (id) => {
+// Icono de booth con título visible según zoom
+const renderBoothIcon = (id, name, zoomLevel) => {
+  const showTitle = zoomLevel >= 2;
+  const shortName = name.length > 25 ? name.slice(0, 25) + "…" : name;
+
   const html = `
     <div style="
       position: relative;
-      width: 40px;
-      height: 40px;
+      width: auto;
+      min-width: 60px;
+      max-width: 100px;
+      height: auto;
+      border-radius: 4px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      transform: translate(-45%, -40%);
       font-family: 'BCGHenSans';
       font-weight: 700;
     ">
@@ -75,12 +81,26 @@ const renderBoothIcon = (id) => {
         color: #fff;
         pointer-events: none;
       ">${id.toUpperCase()}</div>
+
+      <div style="
+        min-width: 120px;
+        font-size: 10px;
+        font-weight: bold;
+        color: #FFF;
+        pointer-events: none;
+        text-align: center;
+        line-height: 1.1;
+        transition: opacity 0.3s ease;
+        opacity: ${showTitle ? 1 : 0};
+        height: 1em;
+      ">${shortName}</div>
     </div>
   `;
+
   return divIcon({
     html,
-    iconSize: [40, 40],
-    iconAnchor: [1, 1],
+    iconSize: [60, 60],
+    iconAnchor: [30, 10], // Centrado
     className: "custom-icon",
   });
 };
@@ -90,9 +110,7 @@ const EventMap = () => {
   const original = { width: 2560, height: 6064 };
   const aspect = original.width / original.height;
 
-  // Estado para mostrar LandingPage
   const [showLanding, setShowLanding] = useState(true);
-
   const [activeView, setActiveView] = useState("map");
   const [bounds, setBounds] = useState(null);
   const [scaleFactor, setScaleFactor] = useState(1);
@@ -111,7 +129,6 @@ const EventMap = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [youAreHere, setYouAreHere] = useState(null);
 
-  // Carga datos de booths y servicios
   useEffect(() => {
     fetch("/locations.json")
       .then((res) => res.json())
@@ -123,7 +140,6 @@ const EventMap = () => {
       .catch(console.error);
   }, []);
 
-  // Calcula bounds y scale factor según tamaño de ventana
   useEffect(() => {
     const update = () => {
       if (typeof window === "undefined") return;
@@ -146,7 +162,6 @@ const EventMap = () => {
     return () => window.removeEventListener("resize", update);
   }, [aspect]);
 
-  // Maneja parámetro ?x & ?y para mostrar "You Are Here"
   useEffect(() => {
     if (!bounds) return;
     const params = new URLSearchParams(window.location.search);
@@ -160,7 +175,6 @@ const EventMap = () => {
     }
   }, [bounds, scaleFactor]);
 
-  // Escala y prepara locations
   useEffect(() => {
     if (!bounds || !locations.length) return;
     const arr = locations.map((loc) => ({
@@ -177,7 +191,6 @@ const EventMap = () => {
     setFilteredLocations(arr);
   }, [bounds, locations, scaleFactor]);
 
-  // Filtra por búsqueda
   useEffect(() => {
     setFilteredLocations(
       scaledLocations.filter((loc) =>
@@ -186,7 +199,6 @@ const EventMap = () => {
     );
   }, [searchQuery, scaledLocations]);
 
-  // Escala servicios
   useEffect(() => {
     if (!bounds || !services.length) return;
     setScaledServices(
@@ -200,7 +212,6 @@ const EventMap = () => {
     );
   }, [bounds, services, scaleFactor]);
 
-  // Icono para "You Are Here"
   const youAreHereIcon = divIcon({
     html: `
 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
@@ -213,19 +224,15 @@ const EventMap = () => {
     iconAnchor: [16, 16],
   });
 
-  // Si la landing sigue activa, sólo mostramos ella
   if (showLanding) {
     return <LandingPage onClose={() => setShowLanding(false)} />;
   }
 
-  // Una vez cerrada la landing, montamos el resto de la app
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-[800px] h-dvh relative overflow-hidden">
-        {/* TopBar */}
         <TopBar searchQuery={searchQuery} onSearch={setSearchQuery} />
 
-        {/* MAP VIEW */}
         <div
           className={`absolute inset-0 transition-opacity duration-300 ${
             activeView === "map"
@@ -262,13 +269,12 @@ const EventMap = () => {
               />
             )}
 
-            {/* Booth markers */}
             {zoomLevel >= 1 &&
               filteredLocations.map((loc) => (
                 <Marker
                   key={loc.boothId}
                   position={loc.position}
-                  icon={renderBoothIcon(loc.boothId)}
+                  icon={renderBoothIcon(loc.boothId, loc.name, zoomLevel)}
                   eventHandlers={{
                     click: () => {
                       setSelectedService(null);
@@ -279,7 +285,6 @@ const EventMap = () => {
                 />
               ))}
 
-            {/* Service markers */}
             {zoomLevel >= 1 &&
               scaledServices.map((svc) => {
                 const icon =
@@ -337,7 +342,6 @@ const EventMap = () => {
                 );
               })}
 
-            {/* "You Are Here" */}
             {youAreHere && (
               <Marker
                 position={youAreHere}
@@ -346,7 +350,6 @@ const EventMap = () => {
               />
             )}
 
-            {/* Centrar en selección */}
             {(selectedLocation || selectedService) && (
               <FocusOnLocation
                 position={(selectedLocation || selectedService).position}
@@ -355,14 +358,12 @@ const EventMap = () => {
           </MapContainer>
         </div>
 
-        {/* LIST VIEW */}
         {activeView === "list" && (
           <BoothList
             booths={filteredLocations}
             onSelect={(item) => {
               setSelectedLocation(null);
               setSelectedService(null);
-
               if (typeof item === "string") {
                 const svc = services.find((s) => s.boothId === item);
                 if (svc) setSelectedService(svc);
@@ -376,7 +377,6 @@ const EventMap = () => {
           />
         )}
 
-        {/* BottomBar */}
         <BottomBar
           activeView={activeView}
           onChangeView={(view) => {
@@ -388,7 +388,6 @@ const EventMap = () => {
           }}
         />
 
-        {/* Info Sheets */}
         <BoothInfoSheet
           location={selectedLocation}
           origin={locationOrigin}
