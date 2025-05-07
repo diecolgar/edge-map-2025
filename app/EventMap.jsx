@@ -82,7 +82,7 @@ const renderBoothIcon = (id, name, zoomLevel) => {
 
       <div style="
         min-width: 120px;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: bold;
         color: #FFF;
         pointer-events: none;

@@ -25,6 +25,8 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
   const [sheetState, setSheetState] = useState("closed");
   const [expandedPx, setExpandedPx] = useState(0);
   const [collapsedPx, setCollapsedPx] = useState(0);
+  const [agenda, setAgenda] = useState([]);
+  const [openIndex, setOpenIndex] = useState(null);
 
   const getViewportHeight = () =>
     window.visualViewport?.height ?? window.innerHeight;
@@ -71,6 +73,13 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
     }
     animate(height, target, { duration: 0.4, ease: "easeInOut" });
   }, [sheetState, collapsedPx, expandedPx]);
+
+  useEffect(() => {
+    fetch("/agenda.json")
+      .then((res) => res.json())
+      .then(setAgenda)
+      .catch(console.error);
+  }, []);
 
   const onDragStart = () => {
     startHeightRef.current = height.get();
@@ -132,7 +141,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
           overflow: "hidden",
           maxHeight: `${maxVH}dvh`,
         }}
-        className="absolute bottom-0 left-0 w-full bg-white shadow-lg border-t rounded-t-2xl z-50"
+        className="absolute bottom-0 left-0 w-full bg-edgeText shadow-lg border-t rounded-t-2xl z-50"
         drag="y"
         dragControls={dragControls}
         dragListener={false}
@@ -142,19 +151,26 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
         onDragEnd={onDragEnd}
         exit={{ height: 0 }}
       >
+        {/* Barrita visual */}
+        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-300 rounded-full" />
+
         {/* HANDLE */}
         <div
           onPointerDown={(e) => dragControls.start(e)}
-          className="px-6 pt-6 pb-0 cursor-grab"
+          className="px-6 pt-6 pb-4 cursor-grab"
         >
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold text-edgeText">Micro Theatre</h2>
+          <div className="flex items-center gap-2 text-[#989898] font-bold uppercase">
+            <img src="/services/theatre.svg" alt="Micro-Theatre Icon" className="w-5 h-5" />
+            Micro-Theater
+          </div>
+
             <button
               onClick={() => {
                 setSheetState("closed");
                 setTimeout(onClose, 400);
               }}
-              className="flex items-center justify-center rounded-full bg-edgeText w-8 h-8 hover:bg-gray-600"
+              className="flex items-center justify-center rounded-full bg-edgeText w-8 h-8 border border-gray-600 hover:bg-gray-600"
               aria-label="Close"
             >
               <X size={16} color="white" />
@@ -162,13 +178,13 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
           </div>
         </div>
 
-        {/* CONTENIDO */}
+        {/* CONTENT */}
         <div
           ref={scrollRef}
           onWheel={handleWheel}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          className={`relative px-6 pb-20 pt-4 text-sm text-gray-700 ${
+          className={`relative pb-20 pt-4 text-sm text-gray-700 ${
             disableScroll ? "overflow-hidden" : "overflow-y-auto"
           }`}
           style={{
@@ -177,95 +193,120 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
             touchAction: "pan-y",
           }}
         >
-          <div className="flex flex-col gap-6">
-            <div>
-              <h3 className="text-xl font-bold text-edgeText">
-                Booth Title, 60 characters max, lorem ipsum dolor sit am
+          <div className="flex flex-col">
+            {/* Header */}
+            <div className="px-6 pb-6 pt-2 flex flex-col gap-4">
+              <h3 className="text-2xl font-bold text-white">
+                Micro-Theater Agenda
               </h3>
-              <p className="text-gray-500 italic mt-1">
-                Booth Tagline, 80 characters max, lorem ipsum dolor sit amet,
-                consectetu
+              <p className="text-gray-300 italic">
+                10-minute talks on our centrally located micro-theater stage
               </p>
             </div>
 
-            <div>
-              <h4 className="text-sm font-bold text-edgeText uppercase mb-2">
-                Agenda
-              </h4>
+            <div className="bg-white px-6 py-6 pb-2 space-y-1">
+              <p className="uppercase text-gray-400 font-bold text-sm">Agenda</p>
+              <p className="text-sm text-edgeText">
+                <span className="font-semibold">Wednesday, May 28</span> | 12:30pm – 3:00pm
+              </p>
+              <p className="text-sm text-gray-500">
+                10-minute talks on our centrally located micro-theater stage
+              </p>
+            </div>
 
-              <div className="space-y-6">
-                <div>
-                  <p className="text-edgeGreen font-semibold text-sm">
-                    00:00 PM
-                  </p>
-                  <h5 className="font-bold mt-1">Talk Title</h5>
-                  <p className="text-sm text-gray-700 mb-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Expo lorem ipsum dolor sit amet.
-                  </p>
-                  <div className="flex flex-col gap-2">
-                    {[1, 2, 3].map((i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-2 bg-white rounded-full shadow px-3 py-1 w-max"
-                      >
-                        <img
-                          src="/speaker-placeholder.jpg"
-                          alt="Speaker"
-                          className="w-6 h-6 rounded-full"
-                        />
-                        <p className="text-sm text-edgeText">
-                          <span className="font-semibold">Name Surname</span>,
-                          Role, Company
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
 
-                <div className="border-t pt-4">
-                  <p className="text-edgeGreen font-bold uppercase text-sm">
-                    30-Minute Break
-                  </p>
-                </div>
+            {/* Agenda */}
+            <div className="bg-white py-4 divide-y divide-gray-200">
+            {agenda.map((item, index) => {
+  const isBreak = item.type === "break";
+  const isOpen = openIndex === index;
 
-                <div>
-                  <p className="text-edgeGreen font-semibold text-sm">
-                    00:00 PM
-                  </p>
-                  <h5 className="font-bold mt-1">Talk Title</h5>
-                  <p className="text-sm text-gray-700 mb-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Expo lorem ipsum dolor sit amet.
-                  </p>
-                  <div className="flex flex-col gap-2">
-                    {[1, 2].map((i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-2 bg-white rounded-full shadow px-3 py-1 w-max"
-                      >
-                        <img
-                          src="/speaker-placeholder.jpg"
-                          alt="Speaker"
-                          className="w-6 h-6 rounded-full"
-                        />
-                        <p className="text-sm text-edgeText">
-                          <span className="font-semibold">Name Surname</span>,
-                          Role, Company
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+  return (
+    <div key={index}>
+      {isBreak ? (
+        <div className="bg-[#F3F0EB]">
+          <p className="text-edgeGreen font-bold text-sm px-6 py-2">
+            {item.title.toUpperCase()}
+          </p>
+        </div>
 
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="border-t pt-4">
-                    <p className="text-edgeGreen font-semibold text-sm">
-                      00:00 PM
-                    </p>
-                  </div>
-                ))}
+      ) : (
+        <>
+          {/* Header */}
+          <button
+            onClick={() => setOpenIndex((prev) => (prev === index ? null : index))}
+            className="w-full text-left"
+          >
+            <div className="flex items-start justify-between gap-2 py-4 px-6">
+              <div>
+                <p className="text-edgeGreen font-semibold text-sm">{item.time}</p>
+                <h5 className="font-bold text-sm mt-1">{item.title}</h5>
               </div>
+              <motion.div
+                animate={{ rotate: isOpen ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+                className="text-edgeGreen mt-1"
+              >
+                <svg
+                  width="14"
+                  height="9"
+                  viewBox="0 0 14 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.5 1.75L7 7.25L12.5 1.75"
+                    stroke="#21BF61"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </motion.div>
+            </div>
+          </button>
+
+          {/* Content */}
+          <AnimatePresence initial={false}>
+            {isOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden space-y-2"
+              >
+                {item.subtitle && (
+                  <p className="text-sm text-gray-700 italic px-6">
+                    {item.subtitle}
+                  </p>
+                )}
+                <div className="flex flex-col gap-2 mt-2 mb-4 px-6 pb-6">
+                  {item.speakers.map((speaker, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-2 bg-white rounded-full shadow px-3 py-1 w-max"
+                    >
+                      <img
+                        src="/speaker-placeholder.jpg"
+                        alt={speaker}
+                        className="w-6 h-6 rounded-full"
+                      />
+                      <p className="text-sm text-edgeText font-medium">
+                        {speaker}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
+      )}
+    </div>
+  );
+})}
+
             </div>
           </div>
         </div>
@@ -282,7 +323,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
               className="absolute bottom-0 left-0 w-full h-40 pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(to top, #fff 60%, rgba(255, 255, 255, 0))",
+                  "linear-gradient(to top, #323232 60%, rgba(23, 23, 23, 0))",
               }}
             />
           )}

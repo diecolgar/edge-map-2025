@@ -2,8 +2,28 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const BoothList = ({ booths, onSelect, isSearching = false }) => {
+const BoothList = ({ booths, onSelect, isSearching = false, searchQuery = "" }) => {
   const [openSections, setOpenSections] = useState({});
+
+  const theatreKeywords = [
+    "theatre",
+    "micro",
+    "talk",
+    "session",
+    "stage",
+    "agenda",
+    "mt001",
+  ];
+
+  const normalizeText = (str) =>
+    str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^\w\s]/g, "")
+      .trim();
+
+  const normalizedSearch = normalizeText(searchQuery);
 
   const toggleSection = (key) => {
     setOpenSections((prev) => ({
@@ -45,16 +65,24 @@ const BoothList = ({ booths, onSelect, isSearching = false }) => {
 
   return (
     <div className="overflow-y-auto relative flex flex-col bg-edgeBackground max-h-full pb-14 pt-16 z-20">
-      <div className="flex flex-col gap-2 px-6 py-4">
-        <h2 className="text-edgeText font-semibold uppercase text-sm tracking-wide">
-          <span className="font-bold">ALL</span>{" "}
-          <span className="normal-case font-normal">{booths.length}</span>{" "}
-          <span className="font-normal"> booths </span>
-        </h2>
-        <p className="text-sm text-edgeTextSecondary">
-          View all available booths.<br />Search or filter to find what interests you.
-        </p>
-      </div>
+      {!isSearching && (
+        <div className="flex flex-col gap-2 px-6 py-4">
+          <h2 className="text-edgeText font-semibold uppercase text-sm tracking-wide">
+            <span className="font-bold">ALL</span>{" "}
+            <span className="normal-case font-normal">{booths.length}</span>{" "}
+            <span className="font-normal"> booths </span>
+          </h2>
+          <p className="text-sm text-edgeTextSecondary">
+            View all available booths.<br />Search or filter to find what interests you.
+          </p>
+        </div>
+      )}
+
+      {isSearching && grouped.length === 0 && (
+        <div className="px-6 py-8 text-center text-edgeTextSecondary">
+          <p className="text-sm italic">No booths match your search.</p>
+        </div>
+      )}
 
       {grouped.map(([neighbourhood, groupBooths]) => {
         const style = neighbourhoodStyles[neighbourhood] || {
@@ -84,14 +112,15 @@ const BoothList = ({ booths, onSelect, isSearching = false }) => {
                   <path d="M6 9l6 6 6-6" />
                 </svg>
                 <span className="relative w-full text-white text-left font-semibold flex items-center gap-1 pr-4">
-                  <span className="italic font-light">Future of&nbsp; <span className="font-bold">{style.label}</span> </span>
+                  <span className="italic font-light">
+                    Future of&nbsp;<span className="font-bold">{style.label}</span>
+                  </span>
                   {isSearching && (
                     <span className="absolute right-0 flex items-center justify-center ml-1 text-xs font-bold text-edgeText bg-white w-5 h-5 rounded-full">
                       {groupBooths.length}
                     </span>
-                    )}
+                  )}
                 </span>
-
               </button>
 
               <AnimatePresence initial={false}>
@@ -169,6 +198,7 @@ const BoothList = ({ booths, onSelect, isSearching = false }) => {
         );
       })}
 
+      {/* Amplify Impact */}
       {amplifyImpactBooth && (
         <div className="last:border-none">
           <div className="bg-[#34A853]">
@@ -219,53 +249,55 @@ const BoothList = ({ booths, onSelect, isSearching = false }) => {
       )}
 
       {/* Micro Theatre */}
-      <div className="last:border-none">
-        <div className="bg-edgeText">
-          <div className="w-full flex items-start gap-3 px-6 py-4 text-white font-semibold">
-            <span className="text-white text-left font-semibold">Micro Theatre</span>
-          </div>
-          <div className="flex gap-4 overflow-x-auto px-6 pb-4 scrollbar-hide">
-            <div
-              onClick={() => onSelect("th")}
-              className="flex flex-col justify-between min-w-[200px] bg-edgeText rounded-xl shadow p-4 border border-edgeBorder cursor-pointer hover:shadow-md transition"
-            >
-              <div className="flex flex-col">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <img
-                      src="/services/theatre.svg"
-                      alt="Micro Theatre Icon"
-                      className="w-5 h-5"
-                    />
-                    <span className="text-sm font-bold text-white">MT-001</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-edgeGreen text-sm font-bold">
-                    <span>See details</span>
-                    <svg
-                      width="6"
-                      height="12"
-                      viewBox="0 0 6 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.75 10.5L5.25 6L0.75 1.5"
-                        stroke="#21BF61"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+      {(!isSearching || theatreKeywords.some((kw) => normalizedSearch.includes(kw))) && (
+        <div className="last:border-none">
+          <div className="bg-edgeText">
+            <div className="w-full flex items-start gap-3 px-6 py-4 text-white font-semibold">
+              <span className="text-white text-left font-semibold">Micro Theatre</span>
+            </div>
+            <div className="flex gap-4 overflow-x-auto px-6 pb-4 scrollbar-hide">
+              <div
+                onClick={() => onSelect("th")}
+                className="flex flex-col justify-between min-w-[200px] bg-edgeText rounded-xl shadow p-4 border border-edgeBorder cursor-pointer hover:shadow-md transition"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <img
+                        src="/services/theatre.svg"
+                        alt="Micro Theatre Icon"
+                        className="w-5 h-5"
                       />
-                    </svg>
+                      <span className="text-sm font-bold text-white">MT-001</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-edgeGreen text-sm font-bold">
+                      <span>See details</span>
+                      <svg
+                        width="6"
+                        height="12"
+                        viewBox="0 0 6 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.75 10.5L5.25 6L0.75 1.5"
+                          stroke="#21BF61"
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
                   </div>
+                  <h3 className="text-base font-semibold text-white">
+                    Booth Title, 60 characters max, lorem ipsum dolor sit am
+                  </h3>
                 </div>
-                <h3 className="text-base font-semibold text-white">
-                  Booth Title, 60 characters max, lorem ipsum dolor sit am
-                </h3>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

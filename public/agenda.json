@@ -1,0 +1,82 @@
+[
+    {
+      "time": "12:30 PM",
+      "title": "Cracking the AI Code: What Winners do Differently",
+      "subtitle": "A playbook to flip the 4% odds of success in your favor.",
+      "speakers": ["Mary Martin"]
+    },
+    {
+      "time": "12:40 PM",
+      "title": "The Bionic Technician: How XR Revolutionizes the Shopfloor",
+      "subtitle": "Driving efficiency by empowering workers with AI-enabled XR.",
+      "speakers": ["Tibor Merey"]
+    },
+    {
+      "time": "12:50 PM",
+      "title": "Ready to Work with Your AI Agent Colleagues?",
+      "subtitle": "Meet the autonomous agents driving total transformation.",
+      "speakers": ["Matthew Kropp"]
+    },
+    {
+      "time": "1:00 PM",
+      "title": "Like, the Button That Changed the World",
+      "subtitle": "How innovation and regulation really work.",
+      "speakers": ["Martin Reeves"]
+    },
+    {
+      "time": "1:10 PM",
+      "title": "K-pop, Tech & Asia’s Big World Influence",
+      "subtitle": "Asia’s Culture and Tech Boom Is Rewriting the Global Playbook.",
+      "speakers": ["Neeraj Aggarwal"]
+    },
+    {
+      "time": "1:20 PM",
+      "title": "AI’s New Rules for Sales",
+      "subtitle": "AI is shaking up sales: New rules, big shifts, bold moves. Smart leaders lead fast.",
+      "speakers": ["Phillip Andersen", "Basir Mustaghni"]
+    },
+    {
+        "time": "1:30 PM",
+        "title": "30-minute break",
+        "type": "break",
+        "subtitle": "",
+        "speakers": []
+    },
+    {
+      "time": "2:00 PM",
+      "title": "10 Forces Shaping Global Business in 2025",
+      "subtitle": "Why companies need to build geopolitical muscle.",
+      "speakers": ["Marc Gilbert", "Geraldine Rhodes"]
+    },
+    {
+      "time": "2:10 PM",
+      "title": "The Geopolitics of AI: Who Will Shape the Future?",
+      "subtitle": "Navigating a rapidly changing landscape: A roadmap for bold leaders.",
+      "speakers": ["Nikolaus Lang"]
+    },
+    {
+      "time": "2:20 PM",
+      "title": "The Disappearing Human: Our Role in a Self-Running World",
+      "subtitle": "The coming tech disruption is underhyped.",
+      "speakers": ["Akash Bhatia"]
+    },
+    {
+      "time": "2:30 PM",
+      "title": "Tech is a Business Unit: Prove Me Wrong",
+      "subtitle": "The team driving the most innovation, product, and use-case implementation is overdue for an overhaul.",
+      "speakers": ["Ruth Ebeling"]
+    },
+    {
+      "time": "2:40 PM",
+      "title": "The Long Way to Net Zero",
+      "subtitle": "What it actually takes to save the planet.",
+      "speakers": ["Jens Burchardt"]
+    },
+    {
+      "time": "2:50 PM",
+      "title": "AI Alone Won’t Save Your Brand",
+      "subtitle": "With great power: Lessons on purposeful AI from Spider-Man.",
+      "speakers": ["Tim Kuhrcke", "Jade Leet"]
+    }
+  ]
+  
