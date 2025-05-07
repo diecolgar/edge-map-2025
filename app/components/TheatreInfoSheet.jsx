@@ -14,7 +14,7 @@ const collapsedVH = 44;
 const maxVH = 90;
 const DRAG_THRESHOLD = 50;
 
-const BoothInfoSheet = ({ location, origin, onClose }) => {
+const TheatreInfoSheet = ({ theatre, onClose }) => {
   const containerRef = useRef(null);
   const scrollRef = useRef(null);
   const height = useMotionValue(0);
@@ -44,12 +44,12 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   }, []);
 
   useEffect(() => {
-    let nextState;
-    if (!location) nextState = "closed";
-    else if (origin === "list") nextState = "expanded";
-    else nextState = "collapsed";
-    setSheetState(nextState);
-  }, [location, origin]);
+    if (!theatre) {
+      setSheetState("closed");
+    } else {
+      setSheetState("collapsed");
+    }
+  }, [theatre]);
 
   useEffect(() => {
     if (sheetState === "expanded" && containerRef.current) {
@@ -58,7 +58,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
       setExpandedPx(measured);
       containerRef.current.style.height = `${height.get()}px`;
     }
-  }, [sheetState, location]);
+  }, [sheetState, theatre]);
 
   useEffect(() => {
     let target;
@@ -117,20 +117,10 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
     }
   };
 
-  if (!location) return null;
+  if (!theatre) return null;
 
   const showFade = sheetState === "collapsed";
   const disableScroll = sheetState === "collapsed";
-
-  const contacts = location.contacts?.split(",").map((c) => c.trim()) || [];
-  const emails = location.emails?.split(",").map((e) => e.trim()) || [];
-  const contactEmailPairs = contacts.map((c, i) => ({
-    contact: c,
-    email: emails[i] || "",
-  }));
-
-  const neighbourhoodKey = location.neighbourhood?.toLowerCase();
-  const extension = neighbourhoodKey === "ai" ? "png" : "svg";
 
   return (
     <AnimatePresence>
@@ -152,39 +142,24 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
         onDragEnd={onDragEnd}
         exit={{ height: 0 }}
       >
-        {/* Barrita visual */}
-        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-300 rounded-full" />
-
         {/* HANDLE */}
         <div
           onPointerDown={(e) => dragControls.start(e)}
           className="px-6 pt-6 pb-0 cursor-grab"
         >
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              <img
-                src={`/nb-icons/${neighbourhoodKey}.${extension}`}
-                alt={`${location.neighbourhood} icon`}
-                className="w-8 h-8"
-              />
-              <span className="text-edgeTextSecondary font-black font-sans">
-                {location.boothId?.toUpperCase()}
-              </span>
-            </div>
+            <h2 className="text-xl font-bold text-edgeText">Micro Theatre</h2>
             <button
               onClick={() => {
                 setSheetState("closed");
                 setTimeout(onClose, 400);
               }}
               className="flex items-center justify-center rounded-full bg-edgeText w-8 h-8 hover:bg-gray-600"
-              aria-label="Cerrar"
+              aria-label="Close"
             >
               <X size={16} color="white" />
             </button>
           </div>
-          <h2 className="text-xl font-bold mt-2 mb-2 text-edgeText">
-            {location.name}
-          </h2>
         </div>
 
         {/* CONTENIDO */}
@@ -193,60 +168,109 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           onWheel={handleWheel}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          className={`relative ${disableScroll ? "overflow-hidden" : "overflow-y-auto"} overscroll-y-contain pb-14 select-none`}
+          className={`relative px-6 pb-20 pt-4 text-sm text-gray-700 ${
+            disableScroll ? "overflow-hidden" : "overflow-y-auto"
+          }`}
           style={{
             height: "calc(100% - 56px)",
             WebkitOverflowScrolling: "touch",
             touchAction: "pan-y",
           }}
         >
-          {/* Subtitle/tagline */}
-          {location.subtitle && (
-            <p className="text-base text-gray-500 mb-2 italic px-6">
-              {location.subtitle}
-            </p>
-          )}
+          <div className="flex flex-col gap-6">
+            <div>
+              <h3 className="text-xl font-bold text-edgeText">
+                Booth Title, 60 characters max, lorem ipsum dolor sit am
+              </h3>
+              <p className="text-gray-500 italic mt-1">
+                Booth Tagline, 80 characters max, lorem ipsum dolor sit amet,
+                consectetu
+              </p>
+            </div>
 
-          {location.partner === "Y" && (
-            <span className="inline-block bg-edgeBackground mb-4 ml-6 text-edgeText text-xs font-semibold px-4 py-2 rounded-full">
-              Technology Leaders &amp; Partners
-            </span>
-          )}
+            <div>
+              <h4 className="text-sm font-bold text-edgeText uppercase mb-2">
+                Agenda
+              </h4>
 
-          {/* ABOUT */}
-          <div className="bg-edgeBackground py-6 px-6 select-none">
-            <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
-              ABOUT
-            </span>
-            <p className="text-gray-700 whitespace-pre-line text-sm select-none">
-              {location.description}
-            </p>
-          </div>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-edgeGreen font-semibold text-sm">
+                    00:00 PM
+                  </p>
+                  <h5 className="font-bold mt-1">Talk Title</h5>
+                  <p className="text-sm text-gray-700 mb-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Expo lorem ipsum dolor sit amet.
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    {[1, 2, 3].map((i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-2 bg-white rounded-full shadow px-3 py-1 w-max"
+                      >
+                        <img
+                          src="/speaker-placeholder.jpg"
+                          alt="Speaker"
+                          className="w-6 h-6 rounded-full"
+                        />
+                        <p className="text-sm text-edgeText">
+                          <span className="font-semibold">Name Surname</span>,
+                          Role, Company
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
-          {/* CONTACTS */}
-          {contactEmailPairs.length > 0 && (
-            <div className="bg-edgeText px-6 pt-6 pb-28 space-y-2">
-              <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
-                CONTACTS
-              </span>
-              <div className="flex flex-col gap-3">
-                {contactEmailPairs.map(({ contact, email }, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center bg-white rounded-full px-4 py-2 shadow w-max"
-                  >
-                    <p className="text-sm text-edgeText flex gap-2">
-                      <span className="font-semibold">{contact}</span>
-                      {email && <span className="text-gray-500">{email}</span>}
+                <div className="border-t pt-4">
+                  <p className="text-edgeGreen font-bold uppercase text-sm">
+                    30-Minute Break
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-edgeGreen font-semibold text-sm">
+                    00:00 PM
+                  </p>
+                  <h5 className="font-bold mt-1">Talk Title</h5>
+                  <p className="text-sm text-gray-700 mb-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Expo lorem ipsum dolor sit amet.
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    {[1, 2].map((i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-2 bg-white rounded-full shadow px-3 py-1 w-max"
+                      >
+                        <img
+                          src="/speaker-placeholder.jpg"
+                          alt="Speaker"
+                          className="w-6 h-6 rounded-full"
+                        />
+                        <p className="text-sm text-edgeText">
+                          <span className="font-semibold">Name Surname</span>,
+                          Role, Company
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="border-t pt-4">
+                    <p className="text-edgeGreen font-semibold text-sm">
+                      00:00 PM
                     </p>
                   </div>
                 ))}
               </div>
             </div>
-          )}
+          </div>
         </div>
 
-        {/* Smooth Fade Effect (outside scroll) */}
+        {/* Smooth Fade */}
         <AnimatePresence>
           {showFade && (
             <motion.div
@@ -255,10 +279,10 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 w-full h-24 pointer-events-none"
+              className="absolute bottom-0 left-0 w-full h-40 pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(to top, #f1eeea 60%, rgba(241, 238, 234, 0))",
+                  "linear-gradient(to top, #fff 60%, rgba(255, 255, 255, 0))",
               }}
             />
           )}
@@ -268,4 +292,4 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
   );
 };
 
-export default BoothInfoSheet;
+export default TheatreInfoSheet;

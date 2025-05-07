@@ -6,12 +6,13 @@
     "subtitle": "Agents? DeepSeek? What it really takes to create value at scale with AI",
     "description": "AI is every CEO’s top priority in 2025, yet only one in four companies scale AI successfully, and just 4% are creating substantial value. The key? Focus on fewer, high-impact opportunities within core functions. Industry leaders are moving beyond pilots to real E2E transformation and reshape end-to-end workflows. Join us to discover how—with insights from 100+ AI transformation programs and 1,000+ companies worldwide, we have the answers!",
     "sectorjourneys": "CP,LHI,PCCI,EEW,HCS,CIDRET",
-    "topicjourneys": "",
+    "topicjourneys": "AI",
     "x": 1823,
     "y": 4726,
     "partner": "",
     "contacts": "Michael Grebe, Vinciane Beauchene, Nicolas de Bellefonds, Julie Bedard",
-    "highlightUrl": "/highlights/td01.svg"
+    "highlightUrl": "/highlights/td01.svg",
+    "keywords": "GenAI; Cost; POP; People and Organization; FI; HC; IG; Insurance; PIPE; Public Sector; TMT; TCI; robot; AI transformation; cafe"
   },
   {
     "boothId": "TD02",
@@ -25,7 +26,8 @@
     "y": 4584,
     "partner": "",
     "contacts": "Tibor Merey, Matt Langione, Urs Rahne, Awais Ali",
-    "highlightUrl": "/highlights/td02.svg"
+    "highlightUrl": "/highlights/td02.svg",
+    "keywords": "GenAI; Cost; web3; XR; IoT; Quantum; digital wallet; smart glasses; supply chain; Walt.ID; IG; TMT; TCI; Operations; FI; Financial Institutions; Industrial Goods"
   },
   {
     "boothId": "TD03",
@@ -34,12 +36,13 @@
     "subtitle": "How to rewire your company for an AI-first future",
     "description": "What does the AI-first company look like? It’s not just about adopting AI – AI- first companies fundamentally rethink how their business operates, and end up unlocking new value pools, shifting competitive advantages, and redefining industries. Discover the roadmap to making AI-first a reality by learning from examples of existing AI-first companies. Experience the future through curated demos, from GenAI-driven sales to AI-powered drug discovery.",
     "sectorjourneys": "RT,CPBB,PF,TECH",
-    "topicjourneys": "",
+    "topicjourneys": "AI",
     "x": 1980,
     "y": 4291,
     "partner": "",
     "contacts": "Amanda Luther, Chris Meier, Chris Freese, Arnaud Bassoulet",
-    "highlightUrl": "/highlights/td03.svg"
+    "highlightUrl": "/highlights/td03.svg",
+    "keywords": "GenAI; Agents; AI Transformation; sales; POP; CP; FI; IG; INS; HC; Consumer Products; Financial Institutions; Healthcare; Industrial Goods; Insurance"
   },
   {
     "boothId": "TD04",
@@ -48,12 +51,13 @@
     "subtitle": "Pioneering the Future of AI for the Benefit of All Humanity",
     "description": "Explore the latest advancements in artificial intelligence with OpenAI. Our booth will feature live demos of cutting-edge AI models, including ChatGPT, Sora, and more! Engage with our experts to learn about the next evolutions of AI including applications and how AI can enhance businesses and everyday life.",
     "sectorjourneys": "PPSS",
-    "topicjourneys": "",
+    "topicjourneys": "AI",
     "x": 2346,
-    "y": 5210,
+    "y": 1759,
     "partner": "Y",
     "contacts": "Michal Bednarczyk, Matt Weaver",
-    "highlightUrl": "/highlights/td04.svg"
+    "highlightUrl": "/highlights/td04.svg",
+    "keywords": ""
   },
   {
     "boothId": "TD05",
@@ -62,12 +66,13 @@
     "subtitle": "Unlock Business Growth – AI-Driven ERP for smarter, faster transformation",
     "description": "Step into the future of business transformation with BCG’s NextGen ERP! Explore our interactive digital game, engage with industry experts, and discover our unique value proposition. See how organizations are leveraging AI-powered ERP transformations to drive business value. Don’t miss this opportunity to learn, connect, and win exciting prizes!",
     "sectorjourneys": "BPH,MT,MPI",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 2346,
     "y": 4528,
     "partner": "",
     "contacts": "Ted Kubit, Loïc Mesnage, Daniel Schlecht, Andrew Arcuri",
-    "highlightUrl": "/highlights/td05.svg"
+    "highlightUrl": "/highlights/td05.svg",
+    "keywords": "GenAI; SAP; Anaplan; Workday; ServiceNow; digital transformation; cost;"
   },
   {
     "boothId": "TD06",
@@ -76,12 +81,13 @@
     "subtitle": "BCG & SAP Powering Opportunities with Data-Driven Innovation and AI.",
     "description": "Transform Your Future with Us!  Experience the future of business transformation at the SAP booth. Discover the power of Business Data Cloud, Agentic AI, and Business Suite through interactive demos. Learn from real-world success stories showcasing the BCG x SAP partnership. Witness how strategic consulting and data-driven innovation can drive exponential success for your organization. Together, we’re more than the sum of our parts. We’re the future of business transformation.",
     "sectorjourneys": "",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 2346,
     "y": 4757,
     "partner": "Y",
     "contacts": "Jim Barton, Arun Sharma, Christian Koenig",
-    "highlightUrl": "/highlights/td06.svg"
+    "highlightUrl": "/highlights/td06.svg",
+    "keywords": ""
   },
   {
     "boothId": "TD07",
@@ -90,12 +96,13 @@
     "subtitle": "Crisis-Proof Your Business: Be Ready, Be Resilient",
     "description": "Cyber crises aren’t a question of if, but when. At BCG’s Cyber & Digital Risk division, we help businesses prepare, respond & recover from threats with precision and speed. Explore how leading organizations:    Strengthen crisis preparedness through real-world simulations    Deploy recovery strategies to minimize disruption    Leverage AI-driven insights to stay ahead  Join us for interactive demos and discussions as preparation is the ultimate defense.",
     "sectorjourneys": "PF,DS",
-    "topicjourneys": "",
+    "topicjourneys": "GP",
     "x": 2346,
     "y": 4972,
     "partner": "",
     "contacts": "Vanessa Lyon, Gildas Bouteiller, Roussel Piere, Shoaib Yousuf",
-    "highlightUrl": "/highlights/td07.svg"
+    "highlightUrl": "/highlights/td07.svg",
+    "keywords": "GenAI; Cost; hack; threat; cyber protection; R&C; FI; CP; HC; IG; PS; EN; TMT; Risk & Compliance; Financial Institutions; Consumer Products; Healthcare; Industrial Goods; Public Sector; Industrial Goods; Energy; Technology, Media & telcomm"
   },
   {
     "boothId": "TD08",
@@ -109,7 +116,8 @@
     "y": 5527,
     "partner": "Y",
     "contacts": "Frances Pye, Daniel Rosenthal, Barry Phillips, Dave Lin",
-    "highlightUrl": "/highlights/td08.svg"
+    "highlightUrl": "/highlights/td08.svg",
+    "keywords": ""
   },
   {
     "boothId": "TD09",
@@ -118,12 +126,13 @@
     "subtitle": "Pioneering AI-driven productivity and unlocking billions in bottom line impact",
     "description": "By integrating AI, automation and hybrid cloud tools with tech-agnostic implementation capabilities, IBM is powering productivity gains at global scale. In partnership with BCG, IBM has unlocked over $3B in productivity, and is now bringing those capabilities to joint clients. With watsonx, AI- infused software, and industry expertise, IBM accelerates transformation; optimizing workflows, reducing costs, and driving measurable, sustainable productivity outcomes.",
     "sectorjourneys": "",
-    "topicjourneys": "",
+    "topicjourneys": "CO",
     "x": 1973,
     "y": 5633,
     "partner": "Y",
     "contacts": "Davies DeCesare-Fousek",
-    "highlightUrl": "/highlights/td09.svg"
+    "highlightUrl": "/highlights/td09.svg",
+    "keywords": ""
   },
   {
     "boothId": "TD10",
@@ -137,7 +146,8 @@
     "y": 5633,
     "partner": "Y",
     "contacts": "",
-    "highlightUrl": "/highlights/td10.svg"
+    "highlightUrl": "/highlights/td10.svg",
+    "keywords": ""
   },
   {
     "boothId": "TD11",
@@ -151,7 +161,8 @@
     "y": 5460,
     "partner": "Y",
     "contacts": "Jens Lidholm",
-    "highlightUrl": "/highlights/td11.svg"
+    "highlightUrl": "/highlights/td11.svg",
+    "keywords": ""
   },
   {
     "boothId": "TD12",
@@ -165,7 +176,8 @@
     "y": 5285,
     "partner": "",
     "contacts": "Lucas Quarta, Helen Han, Jacqueline Govers, Benjamin Rehberg",
-    "highlightUrl": "/highlights/td12.svg"
+    "highlightUrl": "/highlights/td12.svg",
+    "keywords": "GenAI; data; technology transformations; ERP; FI; IG; EN; HC; Financial Institutions; Industrial Goods; Energy; Healthcare"
   },
   {
     "boothId": "TD13",
@@ -174,12 +186,13 @@
     "subtitle": "Build smart. Scale fast. Harness the power of modular tech",
     "description": "Explore cutting-edge Tech, Data, and Digital Platforms (including Cloud) and their role in driving innovation, scalability, and efficiency. Showcased here are fresh insights, real-world impact stories, and an enhanced DDP Immersive game for deeper engagement. Discover how digital platforms and data integration accelerate business growth and transformation through real-world applications and interactive experiences.",
     "sectorjourneys": "FL,LCEI,BPH,PPSS,AM,LHI,PCCI,DS,HCS,LPS,ME,TELE",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 1395,
     "y": 5110,
     "partner": "",
     "contacts": "Marc Schuuring, Filippo Scognamiglio, Shishir Pathak, Nick Smaling",
-    "highlightUrl": "/highlights/td13.svg"
+    "highlightUrl": "/highlights/td13.svg",
+    "keywords": "GenAI; Google; Microsoft; AWS; Amazon; Anaplan; Workday; ServiceNow; Salesforce; IBM; Redhat; OpenAI; SAP"
   },
   {
     "boothId": "TD14",
@@ -193,7 +206,8 @@
     "y": 4885,
     "partner": "Y",
     "contacts": "Beno Chapman, Sameer Mital, Salim Hasham",
-    "highlightUrl": "/highlights/td14.svg"
+    "highlightUrl": "/highlights/td14.svg",
+    "keywords": ""
   },
   {
     "boothId": "TD15",
@@ -207,7 +221,8 @@
     "y": 4553,
     "partner": "Y",
     "contacts": "Dominik Beron, Phil Potisk",
-    "highlightUrl": "/highlights/td15.svg"
+    "highlightUrl": "/highlights/td15.svg",
+    "keywords": ""
   },
   {
     "boothId": "TD16",
@@ -221,7 +236,8 @@
     "y": 5633,
     "partner": "Y",
     "contacts": "Raj Koneru, Umang Shah, Stuart Glyde, Cathal McCarthy",
-    "highlightUrl": "/highlights/td16.svg"
+    "highlightUrl": "/highlights/td16.svg",
+    "keywords": ""
   },
   {
     "boothId": "SP01",
@@ -230,12 +246,13 @@
     "subtitle": "From rapid wins to sustained value and growth",
     "description": "9 in 10 companies are already using AI technology to optimize costs, but few are seeing tangible bottom-line impact from it.  Through a thought-provoking art installation, visitors will discover what conditions are necessary to unlock lasting value from an AI-enabled cost transformation, and how to thrive in today’s challenging economic landscape.  Explore sector-specific cost journeys, cutting-edge AI solutions and expert insights.",
     "sectorjourneys": "CP,RT,IET,LCEI,CPBB,GAM,PF,EPIT,EDGFCG,HCS,TTIL,ME,TELE",
-    "topicjourneys": "",
+    "topicjourneys": "CO",
     "x": 1365,
     "y": 2964,
     "partner": "",
     "contacts": "Jacopo Brunelli, Karin von Funck",
-    "highlightUrl": "/highlights/sp01.svg"
+    "highlightUrl": "/highlights/sp01.svg",
+    "keywords": "GenAI; Cost; Consumer Products; CP;  Retail; Integrated Energy Transformation; IET;  Low Carbon Energy & Infrastructure; LCI; Consumer, Private, and Business Banking; CPBB; Global Asset Managers; GAM; Payments & Fintechs; P&F; Engineered Products & Industrial Technology; EPT; Economic Development, Government Finances, Center of Government;  EFC;  Health Care Systems; HCS;  Travel, Transport Infrastructure & Leisure; TTL; Media;  Telecommunications; telcom"
   },
   {
     "boothId": "SP02",
@@ -249,7 +266,8 @@
     "y": 2964,
     "partner": "",
     "contacts": "Kevin Kelley, Nina Kataeva, Matt Marchingo, Christoph Hilberath",
-    "highlightUrl": "/highlights/sp02.svg"
+    "highlightUrl": "/highlights/sp02.svg",
+    "keywords": "GenAI; Cost; Support functions; GBS; resilience; operations; operating model; ODOM"
   },
   {
     "boothId": "SP03",
@@ -263,7 +281,8 @@
     "y": 3247,
     "partner": "",
     "contacts": "Gertie Laerkholm, Kristine Jensson, Connor Currier",
-    "highlightUrl": "/highlights/sp03.svg"
+    "highlightUrl": "/highlights/sp03.svg",
+    "keywords": "GenAI; 70%; culture: transform; transformation: TCI: CP: consumer; leadership; behavior; negotiations"
   },
   {
     "boothId": "SP04",
@@ -277,7 +296,8 @@
     "y": 3524,
     "partner": "",
     "contacts": "Suketu Shah, Nithya Vaduganathan, Varun Kejriwal",
-    "highlightUrl": "/highlights/sp04.svg"
+    "highlightUrl": "/highlights/sp04.svg",
+    "keywords": "GenAI; transformation; digital; technology; consumer; CP; Energy; EN; Industrial Goods; IG; Healthcare; HC; INS; Insurance; TMT; Technology, Media & Telecom; TCI; Public Sector; PS"
   },
   {
     "boothId": "SP05",
@@ -286,12 +306,13 @@
     "subtitle": "Transforming business with AI, Agents and Industry Solutions",
     "description": "The Microsoft and BCG partnership combines the transformative power of Microsoft AI technology alongside BCG’s deep industry and functional expertise. Together, we drive innovation across business and technology, unlocking measurable impact. Our work is centered on the priorities of our customers and brought to life through our combined capabilities, allowing us to design, develop, and deploy at scale.  Join us at BCG Edge to discuss how the Microsoft and BCG can reshape functions and reimagine your business, with AI at the core.",
     "sectorjourneys": "",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 1852,
     "y": 4073,
     "partner": "Y",
     "contacts": "Brian Maslowski, Michael Rothenberg, Oskar Nilsson, Cheryl Silveri",
-    "highlightUrl": "/highlights/sp05.svg"
+    "highlightUrl": "/highlights/sp05.svg",
+    "keywords": ""
   },
   {
     "boothId": "SP06",
@@ -305,7 +326,8 @@
     "y": 3789,
     "partner": "",
     "contacts": "Renee Laverdiere",
-    "highlightUrl": "/highlights/sp06.svg"
+    "highlightUrl": "/highlights/sp06.svg",
+    "keywords": "GenAI; Cost; Education, Employment and Welfare; EEW;  Health Care Systems; HCS;"
   },
   {
     "boothId": "SP07",
@@ -319,7 +341,8 @@
     "y": 3614,
     "partner": "",
     "contacts": "Elizabeth Lyle",
-    "highlightUrl": "/highlights/sp07.svg"
+    "highlightUrl": "/highlights/sp07.svg",
+    "keywords": "GenAI; Cost; learning; organizations; workforce; consumer; cp; energy; EN; FI; Financial Institutions; HC; Healthcare; Insurance; Public Sector; PS; Climate; Sustainability"
   },
   {
     "boothId": "SP08",
@@ -328,12 +351,13 @@
     "subtitle": "Revolutionize finance with real-time AI-powered insights",
     "description": "Experience the future of finance with Analyst.AI. This interactive booth brings the capabilities of our GenAI tool to life through a humanoid Robot Analyst. Attendees can engage in live conversations, view dynamic data visualizations, and explore real-world finance scenarios. Key features include dynamic financial dashboards and scheduled AI demonstrations, providing actionable insights in real time.",
     "sectorjourneys": "EDGFCG",
-    "topicjourneys": "",
+    "topicjourneys": "CO",
     "x": 1541,
     "y": 3789,
     "partner": "",
     "contacts": "Aaron Arnoldson, Mike Demyttenaere, Raamin Mostaghimi, Mike Beyer",
-    "highlightUrl": "/highlights/sp08.svg"
+    "highlightUrl": "/highlights/sp08.svg",
+    "keywords": "GenAI; robot; data; finance; CFO; CFO Excellence; Lighthouse; BCG X; CP; IG; TMT; MSP; Consumer; Industrial Goods; Marketing; Sales; Pricing; Technology, Media & Telecom"
   },
   {
     "boothId": "SP09",
@@ -342,12 +366,13 @@
     "subtitle": "Shaping strategic insight with immersive VR scenarios",
     "description": "Explore the future of decision-making and strategy with immersive VR scenarios designed to stretch our thinking about what different futures may hold. See how a range of uncertainties—from climate to geopolitics, technology to macroeconomics—could intertwine, and critically, what today’s strategists need to do to become better prepared and as resilient as possible. After exploring the scenarios, leaders will dig into how to build competitive advantage in whatever the future may hold.",
     "sectorjourneys": "EEW",
-    "topicjourneys": "",
+    "topicjourneys": "GP",
     "x": 1541,
     "y": 3613,
     "partner": "",
     "contacts": "Alan Iny, Ketil Gjerstad, Sam Farley, Sabrina Kristic",
-    "highlightUrl": "/highlights/sp09.svg"
+    "highlightUrl": "/highlights/sp09.svg",
+    "keywords": "GenAI; VR; GA; Geopolitics; Global Advantage; Consumer; CP; IG; Industrial Goods; TCI; Market; technology; climate; economics; resilience"
   },
   {
     "boothId": "SP10",
@@ -356,12 +381,13 @@
     "subtitle": "Reconfiguring supply chain & procurement in shifting geopolitical landscape",
     "description": "Business leaders are seeking to find their footing in a landscape that has been redefined by tariffs, conflicts, etc. Our booth will highlight the critical need for companies to rapidly and proactively address tariffs, while also contextualizing them within the broader context of geopolitical uncertainties reshaping global supply chains and procurement. Discover our comprehensive solutions that are helping companies navigate these uncertainties effectively.",
     "sectorjourneys": "FL,RT,CBCMIB,AM,EDGFCG,LPS,TTIL",
-    "topicjourneys": "",
+    "topicjourneys": "CO,GP",
     "x": 1307,
     "y": 3378,
     "partner": "",
     "contacts": "Marc Gilbert, Rami Rafih, Dustin Burke, Alex Dolya",
-    "highlightUrl": "/highlights/sp10.svg"
+    "highlightUrl": "/highlights/sp10.svg",
+    "keywords": "Cost; Fashion & Luxury; F&L;  Retail;  Commercial Banking, Capital Markets & Investment Banking; CCIB; Automotive & Mobility;  A&M; Economic Development, Government Finances, Center of Government; EFC; Logistics, Postal & Shipping; Travel, Transport Infrastructure & Leisure; TTL;"
   },
   {
     "boothId": "SP11",
@@ -375,7 +401,8 @@
     "y": 3203,
     "partner": "",
     "contacts": "Daniel Friedman, Jens Kengelbach, Georg Keienburg",
-    "highlightUrl": "/highlights/sp11.svg"
+    "highlightUrl": "/highlights/sp11.svg",
+    "keywords": "GenAI; PMI; Carve-out; market; TMT; HC; healthcare; CP; Consumer Products; EN; Energy; IG; Industrial Goods; FI; Financial Institutions; PIPE; TDA; Tech; Digital; transformation; merger; acquisition"
   },
   {
     "boothId": "SP12",
@@ -389,7 +416,8 @@
     "y": 3747,
     "partner": "Y",
     "contacts": "Holm Puder, Michael Lutze",
-    "highlightUrl": "/highlights/sp12.svg"
+    "highlightUrl": "/highlights/sp12.svg",
+    "keywords": ""
   },
   {
     "boothId": "SP13",
@@ -403,7 +431,8 @@
     "y": 3091,
     "partner": "Y",
     "contacts": "Réka Ujj, Clare Hickie, Harold Rieder",
-    "highlightUrl": "/highlights/sp13.svg"
+    "highlightUrl": "/highlights/sp13.svg",
+    "keywords": ""
   },
   {
     "boothId": "OP01",
@@ -417,7 +446,8 @@
     "y": 3606,
     "partner": "",
     "contacts": "Marco Tonegutti, Dima Pogorelsky",
-    "highlightUrl": "/highlights/op01.svg"
+    "highlightUrl": "/highlights/op01.svg",
+    "keywords": "GenAI; Integrated Energy Transformation; IET; Low Carbon Energy & Infrastructure; LCI;  Cities, Infrastructure Development, Real Estate & Tourism; CRT;  de-risk; Net Present Value; NPV; investment cycle;  cost overruns; cost; supply chain; digital; tools; transformation;  Power-to-X Project Optimizer;  Project Pro; Supply Chain Resilience Co-Pilot; scope value; PtX projects; integerated; platform; controls; risks; portfolio; Thales; demos; BCG X; Real Estate"
   },
   {
     "boothId": "OP02",
@@ -431,7 +461,8 @@
     "y": 3433,
     "partner": "Y",
     "contacts": "Pia Hardy, Timo Kistner, Lars Tinapp",
-    "highlightUrl": "/highlights/op02.svg"
+    "highlightUrl": "/highlights/op02.svg",
+    "keywords": "GenAI; Cost; Integrated Energy Transformation; IET; Low Carbon Energy & Infrastructure; LCI; Global Asset Managers; GAM; Medical Technologies; MedTech; MT; Payers, Providers, Systems and Services; PPSS; Automotive & Mobility; A&M; Engineered Products & Industrial Technology; EPT; Materials & Process Industries; MPI; Defense & Security; D&S; Health Care Systems; HCS; Cities, Infrastructure Development, Real Estate & Tourism; CRT;  Travel, Transport Infrastructure & Leisure;  TTL; effiecency; cost savings; procurment; procurement journey; revenue; external spend; supplier; AI-powered; spend analytics; contracting; buyer productivity; lost cash; Savings Radar; Tender Assistant; Offer Analyst; ClaimScout; SemiAI; BCG X; Inverto; ACA"
   },
   {
     "boothId": "OP03",
@@ -445,7 +476,8 @@
     "y": 3164,
     "partner": "",
     "contacts": "John Knapp, Alex Yurek",
-    "highlightUrl": "/highlights/op03.svg"
+    "highlightUrl": "/highlights/op03.svg",
+    "keywords": "GenAI; Cost; Consumer Products; CP;  Engineered Products & Industrial Technology; EPT;  Technology; Tech; robotics; partners; data-driven; advisor; automation; production systems; Connected Worker; Foxconn; applications; Apptronik; demo; Ai-driven; industrial; vision systems; devices; manufacturing; automoation; optimization; humanoid robot; EmbodiedAI;Microsoft; AWS; Auto; mining; process sectors"
   },
   {
     "boothId": "OP04",
@@ -459,7 +491,8 @@
     "y": 2766,
     "partner": "",
     "contacts": "Marcus Wittig, Hrvoje Jenkac",
-    "highlightUrl": "/highlights/op04.svg"
+    "highlightUrl": "/highlights/op04.svg",
+    "keywords": "GenAI; Cost; Commercial Banking, Capital Markets & Investment Banking; CCIB;  Consumer, Private, and Business Banking; CPBB; Payments & Fintechs; P&F; Life and Health Insurance; LHI; P&C and Commercial Insurance; PCI; Insurance; INS; Logistics, Postal & Shipping; LPS;  Media;  productivity; P&L; impact; value; strategy; journey; accelerate; tech augmentation;  tech development; transformation; change management; demos; autonomous selling; autonomous servicing; GenIE; Callsight; analysis tool"
   },
   {
     "boothId": "OP05",
@@ -473,7 +506,8 @@
     "y": 3661,
     "partner": "",
     "contacts": "Dustin Bruke",
-    "highlightUrl": "/highlights/op05.svg"
+    "highlightUrl": "/highlights/op05.svg",
+    "keywords": "GenAI; Cost; Fashion & Luxury; F&L; Retail; Integrated Energy Transformation; IET; Biopharma; BP; Automotive & Mobility; A&M; Defense & Security; D&S; Logistics, Postal & Shipping; LPS; Travel, Transport Infrastructure & Leisure; TTL; Technology; Tech; digital; value; demand forecasting; supply optimization; demos; planning solutions; planning; processes; global; vendor partners; client stories; Lyric SC"
   },
   {
     "boothId": "OP06",
@@ -482,12 +516,13 @@
     "subtitle": "Efficiency and cost savings at every step of the procurement journey",
     "description": "Did you know companies use over half of their revenues on external spend and supplier? Cutting costs without Procurement is impossible. To help with this, our AI-powered approach transforms the entire procurement process, from spend analytics to contracting, helping your clients to reduce external spend, boost buyer productivity and recover lost cash. Visit our booth to learn how we drive real, hands- on savings and efficiency for leading organizations.",
     "sectorjourneys": "IET,LCEI,GAM,MT,PPSS,AM,EPIT,MPI,DS,HCS,CIDRET,TTIL",
-    "topicjourneys": "",
+    "topicjourneys": "CO,GP",
     "x": 1083,
     "y": 3839,
     "partner": "",
     "contacts": "Tomi Mansio, Wolfgang Schnellbächer, Alex Dolya",
-    "highlightUrl": "/highlights/op06.svg"
+    "highlightUrl": "/highlights/op06.svg",
+    "keywords": ""
   },
   {
     "boothId": "OP07",
@@ -501,7 +536,8 @@
     "y": 4103,
     "partner": "",
     "contacts": "Andy Lin, Hunkar Toyoglu",
-    "highlightUrl": "/highlights/op07.svg"
+    "highlightUrl": "/highlights/op07.svg",
+    "keywords": "GenAI; Engineered Products & Industrial Technology; EPT;  commercial growth; technicians; downtime; manufacturing; cost; connected equipment; emerging tech; co-pilots; AR/VR; solutions; transformation; efficiencies; revenue impact; scale; operations; work order management; sales performance; dashboard; predictive maintenance; technician co-pilot; Building Services; Aerospace; Offroad Heavy Equipment; Oil & Gas; Tech; telcomm; Healthcare equipment; Production Line Equipment"
   },
   {
     "boothId": "OP08",
@@ -515,7 +551,8 @@
     "y": 4103,
     "partner": "Y",
     "contacts": "Ray Curbelo",
-    "highlightUrl": "/highlights/op08.svg"
+    "highlightUrl": "/highlights/op08.svg",
+    "keywords": ""
   },
   {
     "boothId": "OP09",
@@ -524,12 +561,13 @@
     "subtitle": "Explore AI-driven R&D to unlock efficiency and acceleration",
     "description": "Embark on an AI-powered R&D journey—boosting efficiency, exploration, and innovation. Experience AI’s impact at every stage: accelerating time- to-market, unlocking creativity, and driving market alignment. Discover interactive demos, real-world case studies, and practical insights to lead the future of innovation. Let’s redefine R&D together!",
     "sectorjourneys": "BPH,MT,EPIT",
-    "topicjourneys": "",
+    "topicjourneys": "AI",
     "x": 786,
     "y": 4103,
     "partner": "",
     "contacts": "Mikaël Le Mouëllic",
-    "highlightUrl": "/highlights/op09.svg"
+    "highlightUrl": "/highlights/op09.svg",
+    "keywords": "GenAI;  Biopharma; BP;  Medical Technologies; MedTech; MT; Engineered Products & Industrial Technology; EPT;  efficiency; acceleration; innovation; time-to-market; creativity; market alignment; demos; case studies; research; development; research & development"
   },
   {
     "boothId": "OP10",
@@ -538,12 +576,13 @@
     "subtitle": "Bring AI + Data + Workflows to every corner of your business with ServiceNow, the AI platform for",
     "description": "business transformation.  ServiceNow is putting AI to work for people. We move with the pace of innovation to help clients transform organizations across every industry while upholding a trustworthy, human centered approach to deploying our products and services at scale. Our AI platform for business transformation connects people, processes, data, and devices to increase productivity and maximize business outcomes. Bring AI + Data + Workflows to every corner of your business with ServiceNow.",
     "sectorjourneys": "TELE",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 643,
     "y": 3838,
     "partner": "Y",
     "contacts": "Hartmut Mueller, Ravi Asrani, John Camins, Shawn Flaherty",
-    "highlightUrl": "/highlights/op10.svg"
+    "highlightUrl": "/highlights/op10.svg",
+    "keywords": ""
   },
   {
     "boothId": "OP11",
@@ -557,7 +596,8 @@
     "y": 3661,
     "partner": "Y",
     "contacts": "Olivier Sutter",
-    "highlightUrl": "/highlights/op11.svg"
+    "highlightUrl": "/highlights/op11.svg",
+    "keywords": ""
   },
   {
     "boothId": "OP12",
@@ -571,7 +611,8 @@
     "y": 3484,
     "partner": "Y",
     "contacts": "Ganesh Ramakrishna, Dinesh Natarajan",
-    "highlightUrl": "/highlights/op12.svg"
+    "highlightUrl": "/highlights/op12.svg",
+    "keywords": ""
   },
   {
     "boothId": "OP13",
@@ -585,7 +626,8 @@
     "y": 3125,
     "partner": "Y",
     "contacts": "Barry Phillips, Dave Lin, Kevin Cook, Jason Olivero",
-    "highlightUrl": "/highlights/op13.svg"
+    "highlightUrl": "/highlights/op13.svg",
+    "keywords": ""
   },
   {
     "boothId": "OP14",
@@ -599,7 +641,8 @@
     "y": 3022,
     "partner": "Y",
     "contacts": "Sammeli Sammalkorpi, Sari-Anne Joensuu",
-    "highlightUrl": "/highlights/op14.svg"
+    "highlightUrl": "/highlights/op14.svg",
+    "keywords": ""
   },
   {
     "boothId": "CE01",
@@ -613,7 +656,8 @@
     "y": 2404,
     "partner": "",
     "contacts": "Karen Lellouche",
-    "highlightUrl": "/highlights/ce01.svg"
+    "highlightUrl": "/highlights/ce01.svg",
+    "keywords": "GenAI; Cost; Fashion & Luxury; F&L; Consumer, Private, and Business Banking; CPBB; Travel, Transport Infrastructure & Leisure; TTL;  customer journey; CX, next-gen strategies; commerce, marketplace;  channels; sales; customer platform; platform; overhead; purchasing; engagement; streamline"
   },
   {
     "boothId": "CE02",
@@ -622,12 +666,13 @@
     "subtitle": "Where humans with Agents drive customer success together",
     "description": "Salesforce and BCG deliver AI-powered business advantage. By combining BCG’s industry-leading functional expertise with Salesforce’s agentic AI capabilities through Agentforce, we drive faster time to value and adoption — ensuring measurable business impact from day one.  New research reveals how businesses scale AI agents 16x faster and 75% more accurately with Agentforce. Stop by our booth to see Agentforce in action and drop in to build your own AI agent.",
     "sectorjourneys": "TELE",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 711,
     "y": 2228,
     "partner": "Y",
     "contacts": "Kristine Marlborough, Maureen Riley, Richard Arnold, Kate Stewart",
-    "highlightUrl": "/highlights/ce02.svg"
+    "highlightUrl": "/highlights/ce02.svg",
+    "keywords": ""
   },
   {
     "boothId": "CE03",
@@ -636,12 +681,13 @@
     "subtitle": "Advance the art and science of Sales by leveraging GenAI, data and tech",
     "description": "Step into the future of sales with NextGenSales! Discover how GenAI transforms sales organizations with intelligent agents, cutting-edge automation, and seamless integration across your CRM and tech stack. Unlock smarter workflows, harness data for sharper insights, and boost productivity to crush your sales goals. Whether you’re looking to streamline processes or stay ahead of the competition, this is where innovation meets sales success. Stop by and see what’s next!",
     "sectorjourneys": "CBCMIB,BPH,MT,EPIT,MPI,LHI,PCCI,ME,TECH,TELE",
-    "topicjourneys": "",
+    "topicjourneys": "AI",
     "x": 767,
     "y": 1931,
     "partner": "",
     "contacts": "Phillip Andersen, Basir Mustaghni",
-    "highlightUrl": "/highlights/ce03.svg"
+    "highlightUrl": "/highlights/ce03.svg",
+    "keywords": "GenAI; Cost; Commercial Banking, Capital Markets & Investment Banking; CCIB; Biopharma; BP; Medical Technologies; Medtech; MT; Engineered Products & Industrial Technology; EPT; Materials & Process Industries; MPI; Life and Health Insurance; LHI;  P&C and Commercial Insurance; PCI; Insurance; INS;  Media;  Technology; Tech; Telecommunications; telcom;  sales; data; tech;  intelliigent agents; automation; integration; CRM; workflows; sales goals; streamline;  avatar; GENie; Buddy, Sales Sherpa"
   },
   {
     "boothId": "CE04",
@@ -655,7 +701,8 @@
     "y": 2115,
     "partner": "Y",
     "contacts": "Alex Hatton, Ciara Schoenauer",
-    "highlightUrl": "/highlights/ce04.svg"
+    "highlightUrl": "/highlights/ce04.svg",
+    "keywords": ""
   },
   {
     "boothId": "CE05",
@@ -669,7 +716,8 @@
     "y": 2115,
     "partner": "Y",
     "contacts": "Stephen Ryan",
-    "highlightUrl": "/highlights/ce05.svg"
+    "highlightUrl": "/highlights/ce05.svg",
+    "keywords": ""
   },
   {
     "boothId": "CE06",
@@ -683,7 +731,8 @@
     "y": 1931,
     "partner": "",
     "contacts": "Lauren Wiener, Mark Abraham, Silvio Palumbo",
-    "highlightUrl": "/highlights/ce06.svg"
+    "highlightUrl": "/highlights/ce06.svg",
+    "keywords": "GenAI; Cost;  Fashion & Luxury; F&L;  Consumer, Private, and Business Banking; CPBB;  Global Asset Managers; GAM; Payments & Fintechs; P&F; Travel, Transport Infrastructure & Leisure; TTL; data-driven; brand; scale; intelligent automation; predictive insight; customer engagement; automate; journey; Fabriq; assessments"
   },
   {
     "boothId": "CE07",
@@ -697,7 +746,8 @@
     "y": 2228,
     "partner": "",
     "contacts": "Ben Eppler, Lara Koslow, Lauren Taylor",
-    "highlightUrl": "/highlights/ce07.svg"
+    "highlightUrl": "/highlights/ce07.svg",
+    "keywords": "GenAI; Cost;  Consumer Products; CP; Fashion & Luxury; F&L;  Commercial Banking, Capital Markets & Investment Banking; CCIB;  Automotive & Mobility; A&M;  customer intelligence; innovation; strategy;  Market Mirror; growth strategies; marketing; demand; scenario planning; business strategy; competitive advantage; platform; avatar"
   },
   {
     "boothId": "CE08",
@@ -711,7 +761,8 @@
     "y": 2405,
     "partner": "",
     "contacts": "Arnab Sinha",
-    "highlightUrl": "/highlights/ce08.svg"
+    "highlightUrl": "/highlights/ce08.svg",
+    "keywords": "GenAI; Cost; Consumer Products; CP;  Retail; Global Asset Managers; GAM: Payments & Fintechs; P&F; Medical Technologies; MedTech; MT;  Logistics, Postal & Shipping; LPS;  impact; pricing power; pricing game;  pricing solution; Game Changer"
   },
   {
     "boothId": "CE09",
@@ -725,7 +776,8 @@
     "y": 2407,
     "partner": "",
     "contacts": "Tim Kuhrcke",
-    "highlightUrl": "/highlights/ce09.svg"
+    "highlightUrl": "/highlights/ce09.svg",
+    "keywords": "Tech; Media; telcom; TMT; Health Care; HC; Public Sector;PS;  Consumer; Energy; EN;  Financial Institutions; FI; Insurance; INS;  Industrial Goods;IG;  Travel, Cities, & Infrastructure; CRT;  value; impact; revenue; consumer; employee loyalty;  competitive advantage; topics; brand; solutions; business landscape; ChatGPT; offerings; digitial"
   },
   {
     "boothId": "AI01",
@@ -739,7 +791,8 @@
     "y": 2378,
     "partner": "",
     "contacts": "Scott Wilder",
-    "highlightUrl": "/highlights/ai01.svg"
+    "highlightUrl": "/highlights/ai01.svg",
+    "keywords": ""
   },
   {
     "boothId": "FS01",
@@ -753,7 +806,8 @@
     "y": 1327,
     "partner": "",
     "contacts": "Patrick Herhold",
-    "highlightUrl": "/highlights/fs01.svg"
+    "highlightUrl": "/highlights/fs01.svg",
+    "keywords": "Cost; Decarbonization; Carbon footprint; emissions; sustainability; climate; EN; IG; TCI; CP; hydrogen; renewables; low carbon energy & infrastructure; integrated energy transformation; materials & process industries; OEM; Infrastructure, Development, Engineering & Construction; HC; Healthcare; Consumer Products; Operations; Principal Investors & Private Equity; PIPE"
   },
   {
     "boothId": "FS02",
@@ -767,7 +821,8 @@
     "y": 1001,
     "partner": "",
     "contacts": "Shalini Unnikrishnan",
-    "highlightUrl": "/highlights/fs02.svg"
+    "highlightUrl": "/highlights/fs02.svg",
+    "keywords": "Agriculture; RegenAtlas; Sustainability; Climate; IG; Industrial Goods; Materials & Process Industries; PIPE; Social Impact; SI; PS; Public Sector; FI; Financial Institutions; CON; Consumer Products; Retail; Fashion & Luxury; MPI; Materials & Process Industries"
   },
   {
     "boothId": "FS03",
@@ -776,12 +831,13 @@
     "subtitle": "Navigate sustainability policy and regulation in uncertain times",
     "description": "In a world where shifting leadership reshapes climate commitments, BCG helps clients navigate complexity and seize opportunities. We integrate policy & regulatory expertise, and digital capabilities—delivering differentiated insights to assess risks and opportunities in an evolving landscape. High-emission industries like aluminium ($250B) & cement ($500B) face billion-dollar investment risks over the next 20 years. See how we cut through regulatory volatility to drive informed decision-making.",
     "sectorjourneys": "",
-    "topicjourneys": "",
+    "topicjourneys": "GP",
     "x": 299,
     "y": 560,
     "partner": "",
     "contacts": "Edmond Rhys Jones, Jannik Leiendecker",
-    "highlightUrl": "/highlights/fs03.svg"
+    "highlightUrl": "/highlights/fs03.svg",
+    "keywords": "GenAI; emissions; carbon markets; climate; policy pulse; FI; EN; IG; CP; PS; TCI; HC; TMT; Financial Institutions; Healthcare; Energy; Industrial Goods; Consumer Products; Travel, Cities and Infrastructure;  Technology, Media & Telecom"
   },
   {
     "boothId": "FS04",
@@ -795,7 +851,8 @@
     "y": 186,
     "partner": "Y",
     "contacts": "Vincent Loubinoux, Alexandre Razzi",
-    "highlightUrl": "/highlights/fs04.svg"
+    "highlightUrl": "/highlights/fs04.svg",
+    "keywords": ""
   },
   {
     "boothId": "FS05",
@@ -809,7 +866,8 @@
     "y": 178,
     "partner": "",
     "contacts": "Lorenzo Fantini, Annika Zawadzki",
-    "highlightUrl": "/highlights/fs05.svg"
+    "highlightUrl": "/highlights/fs05.svg",
+    "keywords": "Cost;"
   },
   {
     "boothId": "FS06",
@@ -823,7 +881,8 @@
     "y": 445,
     "partner": "",
     "contacts": "Allon Zeitoun, Marcial Vargas",
-    "highlightUrl": "/highlights/fs06.svg"
+    "highlightUrl": "/highlights/fs06.svg",
+    "keywords": "Quantis; sustainability; carbon footprint; scope 3; AI; risk; cost; CP; Consumer Products; IG; Industrial Goods; Packaging; Chemicals; Agriculture; Fashion & Luxury; Retail"
   },
   {
     "boothId": "FS07",
@@ -837,7 +896,8 @@
     "y": 712,
     "partner": "",
     "contacts": "Alejandro Navarro, Mikael le Mouellic, Sophie Gebel, Alex Meyer zum Felde",
-    "highlightUrl": "/highlights/fs07.svg"
+    "highlightUrl": "/highlights/fs07.svg",
+    "keywords": "Cost; Ops; Operations; Healthcare; HC; IG; Industrial Goods; MSP; Marketing, Sales and Pricing; Climate; Sustainability; Consumer; CP; Retail; design; product design"
   },
   {
     "boothId": "FS08",
@@ -851,7 +911,8 @@
     "y": 940,
     "partner": "",
     "contacts": "Cornelius Pieper",
-    "highlightUrl": "/highlights/fs08.svg"
+    "highlightUrl": "/highlights/fs08.svg",
+    "keywords": "Decarbonization; low-carbon; scope 3; carbon footprint; OEMs; supply chain; green; IG; Industrial Goods; EN; Energy; CP; Consumer Products; Climate; Sustainability; TDA; BCG X; MSP"
   },
   {
     "boothId": "FS09",
@@ -865,7 +926,8 @@
     "y": 1202,
     "partner": "Y",
     "contacts": "Tyson White",
-    "highlightUrl": "/highlights/fs09.svg"
+    "highlightUrl": "/highlights/fs09.svg",
+    "keywords": ""
   },
   {
     "boothId": "FS10",
@@ -879,6 +941,7 @@
     "y": 1467,
     "partner": "",
     "contacts": "Mads Peter Langhorn",
-    "highlightUrl": "/highlights/fs10.svg"
+    "highlightUrl": "/highlights/fs10.svg",
+    "keywords": "Sustainability; investors; green; EN; IG; TCI; PIPE; Energy; Industrial Goods; Principal Investors & Private Equity; Travel, Cities & Infrastructure"
   }
 ]

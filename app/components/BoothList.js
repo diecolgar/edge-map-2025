@@ -1,10 +1,9 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const BoothList = ({ booths, onSelect }) => {
+const BoothList = ({ booths, onSelect, isSearching = false }) => {
   const [openSections, setOpenSections] = useState({});
-  const shuffledGroupsRef = useRef(null);
 
   const toggleSection = (key) => {
     setOpenSections((prev) => ({
@@ -14,35 +13,35 @@ const BoothList = ({ booths, onSelect }) => {
   };
 
   const neighbourhoodStyles = {
-    fs: { label: "Future of Sustainability", color: "bg-[#197A56]" },
-    ce: { label: "Future of Customer Engagement", color: "bg-[#EFAE00]" },
-    op: { label: "Future of Operations", color: "bg-[#FF6000]" },
-    sp: { label: "Future of Strategy, People, and Organization", color: "bg-[#FF54D4]" },
-    td: { label: "Future of Technology, Digital, and Data", color: "bg-[#322E81]" },
+    fs: { label: "Sustainability", color: "bg-[#197A56]" },
+    ce: { label: "Customer Engagement", color: "bg-[#EFAE00]" },
+    op: { label: "Operations", color: "bg-[#FF6000]" },
+    sp: {
+      label: "Strategy, People, and Organization",
+      color: "bg-[#FF54D4]",
+    },
+    td: { label: "Technology, Digital, and Data", color: "bg-[#322E81]" },
   };
 
-  const amplifyImpactBooth = booths.find(b => b.boothId === "AI01");
-  const filteredBooths = booths.filter(b => b.boothId !== "AI01");
+  const amplifyImpactBooth = booths.find((b) => b.boothId === "AI01");
 
-  if (!shuffledGroupsRef.current) {
-    const group = filteredBooths.reduce((acc, booth) => {
-      const neighbourhood = booth.neighbourhood?.toLowerCase() || "other";
-      if (!acc[neighbourhood]) acc[neighbourhood] = [];
-      acc[neighbourhood].push(booth);
-      return acc;
-    }, {});
-    shuffledGroupsRef.current = Object.entries(group).sort((a, b) =>
-      a[0].localeCompare(b[0])
-    );    
-  }
-
-  const grouped = shuffledGroupsRef.current;
+  const grouped = useMemo(() => {
+    const group = booths
+      .filter((b) => b.boothId !== "AI01")
+      .reduce((acc, booth) => {
+        const neighbourhood = booth.neighbourhood?.toLowerCase() || "other";
+        if (!acc[neighbourhood]) acc[neighbourhood] = [];
+        acc[neighbourhood].push(booth);
+        return acc;
+      }, {});
+    return Object.entries(group).sort((a, b) => a[0].localeCompare(b[0]));
+  }, [booths]);
 
   useEffect(() => {
-    if (grouped.length > 0 && Object.keys(openSections).length === 0) {
+    if (grouped.length > 0) {
       setOpenSections({ [grouped[0][0]]: true });
     }
-  }, [grouped, openSections]);
+  }, [grouped]);
 
   return (
     <div className="overflow-y-auto relative flex flex-col bg-edgeBackground max-h-full pb-14 pt-16 z-20">
@@ -58,23 +57,41 @@ const BoothList = ({ booths, onSelect }) => {
       </div>
 
       {grouped.map(([neighbourhood, groupBooths]) => {
-        const style = neighbourhoodStyles[neighbourhood] || { label: `Group: ${neighbourhood}`, color: "bg-gray-200" };
+        const style = neighbourhoodStyles[neighbourhood] || {
+          label: `Group: ${neighbourhood}`,
+          color: "bg-gray-200",
+        };
         const isOpen = openSections[neighbourhood];
 
         return (
           <div key={neighbourhood}>
             <div className={`${style.color}`}>
               <button
-                className="w-full flex items-start gap-3 px-6 py-4 text-white font-semibold focus:outline-none"
+                className="relative w-full flex items-start gap-3 px-6 py-4 text-white font-semibold focus:outline-none"
                 onClick={() => toggleSection(neighbourhood)}
               >
-                <svg className={`mt-1 transition-transform duration-300 transform ${isOpen ? "-rotate-180" : "rotate-0"}`} width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <svg
+                  className={`mt-1 transition-transform duration-300 transform ${
+                    isOpen ? "-rotate-180" : "rotate-0"
+                  }`}
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M6 9l6 6 6-6" />
                 </svg>
-                <span className="text-white text-left font-semibold">
-                  <span className="italic font-light">Future of&nbsp;</span>
-                  {style.label.replace("Future of ", "")}
+                <span className="relative w-full text-white text-left font-semibold flex items-center gap-1 pr-4">
+                  <span className="italic font-light">Future of&nbsp; <span className="font-bold">{style.label}</span> </span>
+                  {isSearching && (
+                    <span className="absolute right-0 flex items-center justify-center ml-1 text-xs font-bold text-edgeText bg-white w-5 h-5 rounded-full">
+                      {groupBooths.length}
+                    </span>
+                    )}
                 </span>
+
               </button>
 
               <AnimatePresence initial={false}>
@@ -101,18 +118,38 @@ const BoothList = ({ booths, onSelect }) => {
                           <div className="flex flex-col">
                             <div className="flex items-center justify-between mb-4">
                               <div className="flex items-center gap-2">
-                                <img src={`/nb-icons/${booth.neighbourhood?.toLowerCase()}.svg`} alt={`${booth.neighbourhood} icon`} className="w-5 h-5" />
-                                <span className="text-sm font-bold text-edgeTextSecondary">{booth.boothId?.toUpperCase()}</span>
+                                <img
+                                  src={`/nb-icons/${booth.neighbourhood?.toLowerCase()}.svg`}
+                                  alt={`${booth.neighbourhood} icon`}
+                                  className="w-5 h-5"
+                                />
+                                <span className="text-sm font-bold text-edgeTextSecondary">
+                                  {booth.boothId?.toUpperCase()}
+                                </span>
                               </div>
                               <div className="flex items-center gap-2 text-edgeGreen text-sm font-bold">
                                 <span>See details</span>
-                                <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M0.75 10.5L5.25 6L0.75 1.5" stroke="#21BF61" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                                <svg
+                                  width="6"
+                                  height="12"
+                                  viewBox="0 0 6 12"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M0.75 10.5L5.25 6L0.75 1.5"
+                                    stroke="#21BF61"
+                                    strokeWidth="1.2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
                                 </svg>
                               </div>
                             </div>
                             <h3 className="text-base font-semibold text-edgeText">{booth.name}</h3>
-                            <p className="text-sm text-edgeTextSecondary line-clamp-2 italic">{booth.subtitle}</p>
+                            <p className="text-sm text-edgeTextSecondary line-clamp-2 italic">
+                              {booth.subtitle}
+                            </p>
                           </div>
                           {booth.partner === "Y" && (
                             <div className="flex-shrink-0 mt-2">
@@ -147,17 +184,33 @@ const BoothList = ({ booths, onSelect }) => {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
                       <img src="/nb-icons/ai.png" alt="Amplify Impact Icon" className="w-5 h-5" />
-                      <span className="text-sm font-bold text-edgeTextSecondary">{amplifyImpactBooth.boothId}</span>
+                      <span className="text-sm font-bold text-edgeTextSecondary">
+                        {amplifyImpactBooth.boothId}
+                      </span>
                     </div>
                     <div className="flex items-center gap-2 text-edgeGreen text-sm font-bold">
                       <span>See details</span>
-                      <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.75 10.5L5.25 6L0.75 1.5" stroke="#21BF61" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        width="6"
+                        height="12"
+                        viewBox="0 0 6 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.75 10.5L5.25 6L0.75 1.5"
+                          stroke="#21BF61"
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </div>
                   </div>
                   <h3 className="text-base font-semibold text-edgeText">{amplifyImpactBooth.name}</h3>
-                  <p className="text-sm text-edgeTextSecondary line-clamp-2 italic">{amplifyImpactBooth.subtitle}</p>
+                  <p className="text-sm text-edgeTextSecondary line-clamp-2 italic">
+                    {amplifyImpactBooth.subtitle}
+                  </p>
                 </div>
               </div>
             </div>
@@ -179,23 +232,40 @@ const BoothList = ({ booths, onSelect }) => {
               <div className="flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
-                    <img src="/services/theatre.svg" alt="Micro Theatre Icon" className="w-5 h-5" />
+                    <img
+                      src="/services/theatre.svg"
+                      alt="Micro Theatre Icon"
+                      className="w-5 h-5"
+                    />
                     <span className="text-sm font-bold text-white">MT-001</span>
                   </div>
                   <div className="flex items-center gap-2 text-edgeGreen text-sm font-bold">
                     <span>See details</span>
-                    <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0.75 10.5L5.25 6L0.75 1.5" stroke="#21BF61" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                    <svg
+                      width="6"
+                      height="12"
+                      viewBox="0 0 6 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.75 10.5L5.25 6L0.75 1.5"
+                        stroke="#21BF61"
+                        strokeWidth="1.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </div>
                 </div>
-                <h3 className="text-base font-semibold text-white">Booth Title, 60 characters max, lorem ipsum dolor sit am</h3>
+                <h3 className="text-base font-semibold text-white">
+                  Booth Title, 60 characters max, lorem ipsum dolor sit am
+                </h3>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   );
 };
