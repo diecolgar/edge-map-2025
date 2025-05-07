@@ -17,7 +17,7 @@ import BoothInfoSheet from "./components/BoothInfoSheet";
 import ServiceInfoSheet from "./components/ServiceInfoSheet";
 import TheatreInfoSheet from "./components/TheatreInfoSheet";
 import BoothList from "./components/BoothList";
-import LandingPage from "./components/LoadingPage";
+import LandingPage from "./components/LandingPage";
 
 // Listener para cambios de zoom
 const ZoomListener = ({ setZoomLevel }) => {
