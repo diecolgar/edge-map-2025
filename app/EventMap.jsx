@@ -409,12 +409,16 @@ const EventMap = () => {
                     eventHandlers={{
                       click: () => {
                         setSelectedLocation(null);
-                        setSelectedService(null);
-                        setSelectedTheatre(
-                          svc.boothId === "th" ? svc : null
-                        );
+                        if (svc.boothId === "th") {
+                          setSelectedTheatre(svc);
+                          setSelectedService(null);
+                        } else {
+                          setSelectedTheatre(null);
+                          setSelectedService(svc);
+                        }
                       },
                     }}
+                    
                   />
                 );
               })}

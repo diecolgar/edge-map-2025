@@ -141,7 +141,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
           overflow: "hidden",
           maxHeight: `${maxVH}dvh`,
         }}
-        className="absolute bottom-0 left-0 w-full bg-edgeText shadow-lg border-t rounded-t-2xl z-50"
+        className="absolute bottom-0 left-0 w-full bg-edgeText shadow-lg rounded-t-2xl z-50"
         drag="y"
         dragControls={dragControls}
         dragListener={false}

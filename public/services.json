@@ -1,102 +1,6 @@
 [
   {
-    "boothId": "ic",
-    "name": "Information Counter",
-    "x": 142,
-    "y": 2081,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/ic.svg"
-  },
-  {
-    "boothId": "fsid",
-    "name": "Information Desk",
-    "x": 292,
-    "y": 2800,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/id.svg"
-  },
-  {
-    "boothId": "tdid",
-    "name": "Information Desk",
-    "x": 273,
-    "y": 1528,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/id.svg"
-  },
-  {
-    "boothId": "mtid",
-    "name": "Information Desk",
-    "x": 1827,
-    "y": 4274,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/id.svg"
-  },
-  {
-    "boothId": "fsrs",
-    "name": "Recharge Spot",
-    "x": 1271,
-    "y": 2830,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/rs.svg"
-  },
-  {
-    "boothId": "cers",
-    "name": "Recharge Spot",
-    "x": 548,
-    "y": 985,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/rs.svg"
-  },
-  {
-    "boothId": "sprs",
-    "name": "Recharge Spot",
-    "x": 1752,
-    "y": 2181,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/rs.svg"
-  },
-  {
-    "boothId": "oprs",
-    "name": "Recharge Spot",
-    "x": 1980,
-    "y": 2631,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/rs.svg"
-  },
-  {
-    "boothId": "tdrs",
-    "name": "Recharge Spot",
-    "x": 766,
-    "y": 3019,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/rs.svg"
-  },
-  {
-    "boothId": "rst01",
-    "name": "Restroom",
-    "x": 1874,
-    "y": 5374,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/rst.svg"
-  },
-  {
-    "boothId": "rst02",
-    "name": "Restroom",
-    "x": 1086,
-    "y": 1718,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/rst.svg"
-  },
-  {
-    "boothId": "fsfb",
-    "name": "Food & Beverage",
-    "x": 1231,
-    "y": 4632,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
-    "iconUrl": "/services/fb.svg"
-  },
-  {
-    "boothId": "fb",
+    "boothId": "fb2",
     "name": "Food & Beverage",
     "x": 548,
     "y": 853,
@@ -104,12 +8,60 @@
     "iconUrl": "/services/fb.svg"
   },
   {
+    "boothId": "rs2",
+    "name": "Recharge Spot",
+    "x": 548,
+    "y": 985,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/rs.svg"
+  },
+  {
+    "boothId": "id",
+    "name": "Information Desk",
+    "x": 273,
+    "y": 1528,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/id.svg"
+  },
+  {
+    "boothId": "rst2",
+    "name": "Restroom",
+    "x": 1086,
+    "y": 1718,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/rst.svg"
+  },
+  {
+    "boothId": "rs3",
+    "name": "Recharge Spot",
+    "x": 1752,
+    "y": 2121,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/rs.svg"
+  },
+  {
+    "boothId": "rs3",
+    "name": "Food & Beverage",
+    "x": 1752,
+    "y": 2241,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/fb.svg"
+  },
+  {
     "boothId": "ehd",
-    "name": "Exhibitor help-desk",
-    "x": 1871,
-    "y": 5841,
+    "name": "Exhibitor Help Desk",
+    "x": 142,
+    "y": 2081,
     "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
     "iconUrl": "/services/ehd.svg"
+  },
+  {
+    "boothId": "rs4",
+    "name": "Recharge Spot",
+    "x": 1980,
+    "y": 2631,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/rs.svg"
   },
   {
     "boothId": "th",
@@ -118,5 +70,77 @@
     "y": 2756,
     "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
     "iconUrl": "/services/theatre.svg"
+  },
+  {
+    "boothId": "ic",
+    "name": "Information Counter",
+    "x": 292,
+    "y": 2800,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/ic.svg"
+  },
+  {
+    "boothId": "rs",
+    "name": "Information Desk",
+    "x": 1271,
+    "y": 2830,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/id.svg"
+  },
+  {
+    "boothId": "rs5",
+    "name": "Recharge Spot",
+    "x": 766,
+    "y": 3019,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/rs.svg"
+  },
+  {
+    "boothId": "fborange",
+    "name": "Food & Beverage",
+    "x": 766,
+    "y": 3129,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/fb.svg"
+  },
+  {
+    "boothId": "fb",
+    "name": "Food & Beverage",
+    "x": 1231,
+    "y": 4632,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/fb.svg"
+  },
+  {
+    "boothId": "rs8",
+    "name": "Restroom",
+    "x": 1874,
+    "y": 5374,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/rs.svg"
+  },
+  {
+    "boothId": "rs6",
+    "name": "Exhibitor help-desk",
+    "x": 1871,
+    "y": 5841,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/rs.svg"
+  },
+  {
+    "boothId": "rs7",
+    "name": "Food & Beverage",
+    "x": 1871,
+    "y": 5841,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/fb.svg"
+  },
+  {
+    "boothId": "id2",
+    "name": "Information Desk",
+    "x": 1827,
+    "y": 4274,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/id.svg"
   }
 ]
