@@ -4,66 +4,63 @@ import React, { useState, useEffect } from "react";
 import { X } from "lucide-react";  // ← AÑADIDO
 // Nota: ya no necesitamos importar Check de lucide-react porque usamos el SVG inline
 
-// Configuración de filtros y opciones
+// Configuración de filtros y opciones (sin las entradas "All")
 const FILTERS_CONFIG = [
-    {
-      code: "topic",
-      label: "Topic Journeys",
-      type: "multi",
-      options: [
-        { code: "all_topics", label: "All Journeys" },
-        { code: "ai", label: "GenAI" },
-        { code: "tp", label: "Tech Platforms" },
-        { code: "gp", label: "Geopolitics" },
-        { code: "co", label: "Cost" },
-      ],
-    },
-    {
-      code: "sector",
-      label: "Sector Journeys",
-      type: "multi",
-      options: [
-        { code: "all_sectors", label: "All Sectors" },
-        { code: "CP", label: "Consumer Products" },
-        { code: "FL", label: "Fashion & Luxury" },
-        { code: "RT", label: "Retail" },
-        { code: "LCE", label: "Low Carbon Energy" },
-        { code: "RT2", label: "Refining & Trading" },
-        { code: "IETM", label: "Integrated Energy" },
-        { code: "PF", label: "Payments & Fintech" },
-        { code: "CPBB", label: "Private & Business Banking" },
-        { code: "GAM", label: "Asset Management" },
-        { code: "PPS", label: "Payers & Providers" },
-        { code: "BP", label: "Biopharma" },
-        { code: "MT", label: "MedTech" },
-        { code: "EPI", label: "Engineered Products" },
-        { code: "MPI", label: "Materials & Industries" },
-        { code: "AM", label: "Auto & Mobility" },
-        { code: "LHI", label: "Life & Health Insurance" },
-        { code: "PCCI", label: "P&C Insurance" },
-        { code: "DS", label: "Defense & Security" },
-        { code: "EEW", label: "Economic & Welfare" },
-        { code: "SP", label: "Software & Platforms" },
-        { code: "ME", label: "Media & Entertainment" },
-        { code: "TEL", label: "Telecom" },
-        { code: "TE", label: "Travel & Tourism" },
-        { code: "CIRET", label: "Cities & Transport" },
-      ],
-    },
-    {
-      code: "nb",
-      label: "Neighbourhoods",
-      type: "multi",
-      options: [
-        { code: "all_nb", label: "All Neighbourhoods", icon: null },
-        { code: "td", label: "Technology, Digital, and Data", icon: "td.svg" },
-        { code: "op", label: "Operations", icon: "op.svg" },
-        { code: "sp", label: "Strategy, People, and Organization", icon: "sp.svg" },
-        { code: "ce", label: "Customer Engagement", icon: "ce.svg" },
-        { code: "fs", label: "Sustainability", icon: "fs.svg" },
-      ],
-    },
-  ];
+  {
+    code: "topic",
+    label: "Topic Journeys",
+    type: "multi",
+    options: [
+      { code: "ai", label: "GenAI" },
+      { code: "tp", label: "Tech Platforms" },
+      { code: "gp", label: "Geopolitics" },
+      { code: "co", label: "Cost" },
+    ],
+  },
+  {
+    code: "sector",
+    label: "Sector Journeys",
+    type: "multi",
+    options: [
+      { code: "CP", label: "Consumer Products" },
+      { code: "FL", label: "Fashion & Luxury" },
+      { code: "RT", label: "Retail" },
+      { code: "LCE", label: "Low Carbon Energy" },
+      { code: "RT2", label: "Refining & Trading" },
+      { code: "IETM", label: "Integrated Energy" },
+      { code: "PF", label: "Payments & Fintech" },
+      { code: "CPBB", label: "Private & Business Banking" },
+      { code: "GAM", label: "Asset Management" },
+      { code: "PPS", label: "Payers & Providers" },
+      { code: "BP", label: "Biopharma" },
+      { code: "MT", label: "MedTech" },
+      { code: "EPI", label: "Engineered Products" },
+      { code: "MPI", label: "Materials & Industries" },
+      { code: "AM", label: "Auto & Mobility" },
+      { code: "LHI", label: "Life & Health Insurance" },
+      { code: "PCCI", label: "P&C Insurance" },
+      { code: "DS", label: "Defense & Security" },
+      { code: "EEW", label: "Economic & Welfare" },
+      { code: "SP", label: "Software & Platforms" },
+      { code: "ME", label: "Media & Entertainment" },
+      { code: "TEL", label: "Telecom" },
+      { code: "TE", label: "Travel & Tourism" },
+      { code: "CIRET", label: "Cities & Transport" },
+    ],
+  },
+  {
+    code: "nb",
+    label: "Neighbourhoods",
+    type: "multi",
+    options: [
+      { code: "td", label: "Technology, Digital, and Data", icon: "td.svg" },
+      { code: "op", label: "Operations", icon: "op.svg" },
+      { code: "sp", label: "Strategy, People, and Organization", icon: "sp.svg" },
+      { code: "ce", label: "Customer Engagement", icon: "ce.svg" },
+      { code: "fs", label: "Sustainability", icon: "fs.svg" },
+    ],
+  },
+];
 
 const Filters = ({
   activeTypes: propsActiveTypes = [],
@@ -77,63 +74,7 @@ const Filters = ({
   useEffect(() => setActiveTypes(propsActiveTypes), [propsActiveTypes]);
   useEffect(() => setSelections(propsSelections), [propsSelections]);
 
-  const toggleType = (code) => {
-    setActiveTypes((prev) => {
-      const isActive = prev.includes(code);
-      const next = isActive ? prev.filter((c) => c !== code) : [code, ...prev];
-
-      if (isActive) {
-        setSelections((sel) => {
-          const { [code]: _, ...rest } = sel;
-          return rest;
-        });
-      } else {
-        const section = FILTERS_CONFIG.find((f) => f.code === code);
-        const allOpt = section.options.find((o) => o.code.startsWith("all_"));
-        if (allOpt) {
-          setSelections((sel) => ({ ...sel, [code]: [allOpt.code] }));
-        }
-      }
-      return next;
-    });
-  };
-
-  const toggleSelection = (sectionCode, value) => {
-    setSelections((prev) => {
-      const current = prev[sectionCode] || [];
-      let updated;
-
-      if (value.startsWith(`all_${sectionCode}`)) {
-        updated = current.includes(value) ? [] : [value];
-      } else {
-        const withoutAll = current.filter((v) => !v.startsWith("all_"));
-        updated = current.includes(value)
-          ? withoutAll.filter((v) => v !== value)
-          : [...withoutAll, value];
-      }
-
-      if (updated.length === 0) {
-        setActiveTypes((types) => types.filter((c) => c !== sectionCode));
-      }
-
-      const next = { ...prev };
-      if (updated.length) next[sectionCode] = updated;
-      else delete next[sectionCode];
-      return next;
-    });
-  };
-
-  const clearAll = () => {
-    setActiveTypes([]);
-    setSelections({});
-    onApply([], {});
-  };
-  const handleClose = () => {
-    onApply(activeTypes, selections);
-    onClose();
-  };
-
-  // SVG de “check” (igual que en TopBar)
+  // SVG de “check”
   const CheckIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -151,6 +92,65 @@ const Filters = ({
       />
     </svg>
   );
+
+  // Alterna la visibilidad de una sección de filtros
+  const toggleType = (code) => {
+    setActiveTypes((prev) => {
+      const isActive = prev.includes(code);
+      // Si estamos desactivando, limpiamos también la selección
+      if (isActive) {
+        setSelections((sel) => {
+          const next = { ...sel };
+          delete next[code];
+          return next;
+        });
+        return prev.filter((c) => c !== code);
+      }
+      return [code, ...prev];
+    });
+  };
+
+  // Alterna la selección de un valor dentro de una sección
+  const toggleSelection = (sectionCode, value) => {
+    setSelections((prev) => {
+      const current = prev[sectionCode] || [];
+      const updated = current.includes(value)
+        ? current.filter((v) => v !== value)
+        : [...current, value];
+
+      // Si queda vacío, quitamos la sección activa
+      if (updated.length === 0) {
+        setActiveTypes((types) => types.filter((c) => c !== sectionCode));
+        const next = { ...prev };
+        delete next[sectionCode];
+        return next;
+      }
+
+      return { ...prev, [sectionCode]: updated };
+    });
+  };
+
+  // Limpia todo
+  const clearAll = () => {
+    setActiveTypes([]);
+    setSelections({});
+    onApply([], {});
+  };
+
+  // Aplica y cierra; antes, deselecciona cualquier tipo sin valores
+  const handleClose = () => {
+    const cleanedTypes = activeTypes.filter(
+      (type) => (selections[type] || []).length > 0
+    );
+    const cleanedSelections = {};
+    cleanedTypes.forEach((type) => {
+      cleanedSelections[type] = selections[type];
+    });
+    setActiveTypes(cleanedTypes);
+    setSelections(cleanedSelections);
+    onApply(cleanedTypes, cleanedSelections);
+    onClose();
+  };
 
   return (
     <div className="fixed inset-0 z-[1000] bg-edgeText text-white flex flex-col">
@@ -196,7 +196,7 @@ const Filters = ({
           </div>
         </div>
 
-        {/* Dynamic blocks */}
+        {/* Bloques dinámicos según activeTypes */}
         {activeTypes.map((code) => {
           const section = FILTERS_CONFIG.find((f) => f.code === code);
           const selected = selections[code] || [];
@@ -209,7 +209,7 @@ const Filters = ({
               </h3>
               <p className="text-sm text-edgeTextGray mb-4">
                 Select multiple options if needed
-            </p>
+              </p>
               <div className={`grid ${isIconFilter ? "grid-cols-2" : "grid-cols-2"} gap-3`}>
                 {section.options.map(({ code: optCode, label, icon }) => {
                   const isSel = selected.includes(optCode);
@@ -218,7 +218,9 @@ const Filters = ({
                       key={optCode}
                       onClick={() => toggleSelection(code, optCode)}
                       className={`w-full rounded-xl px-4 py-6 text-sm text-white border transition relative ${
-                        isSel ? "border-edgeGreen bg-white/5" : "border-white/20 hover:bg-white/10"
+                        isSel
+                          ? "border-edgeGreen bg-white/5"
+                          : "border-white/20 hover:bg-white/10"
                       }`}
                     >
                       {isSel && (
@@ -238,7 +240,9 @@ const Filters = ({
                       key={optCode}
                       onClick={() => toggleSelection(code, optCode)}
                       className={`px-4 py-2 border text-sm rounded-full transition text-center ${
-                        isSel ? "border-edgeGreen text-edgeGreen bg-white/5" : "border-white/20 text-white hover:bg-white/10"
+                        isSel
+                          ? "border-edgeGreen text-edgeGreen bg-white/5"
+                          : "border-white/20 text-white hover:bg-white/10"
                       }`}
                     >
                       {isSel && (

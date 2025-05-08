@@ -147,6 +147,10 @@ const EventMap = () => {
   const [filterActiveTypes, setFilterActiveTypes] = useState([]);
   const [filterSelections, setFilterSelections] = useState({});
 
+  // Determine if we have any active search or filters
+  const isFilteredView =
+    searchQuery.trim() !== "" || filterActiveTypes.length > 0;
+
   // Apply filters callback
   const handleApplyFilters = (activeTypes, selections) => {
     setFilterActiveTypes(activeTypes);
@@ -247,11 +251,6 @@ const EventMap = () => {
 
   // Filter locations
   useEffect(() => {
-    console.log("🔍 === Applying filters ===");
-    console.log("   searchQuery:", searchQuery);
-    console.log("   filterSelections:", filterSelections);
-    console.log("   before:", scaledLocations.length);
-
     const stopWords = new Set([
       "the","of","for","a","an","to","in","on","and","is","are","at","with","by"
     ]);
@@ -264,6 +263,7 @@ const EventMap = () => {
 
     let results = scaledLocations;
 
+    // Search filter
     if (searchQuery.trim()) {
       const q = normalize(searchQuery);
       const tokens = q.split(/\s+/).filter(t => t && !stopWords.has(t));
@@ -273,33 +273,31 @@ const EventMap = () => {
         return tokens.every(tok => name.includes(tok));
       });
     }
-    console.log("   → after search:", results.length);
 
+    // Topic filter
     const topics = filterSelections.topic || [];
     if (topics.length > 0 && !topics.includes("all_topics")) {
       results = results.filter(loc =>
         (loc.topicjourneys || []).some(t => topics.includes(t))
       );
     }
-    console.log("   → after topic:", results.length);
 
+    // Sector filter
     const sectors = filterSelections.sector || [];
     if (sectors.length > 0 && !sectors.includes("all_sectors")) {
       results = results.filter(loc =>
         (loc.sectorjourneys || []).some(s => sectors.includes(s))
       );
     }
-    console.log("   → after sector:", results.length);
 
+    // Neighbourhood filter
     const nbs = filterSelections.nb || [];
     if (nbs.length > 0 && !nbs.includes("all_nb")) {
       results = results.filter(loc =>
         nbs.includes((loc.neighbourhood || "").toLowerCase())
       );
     }
-    console.log("   → after nb:", results.length);
 
-    console.log("✅ final:", results.length);
     setFilteredLocations(results);
   }, [scaledLocations, searchQuery, filterSelections]);
 
@@ -391,6 +389,7 @@ const EventMap = () => {
             <FitToViewport bounds={bounds} />
             <ZoomListener setZoomLevel={setZoomLevel} />
 
+            {/* Base map overlays */}
             <ImageOverlay
               url="/edge-map-general.png"
               bounds={bounds}
@@ -399,6 +398,19 @@ const EventMap = () => {
             />
             <ImageOverlay url={imageUrl} bounds={bounds} opacity={1} zIndex={10} />
 
+            {/* Highlights for filtered/search results */}
+            {isFilteredView && filteredLocations.map((loc) => (
+              <ImageOverlay
+                key={`hl-${loc.boothId}`}
+                url={loc.highlightUrl}
+                bounds={bounds}
+                opacity={1}
+                zIndex={900}
+                className="highlight-overlay"
+              />
+            ))}
+
+            {/* Highlight for clicked booth */}
             {selectedLocation && (
               <ImageOverlay
                 url={selectedLocation.highlightUrl}
@@ -408,6 +420,7 @@ const EventMap = () => {
               />
             )}
 
+            {/* Location markers */}
             {zoomLevel >= 1 &&
               filteredLocations.map((loc) => (
                 <Marker
@@ -425,6 +438,7 @@ const EventMap = () => {
                 />
               ))}
 
+            {/* Service & theatre markers */}
             {zoomLevel >= 1 &&
               filteredServices.map((svc) => {
                 const isTheatre = svc.boothId === "th";
@@ -479,14 +493,12 @@ const EventMap = () => {
                 );
               })}
 
+            {/* "You are here" marker */}
             {youAreHere && (
-              <Marker
-                position={youAreHere}
-                icon={youAreHereIcon}
-                zIndexOffset={2000}
-              />
+              <Marker position={youAreHere} icon={youAreHereIcon} zIndexOffset={2000} />
             )}
 
+            {/* Focus on selected */}
             {(selectedLocation || selectedService || selectedTheatre) && (
               <FocusOnLocation
                 position={
@@ -502,7 +514,7 @@ const EventMap = () => {
         {activeView === "list" && (
           <BoothList
             booths={filteredLocations}
-            isSearching={!!searchQuery.trim() || filterActiveTypes.length > 0}
+            isSearching={isFilteredView}
             searchQuery={searchQuery}
             filterSelections={filterSelections}
             onSelect={(item) => {

@@ -3,7 +3,10 @@ import React from "react";
 
 const BottomBar = ({ activeView, onChangeView }) => {
   return (
-    <div className="absolute bottom-0 left-0 w-full z-[500] bg-[#323232] h-14 flex flex-col items-center">
+    <div
+      className="absolute bottom-0 left-0 w-full z-[500] bg-[#323232] h-14 flex flex-col items-center"
+      style={{ boxShadow: '0px -2px 12px rgba(0, 0, 0, 0.3)' }}
+    >
       {/* Contenedor del indicador */}
       <div className="relative w-full h-1">
         {/* Indicador animado */}

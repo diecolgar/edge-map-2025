@@ -247,7 +247,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
         </div>
 
         {/* Smooth Fade Effect (outside scroll) */}
-        <AnimatePresence>
+        {/* <AnimatePresence>
           {showFade && (
             <motion.div
               key="fade"
@@ -262,7 +262,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
               }}
             />
           )}
-        </AnimatePresence>
+        </AnimatePresence> */}
       </motion.div>
     </AnimatePresence>
   );

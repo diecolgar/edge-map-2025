@@ -312,7 +312,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
         </div>
 
         {/* Smooth Fade */}
-        <AnimatePresence>
+        {/* <AnimatePresence>
           {showFade && (
             <motion.div
               key="fade"
@@ -327,7 +327,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
               }}
             />
           )}
-        </AnimatePresence>
+        </AnimatePresence> */}
       </motion.div>
     </AnimatePresence>
   );
