@@ -40,7 +40,7 @@
     "iconUrl": "/services/rs.svg"
   },
   {
-    "boothId": "rs3",
+    "boothId": "rs33",
     "name": "Food & Beverage",
     "x": 1752,
     "y": 2241,
@@ -113,7 +113,7 @@
   },
   {
     "boothId": "rs8",
-    "name": "Restroom",
+    "name": "Recharge Spot",
     "x": 1874,
     "y": 5374,
     "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",

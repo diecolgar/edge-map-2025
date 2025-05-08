@@ -15,6 +15,7 @@ export default {
         // Agrega aquí tus colores personalizados
         edgeText: "#323232",
         edgeTextSecondary: "#989898",
+        edgeTextGray: "#C1C1C1",
         edgeBorder: "#474747",
         edgeBackground: "#F1EEEA",
         edgeGreen: "#21BF61",

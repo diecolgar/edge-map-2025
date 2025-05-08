@@ -49,12 +49,12 @@ const LandingPage = ({ onClose }) => {
     <span>What is EDGE?</span>
     <span className="relative w-4 h-4">
       <motion.span
-        animate={{ rotate: isOpen ? -45 : 45 }}
+        animate={{ rotate: isOpen ? 45 : -45 }}
         transition={{ duration: 0.2 }}
         className="absolute left-1/2 top-1/2 w-[10px] h-[2px] bg-edgeGreen origin-center -translate-x-1/2 -translate-y-1/2"
       />
       <motion.span
-        animate={{ rotate: isOpen ? 45 : -45 }}
+        animate={{ rotate: isOpen ? -45 : 45 }}
         transition={{ duration: 0.2 }}
         className="absolute left-[2px] top-1/2 w-[10px] h-[2px] bg-edgeGreen origin-center -translate-x-1/2 -translate-y-1/2"
       />

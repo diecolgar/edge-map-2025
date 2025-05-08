@@ -1,6 +1,7 @@
+// EventMap.jsx
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MapContainer,
   ImageOverlay,
@@ -18,8 +19,9 @@ import ServiceInfoSheet from "./components/ServiceInfoSheet";
 import TheatreInfoSheet from "./components/TheatreInfoSheet";
 import BoothList from "./components/BoothList";
 import LandingPage from "./components/LandingPage";
+import Filters from "./components/Filters";
 
-// Listener para cambios de zoom
+// Listener for zoom level changes
 const ZoomListener = ({ setZoomLevel }) => {
   useMapEvents({
     zoomend: (e) => setZoomLevel(e.target.getZoom()),
@@ -27,6 +29,7 @@ const ZoomListener = ({ setZoomLevel }) => {
   return null;
 };
 
+// Fit the map view to given bounds
 const FitToViewport = ({ bounds }) => {
   const map = useMap();
   useEffect(() => {
@@ -36,6 +39,7 @@ const FitToViewport = ({ bounds }) => {
   return null;
 };
 
+// Fly to a specific position
 const FocusOnLocation = ({ position }) => {
   const map = useMap();
   useEffect(() => {
@@ -54,6 +58,7 @@ const FocusOnLocation = ({ position }) => {
   return null;
 };
 
+// Render a custom booth icon with optional label
 const renderBoothIcon = (id, name, zoomLevel) => {
   const showTitle = zoomLevel >= 2;
   const shortName = name.length > 25 ? name.slice(0, 25) + "…" : name;
@@ -108,28 +113,48 @@ const EventMap = () => {
   const original = { width: 2560, height: 6064 };
   const aspect = original.width / original.height;
 
+  // UI state
   const [showLanding, setShowLanding] = useState(true);
   const [activeView, setActiveView] = useState("map");
+  const [showFilters, setShowFilters] = useState(false);
+
+  // Map state
   const [bounds, setBounds] = useState(null);
   const [expandedBounds, setExpandedBounds] = useState(null);
   const [scaleFactor, setScaleFactor] = useState(1);
   const [zoomLevel, setZoomLevel] = useState(0);
 
+  // Data state
   const [locations, setLocations] = useState([]);
   const [scaledLocations, setScaledLocations] = useState([]);
   const [filteredLocations, setFilteredLocations] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState(null);
-  const [locationOrigin, setLocationOrigin] = useState("map");
 
   const [services, setServices] = useState([]);
   const [scaledServices, setScaledServices] = useState([]);
-  const [selectedService, setSelectedService] = useState(null);
+  const [filteredServices, setFilteredServices] = useState([]);
 
+  // Selection state
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [locationOrigin, setLocationOrigin] = useState("map");
+  const [selectedService, setSelectedService] = useState(null);
   const [selectedTheatre, setSelectedTheatre] = useState(null);
 
+  // Search & “You are here”
   const [searchQuery, setSearchQuery] = useState("");
   const [youAreHere, setYouAreHere] = useState(null);
 
+  // Filter state lifted from <Filters>
+  const [filterActiveTypes, setFilterActiveTypes] = useState([]);
+  const [filterSelections, setFilterSelections] = useState({});
+
+  // Apply filters callback
+  const handleApplyFilters = (activeTypes, selections) => {
+    setFilterActiveTypes(activeTypes);
+    setFilterSelections(selections);
+    setShowFilters(false);
+  };
+
+  // Load JSON
   useEffect(() => {
     fetch("/locations.json")
       .then((res) => res.json())
@@ -141,14 +166,13 @@ const EventMap = () => {
       .catch(console.error);
   }, []);
 
+  // Compute bounds & scale
   useEffect(() => {
     const update = () => {
       if (typeof window === "undefined") return;
-
       const vw = window.innerWidth;
       const vh = window.innerHeight;
       let w, h;
-
       if (vw / vh > aspect) {
         h = vh;
         w = h * aspect;
@@ -156,7 +180,6 @@ const EventMap = () => {
         w = vw;
         h = w / aspect;
       }
-
       const sf = Math.min(w / original.width, h / original.height);
       setScaleFactor(sf);
 
@@ -164,18 +187,18 @@ const EventMap = () => {
       setBounds(imageBounds);
 
       const margin = 0.25;
-      const expandedBounds = new LatLngBounds(
+      const expanded = new LatLngBounds(
         [-h * margin, -w * margin],
         [h * (1 + margin), w * (1 + margin)]
       );
-      setExpandedBounds(expandedBounds);
+      setExpandedBounds(expanded);
     };
-
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, [aspect]);
 
+  // “You are here” URL params
   useEffect(() => {
     if (!bounds) return;
     const params = new URLSearchParams(window.location.search);
@@ -189,6 +212,7 @@ const EventMap = () => {
     }
   }, [bounds, scaleFactor]);
 
+  // Scale locations
   useEffect(() => {
     if (!bounds || !locations.length) return;
     const arr = locations.map((loc) => ({
@@ -200,68 +224,99 @@ const EventMap = () => {
       sectorjourneys: loc.sectorjourneys
         ?.split(",")
         .map((s) => s.trim()) || [],
+      topicjourneys: loc.topicjourneys
+        ?.split(",")
+        .map((s) => s.trim()) || [],
+      neighbourhood: loc.neighbourhood,
     }));
     setScaledLocations(arr);
-    setFilteredLocations(arr);
   }, [bounds, locations, scaleFactor]);
 
-  useEffect(() => {
-    const stopWords = new Set([
-      "the", "of", "for", "a", "an", "to", "in", "on", "and", "is", "are", "at", "with", "by"
-    ]);
-  
-    const normalizeText = (str) =>
-      str
-        .toLowerCase()
-        .normalize("NFD") // separa tildes (é → e +  ́)
-        .replace(/[\u0300-\u036f]/g, "") // elimina tildes
-        .replace(/[^\w\s]/g, "") // elimina signos/puntuación
-        .trim();
-  
-    const query = normalizeText(searchQuery);
-    if (!query) {
-      setFilteredLocations(scaledLocations);
-      return;
-    }
-  
-    const tokens = query
-      .split(/\s+/)
-      .filter((token) => token && !stopWords.has(token));
-  
-    const matches = scaledLocations.filter((loc) => {
-      const name = normalizeText(loc.name);
-      const boothId = loc.boothId.toLowerCase();
-  
-      if (boothId.includes(query)) return true;
-      return tokens.every((token) => name.includes(token));
-    });
-  
-    setFilteredLocations(matches);
-  }, [searchQuery, scaledLocations]);
-  
-  
-
+  // Scale services
   useEffect(() => {
     if (!bounds || !services.length) return;
-    setScaledServices(
-      services.map((svc) => ({
-        ...svc,
-        position: [
-          (original.height - svc.y) * scaleFactor,
-          svc.x * scaleFactor,
-        ],
-      }))
-    );
+    const arr = services.map((svc) => ({
+      ...svc,
+      position: [
+        (original.height - svc.y) * scaleFactor,
+        svc.x * scaleFactor,
+      ],
+    }));
+    setScaledServices(arr);
   }, [bounds, services, scaleFactor]);
 
-  // Handle view param (e.g. ?view=theatre or ?view=AI12)
+  // Filter locations
+  useEffect(() => {
+    console.log("🔍 === Applying filters ===");
+    console.log("   searchQuery:", searchQuery);
+    console.log("   filterSelections:", filterSelections);
+    console.log("   before:", scaledLocations.length);
+
+    const stopWords = new Set([
+      "the","of","for","a","an","to","in","on","and","is","are","at","with","by"
+    ]);
+    const normalize = (s) =>
+      s.toLowerCase()
+       .normalize("NFD")
+       .replace(/[\u0300-\u036f]/g, "")
+       .replace(/[^\w\s]/g, "")
+       .trim();
+
+    let results = scaledLocations;
+
+    if (searchQuery.trim()) {
+      const q = normalize(searchQuery);
+      const tokens = q.split(/\s+/).filter(t => t && !stopWords.has(t));
+      results = results.filter(loc => {
+        if (loc.boothId.toLowerCase().includes(q)) return true;
+        const name = normalize(loc.name);
+        return tokens.every(tok => name.includes(tok));
+      });
+    }
+    console.log("   → after search:", results.length);
+
+    const topics = filterSelections.topic || [];
+    if (topics.length > 0 && !topics.includes("all_topics")) {
+      results = results.filter(loc =>
+        (loc.topicjourneys || []).some(t => topics.includes(t))
+      );
+    }
+    console.log("   → after topic:", results.length);
+
+    const sectors = filterSelections.sector || [];
+    if (sectors.length > 0 && !sectors.includes("all_sectors")) {
+      results = results.filter(loc =>
+        (loc.sectorjourneys || []).some(s => sectors.includes(s))
+      );
+    }
+    console.log("   → after sector:", results.length);
+
+    const nbs = filterSelections.nb || [];
+    if (nbs.length > 0 && !nbs.includes("all_nb")) {
+      results = results.filter(loc =>
+        nbs.includes((loc.neighbourhood || "").toLowerCase())
+      );
+    }
+    console.log("   → after nb:", results.length);
+
+    console.log("✅ final:", results.length);
+    setFilteredLocations(results);
+  }, [scaledLocations, searchQuery, filterSelections]);
+
+  // Always show services
+  useEffect(() => {
+    setFilteredServices(scaledServices);
+  }, [scaledServices]);
+
+  // Direct-link view
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const viewId = params.get("view");
-
     if (!viewId || !locations.length || !services.length) return;
 
-    const booth = locations.find((l) => l.boothId.toLowerCase() === viewId.toLowerCase());
+    const booth = locations.find(
+      (l) => l.boothId.toLowerCase() === viewId.toLowerCase()
+    );
     if (booth) {
       setSelectedLocation(booth);
       setLocationOrigin("map");
@@ -269,7 +324,7 @@ const EventMap = () => {
       return;
     }
 
-    if (viewId.toLowerCase() === "theatre" || viewId.toLowerCase() === "th") {
+    if (viewId.toLowerCase() === "th") {
       const theatre = services.find((s) => s.boothId === "th");
       if (theatre) {
         setSelectedTheatre(theatre);
@@ -278,19 +333,22 @@ const EventMap = () => {
       return;
     }
 
-    const service = services.find((s) => s.boothId.toLowerCase() === viewId.toLowerCase());
-    if (service) {
-      setSelectedService(service);
+    const svc = services.find(
+      (s) => s.boothId.toLowerCase() === viewId.toLowerCase()
+    );
+    if (svc) {
+      setSelectedService(svc);
       setShowLanding(false);
     }
   }, [locations, services]);
 
+  // "You are here" icon
   const youAreHereIcon = divIcon({
     html: `
-<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-  <rect width="30" height="30" rx="15" fill="#21BF61"/>
-  <path d="..." fill="white"/>
-</svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+        <rect width="30" height="30" rx="15" fill="#21BF61"/>
+        <path d="..." fill="white"/>
+      </svg>
     `,
     className: "you-are-here-icon",
     iconSize: [32, 32],
@@ -304,7 +362,17 @@ const EventMap = () => {
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-[800px] h-dvh relative overflow-hidden bg-edgeBackground">
-        <TopBar searchQuery={searchQuery} onSearch={setSearchQuery} />
+        <TopBar
+          searchQuery={searchQuery}
+          onSearch={setSearchQuery}
+          onFilterClick={() => setShowFilters(true)}
+          selectedFilters={filterActiveTypes}
+          filterConfig={[
+            { code: "topic", label: "Topic Journeys" },
+            { code: "sector", label: "Sector Journeys" },
+            { code: "nb", label: "Neighbourhoods" },
+          ]}
+        />
 
         <div
           className={`absolute inset-0 transition-opacity duration-300 ${
@@ -329,12 +397,8 @@ const EventMap = () => {
               zIndex={1001}
               opacity={zoomLevel < 1 ? 1 : 0}
             />
-            <ImageOverlay
-              url={imageUrl}
-              bounds={bounds}
-              opacity={1}
-              zIndex={10}
-            />
+            <ImageOverlay url={imageUrl} bounds={bounds} opacity={1} zIndex={10} />
+
             {selectedLocation && (
               <ImageOverlay
                 url={selectedLocation.highlightUrl}
@@ -362,7 +426,7 @@ const EventMap = () => {
               ))}
 
             {zoomLevel >= 1 &&
-              scaledServices.map((svc) => {
+              filteredServices.map((svc) => {
                 const isTheatre = svc.boothId === "th";
                 const icon = isTheatre
                   ? divIcon({
@@ -374,22 +438,16 @@ const EventMap = () => {
                           align-items: center;
                           transform: translate(-50%, -30%);
                         ">
-                          <img
-                            src="${svc.iconUrl}"
-                            style="width:24px; height:24px; pointer-events: none;"
-                          />
+                          <img src="${svc.iconUrl}" style="width:24px;height:24px;" />
                           <div style="
-                            margin-top: 2px;
-                            font-family: 'BCGHenSans', sans-serif;
-                            font-size: 10px;
-                            font-weight: 600;
-                            color: #FFF;
-                            pointer-events: none;
-                            width: 100px;
-                            text-align: center;
-                          ">
-                            Micro-Theater
-                          </div>
+                            margin-top:2px;
+                            font-family:'BCGHenSans';
+                            font-size:10px;
+                            font-weight:600;
+                            color:#FFF;
+                            text-align:center;
+                            width:100px;
+                          ">Micro-Theater</div>
                         </div>
                       `,
                       iconSize: [24, 36],
@@ -400,7 +458,6 @@ const EventMap = () => {
                       iconSize: [24, 24],
                       iconAnchor: [12, 12],
                     });
-
                 return (
                   <Marker
                     key={svc.boothId}
@@ -409,7 +466,7 @@ const EventMap = () => {
                     eventHandlers={{
                       click: () => {
                         setSelectedLocation(null);
-                        if (svc.boothId === "th") {
+                        if (isTheatre) {
                           setSelectedTheatre(svc);
                           setSelectedService(null);
                         } else {
@@ -418,7 +475,6 @@ const EventMap = () => {
                         }
                       },
                     }}
-                    
                   />
                 );
               })}
@@ -446,21 +502,21 @@ const EventMap = () => {
         {activeView === "list" && (
           <BoothList
             booths={filteredLocations}
-            isSearching={searchQuery.trim().length > 0}
+            isSearching={!!searchQuery.trim() || filterActiveTypes.length > 0}
+            searchQuery={searchQuery}
+            filterSelections={filterSelections}
             onSelect={(item) => {
               setSelectedLocation(null);
               setSelectedService(null);
               setSelectedTheatre(null);
-
-              if (typeof item === "string" && item === "th") {
-                const theatre = services.find((s) => s.boothId === "th");
-                if (theatre) setSelectedTheatre(theatre);
+              if (item === "th") {
+                const th = services.find((s) => s.boothId === "th");
+                if (th) setSelectedTheatre(th);
               } else if (item.type === "service") {
                 setSelectedService(item);
               } else {
                 setSelectedLocation(item);
               }
-
               setLocationOrigin("list");
             }}
           />
@@ -491,6 +547,15 @@ const EventMap = () => {
           theatre={selectedTheatre}
           onClose={() => setSelectedTheatre(null)}
         />
+
+        {showFilters && (
+          <Filters
+            activeTypes={filterActiveTypes}
+            selections={filterSelections}
+            onApply={handleApplyFilters}
+            onClose={() => setShowFilters(false)}
+          />
+        )}
       </div>
     </div>
   );

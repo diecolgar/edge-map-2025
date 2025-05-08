@@ -1,91 +1,143 @@
+// TopBar.jsx
 "use client";
 import React from "react";
 
-const TopBar = ({ searchQuery, onSearch, onFilterClick }) => {
+const FILTER_PILLS = [
+  { code: "topic", label: "Topic Journeys" },
+  { code: "sector", label: "Sector Journeys" },
+  { code: "nb", label: "Neighbourhoods" },
+];
+
+const TopBar = ({
+  searchQuery,
+  onSearch,
+  onFilterClick,
+  selectedFilters = [], // e.g. ["topic","nb"]
+}) => {
+  // Order pills: selected first, then the rest
+  const sortedPills = [...FILTER_PILLS].sort((a, b) => {
+    const aSel = selectedFilters.includes(a.code);
+    const bSel = selectedFilters.includes(b.code);
+    if (aSel && !bSel) return -1;
+    if (!aSel && bSel) return 1;
+    return 0;
+  });
+
   return (
     <div
-      className="
-        absolute top-0 left-0 w-full z-[500]
-        bg-[#F1EEEA]/10 backdrop-blur
-        px-6 py-2 shadow-md
-        h-16 flex items-center
-      "
+      className="absolute w-full z-[500] bg-[#F1EEEA]/10 backdrop-blur pt-2 pb-3 shadow-md flex flex-col gap-3"
     >
-      {/* Search input */}
-      <div className="relative flex-1">
-        {/* Lupa */}
-        <svg
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 16 16"
-          fill="none"
-        >
-          <path
-            d="M14.75 14.7668L11.4875 11.5043M13.25 7.26685C13.25 10.5806 10.5637 13.2668 7.25 13.2668C3.93629 13.2668 1.25 10.5806 1.25 7.26685C1.25 3.95314 3.93629 1.26685 7.25 1.26685C10.5637 1.26685 13.25 3.95314 13.25 7.26685Z"
-            stroke="#323232"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-
-        {/* Input */}
-        <input
-          type="text"
-          placeholder="What are you looking for?"
-          value={searchQuery}
-          onChange={(e) => onSearch(e.target.value)}
-          className="pl-12 pr-10 py-3 w-full text-sm border border-gray-300 rounded-full focus:outline-none"
-        />
-
-        {/* Clear button */}
-        {searchQuery.length > 0 && (
-          <button
-            onClick={() => onSearch("")}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
-            aria-label="Clear search"
+      {/* Search + Filter Button */}
+      <div className="flex items-center gap-4 px-4">
+        {/* Search input */}
+        <div className="relative flex-1">
+          <svg
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 16 16"
+            fill="none"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
+            <path
+              d="M14.75 14.7668L11.4875 11.5043M13.25 7.26685C13.25 10.5806 10.5637 13.2668 7.25 13.2668C3.93629 13.2668 1.25 10.5806 1.25 7.26685C1.25 3.95314 3.93629 1.26685 7.25 1.26685C10.5637 1.26685 13.25 3.95314 13.25 7.26685Z"
+              stroke="#323232"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <input
+            type="text"
+            placeholder="What are you looking for?"
+            value={searchQuery}
+            onChange={(e) => onSearch(e.target.value)}
+            className="pl-12 pr-10 py-3 w-full text-edgeText border border-gray-300 rounded-full focus:outline-none"
+          />
+          {searchQuery.length > 0 && (
+            <button
+              onClick={() => onSearch("")}
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+              aria-label="Clear search"
             >
-              <path
-                d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </button>
-        )}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+              >
+                <path
+                  d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          )}
+        </div>
+
+        {/* Filter button */}
+        <button
+          onClick={onFilterClick}
+          className="p-2 bg-edgeText rounded-full flex items-center justify-center"
+          aria-label="Open Filters"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-4 h-4"
+            viewBox="0 0 19 16"
+            fill="none"
+          >
+            <path
+              d="M1.73389 4.35028L12.7339 4.35028M12.7339 4.35028C12.7339 5.86906 13.9651 7.10028 15.4839 7.10028C17.0027 7.10028 18.2339 5.86906 18.2339 4.35028C18.2339 2.8315 17.0027 1.60028 15.4839 1.60028C13.9651 1.60028 12.7339 2.8315 12.7339 4.35028ZM7.23389 11.6836L18.2339 11.6836M7.23389 11.6836C7.23389 13.2024 6.00267 14.4336 4.48389 14.4336C2.9651 14.4336 1.73389 13.2024 1.73389 11.6836C1.73389 10.1648 2.9651 8.93361 4.48389 8.93361C6.00267 8.93361 7.23389 10.1648 7.23389 11.6836Z"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
       </div>
 
-      {/* Filter button */}
-      <button
-        onClick={onFilterClick}
-        className="ml-4 p-2 bg-edgeText rounded-full flex items-center justify-center"
-        aria-label="Filtros"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4"
-          viewBox="0 0 19 16"
-          fill="none"
-        >
-          <path
-            d="M1.73389 4.35028L12.7339 4.35028M12.7339 4.35028C12.7339 5.86906 13.9651 7.10028 15.4839 7.10028C17.0027 7.10028 18.2339 5.86906 18.2339 4.35028C18.2339 2.8315 17.0027 1.60028 15.4839 1.60028C13.9651 1.60028 12.7339 2.8315 12.7339 4.35028ZM7.23389 11.6836L18.2339 11.6836M7.23389 11.6836C7.23389 13.2024 6.00267 14.4336 4.48389 14.4336C2.9651 14.4336 1.73389 13.2024 1.73389 11.6836C1.73389 10.1648 2.9651 8.93361 4.48389 8.93361C6.00267 8.93361 7.23389 10.1648 7.23389 11.6836Z"
-            stroke="white"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
+      {/* Filter Pills (always visible, selected first) */}
+      <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4">
+        {sortedPills.map(({ code, label }) => {
+          const isSel = selectedFilters.includes(code);
+          return (
+            <button
+              key={code}
+              onClick={onFilterClick}
+              className={`flex-shrink-0 px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap flex items-center gap-1 transition ${
+                isSel
+                  ? "bg-edgeText text-white"
+                  : "bg-white text-edgeText"
+              }`}
+            >
+              {isSel && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                >
+                  <path
+                    d="M12.3332 1.5004L4.99984 8.83373L1.6665 5.5004"
+                    stroke="#21BF61"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              )}
+              {label}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };

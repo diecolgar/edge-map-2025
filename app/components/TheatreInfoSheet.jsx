@@ -11,7 +11,7 @@ import { useEffect, useState, useRef } from "react";
 import { X } from "lucide-react";
 
 const collapsedVH = 44;
-const maxVH = 90;
+const maxVH = 82;
 const DRAG_THRESHOLD = 50;
 
 const TheatreInfoSheet = ({ theatre, onClose }) => {
