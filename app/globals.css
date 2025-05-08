@@ -27,6 +27,7 @@ body {
 
 .leaflet-control-zoom {
   transform: translateY(-60px);
+  border-color: rgb(50, 50, 50) !important;
 }
 
 /* .leaflet-control-container {
