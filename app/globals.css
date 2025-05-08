@@ -25,9 +25,13 @@ body {
   display: none;
 }
 
-.leaflet-control-container {
-  display: none !important;
+.leaflet-control-zoom {
+  transform: translateY(-60px);
 }
+
+/* .leaflet-control-container {
+  display: none !important;
+} */
 
 .leaflet-image-layer.fade-transition {
   transition: opacity 0.3s ease-in-out !important;

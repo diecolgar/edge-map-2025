@@ -8,6 +8,7 @@ import {
   Marker,
   useMap,
   useMapEvents,
+  ZoomControl
 } from "react-leaflet";
 import { CRS, LatLngBounds, divIcon } from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -388,6 +389,7 @@ const EventMap = () => {
           >
             <FitToViewport bounds={bounds} />
             <ZoomListener setZoomLevel={setZoomLevel} />
+            <ZoomControl position="bottomright" />
 
             {/* Base map overlays */}
             <ImageOverlay
