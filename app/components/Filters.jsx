@@ -80,7 +80,7 @@ const Filters = ({
   const toggleType = (code) => {
     setActiveTypes((prev) => {
       const isActive = prev.includes(code);
-      const next = isActive ? prev.filter((c) => c !== code) : [...prev, code];
+      const next = isActive ? prev.filter((c) => c !== code) : [code, ...prev];
 
       if (isActive) {
         setSelections((sel) => {
