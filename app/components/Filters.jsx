@@ -11,10 +11,10 @@ const FILTERS_CONFIG = [
     label: "Topic Journeys",
     type: "multi",
     options: [
-      { code: "ai", label: "GenAI" },
-      { code: "tp", label: "Tech Platforms" },
-      { code: "gp", label: "Geopolitics" },
-      { code: "co", label: "Cost" },
+      { code: "AI", label: "GenAI" },
+      { code: "TP", label: "Tech Platforms" },
+      { code: "GP", label: "Geopolitics" },
+      { code: "CO", label: "Cost" },
     ],
   },
   {
@@ -113,22 +113,43 @@ const Filters = ({
   // Alterna la selección de un valor dentro de una sección
   const toggleSelection = (sectionCode, value) => {
     setSelections((prev) => {
+      // For "nb", only allow one selection
+      if (sectionCode === "nb") {
+        const alreadySelected = prev.nb?.[0] === value;
+        if (alreadySelected) {
+          // Deselect if same is clicked
+          setActiveTypes((types) => types.filter((c) => c !== sectionCode));
+          const next = { ...prev };
+          delete next[sectionCode];
+          return next;
+        }
+        return { ...prev, [sectionCode]: [value] };
+      }
+  
       const current = prev[sectionCode] || [];
       const updated = current.includes(value)
         ? current.filter((v) => v !== value)
         : [...current, value];
-
-      // Si queda vacío, quitamos la sección activa
+  
       if (updated.length === 0) {
         setActiveTypes((types) => types.filter((c) => c !== sectionCode));
         const next = { ...prev };
         delete next[sectionCode];
         return next;
       }
-
+  
       return { ...prev, [sectionCode]: updated };
     });
+  
+    // Ensure the section stays active when at least one option is selected
+    setActiveTypes((types) => {
+      if (!types.includes(sectionCode)) {
+        return [...types, sectionCode];
+      }
+      return types;
+    });
   };
+  
 
   // Limpia todo
   const clearAll = () => {
