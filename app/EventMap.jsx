@@ -217,7 +217,7 @@ const overviewZones = useMemo(() => {
         [(original.height - 200) * scaleFactor, 100 * scaleFactor],
         [(original.height - 1800) * scaleFactor, 1200 * scaleFactor]
       ],
-      zoomLevel: 1.5,
+      zoomLevel: 1,
     },
     {
       id: "zone2",
@@ -225,7 +225,7 @@ const overviewZones = useMemo(() => {
         [(original.height - 1900) * scaleFactor, 700 * scaleFactor],
         [(original.height - 2500) * scaleFactor, 1800 * scaleFactor]
       ],
-      zoomLevel: 1.5,
+      zoomLevel: 1,
     },
     {
       id: "zone3",
@@ -233,7 +233,7 @@ const overviewZones = useMemo(() => {
         [(original.height - 2700) * scaleFactor, 250 * scaleFactor],
         [(original.height - 4200) * scaleFactor, 1200 * scaleFactor]
       ],
-      zoomLevel: 1.5,
+      zoomLevel: 1,
     },
     {
       id: "zone4",
@@ -241,7 +241,7 @@ const overviewZones = useMemo(() => {
         [(original.height - 2900) * scaleFactor, 1200 * scaleFactor],
         [(original.height - 4200) * scaleFactor, 2400 * scaleFactor]
       ],
-      zoomLevel: 1.5,
+      zoomLevel: 1,
     },
     {
       id: "zone5",
@@ -249,7 +249,7 @@ const overviewZones = useMemo(() => {
         [(original.height - 4200) * scaleFactor, 1200 * scaleFactor],
         [(original.height - 5800) * scaleFactor, 2400 * scaleFactor]
       ],
-      zoomLevel: 1.5,
+      zoomLevel: 1,
     },
     {
       id: "zoneMicroTheatre",
@@ -257,7 +257,7 @@ const overviewZones = useMemo(() => {
         [(original.height - 2900) * scaleFactor, 1200 * scaleFactor],
         [(original.height - 2550) * scaleFactor, 1800 * scaleFactor]
       ],
-      zoomLevel: 1.5,
+      zoomLevel: 1,
       openTheatre: true,
     }
   ];
@@ -471,40 +471,40 @@ const overviewZones = useMemo(() => {
 
             {/* Rectangle interactivo solo en overview */}
             {zoomLevel < 1 && overviewZones.map((zone) => (
-  <Rectangle
-    key={zone.id}
-    bounds={zone.bounds}
-    pane="highlights"
-    pathOptions={{ color: "#FFD700", weight: 2, fillOpacity: 0.3 }}
-    interactive
-    eventHandlers={{
-      click: (e) => {
-        const map = e.target._map;
+              <Rectangle
+                key={zone.id}
+                bounds={zone.bounds}
+                pane="highlights"
+                pathOptions={{ color: "#FFD700", weight: 2, fillOpacity: 0.0, stroke: false }}
+                interactive
+                eventHandlers={{
+                  click: (e) => {
+                    const map = e.target._map;
 
-        // Si es micro-theatre, abrimos hoja Y hacemos zoom
-        if (zone.openTheatre) {
-          const theatreSvc = services.find((s) => s.boothId === "th");
-          if (theatreSvc) {
-            setSelectedLocation(null);
-            setSelectedService(null);
-            setSelectedTheatre(theatreSvc);
-          }
-          map.flyTo(zone.target, zone.zoomLevel, {
-            animate: true,
-            duration: 0.4
-          });
+                    // Si es micro-theatre, abrimos hoja Y hacemos zoom
+                    if (zone.openTheatre) {
+                      const theatreSvc = services.find((s) => s.boothId === "th");
+                      if (theatreSvc) {
+                        setSelectedLocation(null);
+                        setSelectedService(null);
+                        setSelectedTheatre(theatreSvc);
+                      }
+                      map.flyTo(zone.target, zone.zoomLevel, {
+                        animate: true,
+                        duration: 0.4
+                      });
 
-        // Si es zona normal, solo zoom al target
-        } else {
-          map.flyTo(zone.target, zone.zoomLevel, {
-            animate: true,
-            duration: 0.4
-          });
-        }
-      }
-    }}
-  />
-))}
+                    // Si es zona normal, solo zoom al target
+                    } else {
+                      map.flyTo(zone.target, zone.zoomLevel, {
+                        animate: true,
+                        duration: 0.4
+                      });
+                    }
+                  }
+                }}
+              />
+            ))}
 
 
 
