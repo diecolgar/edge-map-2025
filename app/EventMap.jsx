@@ -1,11 +1,13 @@
 // EventMap.jsx
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import {
   MapContainer,
   ImageOverlay,
   Marker,
+  Pane,
+  Rectangle,
   useMap,
   useMapEvents,
   ZoomControl
@@ -203,6 +205,75 @@ const EventMap = () => {
     return () => window.removeEventListener("resize", update);
   }, [aspect]);
 
+// 1. Calcula tus zonas overview con target
+const overviewZones = useMemo(() => {
+  if (!bounds) return [];
+
+  // Zonas definidas con sw/ne corners
+  const rawZones = [
+    {
+      id: "zone1",
+      bounds: [
+        [(original.height - 200) * scaleFactor, 100 * scaleFactor],
+        [(original.height - 1800) * scaleFactor, 1200 * scaleFactor]
+      ],
+      zoomLevel: 1.5,
+    },
+    {
+      id: "zone2",
+      bounds: [
+        [(original.height - 1900) * scaleFactor, 700 * scaleFactor],
+        [(original.height - 2500) * scaleFactor, 1800 * scaleFactor]
+      ],
+      zoomLevel: 1.5,
+    },
+    {
+      id: "zone3",
+      bounds: [
+        [(original.height - 2700) * scaleFactor, 250 * scaleFactor],
+        [(original.height - 4200) * scaleFactor, 1200 * scaleFactor]
+      ],
+      zoomLevel: 1.5,
+    },
+    {
+      id: "zone4",
+      bounds: [
+        [(original.height - 2900) * scaleFactor, 1200 * scaleFactor],
+        [(original.height - 4200) * scaleFactor, 2400 * scaleFactor]
+      ],
+      zoomLevel: 1.5,
+    },
+    {
+      id: "zone5",
+      bounds: [
+        [(original.height - 4200) * scaleFactor, 1200 * scaleFactor],
+        [(original.height - 5800) * scaleFactor, 2400 * scaleFactor]
+      ],
+      zoomLevel: 1.5,
+    },
+    {
+      id: "zoneMicroTheatre",
+      bounds: [
+        [(original.height - 2900) * scaleFactor, 1200 * scaleFactor],
+        [(original.height - 2550) * scaleFactor, 1800 * scaleFactor]
+      ],
+      zoomLevel: 1.5,
+      openTheatre: true,
+    }
+  ];
+
+  // Añadimos un target (centro de cada bounds)
+  return rawZones.map((zone) => {
+    const [[swLat, swLng], [neLat, neLng]] = zone.bounds;
+    const target = [
+      (swLat + neLat) / 2,
+      (swLng + neLng) / 2
+    ];
+    return { ...zone, target };
+  });
+}, [bounds, scaleFactor, original.height]);
+
+
   // “You are here” URL params
   useEffect(() => {
     if (!bounds) return;
@@ -226,12 +297,8 @@ const EventMap = () => {
         (original.height - loc.y) * scaleFactor,
         loc.x * scaleFactor,
       ],
-      sectorjourneys: loc.sectorjourneys
-        ?.split(",")
-        .map((s) => s.trim()) || [],
-      topicjourneys: loc.topicjourneys
-        ?.split(",")
-        .map((s) => s.trim()) || [],
+      sectorjourneys: loc.sectorjourneys?.split(",").map((s) => s.trim()) || [],
+      topicjourneys: loc.topicjourneys?.split(",").map((s) => s.trim()) || [],
       neighbourhood: loc.neighbourhood,
     }));
     setScaledLocations(arr);
@@ -391,14 +458,63 @@ const EventMap = () => {
             <ZoomListener setZoomLevel={setZoomLevel} />
             <ZoomControl position="bottomright" />
 
-            {/* Base map overlays */}
+            {/* Pane para overlays de resalte */}
+            <Pane name="highlights" style={{ zIndex: 1200 }} />
+
+            {/* Capa general (zoom < 1) */}
             <ImageOverlay
               url="/edge-map-general.png"
               bounds={bounds}
               zIndex={1001}
               opacity={zoomLevel < 1 ? 1 : 0}
             />
-            <ImageOverlay url={imageUrl} bounds={bounds} opacity={1} zIndex={10} />
+
+            {/* Rectangle interactivo solo en overview */}
+            {zoomLevel < 1 && overviewZones.map((zone) => (
+  <Rectangle
+    key={zone.id}
+    bounds={zone.bounds}
+    pane="highlights"
+    pathOptions={{ color: "#FFD700", weight: 2, fillOpacity: 0.3 }}
+    interactive
+    eventHandlers={{
+      click: (e) => {
+        const map = e.target._map;
+
+        // Si es micro-theatre, abrimos hoja Y hacemos zoom
+        if (zone.openTheatre) {
+          const theatreSvc = services.find((s) => s.boothId === "th");
+          if (theatreSvc) {
+            setSelectedLocation(null);
+            setSelectedService(null);
+            setSelectedTheatre(theatreSvc);
+          }
+          map.flyTo(zone.target, zone.zoomLevel, {
+            animate: true,
+            duration: 0.4
+          });
+
+        // Si es zona normal, solo zoom al target
+        } else {
+          map.flyTo(zone.target, zone.zoomLevel, {
+            animate: true,
+            duration: 0.4
+          });
+        }
+      }
+    }}
+  />
+))}
+
+
+
+            {/* Capa detallada */}
+            <ImageOverlay
+              url={imageUrl}
+              bounds={bounds}
+              opacity={1}
+              zIndex={10}
+            />
 
             {/* Highlights for filtered/search results */}
             {isFilteredView && filteredLocations.map((loc) => (
