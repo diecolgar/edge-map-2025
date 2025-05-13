@@ -11,8 +11,9 @@ const FILTER_PILLS = [
 const TopBar = ({
   searchQuery,
   onSearch,
-  onFilterClick,
-  selectedFilters = [], // e.g. ["topic","nb"]
+  onOpenFilters,    // reemplaza onFilterClick para abrir el modal
+  onToggleFilter,   // alterna cada pill
+  selectedFilters = [],
 }) => {
   // Ordenamos las pills seleccionadas primero
   const sortedPills = [...FILTER_PILLS].sort((a, b) => {
@@ -25,7 +26,7 @@ const TopBar = ({
 
   return (
     <div className="absolute w-full z-[500] bg-[#F1EEEA]/10 backdrop-blur pt-2 pb-3 shadow-md flex flex-col gap-3">
-      {/* Solo buscador */}
+      {/* Buscador */}
       <div className="flex items-center gap-4 px-4">
         <div className="relative flex-1">
           <svg
@@ -77,11 +78,11 @@ const TopBar = ({
         </div>
       </div>
 
-      {/* Pills: filtro primero + pills dinámicas */}
+      {/* Pills */}
       <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4">
-        {/* Pill de filtros fija al inicio */}
+        {/* Botón fijo “Filters” */}
         <button
-          onClick={onFilterClick}
+          onClick={onOpenFilters}
           className="flex-shrink-0 px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap flex gap-2 items-center bg-edgeText text-white"
         >
           <svg
@@ -101,13 +102,13 @@ const TopBar = ({
           Filters
         </button>
 
-        {/* Pills dinámicas (seleccionadas primero) */}
+        {/* Pills dinámicas */}
         {sortedPills.map(({ code, label }) => {
           const isSel = selectedFilters.includes(code);
           return (
             <button
               key={code}
-              onClick={onFilterClick}
+              onClick={() => onToggleFilter(code)}
               className={`flex-shrink-0 px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap flex gap-2 items-center transition ${
                 isSel ? "bg-edgeText text-white" : "bg-white text-edgeText"
               }`}

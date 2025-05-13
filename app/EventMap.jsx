@@ -348,16 +348,19 @@ const overviewZones = useMemo(() => {
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-[800px] h-dvh relative overflow-hidden bg-edgeBackground">
-        <TopBar
+              <TopBar
           searchQuery={searchQuery}
           onSearch={setSearchQuery}
-          onFilterClick={()=>setShowFilters(true)}
+          onOpenFilters={() => setShowFilters(true)}
+           onToggleFilter={(code) => {
+               // Abrimos siempre el panel...
+               setShowFilters(true);
+               // ...y solo añadimos el código si no existía
+               setFilterActiveTypes((prev) =>
+                 prev.includes(code) ? prev : [...prev, code]
+               );
+             }}
           selectedFilters={filterActiveTypes}
-          filterConfig={[
-            { code:"topic", label:"Topic Journeys" },
-            { code:"sector", label:"Sector Journeys" },
-            { code:"nb", label:"Neighbourhoods" },
-          ]}
         />
 
         <div className={`absolute inset-0 transition-opacity duration-300 ${
