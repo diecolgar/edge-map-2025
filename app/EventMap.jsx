@@ -225,7 +225,7 @@ const overviewZones = useMemo(() => {
         [(original.height - 2900) * scaleFactor, 1200 * scaleFactor],
         [(original.height - 2550) * scaleFactor, 1800 * scaleFactor]
       ],
-      zoomLevel: 2,
+      zoomLevel: 1,
       openTheatre: true,
     }
   ];

@@ -5,12 +5,13 @@
     "subtitle": "Agents? DeepSeek? What it really takes to create value at scale with AI",
     "description": "AI is every CEO’s top priority in 2025, yet only one in four companies scale AI successfully, and just 4% are creating substantial value. The key? Focus on fewer, high-impact opportunities within core functions. Industry leaders are moving beyond pilots to real E2E transformation and reshaping end-to-end workflows. Join us to discover how—with insights from 100+ AI transformation programs and 1,000+ companies worldwide, we have the answers!",
     "sectorjourneys": "CIDRET, CP, EEW, HCS, LHI, PCCI",
-    "topicjourneys": "",
+    "topicjourneys": "AI",
     "x": 1823,
     "y": 4726,
     "partner": "",
     "contacts": "Michael Grebe, grebe.michael@bcg.com, Vinciane Beauchene, beauchene.vinciane@bcg.com, Nicolas de Bellefonds, debellefonds.nicolas@bcg.com, Julie Bedard, bedard.julie@bcg.com",
-    "highlightUrl": "/highlights/td01.svg"
+    "highlightUrl": "/highlights/td01.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD02",
@@ -23,7 +24,8 @@
     "y": 4584,
     "partner": "",
     "contacts": "Tibor Merey, Merey.Tibor@bcg.com, Matt Langione, langione.matt@bcg.com, Urs Rahne, rahne.urs@bcg.com, Awais Ali, ali.awais@bcg.com",
-    "highlightUrl": "/highlights/td02.svg"
+    "highlightUrl": "/highlights/td02.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD03",
@@ -31,12 +33,13 @@
     "subtitle": "How to rewire your company for an AI-first future",
     "description": "What does the AI-first company look like? It’s not just about adopting AI – AI- first companies fundamentally rethink how their business operates, and end up unlocking new value pools, shifting competitive advantages, and redefining industries. Discover the roadmap to making AI-first a reality by learning from examples of existing AI-first companies. Experience the future through curated demos, from GenAI-driven sales to AI-powered drug discovery.",
     "sectorjourneys": "CPBB, PF, RT, TECH",
-    "topicjourneys": "",
+    "topicjourneys": "AI",
     "x": 1980,
     "y": 4291,
     "partner": "",
     "contacts": "Amanda Luther, luther.amanda@bcg.com, Chris Meier, meier.chris@bcg.com, Chris Freese, Freese.Christopher@bcg.com, Arnaud Bassoulet, Bassoulet.Arnaud@bcg.com",
-    "highlightUrl": "/highlights/td03.svg"
+    "highlightUrl": "/highlights/td03.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD04",
@@ -44,12 +47,13 @@
     "subtitle": "The leading AI models and products that power businesses worldwide",
     "description": "We build and deploy AI for businesses - enabling employees, automating operations, and enhancing products. ChatGPT Enterprise helps businesses deploy AI strategically, responsibly, and at scale, and our best-in-class API platform empowers enterprises to build industry-leading AI products and experiences. Our booth features live demos of our latest models and products as well as some of our solutions jointly built with BCG.",
     "sectorjourneys": "PPSS",
-    "topicjourneys": "",
+    "topicjourneys": "AI",
     "x": 2346,
     "y": 1759,
     "partner": "Y",
     "contacts": "Dan Sack, Sack.Dan@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
-    "highlightUrl": "/highlights/td04.svg"
+    "highlightUrl": "/highlights/td04.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD05",
@@ -57,12 +61,13 @@
     "subtitle": "Unlock Business Growth – AI-Driven ERP for smarter, faster transformation",
     "description": "Step into the future of business transformation with BCG’s NextGen ERP! Explore our interactive digital game, engage with industry experts, and discover our unique value proposition. See how organizations are leveraging AI-powered ERP transformations to drive business value. Don’t miss this opportunity to learn, connect, and win exciting prizes!",
     "sectorjourneys": "BPH, MPI, MT",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 2346,
     "y": 4528,
     "partner": "",
     "contacts": "Ted Kubit, kubit.ted@bcg.com, Loïc Mesnage, mesnage.loic@bcg.com, Daniel Schlecht, schlecht.daniel@bcg.com, Andrew Arcuri, arcuri.andrew@bcg.com",
-    "highlightUrl": "/highlights/td05.svg"
+    "highlightUrl": "/highlights/td05.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD06",
@@ -70,12 +75,13 @@
     "subtitle": "BCG & SAP powering opportunities with data-driven innovation and AI",
     "description": "Transform your future with us  Experience the future of business transformation at the SAP booth. Discover the power of Business Data Cloud, Agentic AI, and Business Suite through interactive demos. Learn from real-world success stories showcasing the BCG x SAP partnership. Witness how strategic consulting and data-driven innovation can drive exponential success for your organization. Together, we’re more than the sum of our parts. We’re the future of business transformation.",
     "sectorjourneys": "",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 2346,
     "y": 4757,
     "partner": "Y",
     "contacts": "Ted Kubit, kubit.ted@bcg.com",
-    "highlightUrl": "/highlights/td06.svg"
+    "highlightUrl": "/highlights/td06.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD07",
@@ -83,12 +89,13 @@
     "subtitle": "Crisis-proof your business: be ready, be resilient",
     "description": "Cyber crises aren’t a question of if, but when. At BCG’s Cyber & Digital Risk division, we help businesses prepare, respond & recover from threats with precision and speed. Explore how leading organizations:  •  Strengthen crisis preparedness through real-world simulations  •  Deploy recovery strategies to minimize disruption  •  Leverage AI-driven insights to stay ahead  Join us for interactive demos and discussions as preparation is the ultimate defense.",
     "sectorjourneys": "DS, PF",
-    "topicjourneys": "",
+    "topicjourneys": "GP",
     "x": 2346,
     "y": 4972,
     "partner": "",
     "contacts": "Vanessa Lyon, lyon.vanessa@bcg.com, Gildas Bouteiller, bouteiller.gildas@bcg.com, Pierre Rouseel, roussel.pierre@bcg.com, Shoaib Yousuf, yousuf.shoaib@bcg.com",
-    "highlightUrl": "/highlights/td07.svg"
+    "highlightUrl": "/highlights/td07.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD08",
@@ -101,7 +108,8 @@
     "y": 5527,
     "partner": "Y",
     "contacts": "Tom Martin, Martin.Tom@bcgplatinion.com, Hillary Fernandez, Fernandez.Hillary@bcg.com",
-    "highlightUrl": "/highlights/td08.svg"
+    "highlightUrl": "/highlights/td08.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD09",
@@ -109,12 +117,13 @@
     "subtitle": "Pioneering AI-driven productivity and unlocking billions in bottom line impact",
     "description": "By integrating AI, automation and hybrid cloud tools with tech-agnostic implementation capabilities, IBM is powering productivity gains at global scale. In partnership with BCG, IBM has unlocked over $3B in productivity, and is now bringing those capabilities to joint clients. With watsonx, AI- infused software, and industry expertise, IBM accelerates transformation; optimizing workflows, reducing costs, and driving measurable, sustainable productivity outcomes.",
     "sectorjourneys": "",
-    "topicjourneys": "",
+    "topicjourneys": "CO",
     "x": 1973,
     "y": 5633,
     "partner": "Y",
     "contacts": "Vikas Taneja, Taneja.Vikas@bcg.com, Matt Leader, Leader.Matthew@bcg.com",
-    "highlightUrl": "/highlights/td09.svg"
+    "highlightUrl": "/highlights/td09.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD10",
@@ -127,7 +136,8 @@
     "y": 5633,
     "partner": "Y",
     "contacts": "Phil Zakahi, Zakahi, Philip <Zakahi.Philip@bcg.com>, Matt Leader, Leader, Matthew <Leader.Matthew@bcg.com>",
-    "highlightUrl": "/highlights/td10.svg"
+    "highlightUrl": "/highlights/td10.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD11",
@@ -140,7 +150,8 @@
     "y": 5460,
     "partner": "Y",
     "contacts": "Raul Garcia Mur, GarciaMur.Raul@bcg.com, Megha Ramanuja, Ramanuja.Megha@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
-    "highlightUrl": "/highlights/td11.svg"
+    "highlightUrl": "/highlights/td11.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD12",
@@ -153,7 +164,8 @@
     "y": 5285,
     "partner": "",
     "contacts": "Lucas Quarta, quarta.lucas@bcg.com, Helen Han, han.helen@bcg.com, Jacqueline Govers, govers.jacqueline@bcg.com, Benjamin Rehberg, rehberg.benjamin@bcg.com",
-    "highlightUrl": "/highlights/td12.svg"
+    "highlightUrl": "/highlights/td12.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD13",
@@ -161,12 +173,13 @@
     "subtitle": "Build smart. Scale fast. Harness the power of modular tech",
     "description": "Explore cutting-edge Tech, Data, and Digital Platforms (including Cloud) and their role in driving innovation, scalability, and efficiency. Showcased here are fresh insights, real-world impact stories, and an enhanced DDP Immersive game for deeper engagement. Discover how digital platforms and data integration accelerate business growth and transformation through real-world applications and interactive experiences.",
     "sectorjourneys": "AM, BPH, DS, FL, HCS, LCEI, LHI, LPS, ME, PCCI, PPSS, TELE",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 1395,
     "y": 5110,
     "partner": "",
     "contacts": "Marc Schuuring, schuuring.marc@bcg.com, Filippo Scognamiglio, scognamiglio.filippo@bcg.com, Shishir Pathak, pathak.shishir@bcg.com, Nick Smaling, Smaling.Nick@bcg.com",
-    "highlightUrl": "/highlights/td13.svg"
+    "highlightUrl": "/highlights/td13.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD14",
@@ -179,7 +192,8 @@
     "y": 4885,
     "partner": "Y",
     "contacts": "Val Elbert, Elbert.Valeriy@bcg.com, Monica Zunick, Zunick.Monica@bcg.com",
-    "highlightUrl": "/highlights/td14.svg"
+    "highlightUrl": "/highlights/td14.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD15",
@@ -192,7 +206,8 @@
     "y": 4553,
     "partner": "Y",
     "contacts": "Dominik Beron, dominik@walt.id",
-    "highlightUrl": "/highlights/td15.svg"
+    "highlightUrl": "/highlights/td15.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "TD16",
@@ -205,7 +220,8 @@
     "y": 5633,
     "partner": "Y",
     "contacts": "Vikash Jain, Jain.Vikash@bcg.com",
-    "highlightUrl": "/highlights/td16.svg"
+    "highlightUrl": "/highlights/td16.svg",
+    "neighbourhood": "TD"
   },
   {
     "boothId": "SP01",
@@ -213,12 +229,13 @@
     "subtitle": "From rapid wins to sustained value and growth",
     "description": "9 in 10 companies are already using AI technology to optimize costs, but few are seeing tangible bottom-line impact from it.  Through a thought-provoking art installation, visitors will discover what conditions are necessary to unlock lasting value from an AI-enabled cost transformation, and how to thrive in today’s challenging economic landscape.  Explore sector-specific cost journeys, cutting-edge AI solutions and expert insights.",
     "sectorjourneys": "CP, CPBB, EDGFCG, EPIT, GAM, HCS, IET, LCEI, ME, PF, RT, TELE, TTIL",
-    "topicjourneys": "",
+    "topicjourneys": "CO",
     "x": 1365,
     "y": 2964,
     "partner": "",
     "contacts": "Jacopo Brunelli, brunelli.jacopo@bcg.com, Karin von Funck, vonfunck.karin@bcg.com",
-    "highlightUrl": "/highlights/sp01.svg"
+    "highlightUrl": "/highlights/sp01.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP02",
@@ -231,7 +248,8 @@
     "y": 2964,
     "partner": "",
     "contacts": "Kevin Kelley, kelley.kevin@bcg.com, Nina Kataeva, kataeva.nina@bcg.com, Matt Marchingo, marchingo.matt@bcg.com, Christoph Hilberath, Hilberath.Christoph@bcg.com",
-    "highlightUrl": "/highlights/sp02.svg"
+    "highlightUrl": "/highlights/sp02.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP03",
@@ -244,7 +262,8 @@
     "y": 3247,
     "partner": "",
     "contacts": "Gertie Laerkholm, laerkholm.gertie@bcg.com, Kristine Jensson, jensson.kristine@bcg.com, Connor Currier, Currier.connor@bcg.com",
-    "highlightUrl": "/highlights/sp03.svg"
+    "highlightUrl": "/highlights/sp03.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP04",
@@ -257,7 +276,8 @@
     "y": 3524,
     "partner": "",
     "contacts": "Suketu Shah, shah.suketu@bcg.com, Nithya Vaduganathan, Vaduganathan.Nithya@bcg.com, Varun Kejriwal, kejriwal.varun@bcg.com",
-    "highlightUrl": "/highlights/sp04.svg"
+    "highlightUrl": "/highlights/sp04.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP05",
@@ -265,12 +285,13 @@
     "subtitle": "Transforming business with AI, Agents and Industry Solutions",
     "description": "The Microsoft and BCG partnership combines the transformative power of Microsoft AI technology alongside BCG’s deep industry and functional expertise. Together, we drive innovation across business and technology, unlocking measurable impact. Our work is centered on the priorities of our customers and brought to life through our combined capabilities, allowing us to design, develop, and deploy at scale.  Join us at BCG Edge to discuss how Microsoft and BCG together can reshape functions and reimagine your business, with AI at the core.",
     "sectorjourneys": "",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 1852,
     "y": 4073,
     "partner": "Y",
     "contacts": "Maria Barisano, Barisano.Maria@bcg.com, Michael Sobrepera, Sobrepera.Michael@bcgfed.com",
-    "highlightUrl": "/highlights/sp05.svg"
+    "highlightUrl": "/highlights/sp05.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP06",
@@ -283,7 +304,8 @@
     "y": 3789,
     "partner": "",
     "contacts": "Renee Laverdiere, laverdiere.renee@bcg.com",
-    "highlightUrl": "/highlights/sp06.svg"
+    "highlightUrl": "/highlights/sp06.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP07",
@@ -296,7 +318,8 @@
     "y": 3614,
     "partner": "",
     "contacts": "Elizabeth Lyle, lyle.elizabeth@bcg.com",
-    "highlightUrl": "/highlights/sp07.svg"
+    "highlightUrl": "/highlights/sp07.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP08",
@@ -304,12 +327,13 @@
     "subtitle": "Revolutionize finance with real-time AI-powered insights",
     "description": "Experience the future of finance with Analyst.AI. This interactive booth brings the capabilities of our GenAI tool to life through a humanoid Robot Analyst. Attendees can engage in live conversations, view dynamic data visualizations, and explore real-world finance scenarios. Key features include dynamic financial dashboards and scheduled AI demonstrations, providing actionable insights in real time.",
     "sectorjourneys": "EDGFCG",
-    "topicjourneys": "",
+    "topicjourneys": "CO",
     "x": 1541,
     "y": 3789,
     "partner": "",
     "contacts": "Aaron Arnoldson, arnoldsen.aaron@bcg.com, Mike Demyttenaere, demyttenaere.michael@bcg.com, Raamin Mostaghimi, mostaghimi.raamin@bcg.com, Mike Beyer, beyer.mike@bcg.com",
-    "highlightUrl": "/highlights/sp08.svg"
+    "highlightUrl": "/highlights/sp08.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP09",
@@ -317,12 +341,13 @@
     "subtitle": "Shaping strategic insight with immersive VR scenarios",
     "description": "Explore the future of decision-making and strategy with immersive VR scenarios designed to stretch our thinking about what different futures may hold. See how a range of uncertainties—from climate to geopolitics, technology to macroeconomics—could intertwine, and critically, what today’s strategists need to do to become better prepared and as resilient as possible. After exploring the scenarios, leaders will dig into how to build competitive advantage in whatever the future may hold.",
     "sectorjourneys": "EEW",
-    "topicjourneys": "",
+    "topicjourneys": "GP",
     "x": 1541,
     "y": 3613,
     "partner": "",
     "contacts": "Alan Iny, iny.alan@bcg.com, Ketil Gjerstad, gjerstad.ketil@bcg.com, Sam Farley, farley.sam@bcg.com, Sabrina Kristic, kristic.sabrina@bcg.com",
-    "highlightUrl": "/highlights/sp09.svg"
+    "highlightUrl": "/highlights/sp09.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP10",
@@ -330,12 +355,13 @@
     "subtitle": "Reconfiguring supply chain and procurement in shifting geopolitical landscape",
     "description": "Business leaders are seeking to find their footing in a landscape that has been redefined by tariffs, conflicts, etc. Our booth will highlight the critical need for companies to rapidly and proactively address tariffs, while also contextualizing them within the broader context of geopolitical uncertainties reshaping global supply chains and procurement. Discover our comprehensive solutions that are helping companies navigate these uncertainties effectively.",
     "sectorjourneys": "AM, CBCMIB, EDGFCG, FL, LPS, RT, TTIL",
-    "topicjourneys": "",
+    "topicjourneys": "CO,GP",
     "x": 1307,
     "y": 3378,
     "partner": "",
     "contacts": "Marc Gilbert, gilbert.marc@bcg.com, Rami Rafih, rafih.rami@bcg.com, Dustin Burke, burke.dustin@bcg.com, Alex Dolya, dolya.alex@bcg.com",
-    "highlightUrl": "/highlights/sp10.svg"
+    "highlightUrl": "/highlights/sp10.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP11",
@@ -348,7 +374,8 @@
     "y": 3203,
     "partner": "",
     "contacts": "Daniel Friedman, friedman.daniel@bcg.com, Jens Kengelbach, kengelbach.jens@bcg.com, Georg Keienburg, keienburg.georg@bcg.com",
-    "highlightUrl": "/highlights/sp11.svg"
+    "highlightUrl": "/highlights/sp11.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP12",
@@ -361,7 +388,8 @@
     "y": 3747,
     "partner": "Y",
     "contacts": "Holm Puder, holm.puder@waiys.com",
-    "highlightUrl": "/highlights/sp12.svg"
+    "highlightUrl": "/highlights/sp12.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "SP13",
@@ -374,7 +402,8 @@
     "y": 3091,
     "partner": "Y",
     "contacts": "Suzanne Skipper, Skipper.Suzanne@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
-    "highlightUrl": "/highlights/sp13.svg"
+    "highlightUrl": "/highlights/sp13.svg",
+    "neighbourhood": "SP"
   },
   {
     "boothId": "OP01",
@@ -387,7 +416,8 @@
     "y": 3606,
     "partner": "",
     "contacts": "Marco Tonegutti, tonegutti.marco@bcg.com, Dima Pogorelsky, pogorelsky.dima@bcg.com",
-    "highlightUrl": "/highlights/op01.svg"
+    "highlightUrl": "/highlights/op01.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP02",
@@ -400,7 +430,8 @@
     "y": 3433,
     "partner": "Y",
     "contacts": "Tilman Buchner, Buchner.Tilman@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
-    "highlightUrl": "/highlights/op02.svg"
+    "highlightUrl": "/highlights/op02.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP03",
@@ -413,7 +444,8 @@
     "y": 3164,
     "partner": "",
     "contacts": "John Knapp, knapp.john@bcg.com, Alex Yurek, yurek.alex@bcg.com",
-    "highlightUrl": "/highlights/op03.svg"
+    "highlightUrl": "/highlights/op03.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP04",
@@ -426,7 +458,8 @@
     "y": 2766,
     "partner": "",
     "contacts": "Marcus Wittig, wittig.marcus@bcg.com, Hrvoje Jenkač, jenkac.hrvoje@bcg.com",
-    "highlightUrl": "/highlights/op04.svg"
+    "highlightUrl": "/highlights/op04.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP05",
@@ -439,7 +472,8 @@
     "y": 3661,
     "partner": "",
     "contacts": "Dustin Burke, burke.dustin@bcg.com",
-    "highlightUrl": "/highlights/op05.svg"
+    "highlightUrl": "/highlights/op05.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP06",
@@ -447,12 +481,13 @@
     "subtitle": "Efficiency and cost savings at every step of the procurement journey",
     "description": "Did you know companies use over half of their revenues on external spend and suppliers? Cutting costs without Procurement is impossible. To help with this, our AI-powered approach transforms the entire procurement process, from spend analytics to contracting, helping your clients to reduce external spend, boost buyer productivity and recover lost cash. Visit our booth to learn how we drive real, hands- on savings and efficiency for leading organizations.",
     "sectorjourneys": "AM, CIDRET, DS, EPIT, GAM, HCS, IET, LCEI, MPI, MT, PPSS, TTIL",
-    "topicjourneys": "",
+    "topicjourneys": "CO,GP",
     "x": 1083,
     "y": 3839,
     "partner": "",
     "contacts": "Tomi Mansio, mansio.tomi@bcg.com, Wolfgang Schnellbächer, schnellbaecher.Wolfgang@bcg.com, Alex Dolya, dolya.alex@bcg.com",
-    "highlightUrl": "/highlights/op06.svg"
+    "highlightUrl": "/highlights/op06.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP07",
@@ -465,7 +500,8 @@
     "y": 4103,
     "partner": "",
     "contacts": "Andy Lin, lin.andy@bcg.com, Hunkar Toyoglu, toyoglu.hunkar@bcg.com",
-    "highlightUrl": "/highlights/op07.svg"
+    "highlightUrl": "/highlights/op07.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP08",
@@ -478,7 +514,8 @@
     "y": 4103,
     "partner": "Y",
     "contacts": "Nick Tanaka, Tanaka.Nicolas@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
-    "highlightUrl": "/highlights/op08.svg"
+    "highlightUrl": "/highlights/op08.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP09",
@@ -486,12 +523,13 @@
     "subtitle": "Explore AI-driven R&D to unlock efficiency and acceleration",
     "description": "Embark on an AI-powered R&D journey—boosting efficiency, exploration, and innovation. Experience AI’s impact at every stage: accelerating time- to-market, unlocking creativity, and driving market alignment. Discover interactive demos, real-world case studies, and practical insights to lead the future of innovation. Let’s redefine R&D together!",
     "sectorjourneys": "BPH, EPIT, MT",
-    "topicjourneys": "",
+    "topicjourneys": "AI",
     "x": 679,
     "y": 3850,
     "partner": "",
     "contacts": "Mikaël Le Mouëllic, lemouellic.mikael@bcg.com",
-    "highlightUrl": "/highlights/op09.svg"
+    "highlightUrl": "/highlights/op09.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP10",
@@ -499,12 +537,13 @@
     "subtitle": "Bring AI + Data + Workflows to every corner of your business with ServiceNow, the AI platform",
     "description": "for business transformation  ServiceNow is putting AI to work for people. We move with the pace of innovation to help clients transform organizations across every industry while upholding a trustworthy, human-centered approach to deploying our products and services at scale. Our AI platform for business transformation connects people, processes, data, and devices to increase productivity and maximize business outcomes. Bring AI + Data + Workflows to every corner of your business with ServiceNow.",
     "sectorjourneys": "TELE",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 732,
     "y": 4108,
     "partner": "Y",
     "contacts": "Leo Tomlin, Tomlin.Leo@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
-    "highlightUrl": "/highlights/op10.svg"
+    "highlightUrl": "/highlights/op10.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP11",
@@ -517,7 +556,8 @@
     "y": 3661,
     "partner": "Y",
     "contacts": "Stephen Robnett, Robnett.Stephen@bcg.com, Hillary Fernandez, Fernandez.Hillary@bcg.com",
-    "highlightUrl": "/highlights/op11.svg"
+    "highlightUrl": "/highlights/op11.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP12",
@@ -530,7 +570,8 @@
     "y": 3484,
     "partner": "Y",
     "contacts": "Dinesh Natarajan, dinesh@lyric.tech",
-    "highlightUrl": "/highlights/op12.svg"
+    "highlightUrl": "/highlights/op12.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP13",
@@ -543,7 +584,8 @@
     "y": 3094,
     "partner": "Y",
     "contacts": "Barry Phillips, barryphillips@apptronik.com",
-    "highlightUrl": "/highlights/op13.svg"
+    "highlightUrl": "/highlights/op13.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "OP14",
@@ -556,7 +598,8 @@
     "y": 3451,
     "partner": "Y",
     "contacts": "Sammeli Sammalkorpi, sammeli.sammalkorpi@sievo.com",
-    "highlightUrl": "/highlights/op14.svg"
+    "highlightUrl": "/highlights/op14.svg",
+    "neighbourhood": "OP"
   },
   {
     "boothId": "CE01",
@@ -569,7 +612,8 @@
     "y": 2404,
     "partner": "",
     "contacts": "Karen Lellouche, lellouche.karen@bcg.com",
-    "highlightUrl": "/highlights/ce01.svg"
+    "highlightUrl": "/highlights/ce01.svg",
+    "neighbourhood": "CE"
   },
   {
     "boothId": "CE02",
@@ -577,12 +621,13 @@
     "subtitle": "Where humans with Agents drive customer success together",
     "description": "Salesforce and BCG deliver AI-powered business advantage. By combining BCG’s industry-leading functional expertise with Salesforce’s agentic AI capabilities through Agentforce, we drive faster time to value and adoption — ensuring measurable business impact from day one.  New research reveals how businesses scale AI agents 16x faster and 75% more accurately with Agentforce. Stop by our booth to see Agentforce in action and drop in to build your own AI agent.",
     "sectorjourneys": "TELE",
-    "topicjourneys": "",
+    "topicjourneys": "TP",
     "x": 711,
     "y": 2228,
     "partner": "Y",
     "contacts": "Bryan Gauch, Gauch.Bryan@bcg.com, Deborah Riger, Riger.Deborah@bcg.com",
-    "highlightUrl": "/highlights/ce02.svg"
+    "highlightUrl": "/highlights/ce02.svg",
+    "neighbourhood": "CE"
   },
   {
     "boothId": "CE03",
@@ -590,12 +635,13 @@
     "subtitle": "Advance the art and science of Sales by leveraging GenAI, data and tech",
     "description": "Step into the future of sales with NextGenSales! Discover how GenAI transforms sales organizations with intelligent agents, cutting-edge automation, and seamless integration across your CRM and tech stack. Unlock smarter workflows, harness data for sharper insights, and boost productivity to crush your sales goals. Whether you’re looking to streamline processes or stay ahead of the competition, this is where innovation meets sales success. Stop by and see what’s next!",
     "sectorjourneys": "BPH, CBCMIB, EPIT, LHI, ME, MPI, MT, PCCI, TECH, TELE",
-    "topicjourneys": "",
+    "topicjourneys": "AI",
     "x": 767,
     "y": 1931,
     "partner": "",
     "contacts": "Phillip Andersen, andersen.phillip@bcg.com, Basir Mustaghni, Mustaghni, Basir Mustaghni.Basir@bcg.com",
-    "highlightUrl": "/highlights/ce03.svg"
+    "highlightUrl": "/highlights/ce03.svg",
+    "neighbourhood": "CE"
   },
   {
     "boothId": "CE04",
@@ -608,7 +654,8 @@
     "y": 2115,
     "partner": "Y",
     "contacts": "Alex Baxter, Baxter.Alex@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
-    "highlightUrl": "/highlights/ce04.svg"
+    "highlightUrl": "/highlights/ce04.svg",
+    "neighbourhood": "CE"
   },
   {
     "boothId": "CE05",
@@ -621,7 +668,8 @@
     "y": 2115,
     "partner": "Y",
     "contacts": "Alex Baxter, Baxter.Alex@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
-    "highlightUrl": "/highlights/ce05.svg"
+    "highlightUrl": "/highlights/ce05.svg",
+    "neighbourhood": "CE"
   },
   {
     "boothId": "CE06",
@@ -634,7 +682,8 @@
     "y": 1931,
     "partner": "",
     "contacts": "Lauren Wiener, wiener.lauren@bcg.com, Mark Abraham, abraham.mark@bcg.com, Silvio Palumbo, palumbo.silvio@bcg.com",
-    "highlightUrl": "/highlights/ce06.svg"
+    "highlightUrl": "/highlights/ce06.svg",
+    "neighbourhood": "CE"
   },
   {
     "boothId": "CE07",
@@ -647,7 +696,8 @@
     "y": 2228,
     "partner": "",
     "contacts": "Ben Eppler,  eppler.ben@bcg.com, Lara Koslow, koslow.lara@bcg.com, Lauren Taylor, taylor.lauren@bcg.com",
-    "highlightUrl": "/highlights/ce07.svg"
+    "highlightUrl": "/highlights/ce07.svg",
+    "neighbourhood": "CE"
   },
   {
     "boothId": "CE08",
@@ -660,7 +710,8 @@
     "y": 2405,
     "partner": "",
     "contacts": "Arnab Sinha, sinha.arnab@bcg.com",
-    "highlightUrl": "/highlights/ce08.svg"
+    "highlightUrl": "/highlights/ce08.svg",
+    "neighbourhood": "CE"
   },
   {
     "boothId": "CE09",
@@ -673,7 +724,8 @@
     "y": 2407,
     "partner": "",
     "contacts": "Tim Kuhrcke, kuhrcke.tim@bcgbrighthouse.com",
-    "highlightUrl": "/highlights/ce09.svg"
+    "highlightUrl": "/highlights/ce09.svg",
+    "neighbourhood": "CE"
   },
   {
     "boothId": "AI01",
@@ -686,7 +738,8 @@
     "y": 2378,
     "partner": "",
     "contacts": "Scott Wilder, Wilder.Scott@bcg.com",
-    "highlightUrl": "/highlights/ai01.svg"
+    "highlightUrl": "/highlights/ai01.svg",
+    "neighbourhood": "AI"
   },
   {
     "boothId": "FS01",
@@ -699,7 +752,8 @@
     "y": 1327,
     "partner": "",
     "contacts": "Patrick Herhold, herhold.patrick@bcg.com",
-    "highlightUrl": "/highlights/fs01.svg"
+    "highlightUrl": "/highlights/fs01.svg",
+    "neighbourhood": "FS"
   },
   {
     "boothId": "FS02",
@@ -712,7 +766,8 @@
     "y": 1001,
     "partner": "",
     "contacts": "Shalini Unnikrishnan, unnikrishnan.shalini@bcg.com",
-    "highlightUrl": "/highlights/fs02.svg"
+    "highlightUrl": "/highlights/fs02.svg",
+    "neighbourhood": "FS"
   },
   {
     "boothId": "FS03",
@@ -725,7 +780,8 @@
     "y": 560,
     "partner": "",
     "contacts": "Edmond Rhys Jones, rhysjones.edmond@bcg.com, Jannik Leiendecker, leiendecker.jannik@bcg.com",
-    "highlightUrl": "/highlights/fs03.svg"
+    "highlightUrl": "/highlights/fs03.svg",
+    "neighbourhood": "FS"
   },
   {
     "boothId": "FS04",
@@ -738,7 +794,8 @@
     "y": 186,
     "partner": "Y",
     "contacts": "Diana Dimitrova, Dimitrova.Diana@bcg.com, Sophia Davies, Davies.Sophia@bcg.com",
-    "highlightUrl": "/highlights/fs04.svg"
+    "highlightUrl": "/highlights/fs04.svg",
+    "neighbourhood": "FS"
   },
   {
     "boothId": "FS05",
@@ -746,12 +803,13 @@
     "subtitle": "Adapt to thrive in the face of extreme climate risks",
     "description": "As 1.5°C slips further out of reach, public and private sectors must prepare for severe climate impacts. Businesses face a dual challenge: physical risks stemming from extreme weather and transition risks driven by global shift toward a low-carbon economy. To mitigate, it is imperative to develop adaptation and resilience strategies today—not years from now. Learn how BCG is advancing the adaptation and resilience agenda and leveraging analytics-driven solutions to support organizations globally.",
     "sectorjourneys": "CBCMIB, CIDRET, LHI, PCCI, TELE",
-    "topicjourneys": "",
+    "topicjourneys": "GP",
     "x": 518,
     "y": 178,
     "partner": "",
     "contacts": "Lorenzo Fantini, fantini.lorenzo@bcg.com, Annika Zawadzki, zawadzki.annika@bcg.com",
-    "highlightUrl": "/highlights/fs05.svg"
+    "highlightUrl": "/highlights/fs05.svg",
+    "neighbourhood": "FS"
   },
   {
     "boothId": "FS06",
@@ -764,7 +822,8 @@
     "y": 445,
     "partner": "",
     "contacts": "Allon Zeitoun, zeitoun.allon@quantis.com, Marcial Vargas, vargasgonzalez.marcial@quantis.com",
-    "highlightUrl": "/highlights/fs06.svg"
+    "highlightUrl": "/highlights/fs06.svg",
+    "neighbourhood": "FS"
   },
   {
     "boothId": "FS07",
@@ -777,7 +836,8 @@
     "y": 712,
     "partner": "",
     "contacts": "Alejandro Navarro, navarro.alejandro@bcg.com, Mikael le Mouellic, lemouellic.mikael@bcg.com, Sophie Gebel, gebel.sophie@bcg.com, Alex Meyer zum Felde, meyer.zum.felde.alexander@bcg.com",
-    "highlightUrl": "/highlights/fs07.svg"
+    "highlightUrl": "/highlights/fs07.svg",
+    "neighbourhood": "FS"
   },
   {
     "boothId": "FS08",
@@ -790,7 +850,8 @@
     "y": 940,
     "partner": "",
     "contacts": "Cornelius Pieper, pieper.cornelius@bcg.com",
-    "highlightUrl": "/highlights/fs08.svg"
+    "highlightUrl": "/highlights/fs08.svg",
+    "neighbourhood": "FS"
   },
   {
     "boothId": "FS09",
@@ -803,7 +864,8 @@
     "y": 1202,
     "partner": "Y",
     "contacts": "Behar Carroll, carroll.bahar@bcgfed.com",
-    "highlightUrl": "/highlights/fs09.svg"
+    "highlightUrl": "/highlights/fs09.svg",
+    "neighbourhood": "FS"
   },
   {
     "boothId": "FS10",
@@ -816,6 +878,7 @@
     "y": 1467,
     "partner": "",
     "contacts": "Mads Peter Langhorn, langhorn.madspeter@bcg.com",
-    "highlightUrl": "/highlights/fs10.svg"
+    "highlightUrl": "/highlights/fs10.svg",
+    "neighbourhood": "FS"
   }
 ]

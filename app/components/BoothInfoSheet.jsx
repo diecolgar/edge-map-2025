@@ -1,5 +1,3 @@
-"use client";
-
 import {
   motion,
   AnimatePresence,
@@ -62,13 +60,9 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
 
   useEffect(() => {
     let target;
-    if (sheetState === "closed") {
-      target = 0;
-    } else if (sheetState === "collapsed") {
-      target = collapsedPx;
-    } else {
-      target = expandedPx || (getViewportHeight() * maxVH) / 100;
-    }
+    if (sheetState === "closed") target = 0;
+    else if (sheetState === "collapsed") target = collapsedPx;
+    else target = expandedPx || (getViewportHeight() * maxVH) / 100;
     animate(height, target, { duration: 0.4, ease: "easeInOut" });
   }, [sheetState, collapsedPx, expandedPx]);
 
@@ -83,9 +77,8 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
       return;
     }
     if (deltaY > DRAG_THRESHOLD) {
-      if (sheetState === "expanded") {
-        setSheetState("collapsed");
-      } else if (sheetState === "collapsed") {
+      if (sheetState === "expanded") setSheetState("collapsed");
+      else if (sheetState === "collapsed") {
         setSheetState("closed");
         setTimeout(onClose, 400);
       }
@@ -119,18 +112,28 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
 
   if (!location) return null;
 
-  const showFade = sheetState === "collapsed";
   const disableScroll = sheetState === "collapsed";
 
-  const contacts = location.contacts?.split(",").map((c) => c.trim()) || [];
-  const emails = location.emails?.split(",").map((e) => e.trim()) || [];
-  const contactEmailPairs = contacts.map((c, i) => ({
-    contact: c,
-    email: emails[i] || "",
-  }));
+  // Parse contacts string into name-email pairs
+  const contactItems = location.contacts
+    ?.split(",")
+    .map((item) => item.trim()) || [];
+  const contactEmailPairs = [];
+  for (let i = 0; i < contactItems.length; i += 2) {
+    const name = contactItems[i];
+    const email = contactItems[i + 1] || "";
+    contactEmailPairs.push({ contact: name, email });
+  }
 
   const neighbourhoodKey = location.neighbourhood?.toLowerCase();
   const extension = neighbourhoodKey === "ai" ? "png" : "svg";
+
+  // Click handler to copy to clipboard
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      alert(`Copied to clipboard: ${text}`);
+    });
+  };
 
   return (
     <AnimatePresence>
@@ -230,39 +233,34 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
                 CONTACTS
               </span>
               <div className="flex flex-col gap-3">
-                {contactEmailPairs.map(({ contact, email }, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center bg-white rounded-full px-4 py-2 shadow w-max"
-                  >
-                    <p className="text-sm text-edgeText flex gap-2">
-                      <span className="font-semibold">{contact}</span>
-                      {email && <span className="text-gray-500">{email}</span>}
-                    </p>
-                  </div>
-                ))}
+                {contactEmailPairs.map(({ contact, email }, i) => {
+                  const textToCopy = email || contact;
+                  return (
+                    <div
+                      key={i}
+                      onClick={() => handleCopy(textToCopy)}
+                      className="flex items-center bg-white rounded-full px-4 py-2 shadow w-max cursor-pointer hover:bg-gray-100"
+                    >
+                      <p className="flex items-center text-sm text-edgeText gap-2">
+                        {/* <span className="font-semibold">{contact}</span> */}
+                        {email && <span className="text-gray-500">{email}</span>}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                          <path
+                            d="M7.5 3H14.6C16.8402 3 17.9603 3 18.816 3.43597C19.5686 3.81947 20.1805 4.43139 20.564 5.18404C21 6.03969 21 7.15979 21 9.4V16.5M6.2 21H14.3C15.4201 21 15.9802 21 16.408 20.782C16.7843 20.5903 17.0903 20.2843 17.282 19.908C17.5 19.4802 17.5 18.9201 17.5 17.8V9.7C17.5 8.57989 17.5 8.01984 17.282 7.59202C17.0903 7.21569 16.7843 6.90973 16.408 6.71799C15.9802 6.5 15.4201 6.5 14.3 6.5H6.2C5.0799 6.5 4.51984 6.5 4.09202 6.71799C3.71569 6.90973 3.40973 7.21569 3.21799 7.59202C3 8.01984 3 8.57989 3 9.7V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.0799 21 6.2 21Z"
+                            stroke="black"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
         </div>
-
-        {/* Smooth Fade Effect (outside scroll) */}
-        {/* <AnimatePresence>
-          {showFade && (
-            <motion.div
-              key="fade"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 w-full h-24 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(to top, #f1eeea 60%, rgba(241, 238, 234, 0))",
-              }}
-            />
-          )}
-        </AnimatePresence> */}
       </motion.div>
     </AnimatePresence>
   );
