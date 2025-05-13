@@ -14,7 +14,7 @@ const TopBar = ({
   onFilterClick,
   selectedFilters = [], // e.g. ["topic","nb"]
 }) => {
-  // Order pills: selected first, then the rest
+  // Ordenamos las pills seleccionadas primero
   const sortedPills = [...FILTER_PILLS].sort((a, b) => {
     const aSel = selectedFilters.includes(a.code);
     const bSel = selectedFilters.includes(b.code);
@@ -24,15 +24,12 @@ const TopBar = ({
   });
 
   return (
-    <div
-      className="absolute w-full z-[500] bg-[#F1EEEA]/10 backdrop-blur pt-2 pb-3 shadow-md flex flex-col gap-3"
-    >
-      {/* Search + Filter Button */}
+    <div className="absolute w-full z-[500] bg-[#F1EEEA]/10 backdrop-blur pt-2 pb-3 shadow-md flex flex-col gap-3">
+      {/* Solo buscador */}
       <div className="flex items-center gap-4 px-4">
-        {/* Search input */}
         <div className="relative flex-1">
           <svg
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
+            className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
             xmlns="http://www.w3.org/2000/svg"
             width="14"
             height="14"
@@ -57,7 +54,7 @@ const TopBar = ({
           {searchQuery.length > 0 && (
             <button
               onClick={() => onSearch("")}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
               aria-label="Clear search"
             >
               <svg
@@ -78,12 +75,14 @@ const TopBar = ({
             </button>
           )}
         </div>
+      </div>
 
-        {/* Filter button */}
+      {/* Pills: filtro primero + pills dinámicas */}
+      <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4">
+        {/* Pill de filtros fija al inicio */}
         <button
           onClick={onFilterClick}
-          className="p-2 bg-edgeText rounded-full flex items-center justify-center"
-          aria-label="Open Filters"
+          className="flex-shrink-0 px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap flex gap-2 items-center bg-edgeText text-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -99,21 +98,18 @@ const TopBar = ({
               strokeLinejoin="round"
             />
           </svg>
+          Filters
         </button>
-      </div>
 
-      {/* Filter Pills (always visible, selected first) */}
-      <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4">
+        {/* Pills dinámicas (seleccionadas primero) */}
         {sortedPills.map(({ code, label }) => {
           const isSel = selectedFilters.includes(code);
           return (
             <button
               key={code}
               onClick={onFilterClick}
-              className={`flex-shrink-0 px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap flex items-center gap-1 transition ${
-                isSel
-                  ? "bg-edgeText text-white"
-                  : "bg-white text-edgeText"
+              className={`flex-shrink-0 px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap flex gap-2 items-center transition ${
+                isSel ? "bg-edgeText text-white" : "bg-white text-edgeText"
               }`}
             >
               {isSel && (

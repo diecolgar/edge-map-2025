@@ -71,7 +71,7 @@ const renderBoothIcon = (id, name, zoomLevel) => {
         ${id.toUpperCase()}
       </div>
       <div style="
-        min-width:120px;font-size:12px;color:#FFF;text-align:center;
+        min-width:120px;font-size:12px;color: white; text-shadow: 1px 1px 2px black; text-align:center;
         line-height:1.1;transition:opacity 0.3s ease;
         opacity:${showTitle?1:0};height:1em;
       ">
@@ -422,7 +422,7 @@ const overviewZones = useMemo(() => {
         position={zone.labelPosition}
         icon={divIcon({
           className: "zone-count-label",
-          html:  `<div style="width: 24px; height: 24px; border: 2px solid #323232; display: flex; justify-content: center; align-items: center; font-size:14px;font-weight:700; background-color: white; border-radius: 1000px;">
+          html:  `<div style="width: 24px; color: #323232; height: 24px; border: 2px solid #323232; display: flex; justify-content: center; align-items: center; font-size:12px;font-weight:700; background-color: white; border-radius: 1000px;">
           ${zoneCounts[zone.id]}
         </div>`
         })}
@@ -482,7 +482,6 @@ const overviewZones = useMemo(() => {
               const icon=isTheatre
                 ? divIcon({
                     html:`<div style="position:relative;display:flex;flex-direction:column;align-items:center;transform:translate(-50%,-30%);">
-                      <img src="${svc.iconUrl}" style="width:24px;height:24px;"/>
                       <div style="margin-top:2px;font-family:'BCGHenSans';font-size:10px;font-weight:600;color:#FFF;text-align:center;width:100px;">
                         Micro-Theater
                       </div>
@@ -491,7 +490,7 @@ const overviewZones = useMemo(() => {
                     iconAnchor:[12,18],
                   })
                 : divIcon({
-                    html:`<img src="${svc.iconUrl}" style="width:24px;height:24px;"/>`,
+                    html:`<img src="${svc.iconUrl}" style="width:24px;height:24px; filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5));"/>`,
                     iconSize:[24,24],
                     iconAnchor:[12,12],
                   });
