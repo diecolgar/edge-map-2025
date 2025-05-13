@@ -82,7 +82,7 @@
   {
     "boothId": "rs",
     "name": "Information Desk",
-    "x": 1271,
+    "x": 1200,
     "y": 2830,
     "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
     "iconUrl": "/services/id.svg"
@@ -92,7 +92,7 @@
     "name": "Recharge Spot",
     "x": 766,
     "y": 3019,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "description": "1Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
     "iconUrl": "/services/rs.svg"
   },
   {
@@ -104,11 +104,27 @@
     "iconUrl": "/services/fb.svg"
   },
   {
-    "boothId": "fb",
+    "boothId": "fbbb",
     "name": "Food & Beverage",
+    "x": 1787,
+    "y": 3432,
+    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/fb.svg"
+  },
+  {
+    "boothId": "fb",
+    "name": "Restrooms",
     "x": 1231,
     "y": 4632,
     "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "iconUrl": "/services/rst.svg"
+  },
+  {
+    "boothId": "fb98",
+    "name": "Food & Beverage",
+    "x": 1874,
+    "y": 5244,
+    "description": "2Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
     "iconUrl": "/services/fb.svg"
   },
   {
@@ -116,7 +132,7 @@
     "name": "Recharge Spot",
     "x": 1874,
     "y": 5374,
-    "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
+    "description": "2Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tincidunt mollis, quisque non condimentum vulputate integer felis lobortis ornare sociosqu orci augue, nisl placerat neque egestas magna fermentum in imperdiet aptent.",
     "iconUrl": "/services/rs.svg"
   },
   {
