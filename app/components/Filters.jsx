@@ -213,7 +213,7 @@ const Filters = ({
                       <CheckIcon />
                     </span>
                   )}
-                  <span className="align-middle">{label}</span>
+                  <span className="align-middle font-bold">{label}</span>
                 </button>
               );
             })}
@@ -228,11 +228,11 @@ const Filters = ({
 
           return (
             <div key={code}>
-              <h3 className="text-sm font-bold uppercase text-white mb-2">
+              <h3 className="text-sm font-bold uppercase text-white mb-2 ">
                 {section.label}
               </h3>
               <p className="text-sm text-edgeTextGray mb-4">
-                Select multiple options if needed
+                {isIconFilter ? "Select one option" : "Select multiple options if needed"}
               </p>
               <div className={`grid ${isIconFilter ? "grid-cols-2" : "grid-cols-2"} gap-3`}>
                 {section.options.map(({ code: optCode, label, icon }) => {
@@ -241,7 +241,7 @@ const Filters = ({
                     <button
                       key={optCode}
                       onClick={() => toggleSelection(code, optCode)}
-                      className={`w-full rounded-xl px-4 py-6 text-sm text-white border transition relative ${
+                      className={`w-full rounded-xl px-4 py-6 text-sm text-white font-bold border transition relative ${
                         isSel
                           ? "border-edgeGreen bg-white/5"
                           : "border-white/20 hover:bg-white/10"
@@ -263,7 +263,7 @@ const Filters = ({
                     <button
                       key={optCode}
                       onClick={() => toggleSelection(code, optCode)}
-                      className={`px-4 py-2 border text-sm rounded-full transition text-center ${
+                      className={`px-4 py-2 border text-xs rounded-full font-bold transition text-center ${
                         isSel
                           ? "border-edgeGreen text-white bg-white/5"
                           : "border-white/20 text-white hover:bg-white/10"
@@ -274,7 +274,7 @@ const Filters = ({
                           <CheckIcon />
                         </span>
                       )}
-                      <span className="align-middle">{label}</span>
+                      <span className="align-middle ">{label}</span>
                     </button>
                   );
                 })}

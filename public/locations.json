@@ -11,7 +11,8 @@
     "partner": "",
     "contacts": "Michael Grebe, grebe.michael@bcg.com, Vinciane Beauchene, beauchene.vinciane@bcg.com, Nicolas de Bellefonds, debellefonds.nicolas@bcg.com, Julie Bedard, bedard.julie@bcg.com",
     "highlightUrl": "/highlights/td01.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": "GenAI; Cost; POP; People and Organization; FI; HC; IG; Insurance; PIPE; Public Sector; TMT; TCI; robot; AI transformation; cafe"
   },
   {
     "boothId": "TD02",
@@ -25,7 +26,8 @@
     "partner": "",
     "contacts": "Tibor Merey, Merey.Tibor@bcg.com, Matt Langione, langione.matt@bcg.com, Urs Rahne, rahne.urs@bcg.com, Awais Ali, ali.awais@bcg.com",
     "highlightUrl": "/highlights/td02.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": "GenAI; Cost; web3; XR; IoT; Quantum; digital wallet; smart glasses; supply chain; Walt.ID; IG; TMT; TCI; Operations; FI; Financial Institutions; Industrial Goods"
   },
   {
     "boothId": "TD03",
@@ -39,7 +41,8 @@
     "partner": "",
     "contacts": "Amanda Luther, luther.amanda@bcg.com, Chris Meier, meier.chris@bcg.com, Chris Freese, Freese.Christopher@bcg.com, Arnaud Bassoulet, Bassoulet.Arnaud@bcg.com",
     "highlightUrl": "/highlights/td03.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": "GenAI; Agents; AI Transformation; sales; POP; CP; FI; IG; INS; HC; Consumer Products; Financial Institutions; Healthcare; Industrial Goods; Insurance"
   },
   {
     "boothId": "TD04",
@@ -53,7 +56,8 @@
     "partner": "Y",
     "contacts": "Dan Sack, Sack.Dan@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
     "highlightUrl": "/highlights/td04.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": ""
   },
   {
     "boothId": "TD05",
@@ -67,7 +71,8 @@
     "partner": "",
     "contacts": "Ted Kubit, kubit.ted@bcg.com, Loïc Mesnage, mesnage.loic@bcg.com, Daniel Schlecht, schlecht.daniel@bcg.com, Andrew Arcuri, arcuri.andrew@bcg.com",
     "highlightUrl": "/highlights/td05.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": "GenAI; SAP; Anaplan; Workday; ServiceNow; digital transformation; cost;"
   },
   {
     "boothId": "TD06",
@@ -81,7 +86,8 @@
     "partner": "Y",
     "contacts": "Ted Kubit, kubit.ted@bcg.com",
     "highlightUrl": "/highlights/td06.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": ""
   },
   {
     "boothId": "TD07",
@@ -95,7 +101,8 @@
     "partner": "",
     "contacts": "Vanessa Lyon, lyon.vanessa@bcg.com, Gildas Bouteiller, bouteiller.gildas@bcg.com, Pierre Rouseel, roussel.pierre@bcg.com, Shoaib Yousuf, yousuf.shoaib@bcg.com",
     "highlightUrl": "/highlights/td07.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": "GenAI; Cost; hack; threat; cyber protection; R&C; FI; CP; HC; IG; PS; EN; TMT; Risk & Compliance; Financial Institutions; Consumer Products; Healthcare; Industrial Goods; Public Sector; Industrial Goods; Energy; Technology, Media & telcomm"
   },
   {
     "boothId": "TD08",
@@ -109,7 +116,8 @@
     "partner": "Y",
     "contacts": "Tom Martin, Martin.Tom@bcgplatinion.com, Hillary Fernandez, Fernandez.Hillary@bcg.com",
     "highlightUrl": "/highlights/td08.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": ""
   },
   {
     "boothId": "TD09",
@@ -123,7 +131,8 @@
     "partner": "Y",
     "contacts": "Vikas Taneja, Taneja.Vikas@bcg.com, Matt Leader, Leader.Matthew@bcg.com",
     "highlightUrl": "/highlights/td09.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": ""
   },
   {
     "boothId": "TD10",
@@ -137,7 +146,8 @@
     "partner": "Y",
     "contacts": "Phil Zakahi, Zakahi, Philip <Zakahi.Philip@bcg.com>, Matt Leader, Leader, Matthew <Leader.Matthew@bcg.com>",
     "highlightUrl": "/highlights/td10.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": ""
   },
   {
     "boothId": "TD11",
@@ -151,7 +161,8 @@
     "partner": "Y",
     "contacts": "Raul Garcia Mur, GarciaMur.Raul@bcg.com, Megha Ramanuja, Ramanuja.Megha@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
     "highlightUrl": "/highlights/td11.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": ""
   },
   {
     "boothId": "TD12",
@@ -165,7 +176,8 @@
     "partner": "",
     "contacts": "Lucas Quarta, quarta.lucas@bcg.com, Helen Han, han.helen@bcg.com, Jacqueline Govers, govers.jacqueline@bcg.com, Benjamin Rehberg, rehberg.benjamin@bcg.com",
     "highlightUrl": "/highlights/td12.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": "GenAI; data; technology transformations; ERP; FI; IG; EN; HC; Financial Institutions; Industrial Goods; Energy; Healthcare"
   },
   {
     "boothId": "TD13",
@@ -179,7 +191,8 @@
     "partner": "",
     "contacts": "Marc Schuuring, schuuring.marc@bcg.com, Filippo Scognamiglio, scognamiglio.filippo@bcg.com, Shishir Pathak, pathak.shishir@bcg.com, Nick Smaling, Smaling.Nick@bcg.com",
     "highlightUrl": "/highlights/td13.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": "GenAI; Google; Microsoft; AWS; Amazon; Anaplan; Workday; ServiceNow; Salesforce; IBM; Redhat; OpenAI; SAP"
   },
   {
     "boothId": "TD14",
@@ -193,7 +206,8 @@
     "partner": "Y",
     "contacts": "Val Elbert, Elbert.Valeriy@bcg.com, Monica Zunick, Zunick.Monica@bcg.com",
     "highlightUrl": "/highlights/td14.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": ""
   },
   {
     "boothId": "TD15",
@@ -207,7 +221,8 @@
     "partner": "Y",
     "contacts": "Dominik Beron, dominik@walt.id",
     "highlightUrl": "/highlights/td15.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": ""
   },
   {
     "boothId": "TD16",
@@ -221,7 +236,8 @@
     "partner": "Y",
     "contacts": "Vikash Jain, Jain.Vikash@bcg.com",
     "highlightUrl": "/highlights/td16.svg",
-    "neighbourhood": "TD"
+    "neighbourhood": "TD",
+    "keywords": ""
   },
   {
     "boothId": "SP01",
@@ -235,7 +251,8 @@
     "partner": "",
     "contacts": "Jacopo Brunelli, brunelli.jacopo@bcg.com, Karin von Funck, vonfunck.karin@bcg.com",
     "highlightUrl": "/highlights/sp01.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": "GenAI; Cost; Consumer Products; CP;  Retail; Integrated Energy Transformation; IET;  Low Carbon Energy & Infrastructure; LCI; Consumer, Private, and Business Banking; CPBB; Global Asset Managers; GAM; Payments & Fintechs; P&F; Engineered Products & Industrial Technology; EPT; Economic Development, Government Finances, Center of Government;  EFC;  Health Care Systems; HCS;  Travel, Transport Infrastructure & Leisure; TTL; Media;  Telecommunications; telcom"
   },
   {
     "boothId": "SP02",
@@ -249,7 +266,8 @@
     "partner": "",
     "contacts": "Kevin Kelley, kelley.kevin@bcg.com, Nina Kataeva, kataeva.nina@bcg.com, Matt Marchingo, marchingo.matt@bcg.com, Christoph Hilberath, Hilberath.Christoph@bcg.com",
     "highlightUrl": "/highlights/sp02.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": "GenAI; Cost; Support functions; GBS; resilience; operations; operating model; ODOM"
   },
   {
     "boothId": "SP03",
@@ -263,7 +281,8 @@
     "partner": "",
     "contacts": "Gertie Laerkholm, laerkholm.gertie@bcg.com, Kristine Jensson, jensson.kristine@bcg.com, Connor Currier, Currier.connor@bcg.com",
     "highlightUrl": "/highlights/sp03.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": "GenAI; 70%; culture: transform; transformation: TCI: CP: consumer; leadership; behavior; negotiations"
   },
   {
     "boothId": "SP04",
@@ -277,7 +296,8 @@
     "partner": "",
     "contacts": "Suketu Shah, shah.suketu@bcg.com, Nithya Vaduganathan, Vaduganathan.Nithya@bcg.com, Varun Kejriwal, kejriwal.varun@bcg.com",
     "highlightUrl": "/highlights/sp04.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": "GenAI; transformation; digital; technology; consumer; CP; Energy; EN; Industrial Goods; IG; Healthcare; HC; INS; Insurance; TMT; Technology, Media & Telecom; TCI; Public Sector; PS"
   },
   {
     "boothId": "SP05",
@@ -291,7 +311,8 @@
     "partner": "Y",
     "contacts": "Maria Barisano, Barisano.Maria@bcg.com, Michael Sobrepera, Sobrepera.Michael@bcgfed.com",
     "highlightUrl": "/highlights/sp05.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": ""
   },
   {
     "boothId": "SP06",
@@ -305,7 +326,8 @@
     "partner": "",
     "contacts": "Renee Laverdiere, laverdiere.renee@bcg.com",
     "highlightUrl": "/highlights/sp06.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": "GenAI; Cost; Education, Employment and Welfare; EEW;  Health Care Systems; HCS;"
   },
   {
     "boothId": "SP07",
@@ -319,7 +341,8 @@
     "partner": "",
     "contacts": "Elizabeth Lyle, lyle.elizabeth@bcg.com",
     "highlightUrl": "/highlights/sp07.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": "GenAI; Cost; learning; organizations; workforce; consumer; cp; energy; EN; FI; Financial Institutions; HC; Healthcare; Insurance; Public Sector; PS; Climate; Sustainability"
   },
   {
     "boothId": "SP08",
@@ -333,7 +356,8 @@
     "partner": "",
     "contacts": "Aaron Arnoldson, arnoldsen.aaron@bcg.com, Mike Demyttenaere, demyttenaere.michael@bcg.com, Raamin Mostaghimi, mostaghimi.raamin@bcg.com, Mike Beyer, beyer.mike@bcg.com",
     "highlightUrl": "/highlights/sp08.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": "GenAI; robot; data; finance; CFO; CFO Excellence; Lighthouse; BCG X; CP; IG; TMT; MSP; Consumer; Industrial Goods; Marketing; Sales; Pricing; Technology, Media & Telecom"
   },
   {
     "boothId": "SP09",
@@ -347,7 +371,8 @@
     "partner": "",
     "contacts": "Alan Iny, iny.alan@bcg.com, Ketil Gjerstad, gjerstad.ketil@bcg.com, Sam Farley, farley.sam@bcg.com, Sabrina Kristic, kristic.sabrina@bcg.com",
     "highlightUrl": "/highlights/sp09.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": "GenAI; VR; GA; Geopolitics; Global Advantage; Consumer; CP; IG; Industrial Goods; TCI; Market; technology; climate; economics; resilience"
   },
   {
     "boothId": "SP10",
@@ -361,7 +386,8 @@
     "partner": "",
     "contacts": "Marc Gilbert, gilbert.marc@bcg.com, Rami Rafih, rafih.rami@bcg.com, Dustin Burke, burke.dustin@bcg.com, Alex Dolya, dolya.alex@bcg.com",
     "highlightUrl": "/highlights/sp10.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": "Cost; Fashion & Luxury; F&L;  Retail;  Commercial Banking, Capital Markets & Investment Banking; CCIB; Automotive & Mobility;  A&M; Economic Development, Government Finances, Center of Government; EFC; Logistics, Postal & Shipping; Travel, Transport Infrastructure & Leisure; TTL;"
   },
   {
     "boothId": "SP11",
@@ -375,7 +401,8 @@
     "partner": "",
     "contacts": "Daniel Friedman, friedman.daniel@bcg.com, Jens Kengelbach, kengelbach.jens@bcg.com, Georg Keienburg, keienburg.georg@bcg.com",
     "highlightUrl": "/highlights/sp11.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": "GenAI; PMI; Carve-out; market; TMT; HC; healthcare; CP; Consumer Products; EN; Energy; IG; Industrial Goods; FI; Financial Institutions; PIPE; TDA; Tech; Digital; transformation; merger; acquisition"
   },
   {
     "boothId": "SP12",
@@ -389,7 +416,8 @@
     "partner": "Y",
     "contacts": "Holm Puder, holm.puder@waiys.com",
     "highlightUrl": "/highlights/sp12.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": ""
   },
   {
     "boothId": "SP13",
@@ -403,7 +431,8 @@
     "partner": "Y",
     "contacts": "Suzanne Skipper, Skipper.Suzanne@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
     "highlightUrl": "/highlights/sp13.svg",
-    "neighbourhood": "SP"
+    "neighbourhood": "SP",
+    "keywords": ""
   },
   {
     "boothId": "OP01",
@@ -417,7 +446,8 @@
     "partner": "",
     "contacts": "Marco Tonegutti, tonegutti.marco@bcg.com, Dima Pogorelsky, pogorelsky.dima@bcg.com",
     "highlightUrl": "/highlights/op01.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": "GenAI; Integrated Energy Transformation; IET; Low Carbon Energy & Infrastructure; LCI;  Cities, Infrastructure Development, Real Estate & Tourism; CRT;  de-risk; Net Present Value; NPV; investment cycle;  cost overruns; cost; supply chain; digital; tools; transformation;  Power-to-X Project Optimizer;  Project Pro; Supply Chain Resilience Co-Pilot; scope value; PtX projects; integerated; platform; controls; risks; portfolio; Thales; demos; BCG X; Real Estate"
   },
   {
     "boothId": "OP02",
@@ -431,7 +461,8 @@
     "partner": "Y",
     "contacts": "Tilman Buchner, Buchner.Tilman@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
     "highlightUrl": "/highlights/op02.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": "GenAI; Cost; Integrated Energy Transformation; IET; Low Carbon Energy & Infrastructure; LCI; Global Asset Managers; GAM; Medical Technologies; MedTech; MT; Payers, Providers, Systems and Services; PPSS; Automotive & Mobility; A&M; Engineered Products & Industrial Technology; EPT; Materials & Process Industries; MPI; Defense & Security; D&S; Health Care Systems; HCS; Cities, Infrastructure Development, Real Estate & Tourism; CRT;  Travel, Transport Infrastructure & Leisure;  TTL; effiecency; cost savings; procurment; procurement journey; revenue; external spend; supplier; AI-powered; spend analytics; contracting; buyer productivity; lost cash; Savings Radar; Tender Assistant; Offer Analyst; ClaimScout; SemiAI; BCG X; Inverto; ACA"
   },
   {
     "boothId": "OP03",
@@ -445,7 +476,8 @@
     "partner": "",
     "contacts": "John Knapp, knapp.john@bcg.com, Alex Yurek, yurek.alex@bcg.com",
     "highlightUrl": "/highlights/op03.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": "GenAI; Cost; Consumer Products; CP;  Engineered Products & Industrial Technology; EPT;  Technology; Tech; robotics; partners; data-driven; advisor; automation; production systems; Connected Worker; Foxconn; applications; Apptronik; demo; Ai-driven; industrial; vision systems; devices; manufacturing; automoation; optimization; humanoid robot; EmbodiedAI;Microsoft; AWS; Auto; mining; process sectors"
   },
   {
     "boothId": "OP04",
@@ -459,7 +491,8 @@
     "partner": "",
     "contacts": "Marcus Wittig, wittig.marcus@bcg.com, Hrvoje Jenkač, jenkac.hrvoje@bcg.com",
     "highlightUrl": "/highlights/op04.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": "GenAI; Cost; Commercial Banking, Capital Markets & Investment Banking; CCIB;  Consumer, Private, and Business Banking; CPBB; Payments & Fintechs; P&F; Life and Health Insurance; LHI; P&C and Commercial Insurance; PCI; Insurance; INS; Logistics, Postal & Shipping; LPS;  Media;  productivity; P&L; impact; value; strategy; journey; accelerate; tech augmentation;  tech development; transformation; change management; demos; autonomous selling; autonomous servicing; GenIE; Callsight; analysis tool"
   },
   {
     "boothId": "OP05",
@@ -473,7 +506,8 @@
     "partner": "",
     "contacts": "Dustin Burke, burke.dustin@bcg.com",
     "highlightUrl": "/highlights/op05.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": "GenAI; Cost; Fashion & Luxury; F&L; Retail; Integrated Energy Transformation; IET; Biopharma; BP; Automotive & Mobility; A&M; Defense & Security; D&S; Logistics, Postal & Shipping; LPS; Travel, Transport Infrastructure & Leisure; TTL; Technology; Tech; digital; value; demand forecasting; supply optimization; demos; planning solutions; planning; processes; global; vendor partners; client stories; Lyric SC"
   },
   {
     "boothId": "OP06",
@@ -487,7 +521,8 @@
     "partner": "",
     "contacts": "Tomi Mansio, mansio.tomi@bcg.com, Wolfgang Schnellbächer, schnellbaecher.Wolfgang@bcg.com, Alex Dolya, dolya.alex@bcg.com",
     "highlightUrl": "/highlights/op06.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": ""
   },
   {
     "boothId": "OP07",
@@ -501,7 +536,8 @@
     "partner": "",
     "contacts": "Andy Lin, lin.andy@bcg.com, Hunkar Toyoglu, toyoglu.hunkar@bcg.com",
     "highlightUrl": "/highlights/op07.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": "GenAI; Engineered Products & Industrial Technology; EPT;  commercial growth; technicians; downtime; manufacturing; cost; connected equipment; emerging tech; co-pilots; AR/VR; solutions; transformation; efficiencies; revenue impact; scale; operations; work order management; sales performance; dashboard; predictive maintenance; technician co-pilot; Building Services; Aerospace; Offroad Heavy Equipment; Oil & Gas; Tech; telcomm; Healthcare equipment; Production Line Equipment"
   },
   {
     "boothId": "OP08",
@@ -515,7 +551,8 @@
     "partner": "Y",
     "contacts": "Nick Tanaka, Tanaka.Nicolas@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
     "highlightUrl": "/highlights/op08.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": ""
   },
   {
     "boothId": "OP09",
@@ -529,7 +566,8 @@
     "partner": "",
     "contacts": "Mikaël Le Mouëllic, lemouellic.mikael@bcg.com",
     "highlightUrl": "/highlights/op09.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": "GenAI;  Biopharma; BP;  Medical Technologies; MedTech; MT; Engineered Products & Industrial Technology; EPT;  efficiency; acceleration; innovation; time-to-market; creativity; market alignment; demos; case studies; research; development; research & development"
   },
   {
     "boothId": "OP10",
@@ -543,7 +581,8 @@
     "partner": "Y",
     "contacts": "Leo Tomlin, Tomlin.Leo@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
     "highlightUrl": "/highlights/op10.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": ""
   },
   {
     "boothId": "OP11",
@@ -557,7 +596,8 @@
     "partner": "Y",
     "contacts": "Stephen Robnett, Robnett.Stephen@bcg.com, Hillary Fernandez, Fernandez.Hillary@bcg.com",
     "highlightUrl": "/highlights/op11.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": ""
   },
   {
     "boothId": "OP12",
@@ -571,7 +611,8 @@
     "partner": "Y",
     "contacts": "Dinesh Natarajan, dinesh@lyric.tech",
     "highlightUrl": "/highlights/op12.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": ""
   },
   {
     "boothId": "OP13",
@@ -585,7 +626,8 @@
     "partner": "Y",
     "contacts": "Barry Phillips, barryphillips@apptronik.com",
     "highlightUrl": "/highlights/op13.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": ""
   },
   {
     "boothId": "OP14",
@@ -599,7 +641,8 @@
     "partner": "Y",
     "contacts": "Sammeli Sammalkorpi, sammeli.sammalkorpi@sievo.com",
     "highlightUrl": "/highlights/op14.svg",
-    "neighbourhood": "OP"
+    "neighbourhood": "OP",
+    "keywords": ""
   },
   {
     "boothId": "CE01",
@@ -613,7 +656,8 @@
     "partner": "",
     "contacts": "Karen Lellouche, lellouche.karen@bcg.com",
     "highlightUrl": "/highlights/ce01.svg",
-    "neighbourhood": "CE"
+    "neighbourhood": "CE",
+    "keywords": "GenAI; Cost; Fashion & Luxury; F&L; Consumer, Private, and Business Banking; CPBB; Travel, Transport Infrastructure & Leisure; TTL;  customer journey; CX, next-gen strategies; commerce, marketplace;  channels; sales; customer platform; platform; overhead; purchasing; engagement; streamline"
   },
   {
     "boothId": "CE02",
@@ -627,7 +671,8 @@
     "partner": "Y",
     "contacts": "Bryan Gauch, Gauch.Bryan@bcg.com, Deborah Riger, Riger.Deborah@bcg.com",
     "highlightUrl": "/highlights/ce02.svg",
-    "neighbourhood": "CE"
+    "neighbourhood": "CE",
+    "keywords": ""
   },
   {
     "boothId": "CE03",
@@ -639,9 +684,10 @@
     "x": 767,
     "y": 1931,
     "partner": "",
-    "contacts": "Phillip Andersen, andersen.phillip@bcg.com, Basir Mustaghni, Basir Mustaghni.Basir@bcg.com",
+    "contacts": "Phillip Andersen, andersen.phillip@bcg.com, Basir Mustaghni, Mustaghni, Basir Mustaghni.Basir@bcg.com",
     "highlightUrl": "/highlights/ce03.svg",
-    "neighbourhood": "CE"
+    "neighbourhood": "CE",
+    "keywords": "GenAI; Cost; Commercial Banking, Capital Markets & Investment Banking; CCIB; Biopharma; BP; Medical Technologies; Medtech; MT; Engineered Products & Industrial Technology; EPT; Materials & Process Industries; MPI; Life and Health Insurance; LHI;  P&C and Commercial Insurance; PCI; Insurance; INS;  Media;  Technology; Tech; Telecommunications; telcom;  sales; data; tech;  intelliigent agents; automation; integration; CRM; workflows; sales goals; streamline;  avatar; GENie; Buddy, Sales Sherpa"
   },
   {
     "boothId": "CE04",
@@ -655,7 +701,8 @@
     "partner": "Y",
     "contacts": "Alex Baxter, Baxter.Alex@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
     "highlightUrl": "/highlights/ce04.svg",
-    "neighbourhood": "CE"
+    "neighbourhood": "CE",
+    "keywords": ""
   },
   {
     "boothId": "CE05",
@@ -669,7 +716,8 @@
     "partner": "Y",
     "contacts": "Alex Baxter, Baxter.Alex@bcg.com, Joe Vasquez, Vasquez.Joe@bcg.com",
     "highlightUrl": "/highlights/ce05.svg",
-    "neighbourhood": "CE"
+    "neighbourhood": "CE",
+    "keywords": ""
   },
   {
     "boothId": "CE06",
@@ -683,7 +731,8 @@
     "partner": "",
     "contacts": "Lauren Wiener, wiener.lauren@bcg.com, Mark Abraham, abraham.mark@bcg.com, Silvio Palumbo, palumbo.silvio@bcg.com",
     "highlightUrl": "/highlights/ce06.svg",
-    "neighbourhood": "CE"
+    "neighbourhood": "CE",
+    "keywords": "GenAI; Cost;  Fashion & Luxury; F&L;  Consumer, Private, and Business Banking; CPBB;  Global Asset Managers; GAM; Payments & Fintechs; P&F; Travel, Transport Infrastructure & Leisure; TTL; data-driven; brand; scale; intelligent automation; predictive insight; customer engagement; automate; journey; Fabriq; assessments"
   },
   {
     "boothId": "CE07",
@@ -697,7 +746,8 @@
     "partner": "",
     "contacts": "Ben Eppler,  eppler.ben@bcg.com, Lara Koslow, koslow.lara@bcg.com, Lauren Taylor, taylor.lauren@bcg.com",
     "highlightUrl": "/highlights/ce07.svg",
-    "neighbourhood": "CE"
+    "neighbourhood": "CE",
+    "keywords": "GenAI; Cost;  Consumer Products; CP; Fashion & Luxury; F&L;  Commercial Banking, Capital Markets & Investment Banking; CCIB;  Automotive & Mobility; A&M;  customer intelligence; innovation; strategy;  Market Mirror; growth strategies; marketing; demand; scenario planning; business strategy; competitive advantage; platform; avatar"
   },
   {
     "boothId": "CE08",
@@ -711,7 +761,8 @@
     "partner": "",
     "contacts": "Arnab Sinha, sinha.arnab@bcg.com",
     "highlightUrl": "/highlights/ce08.svg",
-    "neighbourhood": "CE"
+    "neighbourhood": "CE",
+    "keywords": "GenAI; Cost; Consumer Products; CP;  Retail; Global Asset Managers; GAM: Payments & Fintechs; P&F; Medical Technologies; MedTech; MT;  Logistics, Postal & Shipping; LPS;  impact; pricing power; pricing game;  pricing solution; Game Changer"
   },
   {
     "boothId": "CE09",
@@ -725,7 +776,8 @@
     "partner": "",
     "contacts": "Tim Kuhrcke, kuhrcke.tim@bcgbrighthouse.com",
     "highlightUrl": "/highlights/ce09.svg",
-    "neighbourhood": "CE"
+    "neighbourhood": "CE",
+    "keywords": "Tech; Media; telcom; TMT; Health Care; HC; Public Sector;PS;  Consumer; Energy; EN;  Financial Institutions; FI; Insurance; INS;  Industrial Goods;IG;  Travel, Cities, & Infrastructure; CRT;  value; impact; revenue; consumer; employee loyalty;  competitive advantage; topics; brand; solutions; business landscape; ChatGPT; offerings; digitial"
   },
   {
     "boothId": "AI01",
@@ -739,7 +791,8 @@
     "partner": "",
     "contacts": "Scott Wilder, Wilder.Scott@bcg.com",
     "highlightUrl": "/highlights/ai01.svg",
-    "neighbourhood": "AI"
+    "neighbourhood": "AI",
+    "keywords": ""
   },
   {
     "boothId": "FS01",
@@ -753,7 +806,8 @@
     "partner": "",
     "contacts": "Patrick Herhold, herhold.patrick@bcg.com",
     "highlightUrl": "/highlights/fs01.svg",
-    "neighbourhood": "FS"
+    "neighbourhood": "FS",
+    "keywords": "Cost; Decarbonization; Carbon footprint; emissions; sustainability; climate; EN; IG; TCI; CP; hydrogen; renewables; low carbon energy & infrastructure; integrated energy transformation; materials & process industries; OEM; Infrastructure, Development, Engineering & Construction; HC; Healthcare; Consumer Products; Operations; Principal Investors & Private Equity; PIPE"
   },
   {
     "boothId": "FS02",
@@ -767,7 +821,8 @@
     "partner": "",
     "contacts": "Shalini Unnikrishnan, unnikrishnan.shalini@bcg.com",
     "highlightUrl": "/highlights/fs02.svg",
-    "neighbourhood": "FS"
+    "neighbourhood": "FS",
+    "keywords": "Agriculture; RegenAtlas; Sustainability; Climate; IG; Industrial Goods; Materials & Process Industries; PIPE; Social Impact; SI; PS; Public Sector; FI; Financial Institutions; CON; Consumer Products; Retail; Fashion & Luxury; MPI; Materials & Process Industries"
   },
   {
     "boothId": "FS03",
@@ -781,7 +836,8 @@
     "partner": "",
     "contacts": "Edmond Rhys Jones, rhysjones.edmond@bcg.com, Jannik Leiendecker, leiendecker.jannik@bcg.com",
     "highlightUrl": "/highlights/fs03.svg",
-    "neighbourhood": "FS"
+    "neighbourhood": "FS",
+    "keywords": "GenAI; emissions; carbon markets; climate; policy pulse; FI; EN; IG; CP; PS; TCI; HC; TMT; Financial Institutions; Healthcare; Energy; Industrial Goods; Consumer Products; Travel, Cities and Infrastructure;  Technology, Media & Telecom"
   },
   {
     "boothId": "FS04",
@@ -795,7 +851,8 @@
     "partner": "Y",
     "contacts": "Diana Dimitrova, Dimitrova.Diana@bcg.com, Sophia Davies, Davies.Sophia@bcg.com",
     "highlightUrl": "/highlights/fs04.svg",
-    "neighbourhood": "FS"
+    "neighbourhood": "FS",
+    "keywords": ""
   },
   {
     "boothId": "FS05",
@@ -809,7 +866,8 @@
     "partner": "",
     "contacts": "Lorenzo Fantini, fantini.lorenzo@bcg.com, Annika Zawadzki, zawadzki.annika@bcg.com",
     "highlightUrl": "/highlights/fs05.svg",
-    "neighbourhood": "FS"
+    "neighbourhood": "FS",
+    "keywords": "Cost;"
   },
   {
     "boothId": "FS06",
@@ -823,7 +881,8 @@
     "partner": "",
     "contacts": "Allon Zeitoun, zeitoun.allon@quantis.com, Marcial Vargas, vargasgonzalez.marcial@quantis.com",
     "highlightUrl": "/highlights/fs06.svg",
-    "neighbourhood": "FS"
+    "neighbourhood": "FS",
+    "keywords": "Quantis; sustainability; carbon footprint; scope 3; AI; risk; cost; CP; Consumer Products; IG; Industrial Goods; Packaging; Chemicals; Agriculture; Fashion & Luxury; Retail"
   },
   {
     "boothId": "FS07",
@@ -837,7 +896,8 @@
     "partner": "",
     "contacts": "Alejandro Navarro, navarro.alejandro@bcg.com, Mikael le Mouellic, lemouellic.mikael@bcg.com, Sophie Gebel, gebel.sophie@bcg.com, Alex Meyer zum Felde, meyer.zum.felde.alexander@bcg.com",
     "highlightUrl": "/highlights/fs07.svg",
-    "neighbourhood": "FS"
+    "neighbourhood": "FS",
+    "keywords": "Cost; Ops; Operations; Healthcare; HC; IG; Industrial Goods; MSP; Marketing, Sales and Pricing; Climate; Sustainability; Consumer; CP; Retail; design; product design"
   },
   {
     "boothId": "FS08",
@@ -851,7 +911,8 @@
     "partner": "",
     "contacts": "Cornelius Pieper, pieper.cornelius@bcg.com",
     "highlightUrl": "/highlights/fs08.svg",
-    "neighbourhood": "FS"
+    "neighbourhood": "FS",
+    "keywords": "Decarbonization; low-carbon; scope 3; carbon footprint; OEMs; supply chain; green; IG; Industrial Goods; EN; Energy; CP; Consumer Products; Climate; Sustainability; TDA; BCG X; MSP"
   },
   {
     "boothId": "FS09",
@@ -865,7 +926,8 @@
     "partner": "Y",
     "contacts": "Behar Carroll, carroll.bahar@bcgfed.com",
     "highlightUrl": "/highlights/fs09.svg",
-    "neighbourhood": "FS"
+    "neighbourhood": "FS",
+    "keywords": ""
   },
   {
     "boothId": "FS10",
@@ -879,6 +941,7 @@
     "partner": "",
     "contacts": "Mads Peter Langhorn, langhorn.madspeter@bcg.com",
     "highlightUrl": "/highlights/fs10.svg",
-    "neighbourhood": "FS"
+    "neighbourhood": "FS",
+    "keywords": "Sustainability; investors; green; EN; IG; TCI; PIPE; Energy; Industrial Goods; Principal Investors & Private Equity; Travel, Cities & Infrastructure"
   }
 ]

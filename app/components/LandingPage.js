@@ -15,16 +15,16 @@ const LandingPage = ({ onClose }) => {
       className="fixed inset-0 z-[999] bg-edgeBackground text-white overflow-hidden"
     >
       {/* Header (absolute top) */}
-      <div className="absolute top-0 left-0 w-full flex flex-col items-center py-4 pt-6 bg-edgeText rounded-b-xl">
+      <div className="absolute top-0 left-0 w-full flex flex-col items-center py-4 pt-6 bg-edgeText rounded-b-3xl">
         <img src="/edge-logo.png" alt="BCG | EDGE" className="h-6 mb-4" />
         <p className="text-sm font-bold text-white ">May 28, 2025&nbsp;|&nbsp;<span className="font-normal">Vienna</span> </p>
       </div>
 
       {/* Footer (absolute bottom) */}
-      <div className="absolute bottom-0 left-0 w-full flex justify-center p-6 bg-edgeText rounded-t-xl">
+      <div className="absolute bottom-0 left-0 w-full flex justify-center p-6 bg-edgeText rounded-t-3xl">
         <button
           onClick={onClose}
-          className="bg-edgeGreen text-white text-base font-semibold rounded-lg px-6 py-3 w-full max-w-xs"
+          className="bg-edgeGreen text-white text-base font-semibold rounded-2xl px-6 py-3 w-full max-w-xs"
         >
           Start Exploring →
         </button>

@@ -280,6 +280,9 @@ const overviewZones = useMemo(() => {
       position: [(original.height-loc.y)*scaleFactor, loc.x*scaleFactor],
       sectorjourneys: loc.sectorjourneys?.split(",").map(s=>s.trim())||[],
       topicjourneys: loc.topicjourneys?.split(",").map(s=>s.trim())||[],
+      keywordsArray: loc.keywords
+      ? loc.keywords.split(";").map(k => k.trim()).filter(Boolean)
+      : [],
       neighbourhood: loc.neighbourhood
     })));
   }, [bounds, locations, scaleFactor]);
@@ -293,26 +296,71 @@ const overviewZones = useMemo(() => {
     })));
   }, [bounds, services, scaleFactor]);
 
-  // Filter locations
-  useEffect(() => {
-    const stop = new Set(["the","of","for","a","an","to","in","on","and","is","are","at","with","by"]);
-    const normalize = s => s.toLowerCase().normalize("NFD")
-      .replace(/[\u0300-\u036f]/g,"").replace(/[^\w\s]/g,"").trim();
-    let res = scaledLocations;
-    if (searchQuery.trim()) {
-      const q = normalize(searchQuery), toks=q.split(/\s+/).filter(t=>t&&!stop.has(t));
-      res = res.filter(loc => loc.boothId.toLowerCase().includes(q)
-        || toks.every(tok=>normalize(loc.name).includes(tok)));
-    }
-    const { topic=[], sector=[], nb=[] } = filterSelections;
-    if (topic.length&& !topic.includes("all_topics"))
-      res=res.filter(loc=>loc.topicjourneys?.some(t=>topic.includes(t)));
-    if (sector.length&& !sector.includes("all_sectors"))
-      res=res.filter(loc=>loc.sectorjourneys?.some(s=>sector.includes(s)));
-    if (nb.length&& !nb.includes("all_nb"))
-      res=res.filter(loc=>nb.includes(loc.neighbourhood?.toLowerCase()));
-    setFilteredLocations(res);
-  }, [scaledLocations, searchQuery, filterSelections]);
+// Filtrar ubicaciones por búsqueda y selecciones
+useEffect(() => {
+  // 1) Stop-words para omitir en el análisis de tokens
+  const stop = new Set([
+    "the","of","for","a","an","to","in","on","and","is","are","at","with","by"
+  ]);
+
+  // 2) Función para normalizar texto (minúsculas, sin acentos ni símbolos)
+  const normalize = s =>
+    s
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^\w\s]/g, "")
+      .trim();
+
+  // 3) Partimos de todas las ubicaciones escaladas
+  let res = scaledLocations;
+
+  // 4) Si hay texto de búsqueda, lo tokenizamos y filtramos por boothId, name o keywords
+  if (searchQuery.trim()) {
+    const q = normalize(searchQuery);
+    const toks = q.split(/\s+/).filter(t => t && !stop.has(t));
+
+    res = res.filter(loc => {
+      // Construimos “haystack” con nombre + keywordsArray
+      const haystack = [
+        normalize(loc.name),
+        ...loc.keywordsArray.map(normalize)
+      ].join(" ");
+
+      // Coincide si el ID contiene la query completa
+      // o si todos los tokens aparecen en el haystack
+      return (
+        loc.boothId.toLowerCase().includes(q) ||
+        toks.every(tok => haystack.includes(tok))
+      );
+    });
+  }
+
+  // 5) Filtrado adicional por topic, sector y neighbourhood
+  const { topic = [], sector = [], nb = [] } = filterSelections;
+
+  if (topic.length && !topic.includes("all_topics")) {
+    res = res.filter(loc =>
+      loc.topicjourneys?.some(t => topic.includes(t))
+    );
+  }
+
+  if (sector.length && !sector.includes("all_sectors")) {
+    res = res.filter(loc =>
+      loc.sectorjourneys?.some(s => sector.includes(s))
+    );
+  }
+
+  if (nb.length && !nb.includes("all_nb")) {
+    res = res.filter(loc =>
+      nb.includes(loc.neighbourhood?.toLowerCase())
+    );
+  }
+
+  // 6) Aplicamos el resultado al estado
+  setFilteredLocations(res);
+}, [scaledLocations, searchQuery, filterSelections]);
+
 
   // Always show services
   useEffect(() => setFilteredServices(scaledServices), [scaledServices]);
