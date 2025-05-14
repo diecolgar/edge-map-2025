@@ -22,30 +22,33 @@ const FILTERS_CONFIG = [
     label: "Sector Journeys",
     type: "multi",
     options: [
-      { code: "CP", label: "Consumer Products" },
-      { code: "FL", label: "Fashion & Luxury" },
-      { code: "RT", label: "Retail" },
-      { code: "LCE", label: "Low Carbon Energy" },
-      { code: "RT2", label: "Refining & Trading" },
-      { code: "IETM", label: "Integrated Energy" },
-      { code: "PF", label: "Payments & Fintech" },
-      { code: "CPBB", label: "Private & Business Banking" },
-      { code: "GAM", label: "Asset Management" },
-      { code: "PPS", label: "Payers & Providers" },
-      { code: "BP", label: "Biopharma" },
-      { code: "MT", label: "MedTech" },
-      { code: "EPI", label: "Engineered Products" },
-      { code: "MPI", label: "Materials & Industries" },
-      { code: "AM", label: "Auto & Mobility" },
-      { code: "LHI", label: "Life & Health Insurance" },
-      { code: "PCCI", label: "P&C Insurance" },
-      { code: "DS", label: "Defense & Security" },
-      { code: "EEW", label: "Economic & Welfare" },
-      { code: "SP", label: "Software & Platforms" },
-      { code: "ME", label: "Media & Entertainment" },
-      { code: "TEL", label: "Telecom" },
-      { code: "TE", label: "Travel & Tourism" },
-      { code: "CIRET", label: "Cities & Transport" },
+      { code: "CP",      label: "Consumer Products" },
+      { code: "FL",      label: "Fashion & Luxury" },
+      { code: "RT",      label: "Retail" },
+      { code: "IET",     label: "Integrated Energy Transformation" },
+      { code: "LCEI",    label: "Low Carbon Energy & Infrastructure" },
+      { code: "CBCMIB",  label: "Commercial Banking, Capital Markets & Investment Banking" },
+      { code: "CPBB",    label: "Consumer, Private, and Business Banking" },
+      { code: "GAM",     label: "Global Asset Managers" },
+      { code: "PF",      label: "Payments & Fintechs" },
+      { code: "BPH",     label: "Biopharma" },
+      { code: "MT",      label: "Medical Technologies" },
+      { code: "PPSS",    label: "Payers, Providers, Systems and Services" },
+      { code: "AM",      label: "Automotive & Mobility" },
+      { code: "EPIT",    label: "Engineered Products & Industrial Technology" },
+      { code: "MPI",     label: "Materials & Process Industries" },
+      { code: "LHI",     label: "Life and Health Insurance" },
+      { code: "PCCI",    label: "P&C and Commercial Insurance" },
+      { code: "DS",      label: "Defense & Security" },
+      { code: "EDGFCG",  label: "Economic Development, Government Finances, Center of Government" },
+      { code: "EEW",     label: "Education, Employment and Welfare" },
+      { code: "HCS",     label: "Health Care Systems" },
+      { code: "CIDRET",  label: "Cities, Infrastructure Development, Real Estate & Tourism" },
+      { code: "LPS",     label: "Logistics, Postal & Shipping" },
+      { code: "TTIL",    label: "Travel, Transport Infrastructure & Leisure" },
+      { code: "ME",      label: "Media" },
+      { code: "TECH",    label: "Technology" },
+      { code: "TELE",    label: "Telecommunications" },
     ],
   },
   {
@@ -201,7 +204,7 @@ const Filters = ({
                   onClick={() => toggleType(code)}
                   className={`px-4 py-1 border text-sm rounded-full transition ${
                     active
-                      ? "border-edgeGreen text-edgeGreen bg-white/5"
+                      ? "border-edgeGreen text-white bg-white/5"
                       : "border-white/30 text-white hover:bg-white/10"
                   }`}
                 >
@@ -262,7 +265,7 @@ const Filters = ({
                       onClick={() => toggleSelection(code, optCode)}
                       className={`px-4 py-2 border text-sm rounded-full transition text-center ${
                         isSel
-                          ? "border-edgeGreen text-edgeGreen bg-white/5"
+                          ? "border-edgeGreen text-white bg-white/5"
                           : "border-white/20 text-white hover:bg-white/10"
                       }`}
                     >
