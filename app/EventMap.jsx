@@ -484,15 +484,46 @@ const overviewZones = useMemo(() => {
               const isTheatre=svc.boothId==="th";
               const icon=isTheatre
                 ? divIcon({
-                    html:`<div style="position:relative;display:flex;flex-direction:column;align-items:center;transform:translate(-50%,-30%);">
-                      <div style="margin-top:2px;font-family:'BCGHenSans';font-size:10px;font-weight:600;color:#FFF;text-align:center;width:100px;">
+                  html: `
+                    <div style="
+                      position: relative;
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      transform: translate(-50%, -10%);
+                    ">
+                      <!-- Nuevo badge AGENDA -->
+                      <div style="
+                        background: #F1EEEA;
+                        border: 1px solid #323232;
+                        padding: 2px 4px;
+                        font-family: 'BCGHenSans';
+                        font-size: 10px;
+                        font-weight: 600;
+                        color: #323232;
+                        text-align: center;
+                        margin-bottom: 2px;
+                        border-radius: 4px;
+                      ">
+                        AGENDA
+                      </div>
+                      <!-- Texto Micro-theater -->
+                      <div style="
+                        font-family: 'BCGHenSans';
+                        font-size: 10px;
+                        font-weight: 600;
+                        color: #FFF;
+                        text-align: center;
+                        width: 100px;
+                      ">
                         Micro-theater
                       </div>
-                    </div>`,
-                    iconSize:[24,36],
-                    iconAnchor:[12,18],
-                  })
-                : divIcon({
+                    </div>
+                  `,
+                  iconSize: [24, 36],
+                  iconAnchor: [12, 18],
+                })
+              : divIcon({
                     html:`<img src="${svc.iconUrl}" style="width:24px;height:24px; filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5));"/>`,
                     iconSize:[24,24],
                     iconAnchor:[12,12],
