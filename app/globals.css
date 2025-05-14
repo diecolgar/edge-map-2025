@@ -28,6 +28,8 @@ body {
 .leaflet-control-zoom {
   transform: translateY(-60px);
   border-color: rgb(50, 50, 50) !important;
+  border-radius: 12px !important;
+  background-color: #323232;
 }
 
 /* .leaflet-control-container {
@@ -120,4 +122,24 @@ body {
 .highlight-overlay {
   /* filter: hue-rotate(30deg) brightness(0.7); */
   opacity: 0.5;
+}
+
+
+.leaflet-control-zoom-in {
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  background-color: #323232 !important;
+  color: white !important;
+  border-bottom: solid 1px #323232 !important;
+}
+
+.leaflet-control-zoom-out {
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  background-color: #323232 !important;
+  color: white !important;
+}
+
+.leaflet-disabled {
+  color: grey !important;
 }

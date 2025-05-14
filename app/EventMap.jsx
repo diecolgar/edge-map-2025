@@ -490,7 +490,7 @@ const overviewZones = useMemo(() => {
                       display: flex;
                       flex-direction: column;
                       align-items: center;
-                      transform: translate(-50%, -10%);
+                      transform: translate(-50%, 10%);
                     ">
                       <!-- Nuevo badge AGENDA -->
                       <div style="
