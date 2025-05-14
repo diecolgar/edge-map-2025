@@ -33,7 +33,7 @@ const LandingPage = ({ onClose }) => {
       {/* Scrollable middle content */}
       <div className="h-full pt-28 pb-32 px-6 overflow-y-auto flex flex-col">
         <h1 className="text-3xl font-light text-edgeText">Welcome to EDGE’s</h1>
-        <h2 className="text-3xl font-extrabold text-edgeText">dynamic map</h2>
+        <h2 className="text-3xl font-extrabold text-edgeText">interactive map</h2>
         <p className="text-sm mt-4 max-w-md text-edgeText">
           Dive into our fully interactive map and explore<br />
           the booths by function and industry.

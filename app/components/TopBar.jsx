@@ -50,7 +50,7 @@ const TopBar = ({
             placeholder="What are you looking for?"
             value={searchQuery}
             onChange={(e) => onSearch(e.target.value)}
-            className="pl-12 pr-10 py-3 w-full text-edgeText border border-gray-300 rounded-full focus:outline-none"
+            className="pl-12 pr-10 py-2 w-full text-edgeText border border-gray-300 rounded-full focus:outline-none"
           />
           {searchQuery.length > 0 && (
             <button

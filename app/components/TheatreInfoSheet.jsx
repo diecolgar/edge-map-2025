@@ -197,26 +197,26 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
             {/* Header */}
             <div className="px-6 pb-6 pt-2 flex flex-col gap-4">
               <h3 className="text-2xl font-bold text-white">
-                Micro-Theater Agenda
+                10 minute talks on our centrally located micro.-theater stages
               </h3>
-              <p className="text-gray-300 italic">
-                10-minute talks on our centrally located micro-theater stage
-              </p>
+              <div className="flex flex-col">
+                <p className="text-gray-300 italic">
+                  Discover the full agenda and join us
+                </p>
+                <p className="text-sm text-white">
+                  <span className="font-semibold">Wednesday, May 28</span> | 12:30pm – 3:00pm
+                </p>
+              </div>
+
             </div>
 
             <div className="bg-white px-6 py-6 pb-2 space-y-1">
               <p className="uppercase text-gray-400 font-bold text-sm">Agenda</p>
-              <p className="text-sm text-edgeText">
-                <span className="font-semibold">Wednesday, May 28</span> | 12:30pm – 3:00pm
-              </p>
-              <p className="text-sm text-gray-500">
-                10-minute talks on our centrally located micro-theater stage
-              </p>
             </div>
 
 
             {/* Agenda */}
-            <div className="bg-white py-4 divide-y divide-gray-200">
+            <div className="bg-white divide-y divide-gray-200">
             {agenda.map((item, index) => {
   const isBreak = item.type === "break";
   const isOpen = openIndex === index;

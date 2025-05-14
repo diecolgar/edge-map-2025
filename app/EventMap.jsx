@@ -167,7 +167,7 @@ const overviewZones = useMemo(() => {
       ],
       zoomLevel: 1,
       labelPosition: [
-        (original.height - 500) * scaleFactor,
+        (original.height - 580) * scaleFactor,
         540 * scaleFactor
       ]
     },
@@ -179,8 +179,8 @@ const overviewZones = useMemo(() => {
       ],
       zoomLevel: 1,
       labelPosition: [
-        (original.height - 2200) * scaleFactor,
-        1260 * scaleFactor
+        (original.height - 1940) * scaleFactor,
+        1170 * scaleFactor
       ]
     },
     {
@@ -191,8 +191,8 @@ const overviewZones = useMemo(() => {
       ],
       zoomLevel: 1,
       labelPosition: [
-        (original.height - 3650) * scaleFactor,
-        640 * scaleFactor
+        (original.height - 3300) * scaleFactor,
+        620 * scaleFactor
       ]
     },
     {
@@ -203,8 +203,8 @@ const overviewZones = useMemo(() => {
       ],
       zoomLevel: 1,
       labelPosition: [
-        (original.height - 3550) * scaleFactor,
-        1560 * scaleFactor
+        (original.height - 3050) * scaleFactor,
+        1600 * scaleFactor
       ]
     },
     {
@@ -215,8 +215,8 @@ const overviewZones = useMemo(() => {
       ],
       zoomLevel: 1,
       labelPosition: [
-        (original.height - 5000) * scaleFactor,
-        1760 * scaleFactor
+        (original.height - 4750) * scaleFactor,
+        1840 * scaleFactor
       ]
     },
     {
