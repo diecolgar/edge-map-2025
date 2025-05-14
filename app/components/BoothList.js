@@ -283,7 +283,7 @@ const BoothList = ({
           <div className="bg-edgeText">
             <div className="w-full flex items-start gap-3 px-6 py-4 text-white font-semibold">
               <span className="text-white text-left font-semibold">
-                Micro Theatre
+                Micro-theatre
               </span>
             </div>
             <div className="flex gap-4 overflow-x-auto px-6 pb-4 scrollbar-hide">
