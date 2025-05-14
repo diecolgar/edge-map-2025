@@ -79,7 +79,7 @@ const renderBoothIcon = (id, name, zoomLevel) => {
       </div>
     </div>
   `;
-  return divIcon({ html, iconSize: [60,60], iconAnchor: [30,10], className: "custom-icon" });
+  return divIcon({ html, iconSize: [40,40], iconAnchor: [30,10], className: "custom-icon" });
 };
 
 const EventMap = () => {
