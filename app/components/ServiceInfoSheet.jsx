@@ -53,11 +53,6 @@ const ServiceInfoSheet = ({ service, onClose }) => {
             <X size={16} color="white" />
           </button>
         </div>
-        {service.description && (
-          <div className="px-4 pb-4">
-            <p className="text-sm text-gray-600">{service.description}</p>
-          </div>
-        )}
       </motion.div>
     </AnimatePresence>
   );
