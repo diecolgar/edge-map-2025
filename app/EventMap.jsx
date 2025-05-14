@@ -55,10 +55,18 @@ const FocusOnLocation = ({ position }) => {
   return null;
 };
 
-// Render a custom booth icon with optional label
-const renderBoothIcon = (id, name, zoomLevel) => {
+// Render a custom booth icon with optional label, glow + outline
+const renderBoothIcon = (id, name, zoomLevel, highlight) => {
   const showTitle = zoomLevel >= 2;
-  const shortName = name.length > 25 ? name.slice(0, 25) + "…" : name;
+  const shortName = name.length > 25
+    ? name.slice(0, 25) + "…"
+    : name;
+
+  // Si highlight=true: 4 sombras negras para el contorno + 1 sombra amarilla para el glow
+  const highlightStyle = highlight
+  ? "text-shadow: 1px 1px 2px black;"
+: "";
+
   const html = `
     <div style="
       position: relative;
@@ -67,20 +75,39 @@ const renderBoothIcon = (id, name, zoomLevel) => {
       display: flex; flex-direction: column; align-items: center;
       font-family: 'BCGHenSans'; font-weight: 700;
     ">
-      <div style="font-size:12px;color:#fff;pointer-events:none;">
+      <div style="
+        font-size: 12px;
+        color: #fff;
+        pointer-events: none;
+        ${highlightStyle}
+      ">
         ${id.toUpperCase()}
       </div>
       <div style="
-        min-width:120px;font-size:12px;color: white; text-shadow: 1px 1px 2px black; text-align:center;
-        line-height:1.1;transition:opacity 0.3s ease;
-        opacity:${showTitle?1:0};height:1em;
+        min-width: 120px;
+        font-size: 12px;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+        text-align: center;
+        line-height: 1.1;
+        transition: opacity 0.3s ease;
+        opacity: ${showTitle ? 1 : 0};
+        height: 1em;
       ">
         ${shortName}
       </div>
     </div>
   `;
-  return divIcon({ html, iconSize: [40,40], iconAnchor: [30,10], className: "custom-icon" });
+
+  return divIcon({
+    html,
+    iconSize: [40, 40],
+    iconAnchor: [30, 10],
+    className: "custom-icon"
+  });
 };
+
+
 
 const EventMap = () => {
   const imageUrl = "/edge-map-def.png";
@@ -488,18 +515,6 @@ useEffect(() => {
             {/* detailed image */}
             <ImageOverlay url={imageUrl} bounds={bounds} opacity={1} zIndex={10} />
 
-            {/* search/filter highlights */}
-            {isFilteredView && filteredLocations.map(loc=>(
-              <ImageOverlay
-                key={`hl-${loc.boothId}`}
-                url={loc.highlightUrl}
-                bounds={bounds}
-                opacity={1}
-                zIndex={900}
-                className="highlight-overlay"
-              />
-            ))}
-
             {/* clicked booth highlight */}
             {selectedLocation && (
               <ImageOverlay
@@ -510,22 +525,41 @@ useEffect(() => {
               />
             )}
 
-            {/* booth markers */}
-            {zoomLevel>=1 && filteredLocations.map(loc=>(
-              <Marker
-                key={loc.boothId}
-                position={loc.position}
-                icon={renderBoothIcon(loc.boothId, loc.name, zoomLevel)}
-                eventHandlers={{
-                  click:()=>{
-                    setSelectedService(null);
-                    setSelectedTheatre(null);
-                    setSelectedLocation(loc);
-                    setLocationOrigin("map");
-                  }
-                }}
-              />
-            ))}
+            {/* booth markers: glow+outline en seleccionados, opacidad reducida en no seleccionados */}
+            {zoomLevel >= 1 && (() => {
+              const matchedIds = new Set(filteredLocations.map(l => l.boothId));
+              return scaledLocations.map(loc => {
+                const isMatch = isFilteredView && matchedIds.has(loc.boothId);
+                // Si hay filtro: match=1, no-match=0.4; si no hay filtro: todos=1
+                const markerOpacity = isFilteredView
+                  ? (isMatch ? 1 : 0.2)
+                  : 1;
+
+                return (
+                  <Marker
+                    key={loc.boothId}
+                    position={loc.position}
+                    icon={renderBoothIcon(
+                      loc.boothId,
+                      loc.name,
+                      zoomLevel,
+                      isMatch
+                    )}
+                    opacity={markerOpacity}
+                    eventHandlers={{
+                      click: () => {
+                        setSelectedService(null);
+                        setSelectedTheatre(null);
+                        setSelectedLocation(loc);
+                        setLocationOrigin("map");
+                      }
+                    }}
+                  />
+                );
+              });
+            })()}
+
+
 
             {/* service & theatre markers */}
             {zoomLevel>=1 && filteredServices.map(svc=>{
