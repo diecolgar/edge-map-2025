@@ -162,7 +162,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
           <div className="flex justify-between items-center">
           <div className="flex items-center gap-2 text-[#989898] font-bold uppercase">
             <img src="/services/theatre.svg" alt="Micro-Theatre Icon" className="w-5 h-5" />
-            Micro-Theater
+            Micro-theater
           </div>
 
             <button

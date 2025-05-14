@@ -486,7 +486,7 @@ const overviewZones = useMemo(() => {
                 ? divIcon({
                     html:`<div style="position:relative;display:flex;flex-direction:column;align-items:center;transform:translate(-50%,-30%);">
                       <div style="margin-top:2px;font-family:'BCGHenSans';font-size:10px;font-weight:600;color:#FFF;text-align:center;width:100px;">
-                        Micro-Theater
+                        Micro-theater
                       </div>
                     </div>`,
                     iconSize:[24,36],
