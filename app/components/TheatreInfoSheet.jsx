@@ -287,11 +287,6 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
                       key={i}
                       className="flex items-center gap-2 bg-white rounded-full shadow px-3 py-1 w-max"
                     >
-                      <img
-                        src="/speaker-placeholder.jpg"
-                        alt={speaker}
-                        className="w-6 h-6 rounded-full"
-                      />
                       <p className="text-sm text-edgeText font-medium">
                         {speaker}
                       </p>

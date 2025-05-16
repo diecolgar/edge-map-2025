@@ -1,24 +1,3 @@
 <svg width="2560" height="6064" viewBox="0 0 2560 6064" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_dd_4437_70205)">
-<path d="M529.199 3091H493.199C482.153 3091 473.199 3099.95 473.199 3111V3147C473.199 3158.05 482.153 3167 493.199 3167H529.199C540.245 3167 549.199 3158.05 549.199 3147V3111C549.199 3099.95 540.245 3091 529.199 3091Z" fill="#21BF61"/>
-<path d="M493.199 3093H529.199C539.14 3093 547.199 3101.06 547.199 3111V3147C547.199 3156.94 539.14 3165 529.199 3165H493.199C483.258 3165 475.199 3156.94 475.199 3147V3111C475.199 3101.06 483.258 3093 493.199 3093Z" stroke="#D4D4D4" stroke-opacity="0.4" stroke-width="4"/>
-</g>
-<defs>
-<filter id="filter0_dd_4437_70205" x="425.199" y="3083" width="172" height="172" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feMorphology radius="8" operator="erode" in="SourceAlpha" result="effect1_dropShadow_4437_70205"/>
-<feOffset dy="16"/>
-<feGaussianBlur stdDeviation="12"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4437_70205"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feMorphology radius="12" operator="erode" in="SourceAlpha" result="effect2_dropShadow_4437_70205"/>
-<feOffset dy="40"/>
-<feGaussianBlur stdDeviation="30"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
-<feBlend mode="normal" in2="effect1_dropShadow_4437_70205" result="effect2_dropShadow_4437_70205"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_4437_70205" result="shape"/>
-</filter>
-</defs>
+<path d="M529 2988C540 2988 549 2997 549 3008V3044C549 3051.5 544.8 3058.1 538.7 3061.5C544.9 3064.9 549 3071.5 549 3079V3115C549 3122.5 544.8 3129.1 538.7 3132.5C544.9 3135.9 549 3142.5 549 3150V3186C549 3197 540 3206 529 3206H493C482 3206 473 3197 473 3186V3150C473 3142.5 477.2 3135.9 483.3 3132.5C477.2 3129.1 473 3122.5 473 3115V3079C473 3071.5 477.2 3064.9 483.3 3061.5C477.2 3058.1 473 3051.5 473 3044V3008C473 2997 482 2988 493 2988H529Z" fill="#21BF61" stroke="#21BF61" stroke-width="4" stroke-miterlimit="10"/>
 </svg>
