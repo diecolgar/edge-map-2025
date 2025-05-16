@@ -102,7 +102,7 @@ const renderBoothIcon = (id, name, zoomLevel, highlight) => {
   return divIcon({
     html,
     iconSize: [40, 40],
-    iconAnchor: [30, 10],
+    iconAnchor: [28, 10],
     className: "custom-icon"
   });
 };
