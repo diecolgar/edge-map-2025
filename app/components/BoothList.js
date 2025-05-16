@@ -309,7 +309,7 @@ const BoothList = ({
                     </div>
                   </div>
                   <h3 className="text-base font-semibold text-white">
-                    Booth Title, 60 characters max, lorem ipsum dolor sit am
+                    10 minute talks on our centrally located Micro-theater stage
                   </h3>
                 </div>
               </div>

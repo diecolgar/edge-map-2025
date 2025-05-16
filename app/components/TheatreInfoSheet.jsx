@@ -197,7 +197,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
             {/* Header */}
             <div className="px-6 pb-6 pt-2 flex flex-col gap-4">
               <h3 className="text-2xl font-bold text-white">
-                10 minute talks on our centrally located micro.-theater stages
+                10 minute talks on our centrally located Micro-theater stage
               </h3>
               <div className="flex flex-col">
                 <p className="text-gray-300 italic">
