@@ -154,6 +154,36 @@ const EventMap = () => {
     setShowFilters(false);
   };
 
+    // justo al inicio de EventMap, tras los useState:
+      useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+  
+        // parseamos cada parámetro en array (o vacío si no existe)
+        const topicParam  = params.get("topic")  || "";
+        const sectorParam = params.get("sector") || "";
+        const nbParam     = params.get("nb")     || "";
+  
+        const topicFilters  = topicParam  ? topicParam.split(",")  : [];
+        const sectorFilters = sectorParam ? sectorParam.split(",") : [];
+        const nbFilters     = nbParam     ? [nbParam]              : [];
+  
+        // construimos el objeto selections igual que lo usa Filters.jsx
+        const initialSelections = {};
+        if (topicFilters.length)  initialSelections.topic  = topicFilters;
+        if (sectorFilters.length) initialSelections.sector = sectorFilters;
+        if (nbFilters.length)     initialSelections.nb     = nbFilters;
+  
+        // marcamos qué tipos mostrar abiertos
+        const initialActiveTypes = Object.keys(initialSelections);
+  
+        // actualizamos los estados
+        if (initialActiveTypes.length) {
+          setFilterSelections(initialSelections);
+          setFilterActiveTypes(initialActiveTypes);
+        }
+      }, []);  // solo al montar
+  
+
   // Load data
   useEffect(() => {
     fetch("/locations.json").then(r => r.json()).then(setLocations).catch(console.error);

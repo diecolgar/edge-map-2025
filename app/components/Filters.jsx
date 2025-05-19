@@ -74,6 +74,7 @@ const Filters = ({
   const [activeTypes, setActiveTypes] = useState(propsActiveTypes);
   const [selections, setSelections] = useState(propsSelections);
 
+
   useEffect(() => setActiveTypes(propsActiveTypes), [propsActiveTypes]);
   useEffect(() => setSelections(propsSelections), [propsSelections]);
 
@@ -257,8 +258,9 @@ const Filters = ({
                           <img src={`/nb-icons/${icon}`} alt={label} className="w-6 h-6" />
                         </div>
                       )}
-                      <div className="text-center font-semibold">{label}</div>
+                      <div className="text-center font-semibold"><span className="italic font-light">Future of </span><br></br>{label}</div>
                     </button>
+                    
                   ) : (
                     <button
                       key={optCode}
