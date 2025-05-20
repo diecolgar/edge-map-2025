@@ -55,33 +55,43 @@ const FocusOnLocation = ({ position }) => {
   return null;
 };
 
-// Render a custom booth icon with optional label, glow + outline
+// Render a custom booth icon with optional label and circle highlight
 const renderBoothIcon = (id, name, zoomLevel, highlight) => {
   const showTitle = zoomLevel >= 2;
   const shortName = name.length > 25
     ? name.slice(0, 25) + "…"
     : name;
 
-  // Si highlight=true: 4 sombras negras para el contorno + 1 sombra amarilla para el glow
-  const highlightStyle = highlight
-  ? "text-shadow: 1px 1px 2px black;"
-: "";
+  // Estilos para el recuadro del ID: fondo, padding y, si está highlight, círculo amarillo
+  const baseIdStyle = `
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    pointer-events: none;
+    text-align: center;
+  `;
+  const highlightWrapper = highlight
+    ? `
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    `
+    : "";
 
   const html = `
     <div style="
       position: relative;
       min-width: 60px; max-width: 100px;
-      border-radius: 4px;
       display: flex; flex-direction: column; align-items: center;
       font-family: 'BCGHenSans'; font-weight: 700;
     ">
-      <div style="
-        font-size: 12px;
-        color: #fff;
-        pointer-events: none;
-        ${highlightStyle}
-      ">
-        ${id.toUpperCase()}
+      <div style="${highlightWrapper}">
+        <div style="${baseIdStyle}">
+          ${id.toUpperCase()}
+        </div>
       </div>
       <div style="
         min-width: 120px;
@@ -106,6 +116,8 @@ const renderBoothIcon = (id, name, zoomLevel, highlight) => {
     className: "custom-icon"
   });
 };
+
+
 
 
 
