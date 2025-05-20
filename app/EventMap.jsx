@@ -103,6 +103,7 @@ const renderBoothIcon = (id, name, zoomLevel, highlight) => {
         transition: opacity 0.3s ease;
         opacity: ${showTitle ? 1 : 0};
         height: 1em;
+        margin-top: 1px;
       ">
         ${shortName}
       </div>
