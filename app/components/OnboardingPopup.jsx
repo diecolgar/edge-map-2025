@@ -111,7 +111,7 @@ const OnboardingPopup = ({ onClose }) => {
             className="flex items-center gap-2 px-3 py-1 border border-green-600 text-green-600 rounded-xl disabled:opacity-50"
           >
             <Arrow left />
-            <span className="ml-1">Back</span>
+            <span className="ml-1 font-bold">Back</span>
           </button>
 
           {isLast ? (
@@ -120,7 +120,7 @@ const OnboardingPopup = ({ onClose }) => {
               className="flex items-center gap-2 px-4 py-1 bg-edgeText text-white rounded-xl"
             >
               <span>Go to Map</span>
-              <Arrow className="ml-1 text-white" />
+              <Arrow className="ml-1 text-white font-bold" />
             </button>
           ) : (
             <button
@@ -128,7 +128,7 @@ const OnboardingPopup = ({ onClose }) => {
               className="flex items-center gap-2 px-4 py-1 bg-green-600 text-white rounded-xl"
             >
               <span>Next</span>
-              <Arrow className="ml-1 text-white" />
+              <Arrow className="ml-1 text-white font-bold" />
             </button>
           )}
         </div>
