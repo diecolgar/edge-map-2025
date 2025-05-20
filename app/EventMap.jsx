@@ -465,20 +465,31 @@ useEffect(() => {
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-[800px] h-dvh relative overflow-hidden bg-edgeBackground">
-              <TopBar
-          searchQuery={searchQuery}
-          onSearch={setSearchQuery}
-          onOpenFilters={() => setShowFilters(true)}
-           onToggleFilter={(code) => {
-               // Abrimos siempre el panel...
-               setShowFilters(true);
-               // ...y solo añadimos el código si no existía
-               setFilterActiveTypes((prev) =>
-                 prev.includes(code) ? prev : [...prev, code]
-               );
-             }}
-          selectedFilters={filterActiveTypes}
-        />
+      <TopBar
+        searchQuery={searchQuery}
+        onSearch={setSearchQuery}
+        onOpenFilters={() => setShowFilters(true)}
+        onToggleFilter={(code) => {
+          if (code === "microTheatre") {
+            // Ir directamente al detalle del Micro-theatre
+            const th = services.find((s) => s.boothId === "th");
+            if (th) {
+              setSelectedLocation(null);
+              setSelectedService(null);
+              setSelectedTheatre(th);
+            }
+            return; // no abrimos el panel de filtros ni tocamos filterActiveTypes
+          }
+
+          // Para cualquier otro código, abrimos filtros y alternamos la pill
+          setShowFilters(true);
+          setFilterActiveTypes((prev) =>
+            prev.includes(code) ? prev.filter((c) => c !== code) : [...prev, code]
+          );
+        }}
+        selectedFilters={filterActiveTypes}
+      />
+
 
         <div className={`absolute inset-0 transition-opacity duration-300 ${
             activeView==="map"?"opacity-100 z-10":"opacity-0 pointer-events-none z-0"

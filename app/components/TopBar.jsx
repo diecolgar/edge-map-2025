@@ -3,16 +3,17 @@
 import React from "react";
 
 const FILTER_PILLS = [
-  { code: "topic", label: "Topic Journeys" },
-  { code: "sector", label: "Sector Journeys" },
-  { code: "nb", label: "Neighbourhoods" },
+  { code: "topic",        label: "Topic Journeys" },
+  { code: "sector",       label: "Sector Journeys" },
+  { code: "nb",           label: "Neighbourhoods" },
+  { code: "microTheatre", label: "Micro-theater" },
 ];
 
 const TopBar = ({
   searchQuery,
   onSearch,
-  onOpenFilters,    // reemplaza onFilterClick para abrir el modal
-  onToggleFilter,   // alterna cada pill
+  onOpenFilters,
+  onToggleFilter,
   selectedFilters = [],
 }) => {
   // Ordenamos las pills seleccionadas primero
@@ -79,7 +80,7 @@ const TopBar = ({
       </div>
 
       {/* Pills */}
-      <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4">
+      <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4 items-center">
         {/* Botón fijo “Filters” */}
         <button
           onClick={onOpenFilters}
@@ -105,33 +106,43 @@ const TopBar = ({
         {/* Pills dinámicas */}
         {sortedPills.map(({ code, label }) => {
           const isSel = selectedFilters.includes(code);
+          const isMicro = code === "microTheatre";
+          // Para microTheatre siempre usamos bg-edgeText
+          const bgClasses = isMicro
+            ? "bg-edgeText text-white"
+            : isSel
+            ? "bg-edgeText text-white"
+            : "bg-white text-edgeText";
+
           return (
-            <button
-              key={code}
-              onClick={() => onToggleFilter(code)}
-              className={`flex-shrink-0 px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap flex gap-2 items-center transition ${
-                isSel ? "bg-edgeText text-white" : "bg-white text-edgeText"
-              }`}
-            >
-              {isSel && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="14"
-                  height="10"
-                  viewBox="0 0 14 10"
-                  fill="none"
-                >
-                  <path
-                    d="M12.3332 1.5004L4.99984 8.83373L1.6665 5.5004"
-                    stroke="#21BF61"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+            <React.Fragment key={code}>
+              {isMicro && (
+                <div className="min-w-[2px] h-6 bg-edgeTextGray self-center mx-1 rounded-full" />
               )}
-              {label}
-            </button>
+              <button
+                onClick={() => onToggleFilter(code)}
+                className={`flex-shrink-0 px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap flex gap-2 items-center transition ${bgClasses}`}
+              >
+                {(!isMicro && isSel) && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                  >
+                    <path
+                      d="M12.3332 1.5004L4.99984 8.83373L1.6665 5.5004"
+                      stroke="#21BF61"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
+                {label}
+              </button>
+            </React.Fragment>
           );
         })}
       </div>
