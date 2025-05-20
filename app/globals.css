@@ -143,3 +143,7 @@ body {
 .leaflet-disabled {
   color: grey !important;
 }
+
+.leaflet-top {
+  display: none !important;
+}

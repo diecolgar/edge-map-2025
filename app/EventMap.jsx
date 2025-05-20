@@ -22,6 +22,7 @@ import ServiceInfoSheet from "./components/ServiceInfoSheet";
 import TheatreInfoSheet from "./components/TheatreInfoSheet";
 import BoothList from "./components/BoothList";
 import LandingPage from "./components/LandingPage";
+import OnboardingPopup from "./components/OnboardingPopup";
 import Filters from "./components/Filters";
 
 // Listener for zoom level changes
@@ -66,14 +67,14 @@ const renderBoothIcon = (id, name, zoomLevel, highlight) => {
   const baseIdStyle = `
     color: #fff;
     font-size: 12px;
-    padding: 4px 8px;
+    padding: 2px 4px;
     border-radius: 4px;
     pointer-events: none;
     text-align: center;
   `;
   const highlightWrapper = highlight
     ? `
-      background: rgba(0,0,0,0.6);
+      background: #21BF61;
       border-radius: 12px;
       display: inline-flex;
       align-items: center;
@@ -113,7 +114,7 @@ const renderBoothIcon = (id, name, zoomLevel, highlight) => {
   return divIcon({
     html,
     iconSize: [40, 40],
-    iconAnchor: [28, 10],
+    iconAnchor: [30, 10],
     className: "custom-icon"
   });
 };
@@ -129,6 +130,7 @@ const EventMap = () => {
 
   // UI state
   const [showLanding, setShowLanding] = useState(true);
+  const [showOnboarding, setShowOnboarding] = useState(false);
   const [activeView, setActiveView] = useState("map");
   const [showFilters, setShowFilters] = useState(false);
 
@@ -160,6 +162,7 @@ const EventMap = () => {
   const [filterActiveTypes, setFilterActiveTypes] = useState([]);
   const [filterSelections, setFilterSelections] = useState({});
   const isFilteredView = searchQuery.trim() !== "" || filterActiveTypes.length > 0;
+  
 
   const handleApplyFilters = (activeTypes, selections) => {
     setFilterActiveTypes(activeTypes);
@@ -459,17 +462,45 @@ useEffect(() => {
     className:"you-are-here-icon", iconSize:[32,32], iconAnchor:[16,16]
   });
 
+  // Handler para abrir y centrar el micro-theatre
+  const handleTheatreClick = () => {
+    const th = services.find(s => s.boothId === "th");
+    if (!th) return;
+    // cerramos cualquier selección anterior
+    setSelectedLocation(null);
+    setSelectedService(null);
+    // abrimos la card de micro-theatre
+    setSelectedTheatre(th);
+    // (FocusOnLocation se encargará de hacer flyTo al position de `th`)
+  };
+
   if (showLanding) {
-    return <LandingPage onClose={()=>setShowLanding(false)} />;
-  }
+     return (
+       <LandingPage
+         onClose={() => {
+           setShowLanding(false);
+           setShowOnboarding(true);
+         }}
+       />
+     );
+   }
 
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-[800px] h-dvh relative overflow-hidden bg-edgeBackground">
+        
+      {showOnboarding && (
+        <OnboardingPopup
+          onClose={() => setShowOnboarding(false)}
+          className="absolute inset-0 z-20"
+        />
+      )}
+
       <TopBar
         searchQuery={searchQuery}
         onSearch={setSearchQuery}
         onOpenFilters={() => setShowFilters(true)}
+        onTheatreClick={handleTheatreClick}
         onToggleFilter={(code) => {
           if (code === "microTheatre") {
             // Ir directamente al detalle del Micro-theatre

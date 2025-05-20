@@ -235,7 +235,7 @@ const Filters = ({
               <p className="text-sm text-edgeTextGray mb-4">
                 {isIconFilter ? "Select one option" : "Select multiple options if needed"}
               </p>
-              <div className={`grid ${isIconFilter ? "grid-cols-2" : "grid-cols-2"} gap-3`}>
+              <div className={`${isIconFilter ? "grid grid-cols-2" : "flex flex-wrap items-center justify-center"} gap-2`}>
                 {section.options.map(({ code: optCode, label, icon }) => {
                   const isSel = selected.includes(optCode);
                   return isIconFilter ? (
@@ -265,7 +265,7 @@ const Filters = ({
                     <button
                       key={optCode}
                       onClick={() => toggleSelection(code, optCode)}
-                      className={`px-4 py-2 border text-xs rounded-full font-bold transition text-center ${
+                      className={`px-4 py-2 border text-xs rounded-full font-bold transition text-center w-max ${
                         isSel
                           ? "border-edgeGreen text-white bg-white/5"
                           : "border-white/20 text-white hover:bg-white/10"
@@ -276,7 +276,7 @@ const Filters = ({
                           <CheckIcon />
                         </span>
                       )}
-                      <span className="align-middle ">{label}</span>
+                      <span className="text-left">{label}</span>
                     </button>
                   );
                 })}

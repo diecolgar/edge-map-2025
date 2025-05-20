@@ -72,10 +72,10 @@ const LandingPage = ({ onClose }) => {
     className="overflow-hidden text-edgeText leading-relaxed space-y-4 mt-3"
   >
     <p>
-      EDGE is BCG's flagship expo event, held at the Boston WWOM in May 2024. The expo featured 68 booths to demonstrate the value revolutionary technologies such as (Gen)AI are creating across functions and industries today.
+      EDGE is BCG's flagship expo event, held at the Vienna WWOM in May 2025. The expo features 63 booths to demonstrate the value revolutionary technologies such as (Gen)AI are creating across functions and industries today.
     </p>
     <p>
-      The event was attended by 1,600+ BCG Managing Directors, 150+ senior BCG clients, BCG alumni, industry analysts, and the media, and allowed all to:
+      The event will be attended by 1,600+ BCG Managing Directors, 150+ senior BCG clients, BCG alumni, industry analysts, and the media, and allowed all to:
     </p>
     <ul className="list-disc list-inside text-left pl-2 space-y-1">
       <li>Upskill and immerse in business-critical topics</li>

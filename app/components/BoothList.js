@@ -300,7 +300,7 @@ const BoothList = ({
                         className="w-5 h-5"
                       />
                       <span className="text-sm font-bold text-white">
-                        MT-001
+                        Micro-theater
                       </span>
                     </div>
                     <div className="flex items-center gap-2 text-edgeGreen text-sm font-bold">
