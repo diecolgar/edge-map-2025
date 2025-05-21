@@ -9,10 +9,10 @@ const FILTERS_CONFIG = [
     label: "Topic Journeys",
     type: "single",
     options: [
-      { code: "AI", label: "GenAI" },
-      { code: "TP", label: "Tech Platforms" },
-      { code: "GP", label: "Geopolitics" },
       { code: "CO", label: "Cost" },
+      { code: "AI", label: "GenAI" },
+      { code: "GP", label: "Geopolitics" },
+      { code: "TP", label: "Tech Platforms" },
     ],
   },
   {

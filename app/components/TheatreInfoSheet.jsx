@@ -10,7 +10,7 @@ import {
 import { useEffect, useState, useRef } from "react";
 import { X } from "lucide-react";
 
-const collapsedVH = 44;
+const collapsedVH = 24;
 const maxVH = 82;
 const DRAG_THRESHOLD = 50;
 
@@ -157,7 +157,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
         {/* HANDLE */}
         <div
           onPointerDown={(e) => dragControls.start(e)}
-          className="px-6 pt-6 pb-1 cursor-grab"
+          className="px-6 pt-6 pb-2 cursor-grab"
         >
           <div className="flex justify-between items-center">
           <div className="flex items-center gap-2 text-[#989898] font-bold uppercase">
@@ -184,7 +184,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
           onWheel={handleWheel}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          className={`relative pb-20 pt-1 text-sm text-gray-700 ${
+          className={`relative pb-20 pt-1 text-sm text-gray-700 cursor-grab ${
             disableScroll ? "overflow-hidden" : "overflow-y-auto"
           }`}
           style={{
