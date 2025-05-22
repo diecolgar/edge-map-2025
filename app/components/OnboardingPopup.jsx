@@ -85,7 +85,7 @@ const OnboardingPopup = ({ onClose }) => {
           {steps[current].title}
         </h3>
 
-        <div className="bg-[#DFD7CC] max-w-[30vh] rounded-lg mx-auto mb-4 flex aspect-square items-center justify-center overflow-hidden">
+        <div className="bg-[#DFD7CC] max-w-[30vh] rounded-lg mx-auto mb-4 flex items-center justify-center overflow-hidden">
           <video
             src={steps[current].video}
             className="h-full w-full object-cover rounded-lg"
