@@ -173,7 +173,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
         {/* HANDLE */}
         <div
           onPointerDown={(e) => !isDesktop() && dragControls.start(e)}
-          className="px-6 pt-6 pb-2 cursor-grab lg:cursor-default"
+          className="px-6 pt-6 pb-4 cursor-grab lg:cursor-default"
         >
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2 text-[#989898] font-bold uppercase">
