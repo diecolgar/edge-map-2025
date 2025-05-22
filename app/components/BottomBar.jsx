@@ -4,11 +4,11 @@ import React from "react";
 const BottomBar = ({ activeView, onChangeView }) => {
   return (
     <div
-      className="absolute bottom-0 left-0 w-full z-[500] bg-[#323232] h-14 flex flex-col items-center"
+      className="absolute bottom-0 w-full z-[500] bg-[#323232] h-14 flex flex-col items-center mb-0 lg:mb-4 lg:h-16 lg:rounded-3xl lg:w-[800px]"
       style={{ boxShadow: '0px -2px 12px rgba(0, 0, 0, 0.3)' }}
     >
       {/* Contenedor del indicador */}
-      <div className="relative w-full h-1">
+      <div className="relative w-full lg:w-[740px] h-1">
         {/* Indicador animado */}
         <motion.div
           className="absolute top-0 h-1 bg-green-400"

@@ -31,6 +31,9 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
   const getViewportHeight = () =>
     window.visualViewport?.height ?? window.innerHeight;
 
+  const isDesktop = () =>
+    typeof window !== "undefined" && window.innerWidth >= 1024;
+
   useEffect(() => {
     const updateCollapsed = () => {
       const vh = getViewportHeight();
@@ -48,6 +51,11 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
   useEffect(() => {
     if (!theatre) {
       setSheetState("closed");
+      return;
+    }
+
+    if (isDesktop()) {
+      setSheetState("expanded");
     } else {
       setSheetState("collapsed");
     }
@@ -63,6 +71,11 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
   }, [sheetState, theatre]);
 
   useEffect(() => {
+    if (isDesktop()) {
+      height.set("auto");
+      return;
+    }
+
     let target;
     if (sheetState === "closed") {
       target = 0;
@@ -86,6 +99,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
   };
 
   const onDragEnd = (_e, info) => {
+    if (isDesktop()) return;
     const deltaY = info.offset.y;
     if (deltaY < -DRAG_THRESHOLD) {
       setSheetState("expanded");
@@ -137,12 +151,14 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
         ref={containerRef}
         initial={false}
         style={{
-          height,
-          overflow: "hidden",
-          maxHeight: `${maxVH}dvh`,
+          height: isDesktop() ? "80vh" : height,
+          overflow: isDesktop() ? "visible" : "hidden",
+          maxHeight: isDesktop() ? "80vh" : `${maxVH}dvh`,
         }}
-        className="absolute bottom-0 left-0 w-full bg-edgeText shadow-lg rounded-t-2xl z-50"
-        drag="y"
+        className={`absolute bg-edgeText shadow-lg z-50
+          bottom-0 left-0 w-full rounded-t-2xl
+          lg:top-0 lg:right-0 lg:left-auto lg:w-[400px] lg:h-auto lg:rounded-2xl`}
+        drag={!isDesktop() ? "y" : false}
         dragControls={dragControls}
         dragListener={false}
         dragConstraints={{ top: 0, bottom: 0 }}
@@ -152,29 +168,31 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
         exit={{ height: 0 }}
       >
         {/* Barrita visual */}
-        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-300 rounded-full" />
+        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-300 rounded-full lg:hidden" />
 
         {/* HANDLE */}
         <div
-          onPointerDown={(e) => dragControls.start(e)}
-          className="px-6 pt-6 pb-2 cursor-grab"
+          onPointerDown={(e) => !isDesktop() && dragControls.start(e)}
+          className="px-6 pt-6 pb-2 cursor-grab lg:cursor-default"
         >
           <div className="flex justify-between items-center">
-          <div className="flex items-center gap-2 text-[#989898] font-bold uppercase">
-            <img src="/services/theatre.svg" alt="Micro-Theatre Icon" className="w-5 h-5" />
-            Micro-theater
-          </div>
+            <div className="flex items-center gap-2 text-[#989898] font-bold uppercase">
+              <img src="/services/theatre.svg" alt="Micro-Theatre Icon" className="w-5 h-5" />
+              Micro-theater
+            </div>
 
-            <button
-              onClick={() => {
-                setSheetState("closed");
-                setTimeout(onClose, 400);
-              }}
-              className="flex items-center justify-center rounded-full bg-edgeText w-8 h-8 border border-gray-600 hover:bg-gray-600"
-              aria-label="Close"
-            >
-              <X size={16} color="white" />
-            </button>
+            {!isDesktop() && (
+              <button
+                onClick={() => {
+                  setSheetState("closed");
+                  setTimeout(onClose, 400);
+                }}
+                className="flex items-center justify-center rounded-full bg-edgeText w-8 h-8 border border-gray-600 hover:bg-gray-600"
+                aria-label="Close"
+              >
+                <X size={16} color="white" />
+              </button>
+            )}
           </div>
         </div>
 
@@ -188,13 +206,11 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
             disableScroll ? "overflow-hidden" : "overflow-y-auto"
           }`}
           style={{
-            height: "calc(100% - 56px)",
             WebkitOverflowScrolling: "touch",
             touchAction: "pan-y",
-          }}
+          }}          
         >
           <div className="flex flex-col">
-            {/* Header */}
             <div className="px-6 pb-6 pt-2 flex flex-col gap-4">
               <h3 className="text-2xl font-bold text-white">
                 10 minute talks on our centrally located Micro-theater stage
@@ -207,122 +223,101 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
                   <span className="font-semibold">Wednesday, May 28</span> | 12:30pm – 3:00pm
                 </p>
               </div>
-
             </div>
 
             <div className="bg-white px-6 py-6 pb-2 space-y-1">
               <p className="uppercase text-gray-400 font-bold text-sm">Agenda</p>
             </div>
 
-
-            {/* Agenda */}
             <div className="bg-white divide-y divide-gray-200">
-            {agenda.map((item, index) => {
-  const isBreak = item.type === "break";
-  const isOpen = openIndex === index;
+              {agenda.map((item, index) => {
+                const isBreak = item.type === "break";
+                const isOpen = openIndex === index;
 
-  return (
-    <div key={index}>
-      {isBreak ? (
-        <div className="bg-[#F3F0EB]">
-          <p className="text-edgeGreen font-bold text-sm px-6 py-2">
-            {item.title.toUpperCase()}
-          </p>
-        </div>
+                return (
+                  <div key={index}>
+                    {isBreak ? (
+                      <div className="bg-[#F3F0EB]">
+                        <p className="text-edgeGreen font-bold text-sm px-6 py-2">
+                          {item.title.toUpperCase()}
+                        </p>
+                      </div>
+                    ) : (
+                      <>
+                        <button
+                          onClick={() =>
+                            setOpenIndex((prev) => (prev === index ? null : index))
+                          }
+                          className="w-full text-left"
+                        >
+                          <div className="flex items-start justify-between gap-2 py-4 px-6">
+                            <div>
+                              <p className="text-edgeGreen font-semibold text-sm">
+                                {item.time}
+                              </p>
+                              <h5 className="font-bold text-sm mt-1">{item.title}</h5>
+                            </div>
+                            <motion.div
+                              animate={{ rotate: isOpen ? 180 : 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="text-edgeGreen mt-1"
+                            >
+                              <svg
+                                width="14"
+                                height="9"
+                                viewBox="0 0 14 9"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M1.5 1.75L7 7.25L12.5 1.75"
+                                  stroke="#21BF61"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </motion.div>
+                          </div>
+                        </button>
 
-      ) : (
-        <>
-          {/* Header */}
-          <button
-            onClick={() => setOpenIndex((prev) => (prev === index ? null : index))}
-            className="w-full text-left"
-          >
-            <div className="flex items-start justify-between gap-2 py-4 px-6">
-              <div>
-                <p className="text-edgeGreen font-semibold text-sm">{item.time}</p>
-                <h5 className="font-bold text-sm mt-1">{item.title}</h5>
-              </div>
-              <motion.div
-                animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
-                className="text-edgeGreen mt-1"
-              >
-                <svg
-                  width="14"
-                  height="9"
-                  viewBox="0 0 14 9"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.5 1.75L7 7.25L12.5 1.75"
-                    stroke="#21BF61"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </motion.div>
-            </div>
-          </button>
-
-          {/* Content */}
-          <AnimatePresence initial={false}>
-            {isOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden space-y-2"
-              >
-                {item.subtitle && (
-                  <p className="text-sm text-gray-700 italic px-6">
-                    {item.subtitle}
-                  </p>
-                )}
-                <div className="flex flex-col gap-2 mt-2 mb-4 px-6 pb-6">
-                  {item.speakers.map((speaker, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2 bg-white rounded-full shadow px-3 py-1 w-max"
-                    >
-                      <p className="text-sm text-edgeText font-medium">
-                        {speaker}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </>
-      )}
-    </div>
-  );
-})}
-
+                        <AnimatePresence initial={false}>
+                          {isOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3, ease: "easeInOut" }}
+                              className="overflow-hidden space-y-2"
+                            >
+                              {item.subtitle && (
+                                <p className="text-sm text-gray-700 italic px-6">
+                                  {item.subtitle}
+                                </p>
+                              )}
+                              <div className="flex flex-col gap-2 mt-2 mb-4 px-6 pb-6">
+                                {item.speakers.map((speaker, i) => (
+                                  <div
+                                    key={i}
+                                    className="flex items-center gap-2 bg-white rounded-full shadow px-3 py-1 w-max"
+                                  >
+                                    <p className="text-sm text-edgeText font-medium">
+                                      {speaker}
+                                    </p>
+                                  </div>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
-
-        {/* Smooth Fade */}
-        {/* <AnimatePresence>
-          {showFade && (
-            <motion.div
-              key="fade"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 w-full h-40 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(to top, #323232 60%, rgba(23, 23, 23, 0))",
-              }}
-            />
-          )}
-        </AnimatePresence> */}
       </motion.div>
     </AnimatePresence>
   );

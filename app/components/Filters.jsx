@@ -126,15 +126,15 @@ const Filters = ({
   };
 
   return (
-    <div className="fixed inset-0 z-[1000] bg-edgeText text-white flex flex-col">
-      <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
+    <div className="fixed inset-0 z-[1000] bg-edgeText text-white flex flex-col items-center">
+      <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 w-full max-w-[800px]">
         <h2 className="text-xl font-bold">Filters</h2>
         <button onClick={handleClose} className="p-1">
           <X size={20} className="text-white" />
         </button>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-6 py-4 space-y-10">
+      <div className="flex-1 overflow-y-auto px-6 py-4 space-y-10 max-w-[800px]">
         <div>
           <h3 className="text-sm font-bold uppercase text-white">Type of Content</h3>
           <p className="text-sm text-edgeTextGray mb-4">Select one category</p>
@@ -204,7 +204,7 @@ const Filters = ({
         })}
       </div>
 
-      <div className="bg-[#F1EEEA] px-4 py-4 flex justify-between items-center border-t border-white/10">
+      <div className="bg-[#F1EEEA] px-4 py-4 flex justify-between items-center border-t border-white/10 w-full max-w-[800px] lg:rounded-t-3xl">
         <button onClick={clearAll} className="text-edgeText font-semibold text-sm">Clear filters</button>
         <button onClick={handleClose} className="bg-edgeGreen text-white px-4 py-2 rounded-lg text-sm font-semibold">Show results →</button>
       </div>

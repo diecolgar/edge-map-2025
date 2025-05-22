@@ -487,7 +487,7 @@ useEffect(() => {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="w-full max-w-[800px] h-dvh relative overflow-hidden bg-edgeBackground">
+      <div className="w-full flex justify-center h-dvh relative overflow-hidden bg-edgeBackground ">
         
       {showOnboarding && (
         <OnboardingPopup

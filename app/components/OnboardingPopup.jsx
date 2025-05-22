@@ -108,27 +108,27 @@ const OnboardingPopup = ({ onClose }) => {
           <button
             onClick={() => !isFirst && setCurrent(current - 1)}
             disabled={isFirst}
-            className="flex items-center gap-2 px-3 py-1 border border-green-600 text-green-600 rounded-xl disabled:opacity-50"
+            className="flex items-center gap-2 px-7 py-2 border border-green-600 text-green-600 rounded-lg disabled:opacity-50"
           >
             <Arrow left />
-            <span className="ml-1 font-bold">Back</span>
+            <span className="font-bold">Back</span>
           </button>
 
           {isLast ? (
             <button
               onClick={onClose}
-              className="flex items-center gap-2 px-4 py-1 bg-edgeText text-white rounded-xl"
+              className="flex items-center gap-2 px-7 py-2 bg-edgeText text-white rounded-lg"
             >
-              <span>Go to Map</span>
-              <Arrow className="ml-1 text-white font-bold" />
+            <span className="ml-1 font-bold">Go to Map</span>
+              <Arrow className="text-white font-bold" />
             </button>
           ) : (
             <button
               onClick={() => setCurrent(current + 1)}
-              className="flex items-center gap-2 px-4 py-1 bg-green-600 text-white rounded-xl"
+              className="flex items-center gap-2 px-7 py-2 bg-green-600 text-white rounded-lg"
             >
-              <span>Next</span>
-              <Arrow className="ml-1 text-white font-bold" />
+            <span className="ml-1 font-bold">Next</span>
+              <Arrow className="text-white font-bold" />
             </button>
           )}
         </div>
