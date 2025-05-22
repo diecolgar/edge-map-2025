@@ -152,12 +152,12 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
         initial={false}
         style={{
           height: isDesktop() ? "80vh" : height,
-          overflow: isDesktop() ? "visible" : "hidden",
+          overflow: isDesktop() ? "auto" : "hidden",
           maxHeight: isDesktop() ? "80vh" : `${maxVH}dvh`,
         }}
         className={`absolute bg-edgeText shadow-lg z-50
           bottom-0 left-0 w-full rounded-t-2xl
-          lg:top-0 lg:right-0 lg:left-auto lg:w-[400px] lg:h-auto lg:rounded-2xl`}
+          lg:top-auto lg:right-0 lg:left-auto lg:w-[400px] lg:h-auto lg:rounded-2xl lg:mr-14 lg:mb-8`}
         drag={!isDesktop() ? "y" : false}
         dragControls={dragControls}
         dragListener={false}
@@ -202,9 +202,9 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
           onWheel={handleWheel}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          className={`relative pb-20 pt-1 text-sm text-gray-700 cursor-grab ${
+          className={`relative pb-20 lg:pb-0 pt-1 text-sm text-gray-700 ${
             disableScroll ? "overflow-hidden" : "overflow-y-auto"
-          }`}
+          } cursor-grab lg:cursor-default`}          
           style={{
             WebkitOverflowScrolling: "touch",
             touchAction: "pan-y",

@@ -566,8 +566,14 @@ useEffect(() => {
           const map = e.target._map;
           if (zone.openTheatre) {
             const th = services.find((s) => s.boothId === "th");
-            if (th) setSelectedTheatre(th);
-          }
+            if (th) {
+              // Cerramos cualquier selección previa
+              setSelectedLocation(null);
+              setSelectedService(null);
+              // Abrimos el micro-theatre
+              setSelectedTheatre(th);
+            }
+          }          
           map.flyTo(zone.target, zone.zoomLevel, { animate: true, duration: 0.4 });
         }
       }}
