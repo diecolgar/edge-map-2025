@@ -164,7 +164,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           maxHeight: isDesktop() ? "none" : `${maxVH}dvh`,
         }}
         className={`absolute bottom-0 w-full max-w-[800px] bg-white shadow-lg border-t rounded-t-2xl z-50
-           lg:border-t-0 lg:right-0 lg:w-[400px]  lg:mr-14 lg:mb-8 lg:max-w-none lg:rounded-3xl`}
+           lg:border-t-0 lg:right-0 lg:w-[400px]  lg:mr-14 lg:mb-24 lg:max-w-none lg:rounded-3xl`}
         drag={!isDesktop() ? "y" : false}
         dragControls={dragControls}
         dragListener={false}

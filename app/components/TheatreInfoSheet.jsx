@@ -164,7 +164,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
         }}
         className={`absolute bottom-0 z-50 bg-edgeText shadow-lg ${
           isDesktop()
-            ? "right-0 w-[400px] mr-14 mb-8 rounded-3xl"
+            ? "right-0 w-[400px] mr-14 mb-24 rounded-3xl"
             : "left-0 w-full rounded-t-2xl"
         }`}
         drag={!isDesktop() ? "y" : false}
