@@ -134,7 +134,7 @@ const Filters = ({
         </button>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-6 py-4 space-y-10 max-w-[800px]">
+      <div className="flex-1 overflow-y-auto px-6 py-4 space-y-10 w-full max-w-[800px]">
         <div>
           <h3 className="text-sm font-bold uppercase text-white">Type of Content</h3>
           <p className="text-sm text-edgeTextGray mb-4">Select one category</p>
