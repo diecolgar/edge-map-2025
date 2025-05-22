@@ -5,6 +5,7 @@ const OnboardingPopup = ({ onClose }) => {
   const steps = [
     {
       title: "How to navigate the app?",
+      video: "/videos/Onboarding_Video1.mov",
       description: (
         <>
           <span className="text-2xl font-light">Pinch, zoom, and drag</span>
@@ -15,6 +16,7 @@ const OnboardingPopup = ({ onClose }) => {
     },
     {
       title: "How to navigate the app?",
+      video: "/videos/Onboarding_Video2.mov",
       description: (
         <>
           <span className="text-2xl font-light">Search or filter</span>
@@ -25,6 +27,7 @@ const OnboardingPopup = ({ onClose }) => {
     },
     {
       title: "How to navigate the app?",
+      video: "/videos/Onboarding_Video3.mov",
       description: (
         <>
           <span className="text-2xl font-light">Tap on a booth</span>
@@ -82,9 +85,17 @@ const OnboardingPopup = ({ onClose }) => {
           {steps[current].title}
         </h3>
 
-        <div className="bg-[#DFD7CC] rounded-lg h-48 mb-4 flex items-center justify-center">
-          <span className="text-[#AB947E] text-xl">VIDEO</span>
+        <div className="bg-[#DFD7CC] rounded-lg h-96 w-96 mx-auto mb-4 flex items-center justify-center overflow-hidden">
+          <video
+            src={steps[current].video}
+            className="h-full w-full object-cover rounded-lg"
+            muted
+            loop
+            autoPlay
+            playsInline
+          />
         </div>
+
 
         <div className="flex items-center justify-left space-x-2 mb-6">
           <span className="text-xs text-edgeGreen font-bold">
