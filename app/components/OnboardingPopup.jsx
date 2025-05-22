@@ -10,7 +10,7 @@ const OnboardingPopup = ({ onClose }) => {
         <>
           <span className="text-2xl font-light">Pinch, zoom, and drag</span>
           <span className="font-bold text-2xl">to explore the map</span>
-          <span className="font-light mt-2 text-edgeTextSecondary">Move around effortlessly to find booths and key locations</span>
+          <span className="font-light mt-2 text-[#323232]">Move around effortlessly to find booths and key locations</span>
         </>
       ),
     },
@@ -21,7 +21,7 @@ const OnboardingPopup = ({ onClose }) => {
         <>
           <span className="text-2xl font-light">Search or filter</span>
           <span className="font-bold text-2xl">to find key locations</span>
-          <span className="mt-2 text-edgeTextSecondary">Refine results by topic, quickly find booths, and explore sector journeys</span>
+          <span className="mt-2 text-[#323232]">Refine results by topic, quickly find booths, and explore sector journeys</span>
         </>
       ),
     },
@@ -32,7 +32,7 @@ const OnboardingPopup = ({ onClose }) => {
         <>
           <span className="text-2xl font-light">Tap on a booth</span>
           <span className="font-bold text-2xl">to learn more</span>
-          <span className="mt-2 text-edgeTextSecondary">Dive into detailed information, industry insights, and connections</span>
+          <span className="mt-2 text-[#323232]">Dive into detailed information, industry insights, and connections</span>
         </>
       ),
     },
@@ -111,7 +111,7 @@ const OnboardingPopup = ({ onClose }) => {
           </div>
         </div>
 
-        <div className="flex flex-col mb-6 text-gray-800">
+        <div className="flex flex-col mb-6 text-[#323232]">
           {steps[current].description}
         </div>
 
