@@ -69,10 +69,10 @@ const OnboardingPopup = ({ onClose }) => {
       onClick={handleBackdropClick}
       className="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-[600] w-screen h-screen"
     >
-      <div
-        onClick={stopPropagation}
-        className="relative bg-edgeBackground rounded-2xl p-6 max-w-md w-full mx-6"
-      >
+        <div
+          onClick={stopPropagation}
+          className="relative bg-edgeBackground rounded-2xl p-6 max-w-md w-full mx-6 max-h-[80vh] overflow-y-auto"
+        >
         <button
           aria-label="Close onboarding"
           onClick={onClose}
