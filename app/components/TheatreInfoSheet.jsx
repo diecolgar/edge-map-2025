@@ -31,8 +31,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
   const getViewportHeight = () =>
     window.visualViewport?.height ?? window.innerHeight;
 
-  const isDesktop = () =>
-    typeof window !== "undefined" && window.innerWidth >= 1024;
+  const isDesktop = () => window.innerWidth >= 1024;
 
   useEffect(() => {
     const updateCollapsed = () => {
@@ -49,16 +48,22 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
   }, []);
 
   useEffect(() => {
-    if (!theatre) {
-      setSheetState("closed");
-      return;
-    }
+    const handleResize = () => {
+      if (!theatre) {
+        setSheetState("closed");
+        return;
+      }
 
-    if (isDesktop()) {
-      setSheetState("expanded");
-    } else {
-      setSheetState("collapsed");
-    }
+      if (isDesktop()) {
+        setSheetState("expanded");
+      } else {
+        setSheetState("collapsed");
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [theatre]);
 
   useEffect(() => {
@@ -84,6 +89,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
     } else {
       target = expandedPx || (getViewportHeight() * maxVH) / 100;
     }
+
     animate(height, target, { duration: 0.4, ease: "easeInOut" });
   }, [sheetState, collapsedPx, expandedPx]);
 
@@ -100,6 +106,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
 
   const onDragEnd = (_e, info) => {
     if (isDesktop()) return;
+
     const deltaY = info.offset.y;
     if (deltaY < -DRAG_THRESHOLD) {
       setSheetState("expanded");
@@ -142,7 +149,6 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
 
   if (!theatre) return null;
 
-  const showFade = sheetState === "collapsed";
   const disableScroll = sheetState === "collapsed";
 
   return (
@@ -151,13 +157,16 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
         ref={containerRef}
         initial={false}
         style={{
-          height: isDesktop() ? "80vh" : height,
+          height,
           overflow: isDesktop() ? "auto" : "hidden",
           maxHeight: isDesktop() ? "80vh" : `${maxVH}dvh`,
+          
         }}
-        className={`absolute bg-edgeText shadow-lg z-50
-          bottom-0 left-0 w-full rounded-t-2xl
-          lg:top-auto lg:right-0 lg:left-auto lg:w-[400px] lg:h-auto lg:rounded-2xl lg:mr-14 lg:mb-8`}
+        className={`absolute bottom-0 z-50 bg-edgeText shadow-lg ${
+          isDesktop()
+            ? "right-0 w-[400px] mr-14 mb-8 rounded-3xl"
+            : "left-0 w-full rounded-t-2xl"
+        }`}
         drag={!isDesktop() ? "y" : false}
         dragControls={dragControls}
         dragListener={false}
@@ -167,13 +176,13 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
         onDragEnd={onDragEnd}
         exit={{ height: 0 }}
       >
-        {/* Barrita visual */}
+        {/* Barrita visual - ocultar en desktop */}
         <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-300 rounded-full lg:hidden" />
 
-        {/* HANDLE */}
+        {/* Handle */}
         <div
           onPointerDown={(e) => !isDesktop() && dragControls.start(e)}
-          className="px-6 pt-6 pb-4 cursor-grab lg:cursor-default"
+          className={`px-6 pt-6 pb-2 ${isDesktop() ? "cursor-default" : "cursor-grab"}`}
         >
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2 text-[#989898] font-bold uppercase">
@@ -181,7 +190,6 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
               Micro-theater
             </div>
 
-            {!isDesktop() && (
               <button
                 onClick={() => {
                   setSheetState("closed");
@@ -192,11 +200,10 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
               >
                 <X size={16} color="white" />
               </button>
-            )}
           </div>
         </div>
 
-        {/* CONTENT */}
+        {/* Content */}
         <div
           ref={scrollRef}
           onWheel={handleWheel}
@@ -204,11 +211,12 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
           onTouchMove={handleTouchMove}
           className={`relative pb-20 lg:pb-0 pt-1 text-sm text-gray-700 ${
             disableScroll ? "overflow-hidden" : "overflow-y-auto"
-          } cursor-grab lg:cursor-default`}          
+          }`}
           style={{
+            height: "calc(100% - 56px)",
             WebkitOverflowScrolling: "touch",
             touchAction: "pan-y",
-          }}          
+          }}
         >
           <div className="flex flex-col">
             <div className="px-6 pb-6 pt-2 flex flex-col gap-4">

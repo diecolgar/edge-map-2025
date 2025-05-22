@@ -193,7 +193,6 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
                 {location.boothId?.toUpperCase()}
               </span>
             </div>
-            {!isDesktop() && (
               <button
                 onClick={() => {
                   setSheetState("closed");
@@ -204,7 +203,6 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
               >
                 <X size={16} color="white" />
               </button>
-            )}
           </div>
           <h2 className="text-xl font-bold mt-2 mb-2 text-edgeText">
             {location.name}
@@ -276,7 +274,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
                     <div
                       key={i}
                       onClick={() => handleCopy(textToCopy)}
-                      className="flex items-center bg-white rounded-full pr-4 shadow w-max cursor-pointer hover:bg-gray-100"
+                      className={`flex items-center bg-white rounded-full pr-4 shadow w-max cursor-pointer hover:bg-gray-100 ${!imageSrc ? "p-2" : ""}`}
                     >
                       <p className="flex items-center text-sm text-edgeText gap-4">
                         {imageSrc && (
