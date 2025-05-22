@@ -196,6 +196,10 @@ const EventMap = () => {
         if (initialActiveTypes.length) {
           setFilterSelections(initialSelections);
           setFilterActiveTypes(initialActiveTypes);
+        
+          // 🔽 Oculta landing y onboarding si hay filtros desde la URL
+          setShowLanding(false);
+          setShowOnboarding(false);
         }
       }, []);  // solo al montar
   
@@ -441,17 +445,32 @@ useEffect(() => {
   // Direct-link view
   useEffect(() => {
     const viewId = new URLSearchParams(window.location.search).get("view");
-    if (!viewId||!locations.length||!services.length) return;
-    const booth = locations.find(l=>l.boothId.toLowerCase()===viewId.toLowerCase());
-    if (booth) { setSelectedLocation(booth); setLocationOrigin("map"); setShowLanding(false); return; }
-    if (viewId.toLowerCase()==="th") {
-      const th=services.find(s=>s.boothId==="th");
-      if (th) { setSelectedTheatre(th); setShowLanding(false); }
-      return;
+    if (!viewId || !locations.length || !services.length) return;
+  
+    const normalizedView = viewId.toLowerCase();
+  
+    // Intentamos encontrar la ubicación, servicio o theatre
+    const booth = locations.find(l => l.boothId.toLowerCase() === normalizedView);
+    const svc = services.find(s => s.boothId.toLowerCase() === normalizedView);
+    const isTheatreView = ["th", "theatre"].includes(normalizedView);
+    const theatre = isTheatreView ? services.find(s => s.boothId === "th") : null;
+  
+    if (booth) {
+      setSelectedLocation(booth);
+      setLocationOrigin("map");
+    } else if (svc) {
+      setSelectedService(svc);
+    } else if (theatre) {
+      setSelectedTheatre(theatre);
     }
-    const svc=services.find(s=>s.boothId.toLowerCase()===viewId.toLowerCase());
-    if (svc) { setSelectedService(svc); setShowLanding(false); }
+  
+    // Si hay vista directa a algo, no mostrar landing ni onboarding
+    if (booth || svc || theatre) {
+      setShowLanding(false);
+      setShowOnboarding(false);
+    }
   }, [locations, services]);
+  
 
   // "You are here" icon
   const youAreHereIcon = divIcon({
