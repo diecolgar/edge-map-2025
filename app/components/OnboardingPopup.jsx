@@ -71,7 +71,7 @@ const OnboardingPopup = ({ onClose }) => {
     >
         <div
           onClick={stopPropagation}
-          className="relative bg-edgeBackground rounded-2xl p-6 max-w-md w-full mx-6 max-h-[80vh] overflow-y-auto"
+          className="relative bg-edgeBackground rounded-2xl p-6 max-w-md w-full mx-6 overflow-y-auto"
         >
         <button
           aria-label="Close onboarding"
@@ -85,7 +85,7 @@ const OnboardingPopup = ({ onClose }) => {
           {steps[current].title}
         </h3>
 
-        <div className="bg-[#DFD7CC] rounded-lg mx-auto mb-4 flex aspect-square items-center justify-center overflow-hidden">
+        <div className="bg-[#DFD7CC] max-w-[30vh] rounded-lg mx-auto mb-4 flex aspect-square items-center justify-center overflow-hidden">
           <video
             src={steps[current].video}
             className="h-full w-full object-cover rounded-lg"
