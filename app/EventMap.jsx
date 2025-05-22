@@ -25,23 +25,6 @@ import LandingPage from "./components/LandingPage";
 import OnboardingPopup from "./components/OnboardingPopup";
 import Filters from "./components/Filters";
 
-
-const preloadVideos = [
-  "/videos/Onboarding_Video1.mov",
-  "/videos/Onboarding_Video2.mov",
-  "/videos/Onboarding_Video3.mov",
-];
-
-useEffect(() => {
-  preloadVideos.forEach(src => {
-    const link = document.createElement("link");
-    link.rel = "preload";
-    link.as = "video";
-    link.href = src;
-    document.head.appendChild(link);
-  });
-}, []);
-
 // Listener for zoom level changes
 const ZoomListener = ({ setZoomLevel }) => {
   useMapEvents({ zoomend: e => setZoomLevel(e.target.getZoom()) });
