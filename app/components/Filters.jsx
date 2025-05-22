@@ -166,7 +166,7 @@ const Filters = ({
             <div key={code}>
               <h3 className="text-sm font-bold uppercase text-white mb-2 ">{section.label}</h3>
               <p className="text-sm text-edgeTextGray mb-4">Select one option</p>
-              <div className={`${isIconFilter ? "grid grid-cols-2" : "flex flex-wrap items-center justify-center"} gap-2`}>
+              <div className={`${isIconFilter ? "grid grid-cols-2" : "grid grid-cols-2"} gap-2`}>
                 {section.options.map(({ code: optCode, label, icon }) => {
                   const isSel = selected.includes(optCode);
                   return isIconFilter ? (
@@ -189,11 +189,11 @@ const Filters = ({
                     <button
                       key={optCode}
                       onClick={() => toggleSelection(code, optCode)}
-                      className={`px-4 py-2 border text-xs rounded-2xl font-bold transition text-center w-max ${
+                      className={`px-4 py-4 border text-xs rounded-2xl font-bold transition text-center relative ${
                         isSel ? "border-edgeGreen text-white bg-white/5" : "border-white/20 text-white hover:bg-white/10"
                       }`}
                     >
-                      {isSel && <span className="inline-block mr-1 align-middle"><CheckIcon /></span>}
+                      {isSel && <span className="absolute top-2 right-2"><CheckIcon /></span>}
                       <span className="text-center">{label}</span>
                     </button>
                   );

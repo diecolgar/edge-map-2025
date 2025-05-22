@@ -227,33 +227,64 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           </div>
 
           {/* CONTACTS */}
-          {contactEmailPairs.length > 0 && (
-            <div className="bg-edgeText px-6 pt-6 pb-28 space-y-2">
-              <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
-                CONTACTS
-              </span>
-              <div className="flex flex-col gap-3">
+            {contactEmailPairs.length > 0 && (
+              <div className="bg-edgeText px-6 pt-6 pb-24 space-y-2">
+                <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
+                  CONTACTS
+                </span>
+                <div className="flex flex-col gap-3">
                 {contactEmailPairs.map(({ contact, email }, i) => {
                   const textToCopy = email || contact;
+
+                  // Derivar ruta de imagen desde el email
+                  let imageSrc = null;
+                  if (email.includes("@")) {
+                    const localPart = email.split("@")[0]; // parte antes del @
+
+                    if (localPart.includes(".")) {
+                      // caso con formato apellido.nombre
+                      const [apellido, nombre] = localPart.split(".");
+                      if (nombre && apellido) {
+                        const formatted =
+                          nombre.charAt(0).toUpperCase() + nombre.slice(1) + "-" +
+                          apellido.charAt(0).toUpperCase() + apellido.slice(1);
+                        imageSrc = `/contact-pics/${formatted}.png`;
+                      }
+                    } else {
+                      // caso sin punto: usar el localPart tal cual
+                      imageSrc = `/contact-pics/${localPart}.png`;
+                    }
+                  }
+
+
                   return (
                     <div
                       key={i}
                       onClick={() => handleCopy(textToCopy)}
-                      className="flex items-center bg-white rounded-full px-4 py-2 shadow w-max cursor-pointer hover:bg-gray-100"
+                      className="flex items-center bg-white rounded-full pr-4 shadow w-max cursor-pointer hover:bg-gray-100"
                     >
-                      <p className="flex items-center text-sm text-edgeText gap-2">
+                      <p className="flex items-center text-sm text-edgeText gap-4">
+                        {imageSrc && (
+                          <img
+                            src={imageSrc}
+                            alt={contact}
+                            className="w-8 h-8 rounded-full object-cover"
+                            onError={(e) => (e.target.style.display = "none")}
+                          />
+                        )}
                         <span className="font-semibold">{contact}</span>
                         {/* {email && <span className="text-gray-500">{email}</span>} */}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" fill="none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 20 16" fill="none">
                           <path d="M17.917 12.9997L12.3813 7.99968M7.61937 7.99968L2.08369 12.9997M1.66699 3.83301L8.47109 8.59588C9.02207 8.98156 9.29756 9.1744 9.59721 9.2491C9.8619 9.31508 10.1387 9.31508 10.4034 9.2491C10.7031 9.1744 10.9786 8.98156 11.5296 8.59588L18.3337 3.83301M5.66699 14.6663H14.3337C15.7338 14.6663 16.4339 14.6663 16.9686 14.3939C17.439 14.1542 17.8215 13.7717 18.0612 13.3013C18.3337 12.7665 18.3337 12.0665 18.3337 10.6663V5.33301C18.3337 3.93288 18.3337 3.23281 18.0612 2.69803C17.8215 2.22763 17.439 1.84517 16.9686 1.60549C16.4339 1.33301 15.7338 1.33301 14.3337 1.33301L5.66699 1.33301C4.26686 1.33301 3.5668 1.33301 3.03202 1.60549C2.56161 1.84517 2.17916 2.22763 1.93948 2.69803C1.66699 3.23281 1.66699 3.93288 1.66699 5.33301L1.66699 10.6663C1.66699 12.0665 1.66699 12.7665 1.93948 13.3013C2.17916 13.7717 2.56161 14.1542 3.03202 14.3939C3.5668 14.6663 4.26686 14.6663 5.66699 14.6663Z" stroke="#21BF61" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </p>
                     </div>
                   );
                 })}
+
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </div>
       </motion.div>
     </AnimatePresence>

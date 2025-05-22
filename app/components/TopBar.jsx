@@ -29,54 +29,74 @@ const TopBar = ({
     <div className="absolute w-full z-[500] bg-[#F1EEEA]/10 backdrop-blur pt-2 pb-3 shadow-md flex flex-col gap-3">
       {/* Buscador */}
       <div className="flex items-center gap-4 px-4">
-        <div className="relative flex-1">
-          <svg
-            className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="0 0 16 16"
-            fill="none"
-          >
-            <path
-              d="M14.75 14.7668L11.4875 11.5043M13.25 7.26685C13.25 10.5806 10.5637 13.2668 7.25 13.2668C3.93629 13.2668 1.25 10.5806 1.25 7.26685C1.25 3.95314 3.93629 1.26685 7.25 1.26685C10.5637 1.26685 13.25 3.95314 13.25 7.26685Z"
-              stroke="#323232"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <input
-            type="text"
-            placeholder="What are you looking for?"
-            value={searchQuery}
-            onChange={(e) => onSearch(e.target.value)}
-            className="pl-12 pr-10 py-2 w-full text-edgeText border border-gray-300 rounded-full focus:outline-none"
+      <div className="relative flex items-center w-full rounded-full overflow-hidden gap-4">
+  <div className="bg-edgeText p-2 flex items-center justify-center rounded-full">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M9 20.9988V13.5988C9 13.0387 9 12.7587 9.10899 12.5448C9.20487 12.3566 9.35785 12.2036 9.54601 12.1078C9.75992 11.9988 10.0399 11.9988 10.6 11.9988H13.4C13.9601 11.9988 14.2401 11.9988 14.454 12.1078C14.6422 12.2036 14.7951 12.3566 14.891 12.5448C15 12.7587 15 13.0387 15 13.5988V20.9988M11.0177 2.76278L4.23539 8.0379C3.78202 8.39052 3.55534 8.56683 3.39203 8.78764C3.24737 8.98322 3.1396 9.20356 3.07403 9.43783C3 9.7023 3 9.98948 3 10.5638V17.7988C3 18.9189 3 19.4789 3.21799 19.9067C3.40973 20.2831 3.71569 20.589 4.09202 20.7808C4.51984 20.9988 5.07989 20.9988 6.2 20.9988H17.8C18.9201 20.9988 19.4802 20.9988 19.908 20.7808C20.2843 20.589 20.5903 20.2831 20.782 19.9067C21 19.4789 21 18.9189 21 17.7988V10.5638C21 9.98948 21 9.7023 20.926 9.43783C20.8604 9.20356 20.7526 8.98322 20.608 8.78764C20.4447 8.56683 20.218 8.39052 19.7646 8.03791L12.9823 2.76278C12.631 2.48953 12.4553 2.3529 12.2613 2.30038C12.0902 2.25404 11.9098 2.25404 11.7387 2.30038C11.5447 2.3529 11.369 2.48953 11.0177 2.76278Z"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </div>
+  <div className="relative flex-1">
+    <svg
+      className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      viewBox="0 0 16 16"
+      fill="none"
+    >
+      <path
+        d="M14.75 14.7668L11.4875 11.5043M13.25 7.26685C13.25 10.5806 10.5637 13.2668 7.25 13.2668C3.93629 13.2668 1.25 10.5806 1.25 7.26685C1.25 3.95314 3.93629 1.26685 7.25 1.26685C10.5637 1.26685 13.25 3.95314 13.25 7.26685Z"
+        stroke="#323232"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+    <input
+      type="text"
+      placeholder="What are you looking for?"
+      value={searchQuery}
+      onChange={(e) => onSearch(e.target.value)}
+      className="pl-10 pr-10 py-2 w-full text-edgeText rounded-full focus:outline-none"
+    />
+    {searchQuery.length > 0 && (
+      <button
+        onClick={() => onSearch("")}
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+        aria-label="Clear search"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+        >
+          <path
+            d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
-          {searchQuery.length > 0 && (
-            <button
-              onClick={() => onSearch("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-              aria-label="Clear search"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-              >
-                <path
-                  d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-          )}
-        </div>
+        </svg>
+      </button>
+    )}
+  </div>
+</div>
+
       </div>
 
       {/* Pills */}
