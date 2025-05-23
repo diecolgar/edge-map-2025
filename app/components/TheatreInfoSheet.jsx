@@ -10,7 +10,7 @@ import {
 import { useEffect, useState, useRef } from "react";
 import { X } from "lucide-react";
 
-const collapsedVH = 24;
+const collapsedVH = 32;
 const maxVH = 82;
 const DRAG_THRESHOLD = 50;
 
@@ -169,7 +169,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
           overflow: isDesktop() ? "auto" : "hidden",
           maxHeight: isDesktop() ? "80vh" : `${maxVH}dvh`,
         }}
-        className={`absolute bottom-0 z-50 bg-edgeText shadow-lg ${
+        className={`absolute bottom-0 z-50 bg-edgeText shadow-lg border-edgeTextSecondary border-t ${
           isDesktop()
             ? "right-0 w-[400px] mr-14 mb-24 rounded-3xl"
             : "left-0 w-full rounded-t-2xl"
@@ -187,7 +187,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
 
         <div
           onPointerDown={(e) => !isDesktop() && dragControls.start(e)}
-          className={`px-6 pt-6 pb-2 ${isDesktop() ? "cursor-default" : "cursor-grab"}`}
+          className={`px-6 pt-6 pb-4 ${isDesktop() ? "cursor-default" : "cursor-grab"}`}
         >
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2 text-[#989898] font-bold uppercase">
