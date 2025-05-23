@@ -251,7 +251,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           </div>
 
           {contactEmailPairs.length > 0 && (
-            <div className="bg-edgeText px-6 pt-6 pb-24 lg:pb-12 space-y-2">
+            <div className="bg-edgeText px-6 pt-6 pb-20 lg:pb-12 space-y-2">
               <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
                 CONTACTS
               </span>
