@@ -301,7 +301,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
                               {item.subtitle && (
                                 <p className="text-sm text-gray-700 italic px-6">{item.subtitle}</p>
                               )}
-                              <div className="flex flex-col gap-2 mt-4 mb-4 px-6 pb-6">
+                              <div className="flex flex-col gap-2 mt-4 pt-2 mb-4 px-6 pb-6">
                                 {speakerEntries.map((sp, i) => (
                                   <div
                                     key={i}
