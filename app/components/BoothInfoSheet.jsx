@@ -282,7 +282,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
                     <div
                       key={i}
                       onClick={() => handleCopy(textToCopy)}
-                      className={`flex items-center bg-white rounded-full pr-4 shadow w-max cursor-pointer hover:bg-gray-100 ${!imageSrc ? "p-2" : ""}`}
+                      className={`flex items-center bg-white rounded-full pr-4 shadow w-max cursor-pointer hover:bg-gray-100 ${!imageSrc ? "p-2 pl-4" : ""}`}
                     >
                       <p className="flex items-center text-sm text-edgeText gap-4">
                         {imageSrc && (
