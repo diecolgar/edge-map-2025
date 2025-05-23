@@ -29,6 +29,13 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
 
   const isDesktop = () => window.innerWidth >= 1024;
 
+  const noImageEmails = [
+    "barryphillips@apptronik.com",
+    "vargasgonzalez.marcial@quantis.com",
+    "zeitoun.allon@quantis.com",
+  ];
+  
+
   useEffect(() => {
     const updateCollapsed = () => {
       const vh = getViewportHeight();
@@ -252,7 +259,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
                 {contactEmailPairs.map(({ contact, email }, i) => {
                   const textToCopy = email || contact;
                   let imageSrc = null;
-                  if (email.includes("@")) {
+                  if (email.includes("@") && !noImageEmails.includes(email)) {
                     const localPart = email.split("@")[0];
                     if (localPart.includes(".")) {
                       const [apellido, nombre] = localPart.split(".");
@@ -269,6 +276,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
                       imageSrc = `/contact-pics/${localPart}.png`;
                     }
                   }
+                  
 
                   return (
                     <div
