@@ -85,7 +85,6 @@ const Filters = ({
     setActiveTypes((prev) => {
       const isActive = prev.includes(code);
       if (isActive) {
-        // Deseleccionar todo si el mismo se vuelve a hacer click
         setSelections((sel) => {
           const next = { ...sel };
           delete next[code];
@@ -93,7 +92,6 @@ const Filters = ({
         });
         return [];
       } else {
-        // Limpiar otras selecciones al seleccionar un nuevo grupo
         setSelections((sel) => {
           return { [code]: sel[code] || [] };
         });
@@ -126,87 +124,89 @@ const Filters = ({
   };
 
   return (
-    <div className="fixed inset-0 z-[1000] bg-edgeText text-white flex flex-col items-center">
-      <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 w-full max-w-[800px]">
-        <h2 className="text-xl font-bold">Filters</h2>
-        <button onClick={handleClose} className="p-1">
-          <X size={20} className="text-white" />
-        </button>
-      </div>
-
-      <div className="flex-1 overflow-y-auto px-6 py-4 space-y-10 w-full max-w-[800px]">
-        <div>
-          <h3 className="text-sm font-bold uppercase text-white">Type of Content</h3>
-          <p className="text-sm text-edgeTextGray mb-4">Select one category</p>
-          <div className="flex flex-wrap gap-2">
-            {FILTERS_CONFIG.map(({ code, label }) => {
-              const active = activeTypes.includes(code);
-              return (
-                <button
-                  key={code}
-                  onClick={() => toggleType(code)}
-                  className={`px-4 py-1 border text-sm rounded-full transition ${
-                    active ? "border-edgeGreen text-white bg-white/5" : "border-white/30 text-white hover:bg-white/10"
-                  }`}
-                >
-                  {active && <span className="inline-block mr-1 align-middle"><CheckIcon /></span>}
-                  <span className="align-middle font-bold">{label}</span>
-                </button>
-              );
-            })}
-          </div>
+    <div className="fixed inset-0 z-[1000] bg-black/40 flex justify-center items-center">
+      <div className="bg-edgeText text-white flex flex-col w-full h-full max-w-[800px] lg:max-w-[600px] lg:bottom-24 lg:absolute lg:h-[50vh] lg:rounded-2xl lg:shadow-xl overflow-hidden">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
+          <h2 className="text-xl font-bold">Filters</h2>
+          <button onClick={handleClose} className="p-1">
+            <X size={20} className="text-white" />
+          </button>
         </div>
 
-        {activeTypes.map((code) => {
-          const section = FILTERS_CONFIG.find((f) => f.code === code);
-          const selected = selections[code] || [];
-          const isIconFilter = code === "nb";
-
-          return (
-            <div key={code}>
-              <h3 className="text-sm font-bold uppercase text-white mb-2 ">{section.label}</h3>
-              <p className="text-sm text-edgeTextGray mb-4">Select one option</p>
-              <div className={`${isIconFilter ? "grid grid-cols-2" : "grid grid-cols-2"} gap-2`}>
-                {section.options.map(({ code: optCode, label, icon }) => {
-                  const isSel = selected.includes(optCode);
-                  return isIconFilter ? (
-                    <button
-                      key={optCode}
-                      onClick={() => toggleSelection(code, optCode)}
-                      className={`w-full rounded-xl px-4 py-6 text-sm text-white font-bold border transition relative ${
-                        isSel ? "border-edgeGreen bg-white/5" : "border-white/20 hover:bg-white/10"
-                      }`}
-                    >
-                      {isSel && <span className="absolute top-2 right-2"><CheckIcon /></span>}
-                      {icon && (
-                        <div className="flex flex-col items-center mb-2">
-                          <img src={`/nb-icons/${icon}`} alt={label} className="w-6 h-6" />
-                        </div>
-                      )}
-                      <div className="text-center font-semibold"><span className="italic font-light">Future of </span><br />{label}</div>
-                    </button>
-                  ) : (
-                    <button
-                      key={optCode}
-                      onClick={() => toggleSelection(code, optCode)}
-                      className={`px-4 py-4 border text-xs rounded-2xl font-bold transition text-center relative ${
-                        isSel ? "border-edgeGreen text-white bg-white/5" : "border-white/20 text-white hover:bg-white/10"
-                      }`}
-                    >
-                      {isSel && <span className="absolute top-2 right-2"><CheckIcon /></span>}
-                      <span className="text-center">{label}</span>
-                    </button>
-                  );
-                })}
-              </div>
+        <div className="flex-1 overflow-y-auto px-6 py-4 space-y-10">
+          <div>
+            <h3 className="text-sm font-bold uppercase text-white">Type of Content</h3>
+            <p className="text-sm text-edgeTextGray mb-4">Select one category</p>
+            <div className="flex flex-wrap gap-2">
+              {FILTERS_CONFIG.map(({ code, label }) => {
+                const active = activeTypes.includes(code);
+                return (
+                  <button
+                    key={code}
+                    onClick={() => toggleType(code)}
+                    className={`px-4 py-1 border text-sm rounded-full transition ${
+                      active ? "border-edgeGreen text-white bg-white/5" : "border-white/30 text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {active && <span className="inline-block mr-1 align-middle"><CheckIcon /></span>}
+                    <span className="align-middle font-bold">{label}</span>
+                  </button>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
+          </div>
 
-      <div className="bg-[#F1EEEA] px-4 py-4 flex justify-between items-center border-t border-white/10 w-full max-w-[800px] lg:rounded-t-3xl">
-        <button onClick={clearAll} className="text-edgeText font-semibold text-sm">Clear filters</button>
-        <button onClick={handleClose} className="bg-edgeGreen text-white px-4 py-2 rounded-lg text-sm font-semibold">Show results →</button>
+          {activeTypes.map((code) => {
+            const section = FILTERS_CONFIG.find((f) => f.code === code);
+            const selected = selections[code] || [];
+            const isIconFilter = code === "nb";
+
+            return (
+              <div key={code}>
+                <h3 className="text-sm font-bold uppercase text-white mb-2">{section.label}</h3>
+                <p className="text-sm text-edgeTextGray mb-4">Select one option</p>
+                <div className={`grid grid-cols-2 gap-2`}>
+                  {section.options.map(({ code: optCode, label, icon }) => {
+                    const isSel = selected.includes(optCode);
+                    return isIconFilter ? (
+                      <button
+                        key={optCode}
+                        onClick={() => toggleSelection(code, optCode)}
+                        className={`w-full rounded-xl px-4 py-6 text-sm text-white font-bold border transition relative ${
+                          isSel ? "border-edgeGreen bg-white/5" : "border-white/20 hover:bg-white/10"
+                        }`}
+                      >
+                        {isSel && <span className="absolute top-2 right-2"><CheckIcon /></span>}
+                        {icon && (
+                          <div className="flex flex-col items-center mb-2">
+                            <img src={`/nb-icons/${icon}`} alt={label} className="w-6 h-6" />
+                          </div>
+                        )}
+                        <div className="text-center font-semibold"><span className="italic font-light">Future of </span><br />{label}</div>
+                      </button>
+                    ) : (
+                      <button
+                        key={optCode}
+                        onClick={() => toggleSelection(code, optCode)}
+                        className={`px-4 py-4 border text-xs rounded-2xl font-bold transition text-center relative ${
+                          isSel ? "border-edgeGreen text-white bg-white/5" : "border-white/20 text-white hover:bg-white/10"
+                        }`}
+                      >
+                        {isSel && <span className="absolute top-2 right-2"><CheckIcon /></span>}
+                        <span className="text-center">{label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="bg-[#F1EEEA] px-4 py-4 flex justify-between items-center border-t border-white/10 lg:rounded-b-2xl">
+          <button onClick={clearAll} className="text-edgeText font-semibold text-sm">Clear filters</button>
+          <button onClick={handleClose} className="bg-edgeGreen text-white px-4 py-2 rounded-lg text-sm font-semibold">Show results →</button>
+        </div>
       </div>
     </div>
   );
