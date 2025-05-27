@@ -124,6 +124,17 @@ const renderBoothIcon = (id, name, zoomLevel, highlight) => {
 
 
 const EventMap = () => {
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const host = window.location.hostname;
+      if (host.includes("edge2025.netlify.app")) {
+        window.location.href = "https://bcg-edgeexpo.com";
+      }
+    }
+  }, []);
+
+
   const imageUrl = "/edge-map-def.png";
   const original = { width: 2560, height: 6064 };
   const aspect = original.width / original.height;
