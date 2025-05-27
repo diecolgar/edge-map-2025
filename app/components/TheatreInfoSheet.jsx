@@ -183,7 +183,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
         onDragEnd={onDragEnd}
         exit={{ height: 0 }}
       >
-        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-300 rounded-full lg:hidden" />
+        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-300 rounded-full md:hidden" />
 
         <div
           onPointerDown={(e) => !isDesktop() && dragControls.start(e)}
@@ -212,7 +212,7 @@ const TheatreInfoSheet = ({ theatre, onClose }) => {
           onWheel={handleWheel}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          className={`relative pb-20 lg:pb-0 pt-1 text-sm text-gray-700 ${
+          className={`relative pb-20 md:pb-0 pt-1 text-sm text-gray-700 ${
             disableScroll ? "overflow-hidden" : "overflow-y-auto"
           }`}
           style={{

@@ -34,16 +34,16 @@ const LandingPage = ({ onClose }) => {
 
       {/* Scrollable middle content */}
       <div className="h-full pt-32 md:pt-40 pb-40 px-6 overflow-y-auto flex flex-col items-center">
-        <div className="w-full max-w-[1400px] flex flex-col lg:flex-row lg:py-16">
+        <div className="w-full max-w-[1400px] flex flex-col md:flex-row md:py-16">
           <div className="w-full">
-            <h1 className="text-3xl lg:text-6xl font-light text-edgeText mb-2">Welcome to EDGE’s</h1>
-            <h2 className="text-3xl lg:text-6xl font-extrabold text-edgeText mb-6">interactive map</h2>
-            <p className="text-sm lg:text-lg mt-4 mb-10 max-w-md md:max-w-xl text-edgeText">
+            <h1 className="text-3xl md:text-6xl font-light text-edgeText mb-2">Welcome to EDGE’s</h1>
+            <h2 className="text-3xl md:text-6xl font-extrabold text-edgeText mb-6">interactive map</h2>
+            <p className="text-sm md:text-lg mt-4 mb-10 max-w-md md:max-w-xl text-edgeText">
               Dive into our fully interactive map and explore<br />
               the booths by function and industry.
             </p>
                       {/* Toggleable info */}
-          <div className="mt-6 text-sm lg:text-lg w-full max-w-md md:max-w-xl">
+          <div className="mt-6 text-sm md:text-lg w-full max-w-md md:max-w-xl">
             <button
               onClick={() => setIsOpen((prev) => !prev)}
               className="cursor-pointer text-edgeGreen font-semibold flex items-center justify-between gap-2 w-full"
@@ -92,7 +92,7 @@ const LandingPage = ({ onClose }) => {
 
 
           {/* Visual */}
-          <div className="mt-12 w-full max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-4xl">
+          <div className="mt-12 w-full max-w-sm md:max-w-lg md:max-w-2xl xl:max-w-4xl">
             <img
               src="/edge-shapes.png"
               alt="EDGE Visual"

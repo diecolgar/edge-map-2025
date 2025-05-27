@@ -171,7 +171,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           maxHeight: isDesktop() ? "none" : `${maxVH}dvh`,
         }}
         className={`absolute bottom-0 w-full max-w-[800px] bg-white shadow-lg border-t rounded-t-2xl z-50
-           lg:border-t-0 lg:right-0 lg:w-[400px]  lg:mr-14 lg:mb-24 lg:max-w-none lg:rounded-3xl`}
+           md:border-t-0 md:right-0 md:w-[400px]  md:mr-14 md:mb-24 md:max-w-none md:rounded-3xl`}
         drag={!isDesktop() ? "y" : false}
         dragControls={dragControls}
         dragListener={false}
@@ -182,12 +182,12 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
         exit={{ height: 0 }}
       >
         {/* Barrita visual - ocultar en desktop */}
-        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-300 rounded-full lg:hidden" />
+        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-300 rounded-full md:hidden" />
 
         {/* Handle para drag */}
         <div
           onPointerDown={(e) => !isDesktop() && dragControls.start(e)}
-          className="px-6 pt-6 pb-0 cursor-grab lg:cursor-default"
+          className="px-6 pt-6 pb-0 cursor-grab md:cursor-default"
         >
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
@@ -222,7 +222,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           onWheel={handleWheel}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          className={`relative ${disableScroll ? "overflow-hidden" : "overflow-y-auto"} overscroll-y-contain pb-14 lg:pb-0 select-none`}
+          className={`relative ${disableScroll ? "overflow-hidden" : "overflow-y-auto"} overscroll-y-contain pb-14 md:pb-0 select-none`}
           style={{
             height: "calc(100% - 56px)",
             WebkitOverflowScrolling: "touch",
@@ -251,7 +251,7 @@ const BoothInfoSheet = ({ location, origin, onClose }) => {
           </div>
 
           {contactEmailPairs.length > 0 && (
-            <div className="bg-edgeText px-6 pt-6 pb-20 lg:pb-12 space-y-2">
+            <div className="bg-edgeText px-6 pt-6 pb-20 md:pb-12 space-y-2">
               <span className="inline-block text-edgeGreen text-sm font-bold uppercase mb-2">
                 CONTACTS
               </span>

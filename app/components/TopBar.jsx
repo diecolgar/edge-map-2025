@@ -27,7 +27,7 @@ const TopBar = ({
 
   return (
 <div className="fixed w-full z-[500] bg-[#F1EEEA]/10 backdrop-blur pt-2 pb-3 shadow-md flex flex-col gap-3
-              top-0 lg:top-auto lg:bottom-24 lg:rounded-3xl lg:p-4 lg:w-[800px] lg:left-1/2 lg:-translate-x-1/2">
+              top-0 md:top-auto md:bottom-24 md:rounded-3xl md:p-4 md:w-[800px] md:left-1/2 md:-translate-x-1/2">
       {/* Buscador */}
       <div className="flex items-center gap-4 px-4">
       <div className="relative flex items-center w-full rounded-full overflow-hidden gap-4">

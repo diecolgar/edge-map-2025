@@ -125,7 +125,7 @@ const Filters = ({
 
   return (
     <div className="fixed inset-0 z-[1000] bg-black/40 flex justify-center items-center">
-      <div className="bg-edgeText text-white flex flex-col w-full h-full max-w-[800px] lg:max-w-[600px] lg:bottom-24 lg:absolute lg:h-[50vh] lg:rounded-2xl lg:shadow-xl overflow-hidden">
+      <div className="bg-edgeText text-white flex flex-col w-full h-full max-w-[800px] md:max-w-[600px] md:bottom-24 md:absolute md:h-[50vh] md:rounded-2xl md:shadow-xl overflow-hidden">
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
           <h2 className="text-xl font-bold">Filters</h2>
           <button onClick={handleClose} className="p-1">
@@ -203,7 +203,7 @@ const Filters = ({
           })}
         </div>
 
-        <div className="bg-[#F1EEEA] px-4 py-4 flex justify-between items-center border-t border-white/10 lg:rounded-b-2xl">
+        <div className="bg-[#F1EEEA] px-4 py-4 flex justify-between items-center border-t border-white/10 md:rounded-b-2xl">
           <button onClick={clearAll} className="text-edgeText font-semibold text-sm">Clear filters</button>
           <button onClick={handleClose} className="bg-edgeGreen text-white px-4 py-2 rounded-lg text-sm font-semibold">Show results →</button>
         </div>

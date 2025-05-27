@@ -101,7 +101,7 @@ const BoothList = ({
   );
 
   return (
-    <div className="overflow-y-auto relative flex flex-col bg-edgeBackground max-h-full max-w-[800px] pb-14 lg:pb-60 pt-28 lg:pt-80 lg: z-20">
+    <div className="overflow-y-auto relative flex flex-col bg-edgeBackground max-h-full max-w-[800px] pb-14 md:pb-60 pt-28 md:pt-80 md: z-20">
       {/* "ALL booths" header when no search & no filters */}
       {!isSearching && !hasFilters && (
         <div className="flex flex-col gap-2 px-6 py-4">
